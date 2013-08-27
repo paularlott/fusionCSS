@@ -1,0 +1,103 @@
+// Basic table styles
+table { margin: 1em 0; width: 100%; border-spacing: 0; }
+th { text-align: center; }
+th, td { padding: .25em .5em; }
+
+// Striped tables
+table.striped tr { background-color: @tableOddColor; }
+table.striped th,
+table.striped tr:nth-child(even) { background-color: @tableEvenColor; }
+
+// Row hovers
+table.rowhover tr {
+	transition : background-color 200ms ease-out;
+	-webkit-transition : background-color 200ms ease-out;
+	-moz-transition : background-color 200ms ease-out;
+	-o-transition : background-color 200ms ease-out;
+}
+
+table.rowhover tr:hover { background-color: @tableHoverColor; }
+
+// Bordered
+table.bordered {
+	border: 1px solid @tableBorderColor;
+	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+	border-radius: @radius;
+}
+
+// Corners
+table.bordered tr:first-child th:first-child,
+table.bordered tr:first-child td:first-child {
+	-moz-border-radius: @radius 0 0 0;
+	-webkit-border-radius: @radius 0 0 0;
+	border-radius: @radius 0 0 0;
+}
+
+table.bordered tr:first-child th:last-child,
+table.bordered tr:first-child td:last-child {
+	-moz-border-radius: 0 @radius 0 0;
+	-webkit-border-radius: 0 @radius 0 0;
+	border-radius: 0 @radius 0 0 ;
+}
+
+table.bordered thead + tbody tr:first-child td:first-child {
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0 ;
+}
+
+table.bordered thead + tbody tr:first-child td:last-child {
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0 ;
+}
+
+table.bordered thead + tbody tr:last-child td:first-child,
+table.bordered tr:last-child td:first-child {
+	-moz-border-radius: 0 0 0 @radius;
+	-webkit-border-radius: 0 0 0 @radius;
+	border-radius: 0 0 0 @radius;
+}
+
+table.bordered thead + tbody tr:last-child td:last-child,
+table.bordered tr:last-child td:last-child {
+	-moz-border-radius: 0 0 @radius 0;
+	-webkit-border-radius: 0 0 @radius 0;
+	border-radius: 0 0 @radius 0;
+}
+
+table.bordered tr:last-child:first-child td:first-child {
+	-moz-border-radius: @radius 0 0 @radius;
+	-webkit-border-radius: @radius 0 0 @radius;
+	border-radius: @radius 0 0 @radius;
+}
+table.bordered tr:last-child:first-child td:last-child {
+	-moz-border-radius: 0 @radius @radius 0;
+	-webkit-border-radius: 0 @radius @radius 0;
+	border-radius: 0 @radius @radius 0;
+}
+table.bordered thead + tbody tr:last-child:first-child td:first-child {
+	-moz-border-radius: 0 0 0 @radius;
+	-webkit-border-radius: 0 0 0 @radius;
+	border-radius: 0 0 0 @radius;
+}
+table.bordered thead + tbody tr:last-child:first-child td:last-child {
+	-moz-border-radius: 0 0 @radius 0;
+	-webkit-border-radius: 0 0 @radius 0;
+	border-radius: 0 0 @radius 0;
+}
+
+// Lines
+table.bordered th,
+table.bordered td {
+	border-bottom: 1px dotted @tableBorderColor;
+	border-right: 1px dotted @tableBorderColor;
+}
+
+table.bordered th:last-child,
+table.bordered td:last-child {
+	border-right: none;
+}
+
+table.bordered tr:last-child td { border-bottom: none; }

@@ -1,0 +1,301 @@
+
+// Limit resize in firefox, options are none, vertical, horizontal or both
+textarea {
+	resize: vertical;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+// Limit the max width of a form and have it center & base style
+form {
+	margin: 0 auto;
+	max-width: 600px;
+}
+.hform form, form.hform { max-width: 800px; }
+form:after, from dl { .clear; }
+
+form fieldset {
+	border: 1px solid @formBorderColor;
+	margin: 15px 0;
+	padding: 10px 12px;
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+	-moz-background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	min-width: 0; // stop auto resize on Chrome
+	display:table-column; // stop auto resize on Firefox
+	display: block\9; // undo the above on IE
+}
+
+form legend {
+	padding: 0 5px;
+	border: 1px solid @formBorderColor;
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+	-moz-background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+}
+
+// Labels & validation
+form label {
+	display: block;
+	padding-top: 6px;
+	position: relative;
+}
+
+form label em {
+	font-style: normal;
+	font-size: 85%;
+	color: @formValidatorReq;
+}
+
+form .description {
+	padding: .3em 0;
+	font-size: 85%;
+}
+
+form .validation {
+	z-index: 1;
+	color: @formValidatorColor;
+	background-color: @formValidatorBg;
+	font-size: 95%;
+	position: absolute;
+	bottom: -.5em;
+	left: 40%;
+	text-align: left;
+	display: none;
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+	-moz-background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	-webkit-box-shadow: 0 3px 10px @formValidatorShadow;
+	-moz-box-shadow: 0 3px 10px @formValidatorShadow;
+	box-shadow: 0 3px 10px @formValidatorShadow;
+	padding: .45em 0 4px 0;
+}
+.hform form .validation,
+form.hform .validation {
+	width: 200%;
+	left: 108%;
+	bottom: 1.4em;
+}
+
+form .validation strong {
+	font-weight: normal;
+	padding: 0 8px;
+	display: block;
+}
+
+form .ok,
+form .failed,
+form .ajax {
+	display: block;
+}
+
+// Form elements
+form input[disabled] { cursor: not-allowed; }
+
+form input[type="text"],
+form input[type="number"],
+form input[type="email"],
+form input[type="url"],
+form input[type="password"],
+form select,
+form textarea {
+	outline: none;
+	font-size: 100%;
+	width: 95%;
+	padding: .3em .6em;
+	border: 1px solid @formBorderColor;
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+	-moz-background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	-webkit-transition: -webkit-box-shadow 250ms ease-out;
+	-moz-transition: -moz-box-shadow 250ms ease-out;
+	transition: box-shadow 250ms ease-out;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form input[type="email"]:focus,
+form input[type="url"]:focus,
+form input[type="password"]:focus,
+form select:focus,
+form textarea:focus {
+	border: 1px solid @formFocusBdrColor;
+	-webkit-box-shadow: 0 0 5px @formFocusColor;
+	-moz-box-shadow: 0 0 5px @formFocusColor;
+	box-shadow: 0 0 5px @formFocusColor;
+}
+
+form input[type="file"] {
+	font-size: 100%;
+	width: 100%;
+}
+
+// Submit buttons
+form input[type="submit"],
+form button { font-size: 100%; }
+.button,
+form input[type="submit"],
+form button {
+	margin-top: 8px;
+	cursor: pointer;
+	padding: .3em .6em;
+	border: none;
+	color: @formSubmitColor;
+	background-color: @formSubmitBg;
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+	-moz-background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	-o-transition: background-color 250ms ease-out;
+	-webkit-transition: background-color 250ms ease-out;
+	-moz-transition: background-color 250ms ease-out;
+	transition: background-color 250ms ease-out;
+}
+.button { padding: .2em .6em; }
+
+.button:hover,
+form input[type="submit"]:hover,
+form button:hover {
+	color: @formSubmitColor;
+	background-color: @formSubmitBgHover;
+}
+
+.button.delete,
+.button.warning,
+form input.warning[type="submit"],
+form input.delete[type="submit"],
+form button.warning,
+form button.delete {
+	color: @formSubmitColor;
+	background-color: @formSubmitBgWarn;
+}
+
+.button.delete:hover,
+.button.warning:hover,
+form input.warning[type="submit"]:hover,
+form input.delete[type="submit"]:hover,
+form button.warning:hover,
+form button.delete:hover {
+	color: @formSubmitColor;
+	background-color: @formSubmitBgWarnHover;
+}
+
+// Radio group
+form .radiogroup {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+form .radiogroup li {
+	padding: 4px 0;
+	margin: 0;
+}
+
+form .radiogroup input {
+	margin-right: .5em;
+}
+
+// Checklist
+form .checklist {
+	padding: 4px;
+	margin: 0;
+	list-style: none;
+	overflow: auto;
+	border: 1px solid @formBorderColor;
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+	-moz-background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+}
+
+form .checklist li {
+	padding: 4px;
+	margin: 0;
+	background-color: transparent;
+	-o-transition : background-color 250ms ease-out;
+	-webkit-transition : background-color 250ms ease-out;
+	-moz-transition : background-color 250ms ease-out;
+	transition : background-color 250ms ease-out;
+}
+
+form .checklist li.selected {
+	background-color: @checklistSelected;
+}
+
+form .checklist li:hover {
+	background-color: @checklistHoverColor;
+}
+
+form .checklist li label {
+	display: block;
+	font-weight: normal;
+}
+
+form .checklist input {
+	margin-right: .25em;
+}
+
+// Stacked Layout
+form dd {
+	padding: .3em 0;
+}
+
+// Horizontal Layout
+.hform form dt,
+form.hform dt {
+	float: left;
+	clear: both;
+	width: 28%;
+	margin-right: 2%;
+}
+.hform form dt label,
+form.hform dt label {
+	text-align: right;
+}
+.hform form dd,
+form.hform dd {
+	float: right;
+	width: 70%;
+}
+
+// Submit button list layout
+form #submit-list {
+	clear: both;
+}
+
+.hform #submit-list {
+	float: right;
+	width: 70%;
+}
+
+form #submit-list dt {
+	display: none;
+}
+
+form #submit-list dd {
+	float: none;
+	width: auto;
+	display: inline;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+// responsive.less contains options to scale hform

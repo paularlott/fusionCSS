@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="../css/fusion.css" rel="stylesheet">
+	<link href="test.css" rel="stylesheet">
+	<!--[if lt IE 9]><script type="text/javascript" src="../js/html5shiv.js"></script><![endif]-->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/fusionCSS.js"></script></head>
+</head>
+<body>
+
+	<div class="container layout">
+
+		<header class="row">
+			<div class="span4">
+				<a href="http://fusioncss.com/"><img src="logo.png" alt="fusionCSS" class="logo" /></a>
+			</div>
+		</header>
+
+		<nav class="row">
+			<div class="span12">
+				<ul class="hnav pill collapseMenu">
+					<li><a href="grid.html">Grid</a></li>
+					<li><a href="images.html">Images</a></li>
+					<li><a href="navigation.html">Navigation</a></li>
+					<li class="active"><a href="tables.html">Tables</a></li>
+					<li><a href="visibility.html">Visibility</a></li>
+					<li><a href="misc.html">Miscellaneous</a></li>
+					<li><a href="forms.html">Forms</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="row">
+			<div class="span12">
+				<h1>Tables</h1>
+
+				<h2>Simple Table</h2>
+				<table>
+					<thead>
+					<tr>
+						<th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 3</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1.1</td>
+						<td>1.2</td>
+						<td>1.3</td>
+						<td>1.4</td>
+					</tr>
+					<tr>
+						<td>2.1</td>
+						<td>2.2</td>
+						<td>2.3</td>
+						<td>2.4</td>
+					</tr>
+					<tr>
+						<td>3.1</td>
+						<td>3.2</td>
+						<td>3.3</td>
+						<td>3.4</td>
+					</tr>
+					</tbody>
+				</table>
+
+				<h2>Bordered</h2>
+				<table class="bordered">
+					<thead>
+					<tr>
+						<th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 3</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1.1</td>
+						<td>1.2</td>
+						<td>1.3</td>
+						<td>1.4</td>
+					</tr>
+					<tr>
+						<td>2.1</td>
+						<td>2.2</td>
+						<td>2.3</td>
+						<td>2.4</td>
+					</tr>
+					<tr>
+						<td>3.1</td>
+						<td>3.2</td>
+						<td>3.3</td>
+						<td>3.4</td>
+					</tr>
+					</tbody>
+				</table>
+
+				<h2>Bordered and Striped</h2>
+				<table class="bordered striped">
+					<thead>
+					<tr>
+						<th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 3</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1.1</td>
+						<td>1.2</td>
+						<td>1.3</td>
+						<td>1.4</td>
+					</tr>
+					<tr>
+						<td>2.1</td>
+						<td>2.2</td>
+						<td>2.3</td>
+						<td>2.4</td>
+					</tr>
+					<tr>
+						<td>3.1</td>
+						<td>3.2</td>
+						<td>3.3</td>
+						<td>3.4</td>
+					</tr>
+					</tbody>
+				</table>
+
+				<h2>Bordered, Striped and Hover</h2>
+				<table class="bordered striped rowhover">
+					<thead>
+					<tr>
+						<th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 3</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1.1</td>
+						<td>1.2</td>
+						<td>1.3</td>
+						<td>1.4</td>
+					</tr>
+					<tr>
+						<td>2.1</td>
+						<td>2.2</td>
+						<td>2.3</td>
+						<td>2.4</td>
+					</tr>
+					<tr>
+						<td>3.1</td>
+						<td>3.2</td>
+						<td>3.3</td>
+						<td>3.4</td>
+					</tr>
+					</tbody>
+				</table>
+
+				<h2>Bordred and Striped Header Only</h2>
+				<table class="bordered striped">
+					<thead>
+					<tr>
+						<th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 3</th>
+					</tr>
+					</thead>
+				</table>
+
+				<h2>Bordred and Striped Body Only</h2>
+				<table class="bordered striped rowhover">
+					<tbody>
+						<tr>
+							<td>1.1</td>
+							<td>1.2</td>
+							<td>1.3</td>
+							<td>1.4</td>
+						</tr>
+						<tr>
+							<td>2.1</td>
+							<td>2.2</td>
+							<td>2.3</td>
+							<td>2.4</td>
+						</tr>
+						<tr>
+							<td>3.1</td>
+							<td>3.2</td>
+							<td>3.3</td>
+							<td>3.4</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h2>Others</h2>
+				<table class="bordered striped rowhover">
+					<thead>
+					<tr>
+						<th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 3</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1.1</td>
+							<td>1.2</td>
+							<td>1.3</td>
+							<td>1.4</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<table class="bordered striped rowhover">
+					<tbody>
+						<tr>
+							<td>1.1</td>
+							<td>1.2</td>
+							<td>1.3</td>
+							<td>1.4</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span4"></div>
+			<div class="span8">
+				<table class="bordered striped rowhover">
+					<thead>
+					<tr>
+						<th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 3</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1.1</td>
+						<td>1.2</td>
+						<td>1.3</td>
+						<td>1.4</td>
+					</tr>
+					<tr>
+						<td>1.1</td>
+						<td>1.2</td>
+						<td>1.3</td>
+						<td>
+							<table class="bordered striped rowhover">
+								<thead>
+								<tr>
+									<th>Col1</th>
+									<th>Col2</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>1</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>2</td>
+								</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+
+		<footer class="row">
+			<div class="span12">
+				Copyright &copy; 2013 <a href="http://fusioncss.com/">fusionCSS</a>. All rights reserved.
+			</div>
+		</footer>
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+
+// Horizontal navigation
+.hnav:after {
+	.clear;
+}
+
+.hnav, .vnav,
+.hnav ul, .vnav ul {
+	list-style: none;
+	margin: 0;
+}
+
+.hnav li { float: left; }
+.hnav.pill li { margin-right: .5em; }
+.hnav.pill a {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.hnav a, .vnav a {
+	display: block;
+	text-decoration: none;
+	-o-transition: color 250ms ease-out, background-color 250ms ease-out;
+	-webkit-transition: color 250ms ease-out, background-color 250ms ease-out;
+	-moz-transition: color 250ms ease-out, background-color 250ms ease-out;
+	transition: color 250ms ease-out, background-color 250ms ease-out;
+}
+
+// Breadcrumbs
+.breadcrumbwidget:after { .clear; }
+.breadcrumbwidget {
+	list-style: none;
+	margin: 0;
+}
+.breadcrumbwidget li {
+	display: block;
+	float: left;
+	margin-right: .25em;
+}
+.breadcrumbwidget a { text-decoration: none; }
+.breadcrumbwidget li + li:before {
+	content: " >";
+	font-weight: bold;
+	margin-right: .25em;
+}
+.breadcrumbwidget.path li + li:before {
+	content: " /";
+}
+.breadcrumbwidget.section li + li:before {
+	content: " |";
+}
+
+// Pagination
+.paginationwidget {
+	margin: 0;
+	list-style: none;
+	text-align: center;
+}
+.paginationwidget li {
+	display: inline;
+}
+.paginationwidget li span,
+.paginationwidget a {
+	text-decoration: none;
+	padding: 0 .5em;
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+.paginationwidget li + li:before {
+	content: " ";
+	margin-right: .125em;
+}

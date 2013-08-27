@@ -1,0 +1,46 @@
+
+.row { clear: both; width: 100%; }
+.row:after { .clear }
+
+.row {
+
+	[class*="span"] {
+		display: block;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		float: left;
+		min-height: 1px;
+		margin-left: @colGutter;
+		*margin-left: @colGutter - 0.041666667%;
+	}
+	[class*="span"]:first-child {
+		margin-left: 0;
+	}
+
+	// Generate the columns
+	.spanX(@span) when (@span > 0) {
+		.span@{span} {
+			width: (@colWidth * @span) + (@colGutter * (@span - 1));
+			*width: (@colWidth * @span) + ((@colGutter - 0.041666667%) * (@span - 1));
+		}
+		.spanX(@span - 1);
+	}
+	.spanX(0) {}
+	.spanX(@numColumns);
+
+	// Generate offsets
+	.offsetX(@span) when (@span > 0) {
+		.offset@{span} {
+			margin-left: (@colWidth * @span) + (@colGutter * (@span + 1));
+			*margin-left: (@colWidth * @span) + ((@colGutter - 0.041666667%) * (@span + 1));
+		}
+		.offset@{span}:first-child {
+			margin-left: (@colWidth * @span) + (@colGutter * @span);
+			*margin-left: (@colWidth * @span) + ((@colGutter - 0.041666667%) * @span);
+		}
+		.offsetX(@span - 1);
+	}
+	.offsetX(0) {}
+	.offsetX(@numColumns - 1);
+}
