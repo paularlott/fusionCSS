@@ -55,4 +55,26 @@
 		left: 40%;
 		bottom: -.5em;
 	}
+
+	.vtabs .tabs,
+	.vtabs .tabpanels {
+		position: inherit;
+		left: 0;
+		width: auto;
+	}
+
+	.tabpanels {
+		-webkit-border-radius: 0 0 @radius @radius;
+		-moz-border-radius: 0 0 @radius @radius;
+		border-radius: 0 0 @radius @radius;
+	}
+	.tabs li {
+		float: none;
+		margin-right: 0;
+	}
+	.vtabs .tabs a, .tabs a {
+		-webkit-border-radius: inherit;
+		-moz-border-radius: inherit;
+		border-radius: inherit;
+	}
 }

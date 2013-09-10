@@ -140,12 +140,14 @@ form textarea:focus {
 
 form input[type="file"] {
 	font-size: 100%;
-	width: 100%;
+	width: auto;
 }
 
 // Submit buttons
 form input[type="submit"],
 form button { font-size: 100%; }
+
+.uploadButton,
 .button,
 form input[type="submit"],
 form button {
@@ -166,8 +168,10 @@ form button {
 	-moz-transition: background-color 250ms ease-out;
 	transition: background-color 250ms ease-out;
 }
+.uploadButton { padding: .2em .6em; display: inline-block; *display: inline; }
 .button { padding: .2em .6em; }
 
+.uploadButton:hover,
 .button:hover,
 form input[type="submit"]:hover,
 form button:hover {
@@ -193,6 +197,25 @@ form button.warning:hover,
 form button.delete:hover {
 	color: @formSubmitColor;
 	background-color: @formSubmitBgWarnHover;
+}
+
+.uploadButton {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	*display: inline;
+}
+.uploadButton input[type="file"] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 40px;
+	cursor: pointer;
+	filter: alpha(opacity=0);
+	-moz-opacity: 0;
+	opacity: 0;
 }
 
 // Radio group

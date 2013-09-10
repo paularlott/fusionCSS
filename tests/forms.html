@@ -27,6 +27,7 @@
 					<li><a href="visibility.html">Visibility</a></li>
 					<li><a href="misc.html">Miscellaneous</a></li>
 					<li class="active"><a href="forms.html">Forms</a></li>
+					<li><a href="ui.html">UI</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -37,6 +38,16 @@
 					<fieldset id="details-group">
 						<legend>Details</legend>
 						<dl id="details-list">
+							<dt><label id="upld-label" for="code" aria-atomic="true" aria-live="polite">Upload a File <em>(Required)</em> <span class="validation hide" id="upld-validation"><strong>&nbsp;</strong></span></label></dt>
+							<dd id="upld-container"><input type="file" id="upld" name="upld" aria-labelledby="upld-label" aria-required="true">
+							</dd>
+							<dt><label id="upld2-label" for="code" aria-atomic="true" aria-live="polite">Styled Upload <em>(Required)</em> <span class="validation hide" id="upld2-validation"><strong>&nbsp;</strong></span></label></dt>
+							<dd id="upld2-container">
+								<div class="uploadButton">
+									<span>Choose File</span>
+									<input type="file" id="upld2" name="upld2" aria-labelledby="upld2-label" aria-required="true">
+								</div>
+							</dd>
 							<dt><label id="code-label" for="code" aria-atomic="true" aria-live="polite">Coupon Code <em>(Required)</em> <span class="validation hide" id="code-validation"><strong>&nbsp;</strong></span></label></dt>
 							<dd id="code-container"><input type="text" id="code" name="code" value="111-222-333-444" aria-labelledby="code-label" aria-required="true">
 							</dd>

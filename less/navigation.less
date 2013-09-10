@@ -12,19 +12,51 @@
 
 .hnav li { float: left; }
 .hnav.pill li { margin-right: .5em; }
-.hnav.pill a {
+.pill a {
 	-webkit-border-radius: @radius;
 	-moz-border-radius: @radius;
 	border-radius: @radius;
 }
 
 .hnav a, .vnav a {
+	padding: .15em .65em;
 	display: block;
 	text-decoration: none;
 	-o-transition: color 250ms ease-out, background-color 250ms ease-out;
 	-webkit-transition: color 250ms ease-out, background-color 250ms ease-out;
 	-moz-transition: color 250ms ease-out, background-color 250ms ease-out;
 	transition: color 250ms ease-out, background-color 250ms ease-out;
+}
+
+.vnav .active a, .hnav a { color: @navColor; background-color: @navBg; }
+.vnav .active a:hover, .hnav a:hover {  color: @navColor; background-color: @navBgHover; }
+.hnav .active a { background-color: @navBgActive; }
+
+.vnav {
+	background-color: @vnavBg;
+	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+	border-radius: @radius;
+}
+.vnav a { color: @vnavColor; }
+.vnav a:hover { background-color: @vnavBgHover; }
+
+// Collapsed Nav
+[id*="collapsedMenu"] {
+	font-size: 100%;
+	width: 50%;
+	margin: .5em auto;
+	padding: .3em .6em;
+	border: 1px solid @formBorderColor;
+	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+	border-radius: @radius;
+	-moz-background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	-webkit-transition: -webkit-box-shadow 250ms ease-out;
+	-moz-transition: -moz-box-shadow 250ms ease-out;
+	transition: box-shadow 250ms ease-out;
 }
 
 // Breadcrumbs
@@ -71,4 +103,16 @@
 .paginationwidget li + li:before {
 	content: " ";
 	margin-right: .125em;
+}
+
+.paginationwidget li span {
+	color: @navColor;
+	background-color: @navBg;
+}
+.paginationwidget a {
+	color: @pagColor;
+}
+.paginationwidget a:hover {
+	color: @navColor;
+	background-color: @pagBg;
 }

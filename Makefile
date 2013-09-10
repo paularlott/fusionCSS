@@ -2,7 +2,7 @@
 # Makefile to build fusionCSS
 #
 
-all: css/fusion.css css/fusion.min.css js/fusionCSS.js
+all: css/fusion.css css/fusion.min.css js/fusionCSS.js js/fusionCSS.ui.js
 
 css/fusion.css: less/*.less
 	mkdir -p css
@@ -15,7 +15,10 @@ css/fusion.min.css: less/*.less
 js/fusionCSS.js: js/src/fusionCSS.js
 	java -jar /opt/closure/compiler.jar --js=js/src/fusionCSS.js --js_output_file=js/fusionCSS.js
 
+js/fusionCSS.ui.js: js/src/fusionCSS.ui.js
+	java -jar /opt/closure/compiler.jar --js=js/src/fusionCSS.ui.js --js_output_file=js/fusionCSS.ui.js
+
 .PHONY: clean
 
 clean:
-	rm -f css/fusion.css css/fusion.min.css js/fusionCSS.js
+	rm -f css/fusion.css css/fusion.min.css js/fusionCSS.js js/fusionCSS.ui.js
