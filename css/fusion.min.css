@@ -126,12 +126,12 @@ form input[type="text"]:focus,form input[type="number"]:focus,form input[type="e
 form input[type="file"]{font-size:100%;width:auto;}
 form input[type="submit"],form button{font-size:100%;}
 .uploadButton,.button,form input[type="submit"],form button{margin-top:8px;cursor:pointer;padding:.3em .6em;border:none;color:#ffffff;background-color:#00a9d3;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-moz-background-clip:padding-box;-webkit-background-clip:padding-box;background-clip:padding-box;-o-transition:background-color 250ms ease-out;-webkit-transition:background-color 250ms ease-out;-moz-transition:background-color 250ms ease-out;transition:background-color 250ms ease-out;}
-.uploadButton{padding:.2em .6em;display:inline-block;*display:inline;}
 .button{padding:.2em .6em;}
-.uploadButton:hover,.button:hover,form input[type="submit"]:hover,form button:hover{color:#ffffff;background-color:#0099c3;}
+.button:hover,form input[type="submit"]:hover,form button:hover{color:#ffffff;background-color:#0099c3;}
 .button.delete,.button.warning,form input.warning[type="submit"],form input.delete[type="submit"],form button.warning,form button.delete{color:#ffffff;background-color:#c93434;}
 .button.delete:hover,.button.warning:hover,form input.warning[type="submit"]:hover,form input.delete[type="submit"]:hover,form button.warning:hover,form button.delete:hover{color:#ffffff;background-color:#b23232;}
-.uploadButton{position:relative;overflow:hidden;display:inline-block;*display:inline;}
+.uploadButton{padding:.2em .6em;position:relative;overflow:hidden;display:inline-block;*display:inline;background-color:#222222;}
+.uploadButton:hover{color:#ffffff;background-color:#000000;}
 .uploadButton input[type="file"]{position:absolute;top:0;right:0;margin:0;padding:0;font-size:40px;cursor:pointer;filter:alpha(opacity=0);-moz-opacity:0;opacity:0;}
 form .radiogroup{margin:0;padding:0;list-style:none;}
 form .radiogroup li{padding:4px 0;margin:0;}
