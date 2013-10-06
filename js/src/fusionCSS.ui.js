@@ -50,8 +50,10 @@ fusionLib.fn.extend({
 		});
 
 		// Set the active tab
-		tabs[tabActive][0].addClass('active').parent().attr('aria-selected', true);
-		tabs[tabActive][1].removeClass('tabhidepanel').attr('aria-expanded', true);
+		if(tabActive != undefined) {
+			tabs[tabActive][0].addClass('active').parent().attr('aria-selected', true);
+			tabs[tabActive][1].removeClass('tabhidepanel').attr('aria-expanded', true);
+		}
 
 		// Look to see if in a form
 		var n = this[0];
