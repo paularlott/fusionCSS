@@ -152,7 +152,7 @@ form #submit-list dt{display:none;}
 form #submit-list dd{float:none;width:auto;display:inline;padding-left:2px;padding-right:2px;}
 .tabs{list-style:none;margin-left:0;padding:0;}
 .tabs li{display:block;float:left;margin-right:.2em;}
-.tabs a{display:block;padding:.2em .5em;color:#ffffff;background-color:#00a9d3;-webkit-border-radius:3px 3px 0 0;-moz-border-radius:3px 3px 0 0;border-radius:3px 3px 0 0;-o-transition:color 250ms ease-out,background-color 250ms ease-out;-webkit-transition:color 250ms ease-out,background-color 250ms ease-out;-moz-transition:color 250ms ease-out,background-color 250ms ease-out;transition:color 250ms ease-out,background-color 250ms ease-out;}
+.tabs a{outline:none;display:block;padding:.2em .5em;color:#ffffff;background-color:#00a9d3;-webkit-border-radius:3px 3px 0 0;-moz-border-radius:3px 3px 0 0;border-radius:3px 3px 0 0;-o-transition:color 250ms ease-out,background-color 250ms ease-out;-webkit-transition:color 250ms ease-out,background-color 250ms ease-out;-moz-transition:color 250ms ease-out,background-color 250ms ease-out;transition:color 250ms ease-out,background-color 250ms ease-out;}
 .tabs a:hover{color:#ffffff;background-color:#0099c3;}
 .tabs a.active{background-color:#222222;}
 .tabpanels{clear:both;list-style:none;margin-left:0;border:1px solid #9ba6ab;-webkit-border-radius:0 3px 3px 3px;-moz-border-radius:0 3px 3px 3px;border-radius:0 3px 3px 3px;}
