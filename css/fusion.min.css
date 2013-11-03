@@ -146,6 +146,7 @@ form dd{padding:.3em 0;}
 .hform form dt,form.hform dt{float:left;clear:both;width:28%;margin-right:2%;}
 .hform form dt label,form.hform dt label{text-align:right;}
 .hform form dd,form.hform dd{float:right;width:70%;}
+.hform form .radiogroup li:first-child,form.hform .radiogroup li:first-child{padding-top:0;}
 form #submit-list{clear:both;}
 .hform #submit-list{float:right;width:70%;}
 form #submit-list dt{display:none;}

@@ -803,6 +803,10 @@ form.hform dd {
   float: right;
   width: 70%;
 }
+.hform form .radiogroup li:first-child,
+form.hform .radiogroup li:first-child {
+  padding-top: 0;
+}
 form #submit-list {
   clear: both;
 }
