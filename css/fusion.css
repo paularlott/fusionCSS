@@ -714,6 +714,7 @@ form button.delete:hover {
   background-color: #b23232;
 }
 .uploadButton {
+  margin-top: 0;
   padding: .2em .6em;
   position: relative;
   overflow: hidden;

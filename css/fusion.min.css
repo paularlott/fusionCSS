@@ -130,7 +130,7 @@ form input[type="submit"],form button{font-size:100%;}
 .button:hover,form input[type="submit"]:hover,form button:hover{color:#ffffff;background-color:#0099c3;}
 .button.delete,.button.warning,form input.warning[type="submit"],form input.delete[type="submit"],form button.warning,form button.delete{color:#ffffff;background-color:#c93434;}
 .button.delete:hover,.button.warning:hover,form input.warning[type="submit"]:hover,form input.delete[type="submit"]:hover,form button.warning:hover,form button.delete:hover{color:#ffffff;background-color:#b23232;}
-.uploadButton{padding:.2em .6em;position:relative;overflow:hidden;display:inline-block;*display:inline;background-color:#222222;}
+.uploadButton{margin-top:0;padding:.2em .6em;position:relative;overflow:hidden;display:inline-block;*display:inline;background-color:#222222;}
 .uploadButton:hover{color:#ffffff;background-color:#000000;}
 .uploadButton input[type="file"]{position:absolute;top:0;right:0;margin:0;padding:0;font-size:40px;cursor:pointer;filter:alpha(opacity=0);-moz-opacity:0;opacity:0;}
 form .radiogroup{margin:0;padding:0;list-style:none;}
