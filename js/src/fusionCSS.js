@@ -40,4 +40,9 @@ $fl(document).ready(function() {
 			window.location = $fl(this).val();
 		});
 	});
+
+	// Find all upload buttons and set to copy file name to display
+	$fl('.uploadButton input').bind('change', function(e) {
+		$fl(this).parent().find('span').html($fl(this).val().split(/(\\|\/)/g).pop());
+	});
 });

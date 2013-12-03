@@ -110,8 +110,10 @@ form input[type="password"],
 form select,
 form textarea {
 	outline: none;
+	font-family: inherit;
 	font-size: 100%;
-	width: 95%;
+	width: 100%;
+	*width: 95%;
 	padding: .3em .6em;
 	border: 1px solid @formBorderColor;
 	-webkit-border-radius: @radius;
@@ -123,6 +125,9 @@ form textarea {
 	-webkit-transition: -webkit-box-shadow 250ms ease-out;
 	-moz-transition: -moz-box-shadow 250ms ease-out;
 	transition: box-shadow 250ms ease-out;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 form input[type="text"]:focus,
@@ -140,12 +145,14 @@ form textarea:focus {
 
 form input[type="file"] {
 	font-size: 100%;
-	width: 100%;
+	width: auto;
 }
 
 // Submit buttons
 form input[type="submit"],
 form button { font-size: 100%; }
+
+.uploadButton,
 .button,
 form input[type="submit"],
 form button {
@@ -193,6 +200,33 @@ form button.warning:hover,
 form button.delete:hover {
 	color: @formSubmitColor;
 	background-color: @formSubmitBgWarnHover;
+}
+
+.uploadButton {
+	margin-top: 0;
+	padding: .2em .6em;
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	*display: inline;
+	background-color: @uploadBg;
+}
+.uploadButton:hover {
+	color: @formSubmitColor;
+	background-color: @uploadBgHover;
+}
+
+.uploadButton input[type="file"] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 40px;
+	cursor: pointer;
+	filter: alpha(opacity=0);
+	-moz-opacity: 0;
+	opacity: 0;
 }
 
 // Radio group
@@ -275,6 +309,9 @@ form.hform dd {
 	float: right;
 	width: 70%;
 }
+
+.hform form .radiogroup li:first-child,
+form.hform .radiogroup li:first-child { padding-top: 0; }
 
 // Submit button list layout
 form #submit-list {

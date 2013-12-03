@@ -4,7 +4,7 @@
  * Copyright (c) 2013 fusionCSS. All rights reserved.
  *
  * @see http://fusionCSS.com
- * @version 1.0.0
+ * @version 1.1.0
  */
 * {
   margin: 0;
@@ -358,19 +358,61 @@ table.bordered tr:last-child td {
 .hnav.pill li {
   margin-right: .5em;
 }
-.hnav.pill a {
+.pill a {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
 .hnav a,
 .vnav a {
+  padding: .15em .65em;
   display: block;
   text-decoration: none;
   -o-transition: color 250ms ease-out, background-color 250ms ease-out;
   -webkit-transition: color 250ms ease-out, background-color 250ms ease-out;
   -moz-transition: color 250ms ease-out, background-color 250ms ease-out;
   transition: color 250ms ease-out, background-color 250ms ease-out;
+}
+.vnav .active a,
+.hnav a {
+  color: #ffffff;
+  background-color: #00a9d3;
+}
+.vnav .active a:hover,
+.hnav a:hover {
+  color: #ffffff;
+  background-color: #0099c3;
+}
+.hnav .active a {
+  background-color: #222222;
+}
+.vnav {
+  background-color: #e9e9e9;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.vnav a {
+  color: #222222;
+}
+.vnav a:hover {
+  background-color: #d1d1d1;
+}
+[id*="collapsedMenu"] {
+  font-size: 100%;
+  width: 50%;
+  margin: .5em auto;
+  padding: .3em .6em;
+  border: 1px solid #9ba6ab;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-transition: -webkit-box-shadow 250ms ease-out;
+  -moz-transition: -moz-box-shadow 250ms ease-out;
+  transition: box-shadow 250ms ease-out;
 }
 .breadcrumbwidget:after {
   content: ".";
@@ -421,6 +463,17 @@ table.bordered tr:last-child td {
 .paginationwidget li + li:before {
   content: " ";
   margin-right: .125em;
+}
+.paginationwidget li span {
+  color: #ffffff;
+  background-color: #00a9d3;
+}
+.paginationwidget a {
+  color: #222222;
+}
+.paginationwidget a:hover {
+  color: #ffffff;
+  background-color: #c3c3c3;
 }
 .alert {
   text-align: left;
@@ -578,8 +631,10 @@ form input[type="password"],
 form select,
 form textarea {
   outline: none;
+  font-family: inherit;
   font-size: 100%;
-  width: 95%;
+  width: 100%;
+  *width: 95%;
   padding: .3em .6em;
   border: 1px solid #9ba6ab;
   -webkit-border-radius: 3px;
@@ -591,6 +646,9 @@ form textarea {
   -webkit-transition: -webkit-box-shadow 250ms ease-out;
   -moz-transition: -moz-box-shadow 250ms ease-out;
   transition: box-shadow 250ms ease-out;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 form input[type="text"]:focus,
 form input[type="number"]:focus,
@@ -606,12 +664,13 @@ form textarea:focus {
 }
 form input[type="file"] {
   font-size: 100%;
-  width: 100%;
+  width: auto;
 }
 form input[type="submit"],
 form button {
   font-size: 100%;
 }
+.uploadButton,
 .button,
 form input[type="submit"],
 form button {
@@ -658,6 +717,31 @@ form button.warning:hover,
 form button.delete:hover {
   color: #ffffff;
   background-color: #b23232;
+}
+.uploadButton {
+  margin-top: 0;
+  padding: .2em .6em;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  *display: inline;
+  background-color: #222222;
+}
+.uploadButton:hover {
+  color: #ffffff;
+  background-color: #000000;
+}
+.uploadButton input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+  cursor: pointer;
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  opacity: 0;
 }
 form .radiogroup {
   margin: 0;
@@ -725,6 +809,10 @@ form.hform dd {
   float: right;
   width: 70%;
 }
+.hform form .radiogroup li:first-child,
+form.hform .radiogroup li:first-child {
+  padding-top: 0;
+}
 form #submit-list {
   clear: both;
 }
@@ -741,6 +829,75 @@ form #submit-list dd {
   display: inline;
   padding-left: 2px;
   padding-right: 2px;
+}
+.tabs {
+  list-style: none;
+  margin-left: 0;
+  padding: 0;
+}
+.tabs li {
+  display: block;
+  float: left;
+  margin-right: .2em;
+}
+.tabs a {
+  outline: none;
+  display: block;
+  padding: .2em .5em;
+  color: #ffffff;
+  background-color: #00a9d3;
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+  -o-transition: color 250ms ease-out, background-color 250ms ease-out;
+  -webkit-transition: color 250ms ease-out, background-color 250ms ease-out;
+  -moz-transition: color 250ms ease-out, background-color 250ms ease-out;
+  transition: color 250ms ease-out, background-color 250ms ease-out;
+}
+.tabs a:hover {
+  color: #ffffff;
+  background-color: #0099c3;
+}
+.tabs a.active {
+  background-color: #222222;
+}
+.tabpanels {
+  clear: both;
+  list-style: none;
+  margin-left: 0;
+  border: 1px solid #9ba6ab;
+  -webkit-border-radius: 0 3px 3px 3px;
+  -moz-border-radius: 0 3px 3px 3px;
+  border-radius: 0 3px 3px 3px;
+}
+.tabpanels > li {
+  margin: 0 1em;
+}
+.tabhidepanel {
+  display: none;
+}
+.vtabs,
+.vtabs .tabwidget {
+  position: relative;
+}
+.vtabs .tabs {
+  position: absolute;
+  width: 20%;
+  height: 100%;
+}
+.vtabs .tabs li {
+  float: none;
+  margin-right: 0;
+}
+.vtabs .tabs a {
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+}
+.vtabs .tabpanels {
+  position: relative;
+  left: 20%;
+  width: 80%;
 }
 @-ms-viewport {
   width: device-width;
@@ -809,5 +966,26 @@ form #submit-list dd {
     width: auto;
     left: 40%;
     bottom: -0.5em;
+  }
+  .vtabs .tabs,
+  .vtabs .tabpanels {
+    position: inherit;
+    left: 0;
+    width: auto;
+  }
+  .tabpanels {
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+  }
+  .tabs li {
+    float: none;
+    margin-right: 0;
+  }
+  .vtabs .tabs a,
+  .tabs a {
+    -webkit-border-radius: inherit;
+    -moz-border-radius: inherit;
+    border-radius: inherit;
   }
 }

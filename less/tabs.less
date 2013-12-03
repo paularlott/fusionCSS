@@ -1,0 +1,59 @@
+
+// Tab element
+.tabs { list-style: none; margin-left: 0; padding: 0; }
+.tabs li {
+	display: block;
+	float: left;
+	margin-right: .2em;
+}
+.tabs a {
+	outline: none;
+	display: block;
+	padding: .2em .5em;
+	color: @navColor;
+	background-color: @navBg;
+	-webkit-border-radius: @radius @radius 0 0;
+	-moz-border-radius: @radius @radius 0 0;
+	border-radius: @radius @radius 0 0;
+	-o-transition: color 250ms ease-out, background-color 250ms ease-out;
+	-webkit-transition: color 250ms ease-out, background-color 250ms ease-out;
+	-moz-transition: color 250ms ease-out, background-color 250ms ease-out;
+	transition: color 250ms ease-out, background-color 250ms ease-out;
+}
+.tabs a:hover { color: @navColor; background-color: @navBgHover; }
+.tabs a.active { background-color: @navBgActive; }
+
+.tabpanels {
+	clear: both;
+	list-style: none;
+	margin-left: 0;
+	border: 1px solid @formBorderColor;
+	-webkit-border-radius: 0 @radius @radius @radius;
+	-moz-border-radius: 0 @radius @radius @radius;
+	border-radius: 0 @radius @radius @radius;
+}
+.tabpanels > li { margin: 0 1em; }
+.tabhidepanel { display: none; }
+
+.vtabs, .vtabs .tabwidget {
+	position: relative;
+}
+
+.vtabs .tabs {
+	position: absolute;
+	width: 20%;
+	height: 100%;
+}
+
+.vtabs .tabs li { float: none; margin-right: 0; }
+.vtabs .tabs a {
+	-webkit-border-radius: @radius 0 0 @radius;
+	-moz-border-radius: @radius 0 0 @radius;
+	border-radius: @radius 0 0 @radius;
+}
+
+.vtabs .tabpanels {
+	position: relative;
+	left: 20%;
+	width: 80%;
+}
