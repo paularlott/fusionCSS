@@ -34,8 +34,40 @@ h2 { color: #000000; font-size: 120%; margin-top: 1em; font-weight: normal; }
 a { color: #00A9D3; text-decoration: none; }
 a:hover { color: #000; }
 img {vertical-align: middle; }
-header { margin-bottom: 2em; }
+header { margin-bottom: 2em; position: relative; }
 nav { margin-bottom: .5em; }
 footer { margin-top: 1em; }
 
 .vnav { margin: 1.5em 0; }
+
+#viewSlideInMenu {
+	width: 20px;
+	height: 20px;
+	overflow: hidden;
+	text-indent: -9999px;
+	background-image: url(menuicon.png);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+	background-color: #ddd;
+	padding: 7px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+#viewSlideInMenu:hover { background-color: #ccc; }
+
+/* Using borders rather than a PNG
+#viewSlideInMenu:before {
+	content: '';
+	display: inline-block;
+	width: .75em;
+	height: 2px;
+	border-top: 6px double #000;
+	border-bottom: 2px solid #000;
+	margin-right: .3em;
+}
+*/

@@ -6,7 +6,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  *
  * @package fusionCSS
- * @copyright Copyright (c) 2013 fusionCSS. All rights reserved.
+ * @copyright Copyright (c) 2013 - 2014 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
  */
 
@@ -45,4 +45,41 @@ $fl(document).ready(function() {
 	$fl('.uploadButton input').bind('change', function(e) {
 		$fl(this).parent().find('span').html($fl(this).val().split(/(\\|\/)/g).pop());
 	});
+
+	// Build the slide in menu if required
+	if($fl('#viewSlideInMenu').length) {
+		// Add markup to body
+		$fl('body').append('<div id="slideInMenuOverlay"></div><div id="slideInMenu"></div>');
+		$fl('#slideInMenu').attr('aria-hidden', true);
+
+		// Copy menu HTML to slide in
+		$fl('ul.slideInMenu').each(function(idx) {
+			if($fl(this).hasClass('slideInMenuRootOnly')) {
+				$fl('#slideInMenuOverlay')
+					.html('<ul>' + $fl(this).html() + '</ul>')
+					.find('li ul').remove();
+				$fl('#slideInMenu').append($fl('#slideInMenuOverlay').html());
+			}
+			else
+				$fl('#slideInMenu').append('<ul>' + $fl(this).html() + '</ul>');
+		});
+
+		// Capture menu hide, click off menu
+		$fl('#slideInMenuOverlay')
+			.html('')
+			.bind('click', function(e) {
+			$fl('#slideInMenuOverlay').removeClass('slideInMenuShow');
+			$fl('#slideInMenu')
+				.removeClass('slideInMenuShow')
+				.attr('aria-hidden', true);
+		});
+
+		// Capture menu expose
+		$fl('#viewSlideInMenu').bind('click', function(e) {
+			$fl('#slideInMenuOverlay').addClass('slideInMenuShow');
+			$fl('#slideInMenu')
+				.addClass('slideInMenuShow')
+				.attr('aria-hidden', false);
+		});
+	}
 });

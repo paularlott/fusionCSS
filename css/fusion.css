@@ -1,10 +1,10 @@
 /**
  * fusionCSS Responsive CSS Framework.
  *
- * Copyright (c) 2013 fusionCSS. All rights reserved.
+ * Copyright (c) 2013 - 2014 fusionCSS. All rights reserved.
  *
  * @see http://fusionCSS.com
- * @version 1.1.0
+ * @version 1.2.0
  */
 * {
   margin: 0;
@@ -898,6 +898,64 @@ form #submit-list dd {
   position: relative;
   left: 20%;
   width: 80%;
+}
+#slideInMenuOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+#slideInMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  overflow: auto;
+  background-color: #000;
+  -o-transition: width 250ms ease-out;
+  -webkit-transition: width 250ms ease-out;
+  -moz-transition: width 250ms ease-out;
+  transition: width 250ms ease-out;
+}
+#slideInMenuOverlay.slideInMenuShow {
+  display: block;
+}
+#slideInMenu.slideInMenuShow {
+  display: block;
+  width: 80%;
+  -webkit-box-shadow: 0 0 10px #000000;
+  -moz-box-shadow: 0 0 10px #000000;
+  box-shadow: 0 0 10px #000000;
+}
+#slideInMenu ul {
+  margin: 0;
+  padding: 0;
+}
+#slideInMenu ul + ul,
+#slideInMenu ul ul {
+  border-top: 1px solid #222;
+}
+#slideInMenu li {
+  padding: 0;
+  border-bottom: 1px solid #222;
+}
+#slideInMenu li:last-child {
+  border-bottom: 0;
+}
+#slideInMenu a {
+  padding: 1em 1em;
+  display: block;
+}
+#slideInMenu a:hover {
+  color: #0099c3;
+}
+#slideInMenu li li a {
+  padding-left: 2em;
 }
 @-ms-viewport {
   width: device-width;

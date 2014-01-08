@@ -1,7 +1,8 @@
 /*
- Copyright (c) 2013 fusionCSS. All rights reserved.
+ Copyright (c) 2013 - 2014 fusionCSS. All rights reserved.
  @link http://fusionCSS.com
 */
 window.fusionLib||(window.$fl=window.fusionLib=jQuery);
 $fl(document).ready(function(){$fl(".collapseMenu").each(function(a){var c='<option value="" selected="selected">Menu...</option>';$fl(this).find("a").each(function(){for(var a=$fl(this),e=0,d="",b=a.parent();null!=b[0];)"ul"==b[0].nodeName.toLowerCase()&&e++&&(d+=" - "),b=b.parent();c+='<option value="'+a.attr("href")+'">'+d+a.text()+"</option>"});$fl(this).addClass("hidden-phone").after('<select id="collapsedMenu'+a+'" class="visible-phone">'+c+"</select>");$fl("#collapsedMenu"+a).bind("change",
-function(){window.location=$fl(this).val()})});$fl(".uploadButton input").bind("change",function(a){$fl(this).parent().find("span").html($fl(this).val().split(/(\\|\/)/g).pop())})});
+function(){window.location=$fl(this).val()})});$fl(".uploadButton input").bind("change",function(a){$fl(this).parent().find("span").html($fl(this).val().split(/(\\|\/)/g).pop())});$fl("#viewSlideInMenu").length&&($fl("body").append('<div id="slideInMenuOverlay"></div><div id="slideInMenu"></div>'),$fl("#slideInMenu").attr("aria-hidden",!0),$fl("ul.slideInMenu").each(function(a){$fl(this).hasClass("slideInMenuRootOnly")?($fl("#slideInMenuOverlay").html("<ul>"+$fl(this).html()+"</ul>").find("li ul").remove(),
+$fl("#slideInMenu").append($fl("#slideInMenuOverlay").html())):$fl("#slideInMenu").append("<ul>"+$fl(this).html()+"</ul>")}),$fl("#slideInMenuOverlay").html("").bind("click",function(a){$fl("#slideInMenuOverlay").removeClass("slideInMenuShow");$fl("#slideInMenu").removeClass("slideInMenuShow").attr("aria-hidden",!0)}),$fl("#viewSlideInMenu").bind("click",function(a){$fl("#slideInMenuOverlay").addClass("slideInMenuShow");$fl("#slideInMenu").addClass("slideInMenuShow").attr("aria-hidden",!1)}))});
