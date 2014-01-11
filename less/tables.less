@@ -101,3 +101,26 @@ table.bordered td:last-child {
 }
 
 table.bordered tr:last-child td { border-bottom: none; }
+
+// Responsive Tables
+.responsiveTableWrapperMore { display: none; }
+@media only screen and (max-width: 767px) {
+	table.responsive { margin: 0; width: 100%; }
+	div.responsiveTableWrapper {
+		width: 100%;
+		margin: 1em 0;
+	}
+	div.responsiveTableWrapperInner {
+		border: 1px solid @tableBorderColor;
+		-webkit-border-radius: @radius;
+		-moz-border-radius: @radius;
+		border-radius: @radius;
+		position: relative;
+		overflow: hidden;
+		overflow: scroll;
+		overflow-y: hidden;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+		-webkit-overflow-scrolling: touch;
+	}
+	table.responsive.bordered { border: none; }
+}

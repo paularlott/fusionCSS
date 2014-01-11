@@ -71,7 +71,8 @@ table.bordered thead+tbody tr:last-child:first-child td:last-child{-moz-border-r
 table.bordered th,table.bordered td{border-bottom:1px dotted #ccc;border-right:1px dotted #ccc}
 table.bordered th:last-child,table.bordered td:last-child{border-right:none}
 table.bordered tr:last-child td{border-bottom:none}
-.hnav:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.responsiveTableWrapperMore{display:none}
+@media only screen and (max-width:767px){table.responsive{margin:0;width:100%} div.responsiveTableWrapper{width:100%;margin:1em 0} div.responsiveTableWrapperInner{border:1px solid #ccc;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;position:relative;overflow:hidden;overflow:scroll;overflow-y:hidden;-ms-overflow-style:-ms-autohiding-scrollbar;-webkit-overflow-scrolling:touch} table.responsive.bordered{border:none}}.hnav:after{content:".";display:block;height:0;clear:both;visibility:hidden}
 .hnav,.vnav,.hnav ul,.vnav ul{list-style:none;margin:0}
 .hnav li{float:left}
 .hnav.pill li{margin-right:.5em}

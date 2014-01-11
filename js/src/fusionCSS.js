@@ -49,7 +49,9 @@ $fl(document).ready(function() {
 	// Build the slide in menu if required
 	if($fl('#viewSlideInMenu').length) {
 		// Add markup to body
-		$fl('body').append('<div id="slideInMenuOverlay"></div><div id="slideInMenu"></div>');
+		$fl('body')
+			.append('<div id="slideInMenuOverlay"></div>')
+			.append('<div id="slideInMenu"></div>');
 		$fl('#slideInMenu').attr('aria-hidden', true);
 
 		// Copy menu HTML to slide in
@@ -80,6 +82,12 @@ $fl(document).ready(function() {
 			$fl('#slideInMenu')
 				.addClass('slideInMenuShow')
 				.attr('aria-hidden', false);
+		});
+
+		// Setup responsive tables
+		$fl("table.responsive").each(function(i, e) {
+			$fl(e).wrap('<div class="responsiveTableWrapper" />');
+			$fl(e).wrap('<div class="responsiveTableWrapperInner" />');
 		});
 	}
 });
