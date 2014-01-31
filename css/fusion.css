@@ -938,6 +938,7 @@ form #submit-list dd {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  z-index: 99998;
 }
 #slideInMenu {
   position: fixed;
@@ -947,6 +948,7 @@ form #submit-list dd {
   height: 100%;
   overflow: auto;
   background-color: #000;
+  z-index: 99999;
   -o-transition: width 250ms ease-out;
   -webkit-transition: width 250ms ease-out;
   -moz-transition: width 250ms ease-out;
