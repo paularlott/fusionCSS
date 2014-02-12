@@ -980,11 +980,12 @@ form #submit-list dd {
   border-bottom: 0;
 }
 #slideInMenu a {
+  color: #eeeeee;
   padding: 1em 1em;
   display: block;
 }
 #slideInMenu a:hover {
-  color: #0099c3;
+  color: #cccccc;
 }
 #slideInMenu li li a {
   padding-left: 2em;

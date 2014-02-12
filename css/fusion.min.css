@@ -173,8 +173,8 @@ form #submit-list dd{float:none;width:auto;display:inline;padding-left:2px;paddi
 #slideInMenu ul+ul,#slideInMenu ul ul{border-top:1px solid #222}
 #slideInMenu li{padding:0;border-bottom:1px solid #222}
 #slideInMenu li:last-child{border-bottom:0}
-#slideInMenu a{padding:1em 1em;display:block}
-#slideInMenu a:hover{color:#0099c3}
+#slideInMenu a{color:#eee;padding:1em 1em;display:block}
+#slideInMenu a:hover{color:#ccc}
 #slideInMenu li li a{padding-left:2em}
 @-ms-viewport{width:device-width}.visible-phone{display:none !important}
 .visible-tablet{display:none !important}
