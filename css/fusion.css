@@ -947,7 +947,7 @@ form #submit-list dd {
   width: 0;
   height: 100%;
   overflow: auto;
-  background-color: #000;
+  background-color: #1e1e1e;
   z-index: 99999;
   -o-transition: width 250ms ease-out;
   -webkit-transition: width 250ms ease-out;
@@ -970,11 +970,11 @@ form #submit-list dd {
 }
 #slideInMenu ul + ul,
 #slideInMenu ul ul {
-  border-top: 1px solid #222;
+  border-top: 1px solid #222222;
 }
 #slideInMenu li {
   padding: 0;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid #222222;
 }
 #slideInMenu li:last-child {
   border-bottom: 0;
@@ -986,6 +986,7 @@ form #submit-list dd {
 }
 #slideInMenu a:hover {
   color: #cccccc;
+  background-color: #1a1a1a;
 }
 #slideInMenu li li a {
   padding-left: 2em;

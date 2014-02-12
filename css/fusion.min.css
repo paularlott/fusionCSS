@@ -166,7 +166,7 @@ form #submit-list dd{float:none;width:auto;display:inline;padding-left:2px;paddi
 .vtabs .tabs a{-webkit-border-radius:3px 0 0 3px;-moz-border-radius:3px 0 0 3px;border-radius:3px 0 0 3px}
 .vtabs .tabpanels{position:relative;left:20%;width:80%}
 #slideInMenuOverlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.5);cursor:pointer;z-index:99998}
-#slideInMenu{position:fixed;top:0;left:0;width:0;height:100%;overflow:auto;background-color:#000;z-index:99999;-o-transition:width 250ms ease-out;-webkit-transition:width 250ms ease-out;-moz-transition:width 250ms ease-out;transition:width 250ms ease-out}
+#slideInMenu{position:fixed;top:0;left:0;width:0;height:100%;overflow:auto;background-color:#1e1e1e;z-index:99999;-o-transition:width 250ms ease-out;-webkit-transition:width 250ms ease-out;-moz-transition:width 250ms ease-out;transition:width 250ms ease-out}
 #slideInMenuOverlay.slideInMenuShow{display:block}
 #slideInMenu.slideInMenuShow{display:block;width:80%;-webkit-box-shadow:0 0 10px #000;-moz-box-shadow:0 0 10px #000;box-shadow:0 0 10px #000}
 #slideInMenu ul{margin:0;padding:0}
@@ -174,7 +174,7 @@ form #submit-list dd{float:none;width:auto;display:inline;padding-left:2px;paddi
 #slideInMenu li{padding:0;border-bottom:1px solid #222}
 #slideInMenu li:last-child{border-bottom:0}
 #slideInMenu a{color:#eee;padding:1em 1em;display:block}
-#slideInMenu a:hover{color:#ccc}
+#slideInMenu a:hover{color:#ccc;background-color:#1a1a1a}
 #slideInMenu li li a{padding-left:2em}
 @-ms-viewport{width:device-width}.visible-phone{display:none !important}
 .visible-tablet{display:none !important}

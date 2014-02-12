@@ -16,7 +16,7 @@
 	width: 0;
 	height: 100%;
 	overflow: auto;
-	background-color: #000;
+	background-color: @slideInBg;
 	z-index: 99999;
 	-o-transition: width 250ms ease-out;
 	-webkit-transition: width 250ms ease-out;
@@ -36,13 +36,13 @@
 #slideInMenu ul { margin: 0; padding: 0; }
 #slideInMenu ul + ul,
 #slideInMenu ul ul {
-	border-top: 1px solid #222;
+	border-top: 1px solid @slideInSep;
 }
 #slideInMenu li {
 	padding: 0;
-	border-bottom: 1px solid #222;
+	border-bottom: 1px solid @slideInSep;
 }
 #slideInMenu li:last-child { border-bottom: 0; }
 #slideInMenu a { color: @slideInLink; padding: 1em 1em; display: block; }
-#slideInMenu a:hover { color: @slideInLinkHover; }
+#slideInMenu a:hover { color: @slideInLinkHover; background-color: @slideInLinkHoverBg; }
 #slideInMenu li li a { padding-left: 2em; }
