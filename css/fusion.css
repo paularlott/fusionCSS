@@ -612,7 +612,7 @@ form .description {
   font-size: 85%;
 }
 form .validation {
-  z-index: 1;
+  z-index: 9999;
   color: #ffffff;
   background-color: #000000;
   font-size: 95%;
