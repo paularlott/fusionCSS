@@ -46,6 +46,12 @@ $fl(document).ready(function() {
 		$fl(this).parent().find('span').html($fl(this).val().split(/(\\|\/)/g).pop());
 	});
 
+	// Setup responsive tables
+	$fl("table.responsive").each(function(i, e) {
+		$fl(e).wrap('<div class="responsiveTableWrapper" />');
+		$fl(e).wrap('<div class="responsiveTableWrapperInner" />');
+	});
+
 	// Build the slide in menu if required
 	if($fl('#viewSlideInMenu').length) {
 		// Add markup to body
@@ -82,12 +88,6 @@ $fl(document).ready(function() {
 			$fl('#slideInMenu')
 				.addClass('slideInMenuShow')
 				.attr('aria-hidden', false);
-		});
-
-		// Setup responsive tables
-		$fl("table.responsive").each(function(i, e) {
-			$fl(e).wrap('<div class="responsiveTableWrapper" />');
-			$fl(e).wrap('<div class="responsiveTableWrapperInner" />');
 		});
 	}
 });
