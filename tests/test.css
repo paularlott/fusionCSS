@@ -23,15 +23,15 @@ body {
 	margin-top: 0;
 	background-color: #545a5b;
 }
-.example [class*="span"].result { background-color: #00A9D3; }
+.example [class*="span"].result { background-color: #4e6a91; }
 
 /* Limit width */
 .container { max-width: 980px; margin: 0 auto; }
 
 /* Style elements */
-h1 { color: #00A9D3; font-size: 140%; margin-top: 1em; font-weight: normal; }
+h1 { color: #4e6a91; font-size: 140%; margin-top: 1em; font-weight: normal; }
 h2 { color: #000000; font-size: 120%; margin-top: 1em; font-weight: normal; }
-a { color: #00A9D3; text-decoration: none; }
+a { color: #4e6a91; text-decoration: none; }
 a:hover { color: #000; }
 img {vertical-align: middle; }
 header { margin-bottom: 2em; position: relative; }

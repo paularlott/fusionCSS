@@ -404,12 +404,12 @@ table.bordered tr:last-child td {
 .vnav .active a,
 .hnav a {
   color: #ffffff;
-  background-color: #00a9d3;
+  background-color: #355582;
 }
 .vnav .active a:hover,
 .hnav a:hover {
   color: #ffffff;
-  background-color: #0099c3;
+  background-color: #4e6a91;
 }
 .hnav .active a {
   background-color: #222222;
@@ -494,7 +494,7 @@ table.bordered tr:last-child td {
 }
 .paginationwidget li span {
   color: #ffffff;
-  background-color: #00a9d3;
+  background-color: #355582;
 }
 .paginationwidget a {
   color: #222222;
@@ -709,7 +709,7 @@ form button {
   padding: .3em .6em;
   border: none;
   color: #ffffff;
-  background-color: #00a9d3;
+  background-color: #355582;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -728,7 +728,7 @@ form button {
 form input[type="submit"]:hover,
 form button:hover {
   color: #ffffff;
-  background-color: #0099c3;
+  background-color: #4e6a91;
 }
 .button.delete,
 .button.warning,
@@ -875,7 +875,7 @@ form #submit-list dd {
   display: block;
   padding: .2em .5em;
   color: #ffffff;
-  background-color: #00a9d3;
+  background-color: #355582;
   -webkit-border-radius: 3px 3px 0 0;
   -moz-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
@@ -886,7 +886,7 @@ form #submit-list dd {
 }
 .tabs a:hover {
   color: #ffffff;
-  background-color: #0099c3;
+  background-color: #4e6a91;
 }
 .tabs a.active {
   background-color: #222222;
