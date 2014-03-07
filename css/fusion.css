@@ -1,10 +1,10 @@
 /**
  * fusionCSS Responsive CSS Framework.
  *
- * Copyright (c) 2013 fusionCSS. All rights reserved.
+ * Copyright (c) 2013 - 2014 fusionCSS. All rights reserved.
  *
  * @see http://fusionCSS.com
- * @version 1.1.0
+ * @version 1.2.0
  */
 * {
   margin: 0;
@@ -338,6 +338,34 @@ table.bordered td:last-child {
 table.bordered tr:last-child td {
   border-bottom: none;
 }
+.responsiveTableWrapperMore {
+  display: none;
+}
+@media only screen and (max-width: 767px) {
+  table.responsive {
+    margin: 0;
+    width: 100%;
+  }
+  div.responsiveTableWrapper {
+    width: 100%;
+    margin: 1em 0;
+  }
+  div.responsiveTableWrapperInner {
+    border: 1px solid #cccccc;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    overflow: scroll;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+  }
+  table.responsive.bordered {
+    border: none;
+  }
+}
 .hnav:after {
   content: ".";
   display: block;
@@ -376,12 +404,12 @@ table.bordered tr:last-child td {
 .vnav .active a,
 .hnav a {
   color: #ffffff;
-  background-color: #00a9d3;
+  background-color: #355582;
 }
 .vnav .active a:hover,
 .hnav a:hover {
   color: #ffffff;
-  background-color: #0099c3;
+  background-color: #4e6a91;
 }
 .hnav .active a {
   background-color: #222222;
@@ -466,7 +494,7 @@ table.bordered tr:last-child td {
 }
 .paginationwidget li span {
   color: #ffffff;
-  background-color: #00a9d3;
+  background-color: #355582;
 }
 .paginationwidget a {
   color: #222222;
@@ -584,7 +612,7 @@ form .description {
   font-size: 85%;
 }
 form .validation {
-  z-index: 1;
+  z-index: 9999;
   color: #ffffff;
   background-color: #000000;
   font-size: 95%;
@@ -628,6 +656,7 @@ form input[type="number"],
 form input[type="email"],
 form input[type="url"],
 form input[type="password"],
+form input[type="search"],
 form select,
 form textarea {
   outline: none;
@@ -655,6 +684,7 @@ form input[type="number"]:focus,
 form input[type="email"]:focus,
 form input[type="url"]:focus,
 form input[type="password"]:focus,
+form input[type="search"]:focus,
 form select:focus,
 form textarea:focus {
   border: 1px solid rgba(50, 169, 211, 0.8);
@@ -679,7 +709,7 @@ form button {
   padding: .3em .6em;
   border: none;
   color: #ffffff;
-  background-color: #00a9d3;
+  background-color: #355582;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -698,7 +728,7 @@ form button {
 form input[type="submit"]:hover,
 form button:hover {
   color: #ffffff;
-  background-color: #0099c3;
+  background-color: #4e6a91;
 }
 .button.delete,
 .button.warning,
@@ -845,7 +875,7 @@ form #submit-list dd {
   display: block;
   padding: .2em .5em;
   color: #ffffff;
-  background-color: #00a9d3;
+  background-color: #355582;
   -webkit-border-radius: 3px 3px 0 0;
   -moz-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
@@ -856,7 +886,7 @@ form #submit-list dd {
 }
 .tabs a:hover {
   color: #ffffff;
-  background-color: #0099c3;
+  background-color: #4e6a91;
 }
 .tabs a.active {
   background-color: #222222;
@@ -898,6 +928,68 @@ form #submit-list dd {
   position: relative;
   left: 20%;
   width: 80%;
+}
+#slideInMenuOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  z-index: 99998;
+}
+#slideInMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  overflow: auto;
+  background-color: #1e1e1e;
+  z-index: 99999;
+  -o-transition: width 250ms ease-out;
+  -webkit-transition: width 250ms ease-out;
+  -moz-transition: width 250ms ease-out;
+  transition: width 250ms ease-out;
+}
+#slideInMenuOverlay.slideInMenuShow {
+  display: block;
+}
+#slideInMenu.slideInMenuShow {
+  display: block;
+  width: 80%;
+  -webkit-box-shadow: 0 0 10px #000000;
+  -moz-box-shadow: 0 0 10px #000000;
+  box-shadow: 0 0 10px #000000;
+}
+#slideInMenu ul {
+  margin: 0;
+  padding: 0;
+}
+#slideInMenu ul + ul,
+#slideInMenu ul ul {
+  border-top: 1px solid #222222;
+}
+#slideInMenu li {
+  padding: 0;
+  border-bottom: 1px solid #222222;
+}
+#slideInMenu li:last-child {
+  border-bottom: 0;
+}
+#slideInMenu a {
+  color: #eeeeee;
+  padding: 1em 1em;
+  display: block;
+}
+#slideInMenu a:hover {
+  color: #cccccc;
+  background-color: #1a1a1a;
+}
+#slideInMenu li li a {
+  padding-left: 2em;
 }
 @-ms-viewport {
   width: device-width;
