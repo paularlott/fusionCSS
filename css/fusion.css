@@ -584,8 +584,9 @@ form fieldset {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   min-width: 0;
-  display: table-column;
-  display: block\9;
+  /*	display:table-column; // stop auto resize on Firefox
+	display: block\9; // undo the above on IE */
+
 }
 form legend {
   padding: 0 5px;

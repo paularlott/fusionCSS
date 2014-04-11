@@ -112,7 +112,7 @@ textarea{resize:vertical;-webkit-box-sizing:border-box;-moz-box-sizing:border-bo
 form{margin:0 auto;max-width:600px}
 .hform form,form.hform{max-width:800px}
 form:after,from dl{content:".";display:block;height:0;clear:both;visibility:hidden}
-form fieldset{border:1px solid #9ba6ab;margin:15px 0;padding:10px 12px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-moz-background-clip:padding-box;-webkit-background-clip:padding-box;background-clip:padding-box;min-width:0;display:table-column;display:block\9}
+form fieldset{border:1px solid #9ba6ab;margin:15px 0;padding:10px 12px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-moz-background-clip:padding-box;-webkit-background-clip:padding-box;background-clip:padding-box;min-width:0;}
 form legend{padding:0 5px;border:1px solid #9ba6ab;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-moz-background-clip:padding-box;-webkit-background-clip:padding-box;background-clip:padding-box}
 form label{display:block;padding-top:6px;position:relative}
 form label em{font-style:normal;font-size:85%;color:#c93434}
