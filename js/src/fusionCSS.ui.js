@@ -6,7 +6,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  *
  * @package fusionCSS
- * @copyright Copyright (c) 2013 fusionCSS. All rights reserved.
+ * @copyright Copyright (c) 2013 - 2014 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
  */
 

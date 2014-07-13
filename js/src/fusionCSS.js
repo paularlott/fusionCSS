@@ -18,9 +18,12 @@ $fl(document).ready(function() {
 
 	// Find all menus and build collapsed version
 	$fl('.collapseMenu').each(function(idx) {
-		var optionsList = '<option value="" selected="selected">Menu...</option>';
+		var optionsList = '<option value="" selected="selected">Menu...</option>',
+			menu = $fl(this),
+			collapsed,
+			cssDone = false;
 
-		$fl(this).find('a').each(function() {
+		menu.find('a').each(function() {
 			var e = $fl(this),
 				depth = 0,
 				indent = '',
@@ -35,8 +38,36 @@ $fl(document).ready(function() {
 
 			optionsList += '<option value="' + e.attr('href') + '">' + indent + e.text() + '</option>';
 		});
-		$fl(this).addClass('hidden-phone').after('<select id="collapsedMenu' + idx + '" class="visible-phone">' + optionsList + '</select>');
-		$fl('#collapsedMenu' + idx).bind('change', function() {
+
+		menu.after('<select id="collapsedMenu' + idx + '">' + optionsList + '</select>');
+		collapsed = $fl('#collapsedMenu' + idx);
+
+		if(menu.hasClass('hidden-t')) {
+			collapsed.addClass('visible-t');
+			cssDone = true;
+		}
+
+		if(menu.hasClass('hidden-s') || menu.hasClass('hidden-phone')) {
+			collapsed.addClass('visible-s');
+			cssDone = true;
+		}
+
+		if(menu.hasClass('hidden-m') || menu.hasClass('hidden-desktop')) {
+			collapsed.addClass('visible-m');
+			cssDone = true;
+		}
+
+		if(menu.hasClass('hidden-l')) {
+			collapsed.addClass('visible-l');
+			cssDone = true;
+		}
+
+		if(!cssDone) {
+			menu.addClass('hidden-t').addClass('hidden-s');
+			collapsed.addClass('visible-t').addClass('visible-s');
+		}
+
+		collapsed.bind('change', function() {
 			window.location = $fl(this).val();
 		});
 	});

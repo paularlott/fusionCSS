@@ -1,46 +1,96 @@
-
-.row { clear: both; width: 100%; }
-.row:after { .clear }
-
 .row {
+	clear: both;
 
-	[class*="span"] {
+	&:after {
+		.clear
+	}
+
+	[class^="span"] {
 		display: block;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-		float: left;
 		min-height: 1px;
-		margin-left: @colGutter;
-		*margin-left: @colGutter - 0.041666667%;
-	}
-	[class*="span"]:first-child {
-		margin-left: 0;
+		position: relative;
+
+		&.no-left-gutter {
+			padding-left: 0;
+		}
+
+		&.no-right-gutter {
+			padding-right: 0;
+		}
+		&.no-gutter {
+			padding-left: 0;
+			padding-right: 0;
+		}
 	}
 
-	// Generate the columns
-	.spanX(@span) when (@span > 0) {
-		.span@{span} {
-			width: (@colWidth * @span) + (@colGutter * (@span - 1));
-			*width: (@colWidth * @span) + ((@colGutter - 0.041666667%) * (@span - 1));
-		}
-		.spanX(@span - 1);
-	}
-	.spanX(0) {}
-	.spanX(@numColumns);
+	// Build a row of columns
+	.makeRow(@spanName) {
+		@colWidth: percentage((100 / @numColumns) / 100);
 
-	// Generate offsets
-	.offsetX(@span) when (@span > 0) {
-		.offset@{span} {
-			margin-left: (@colWidth * @span) + (@colGutter * (@span + 1));
-			*margin-left: (@colWidth * @span) + ((@colGutter - 0.041666667%) * (@span + 1));
+		[class^="@{spanName}"] {
+			float: left;
+			padding-left: @colGutter / 2;
+			padding-right: @colGutter / 2;
 		}
-		.offset@{span}:first-child {
-			margin-left: (@colWidth * @span) + (@colGutter * @span);
-			*margin-left: (@colWidth * @span) + ((@colGutter - 0.041666667%) * @span);
+
+		.col(@name, @span) when (@span > 0) {
+			.@{name}@{span} {
+				width: @colWidth + (@colWidth * (@span - 1));
+			}
+			.@{name}-push@{span} {
+				left: @colWidth + (@colWidth * (@span - 1));
+			}
+			.@{name}-pull@{span} {
+				right: @colWidth + (@colWidth * (@span - 1));
+			}
+			.col(@name, @span - 1);
 		}
-		.offsetX(@span - 1);
+
+		.@{spanName}-push0 {
+			left: inherit;
+		}
+		.@{spanName}-pull0 {
+			right: inherit;
+		}
+
+		.offset(@name, @span) when (@span > 0) {
+			[class^="@{name}"].offset@{span} {
+				margin-left: @colWidth * @span;
+			}
+			.offset(@name, @span - 1);
+		}
+
+		.col(@spanName, @numColumns);
+		.offset(@spanName, @numColumns - 1);
 	}
-	.offsetX(0) {}
-	.offsetX(@numColumns - 1);
+
+	.makeRow(span-t);
+
+	@media (min-width: @breakpoint-s) {
+		.row {
+			margin-left: -@colGutter / 2;
+			margin-right: -@colGutter / 2;
+		}
+
+		.makeRow(span);
+		.makeRow(span-s);
+	}
+
+	@media (min-width: @breakpoint-m) {
+		.row {
+			margin-left: -@colGutter / 2;
+			margin-right: -@colGutter / 2;
+		}
+
+		.makeRow(span-m);
+	}
+
+	@media (min-width: @breakpoint-l) {
+		.row {
+			margin-left: -@colGutter / 2;
+			margin-right: -@colGutter / 2;
+		}
+
+		.makeRow(span-l);
+	}
 }

@@ -1,48 +1,60 @@
-@import url(http://fonts.googleapis.com/css?family=Noto+Serif:400,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
 
 body {
 	color: #000;
 	background-color: #eee;
-	font-family: 'Noto Serif', serif;
-	font-size: 95%;
+	font-family: 'Roboto', sans-serif;
+	font-size: 110%;
 	padding: 30px;
 }
 
 /* Make the spans visible */
-.example [class*="span"] {
+.example [class^="span"] {
 	text-align: center;
 	color: #fff;
-	background-color: #1B2426;
+	background-color: #bababa;
+	border: 2px solid #1B2426;
 	line-height: 2em;
 	margin-top: .125em;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
-.example [class*="span"] [class*="span"] {
+.example [class^="span"] [class^="span"] {
 	margin-top: 0;
-	background-color: #545a5b;
+	background-color: #8b8b8b;
 }
-.example [class*="span"].result { background-color: #4e6a91; }
+.example [class^="span"].result { background-color: #4e6a91; }
 
 /* Limit width */
 .container { max-width: 980px; margin: 0 auto; }
 
 /* Style elements */
-h1 { color: #4e6a91; font-size: 140%; margin-top: 1em; font-weight: normal; }
-h2 { color: #000000; font-size: 120%; margin-top: 1em; font-weight: normal; }
+h1 { color: #4e6a91; font-size: 150%; margin: 1em 0; font-weight: bold; }
+h2 { color: #4e6a91; font-size: 120%; margin-top: 1em; font-weight: bold; }
+h3 { color: #4e6a91; font-size: 110%; margin-top: 1em; font-weight: bold; }
 a { color: #4e6a91; text-decoration: none; }
 a:hover { color: #000; }
 img {vertical-align: middle; }
 header { margin-bottom: 2em; position: relative; }
-nav { margin-bottom: .5em; }
+nav { margin-bottom: 1em; }
 footer { margin-top: 1em; }
+table.centered {
+	text-align: center;
+}
+
+pre {
+	color: #eee;
+	background-color: #000;
+	padding: 1em;
+	overflow-x: auto;
+}
 
 .vnav { margin: 1.5em 0; }
 
 #viewSlideInMenu {
-	width: 20px;
-	height: 20px;
+	width: 40px;
+	height: 40px;
 	overflow: hidden;
 	text-indent: -9999px;
 	background-image: url(menuicon.png);

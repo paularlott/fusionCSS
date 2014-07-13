@@ -1,46 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link href="../css/fusion.css" rel="stylesheet">
 	<link href="test.css" rel="stylesheet">
-	<!--[if lt IE 9]><script type="text/javascript" src="../js/html5shiv.js"></script><![endif]-->
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<!--[if lt IE 9]>
+	<script src="//cdn.jsdelivr.net/g/respond,html5shiv"></script>
+	<![endif]-->
+	<script src="//cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/fusionCSS.js"></script>
 	<script type="text/javascript" src="../js/fusionCSS.ui.js"></script>
 </head>
 <body>
 
-	<div class="container layout">
+	<div class="container">
 
 		<header class="row">
-			<div class="span4">
+			<div class="span-t4">
 				<a href="http://fusioncss.com/"><img src="logo.png" alt="fusionCSS" class="logo" /></a>
 			</div>
-			<div class="span3 offset5">
+			<div class="span-t3 offset5">
 				<div id="viewSlideInMenu">MENU</div>
 			</div>
 		</header>
 
 		<nav class="row">
-			<div class="span12">
-				<ul class="hnav pill collapseMenu slideInMenu">
+			<div class="span-s12">
+				<ul class="hnav pill collapseMenu slideInMenu hidden-t hidden-s">
+					<li><a href="index.html">Getting Started</a></li>
 					<li><a href="grid.html">Grid</a></li>
-					<li><a href="images.html">Images</a></li>
+					<li><a href="visibility.html">Visibility</a></li>
 					<li><a href="navigation.html">Navigation</a></li>
 					<li><a href="tables.html">Tables</a></li>
-					<li><a href="visibility.html">Visibility</a></li>
 					<li><a href="misc.html">Miscellaneous</a></li>
+					<li><a href="ui.html">UI</a></li>
 					<li><a href="forms.html">Forms</a></li>
-					<li class="active"><a href="ui.html">UI</a></li>
+					<li><a href="images.html">Images</a></li>
 				</ul>
 			</div>
 		</nav>
 
 		<div class="row">
-			<div class="span12">
+			<div class="span-s12">
+				<h1>UI</h1>
+				<p>To make use of the tabs feature you need to include jQuery or fusionLib within your page followed by fusionCSS.ui.js.</p>
+			</div>
+		</div>
 
+		<div class="row">
+			<div class="span-s4">
 				<h2>Tabs</h2>
+				<p>Vertical tabs.</p>
+			</div>
+			<div class="span-s8">
+				<h3>Example</h3>
+				<h4>HTML</h4>
+		<pre class="brush: html; toolbar: false;">&lt;div id="tabs1" class="tabwidget vtabs" role="tabpanel">
+	&lt;ul class="tabs" role="tablist">
+		&lt;li role="tab">&lt;a href="#tabs-1">Tab 1&lt;/a>&lt;/li>
+		&lt;li role="tab">&lt;a href="#tabs-2">Tab 2&lt;/a>&lt;/li>
+		&lt;li role="tab">&lt;a href="#tabs-3">Tab 3&lt;/a>&lt;/li>
+	&lt;/ul>
+	&lt;ul class="tabpanels">
+		&lt;li id="tabs-1" role="tabpanel">
+			&lt;p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.&lt;/p>
+		&lt;/li>
+		&lt;li id="tabs-2" role="tabpanel">
+			&lt;h3>For tab 2&lt;/h3>
+			&lt;p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.&lt;/p>
+		&lt;/li>
+		&lt;li id="tabs-3" role="tabpanel">
+			&lt;p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.&lt;/p>
+			&lt;ul>
+				&lt;li>asaf saf sfa sfas f&lt;/li>
+				&lt;li>asaf saf sfa sfas f&lt;/li>
+				&lt;li>asaf saf sfa sfas f&lt;/li>
+			&lt;/ul>
+			&lt;p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.&lt;/p>
+		&lt;/li>
+	&lt;/ul>
+&lt;/div></pre>
+
+				<h4>JavaScript</h4>
+
+				<p>The following enables tabbing and makes the tab 'tabs-2' the active tab.</p>
+		<pre class="brush: js; toolbar: false;">&lt;script type="text/javascript">
+//&lt;![CDATA[
+$fl(document).ready(function() {
+	$fl('#tabs1').tabs('tabs-2');
+});
+//]]>
+&lt;/script></pre>
+				<h3>Result</h3>
 				<div id="tabs1" class="tabwidget vtabs" role="tabpanel">
 					<ul class="tabs" role="tablist">
 						<li role="tab"><a href="#tabs-1">Tab 1</a></li>
@@ -49,13 +102,121 @@
 					</ul>
 					<ul class="tabpanels">
 						<li id="tabs-1" role="tabpanel">
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p></li>
+						<li id="tabs-2" role="tabpanel">
+							<h3>For tab 2</h3>
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p></li>
+						<li id="tabs-3" role="tabpanel">
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+							<ul>
+								<li>asaf saf sfa sfas f</li>
+								<li>asaf saf sfa sfas f</li>
+								<li>asaf saf sfa sfas f</li>
+							</ul>
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span-s4">
+				<h2>Horizontal Tabs</h2>
+				<p>Horizontal tabs.</p></div>
+			<div class="span-s8">
+				<h3>Example</h3>
+				<h4>HTML</h4>
+		<pre class="brush: html; toolbar: false;">&lt;div id="tabs2" class="tabwidget" role="tabpanel">
+	&lt;ul class="tabs" role="tablist">
+		&lt;li role="tab">&lt;a href="#tabs2-1">Tab 1&lt;/a>&lt;/li>
+		&lt;li role="tab">&lt;a href="#tabs2-2">Tab 2&lt;/a>&lt;/li>
+		&lt;li role="tab">&lt;a href="#tabs2-3">Tab 3&lt;/a>&lt;/li>
+	&lt;/ul>
+	&lt;ul class="tabpanels">
+		&lt;li id="tabs2-1" role="tabpanel">
+			&lt;p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.&lt;/p>
+		&lt;/li>
+		&lt;li id="tabs2-2" role="tabpanel">
+			&lt;h3>For tab 2&lt;/h3>
+			&lt;p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.&lt;/p>
+		&lt;/li>
+		&lt;li id="tabs2-3" role="tabpanel">
+			&lt;p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.&lt;/p>
+			&lt;ul>
+				&lt;li>asaf saf sfa sfas f&lt;/li>
+				&lt;li>asaf saf sfa sfas f&lt;/li>
+				&lt;li>asaf saf sfa sfas f&lt;/li>
+			&lt;/ul>
+			&lt;p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.&lt;/p>
+		&lt;/li>
+	&lt;/ul>
+&lt;/div></pre>
+
+				<h4>JavaScript</h4>
+		<pre class="brush: js; toolbar: false;">&lt;script type="text/javascript">
+//&lt;![CDATA[
+$fl(document).ready(function() {
+	$fl('#tabs2');
+});
+//]]>
+&lt;/script></pre>
+				<h3>Result</h3>
+				<div id="tabs2" class="tabwidget" role="tabpanel">
+					<ul class="tabs" role="tablist">
+						<li role="tab"><a href="#tabs2-1">Tab 1</a></li>
+						<li role="tab"><a href="#tabs2-2">Tab 2</a></li>
+						<li role="tab"><a href="#tabs2-3">Tab 3</a></li>
+					</ul>
+					<ul class="tabpanels">
+						<li id="tabs2-1" role="tabpanel">
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p></li>
+						<li id="tabs2-2" role="tabpanel">
+							<h3>For tab 2</h3>
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p></li>
+						<li id="tabs2-3" role="tabpanel">
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+							<ul>
+								<li>asaf saf sfa sfas f</li>
+								<li>asaf saf sfa sfas f</li>
+								<li>asaf saf sfa sfas f</li>
+							</ul>
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			//<![CDATA[
+			$fl(document).ready(function() {
+				$fl('#tabs1').tabs('tabs-2');
+				$fl('#tabs2').tabs();
+			});
+			//]]>
+		</script>
+
+		<div class="row">
+			<div class="span12">
+				<h2>Other UI Examples</h2>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span-s12">
+				<div id="tabso1" class="tabwidget vtabs" role="tabpanel">
+					<ul class="tabs" role="tablist">
+						<li role="tab"><a href="#tabso-1">Tab 1</a></li>
+						<li role="tab"><a href="#tabso-2">Tab 2</a></li>
+						<li role="tab"><a href="#tabso-3">Tab 3</a></li>
+					</ul>
+					<ul class="tabpanels">
+						<li id="tabso-1" role="tabpanel">
 							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
 						</li>
-						<li id="tabs-2" role="tabpanel">
+						<li id="tabso-2" role="tabpanel">
 							<h3>For tab 2</h3>
 							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
 						</li>
-						<li id="tabs-3" role="tabpanel">
+						<li id="tabso-3" role="tabpanel">
 							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
 							<ul>
 								<li>asaf saf sfa sfas f</li>
@@ -69,16 +230,16 @@
 
 				<h2>Tabs In a Form</h2>
 				<form id="couponform" action="#stay" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
-					<div id="tabs2" class="tabwidget">
+					<div id="tabso2" class="tabwidget">
 						<ul class="tabs" role="tablist">
-							<li role="tab"><a href="#tabs-a">Details</a></li>
-							<li role="tab"><a href="#tabs-b">General Restrictions</a></li>
-							<li role="tab"><a href="#tabs-c">Product Restrictions</a></li>
-							<li role="tab"><a href="#tabs-d">Shipping</a></li>
+							<li role="tab"><a href="#tabso-a">Details</a></li>
+							<li role="tab"><a href="#tabso-b">General Restrictions</a></li>
+							<li role="tab"><a href="#tabso-c">Product Restrictions</a></li>
+							<li role="tab"><a href="#tabso-d">Shipping</a></li>
 						</ul>
 
 						<ul class="tabpanels">
-							<li id="tabs-a" role="tabpanel">
+							<li id="tabso-a" role="tabpanel">
 								<dl id="details-list">
 									<dt><label id="code-label" for="code" aria-atomic="true" aria-live="polite">Coupon Code <em>(Required)</em> <span class="validation hide" id="code-validation"><strong>&nbsp;</strong></span></label></dt>
 									<dd id="code-container"><input type="text" id="code" name="code" value="111-222-333-444" aria-labelledby="code-label" aria-required="true">
@@ -101,7 +262,7 @@
 									</dd>
 								</dl>
 							</li>
-							<li id="tabs-b" role="tabpanel">
+							<li id="tabso-b" role="tabpanel">
 								<dl id="genrestrictions-list">
 									<dt><label id="min-label" for="min" aria-atomic="true" aria-live="polite">Minimum Order Cost <span class="validation " id="min-validation"><strong>&nbsp;</strong></span></label></dt>
 									<dd id="min-container"><input type="number" id="min" name="min" value="" min="0" aria-labelledby="min-label" aria-describedby="min-desc">
@@ -136,7 +297,7 @@
 									</dd>
 								</dl>
 							</li>
-							<li id="tabs-c" role="tabpanel">
+							<li id="tabso-c" role="tabpanel">
 								<dl id="skurestrict-list">
 									<dt><label id="sku-label" for="sku" aria-atomic="true" aria-live="polite">Restrict to SKU <span class="validation failed" id="sku-validation"><strong>Email Address must be a valid working email address.</strong></span></label></dt>
 									<dd id="sku-container"><input type="text" id="sku" name="sku" value="" aria-labelledby="sku-label" aria-describedby="sku-desc">
@@ -166,7 +327,7 @@
 									</dd>
 								</dl>
 							</li>
-							<li id="tabs-d" role="tabpanel">
+							<li id="tabso-d" role="tabpanel">
 								<dl id="freship-list">
 									<dt><label id="shipping-label" for="shipping" aria-atomic="true" aria-live="polite">Free Shipping On <span class="validation " id="shipping-validation"><strong>&nbsp;</strong></span></label></dt>
 									<dd id="shipping-container"><ol id="shipping" class="checklist" title="Free Shipping On">
@@ -196,12 +357,11 @@
 					</dl>
 				</form>
 
-
 			</div>
 		</div>
 
 		<footer class="row">
-			<div class="span12">
+			<div class="span-s12">
 				Copyright &copy; 2013 - 2014 <a href="http://fusioncss.com/">fusionCSS</a>. All rights reserved.
 			</div>
 		</footer>
@@ -210,10 +370,8 @@
 
 <script type="text/javascript">
 	$fl(document).ready(function() {
-		$fl('#tabs1').tabs('tabs-2');
-		$fl('#tabs2').tabs();
-//		$fl('#couponform').fieldsetToTabs(['details-group', 'genrestrictions-group'], true);
-//		$fl('#couponform').fieldsetToTabs();
+		$fl('#tabso1').tabs('tabso-2');
+		$fl('#tabso2').tabs();
 	});
 </script>
 

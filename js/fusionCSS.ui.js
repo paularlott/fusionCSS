@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2013 fusionCSS. All rights reserved.
+ Copyright (c) 2013 - 2014 fusionCSS. All rights reserved.
  @link http://fusionCSS.com
 */
 window.fusionLib||(window.$fl=window.fusionLib=jQuery);

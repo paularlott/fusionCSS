@@ -10,10 +10,7 @@ table.striped tr:nth-child(even) { background-color: @tableEvenColor; }
 
 // Row hovers
 table.rowhover tr {
-	transition : background-color 200ms ease-out;
-	-webkit-transition : background-color 200ms ease-out;
-	-moz-transition : background-color 200ms ease-out;
-	-o-transition : background-color 200ms ease-out;
+	.transition();
 }
 
 table.rowhover tr:hover { background-color: @tableHoverColor; }
@@ -21,71 +18,49 @@ table.rowhover tr:hover { background-color: @tableHoverColor; }
 // Bordered
 table.bordered {
 	border: 1px solid @tableBorderColor;
-	-moz-border-radius: @radius;
-	-webkit-border-radius: @radius;
-	border-radius: @radius;
+	.border-radius(@radius);
 }
 
 // Corners
 table.bordered tr:first-child th:first-child,
 table.bordered tr:first-child td:first-child {
-	-moz-border-radius: @radius 0 0 0;
-	-webkit-border-radius: @radius 0 0 0;
-	border-radius: @radius 0 0 0;
+	.border-radius(@radius 0 0 0);
 }
 
 table.bordered tr:first-child th:last-child,
 table.bordered tr:first-child td:last-child {
-	-moz-border-radius: 0 @radius 0 0;
-	-webkit-border-radius: 0 @radius 0 0;
-	border-radius: 0 @radius 0 0 ;
+	.border-radius(0 @radius 0 0);
 }
 
 table.bordered thead + tbody tr:first-child td:first-child {
-	-moz-border-radius: 0;
-	-webkit-border-radius: 0;
-	border-radius: 0 ;
+	.border-radius(0);
 }
 
 table.bordered thead + tbody tr:first-child td:last-child {
-	-moz-border-radius: 0;
-	-webkit-border-radius: 0;
-	border-radius: 0 ;
+	.border-radius(0);
 }
 
 table.bordered thead + tbody tr:last-child td:first-child,
 table.bordered tr:last-child td:first-child {
-	-moz-border-radius: 0 0 0 @radius;
-	-webkit-border-radius: 0 0 0 @radius;
-	border-radius: 0 0 0 @radius;
+	.border-radius(0 0 0 @radius);
 }
 
 table.bordered thead + tbody tr:last-child td:last-child,
 table.bordered tr:last-child td:last-child {
-	-moz-border-radius: 0 0 @radius 0;
-	-webkit-border-radius: 0 0 @radius 0;
-	border-radius: 0 0 @radius 0;
+	.border-radius(0 0 @radius 0);
 }
 
 table.bordered tr:last-child:first-child td:first-child {
-	-moz-border-radius: @radius 0 0 @radius;
-	-webkit-border-radius: @radius 0 0 @radius;
-	border-radius: @radius 0 0 @radius;
+	.border-radius(@radius 0 0 @radius);
 }
 table.bordered tr:last-child:first-child td:last-child {
-	-moz-border-radius: 0 @radius @radius 0;
-	-webkit-border-radius: 0 @radius @radius 0;
-	border-radius: 0 @radius @radius 0;
+	.border-radius(0 @radius @radius 0);
 }
 table.bordered thead + tbody tr:last-child:first-child td:first-child {
-	-moz-border-radius: 0 0 0 @radius;
-	-webkit-border-radius: 0 0 0 @radius;
-	border-radius: 0 0 0 @radius;
+	.border-radius(0 0 0 @radius);
 }
 table.bordered thead + tbody tr:last-child:first-child td:last-child {
-	-moz-border-radius: 0 0 @radius 0;
-	-webkit-border-radius: 0 0 @radius 0;
-	border-radius: 0 0 @radius 0;
+	.border-radius(0 0 @radius 0);
 }
 
 // Lines
@@ -104,7 +79,7 @@ table.bordered tr:last-child td { border-bottom: none; }
 
 // Responsive Tables
 .responsiveTableWrapperMore { display: none; }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: (@breakpoint-s - 1)) {
 	table.responsive { margin: 0; width: 100%; }
 	div.responsiveTableWrapper {
 		width: 100%;
@@ -112,9 +87,7 @@ table.bordered tr:last-child td { border-bottom: none; }
 	}
 	div.responsiveTableWrapperInner {
 		border: 1px solid @tableBorderColor;
-		-webkit-border-radius: @radius;
-		-moz-border-radius: @radius;
-		border-radius: @radius;
+		.border-radius(@radius);
 		position: relative;
 		overflow: hidden;
 		overflow: scroll;

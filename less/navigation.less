@@ -10,36 +10,45 @@
 	margin: 0;
 }
 
-.hnav li { float: left; }
-.hnav.pill li { margin-right: .5em; }
+.hnav li {
+	float: left;
+}
+.hnav.pill li {
+	margin-right: .5em;
+}
 .pill a {
-	-webkit-border-radius: @radius;
-	-moz-border-radius: @radius;
-	border-radius: @radius;
+	.border-radius(@radius);
 }
 
 .hnav a, .vnav a {
 	padding: .15em .65em;
 	display: block;
 	text-decoration: none;
-	-o-transition: color 250ms ease-out, background-color 250ms ease-out;
-	-webkit-transition: color 250ms ease-out, background-color 250ms ease-out;
-	-moz-transition: color 250ms ease-out, background-color 250ms ease-out;
-	transition: color 250ms ease-out, background-color 250ms ease-out;
+	.transition();
 }
 
-.vnav .active a, .hnav a { color: @navColor; background-color: @navBg; }
-.vnav .active a:hover, .hnav a:hover {  color: @navColor; background-color: @navBgHover; }
-.hnav .active a { background-color: @navBgActive; }
+.vnav .active a, .hnav a {
+	color: @navColor;
+	background-color: @navBg;
+}
+.vnav .active a:hover, .hnav a:hover {
+	color: @navColor;
+	background-color: @navBgHover;
+}
+.hnav .active a {
+	background-color: @navBgActive;
+}
 
 .vnav {
 	background-color: @vnavBg;
-	-moz-border-radius: @radius;
-	-webkit-border-radius: @radius;
-	border-radius: @radius;
+	.border-radius(@radius);
 }
-.vnav a { color: @vnavColor; }
-.vnav a:hover { background-color: @vnavBgHover; }
+.vnav a {
+	color: @vnavColor;
+}
+.vnav a:hover {
+	background-color: @vnavBgHover;
+}
 
 // Collapsed Nav
 [id*="collapsedMenu"] {
@@ -48,19 +57,15 @@
 	margin: .5em auto;
 	padding: .3em .6em;
 	border: 1px solid @formBorderColor;
-	-moz-border-radius: @radius;
-	-webkit-border-radius: @radius;
-	border-radius: @radius;
-	-moz-background-clip: padding-box;
-	-webkit-background-clip: padding-box;
-	background-clip: padding-box;
-	-webkit-transition: -webkit-box-shadow 250ms ease-out;
-	-moz-transition: -moz-box-shadow 250ms ease-out;
-	transition: box-shadow 250ms ease-out;
+	.border-radius(@radius);
+	.background-clip(padding-box);
+	.transition();
 }
 
 // Breadcrumbs
-.breadcrumbwidget:after { .clear; }
+.breadcrumbwidget:after {
+	.clear;
+}
 .breadcrumbwidget {
 	list-style: none;
 	margin: 0;
@@ -70,7 +75,9 @@
 	float: left;
 	margin-right: .25em;
 }
-.breadcrumbwidget a { text-decoration: none; }
+.breadcrumbwidget a {
+	text-decoration: none;
+}
 .breadcrumbwidget li + li:before {
 	content: " >";
 	font-weight: bold;
@@ -96,9 +103,7 @@
 .paginationwidget a {
 	text-decoration: none;
 	padding: 0 .5em;
-	-webkit-border-radius: @radius;
-	-moz-border-radius: @radius;
-	border-radius: @radius;
+	.border-radius(@radius);
 }
 .paginationwidget li + li:before {
 	content: " ";
