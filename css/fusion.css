@@ -130,7 +130,6 @@ blockquote cite {
 .row [class^="span"] {
   display: block;
   min-height: 1px;
-  position: relative;
 }
 .row [class^="span"].no-left-gutter {
   padding-left: 0;

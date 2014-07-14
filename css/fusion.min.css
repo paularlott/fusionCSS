@@ -24,7 +24,7 @@ dt{font-weight:bold}
 blockquote{border-left:6px solid #ccc;padding-left:1em}blockquote cite:before{font-size:85%;content:'\2014';margin-right:.5em}
 blockquote cite{font-size:85%}
 @-ms-viewport{width:device-width}.row{clear:both}.row:after{content:".";display:block;height:0;clear:both;visibility:hidden}
-.row [class^="span"]{display:block;min-height:1px;position:relative}.row [class^="span"].no-left-gutter{padding-left:0}
+.row [class^="span"]{display:block;min-height:1px}.row [class^="span"].no-left-gutter{padding-left:0}
 .row [class^="span"].no-right-gutter{padding-right:0}
 .row [class^="span"].no-gutter{padding-left:0;padding-right:0}
 .row [class^="span-t"]{float:left;padding-left:10px;padding-right:10px}
