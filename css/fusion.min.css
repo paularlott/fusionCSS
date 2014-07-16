@@ -199,5 +199,6 @@ form #submit-list dd{float:none;width:auto;display:inline;padding-left:2px;paddi
 #slideInMenu a{color:#eee;padding:1em 1em;display:block}
 #slideInMenu a:hover{color:#ccc;background-color:#1a1a1a}
 #slideInMenu li li a{padding-left:2em}
-.visible-t,.visible-phone,.visible-s,.visible-tablet,.visible-m,.visible-desktop,.visible-l{display:none !important}
+.show{display:inherit !important}
+.hide,.visible-t,.visible-phone,.visible-s,.visible-tablet,.visible-m,.visible-desktop,.visible-l{display:none !important}
 @media (max-width:767px){.visible-t,.visible-phone{display:inherit !important} .hidden-t,.hidden-phone{display:none !important}}@media (min-width:768px) and (max-width:991px){.visible-s,.visible-tablet{display:inherit !important} .hidden-s,.hidden-tablet{display:none !important}}@media (min-width:992px) and (max-width:1199px){.visible-m,.visible-desktop{display:inherit !important} .hidden-m,.hidden-desktop{display:none !important}}@media (min-width:1200px){.visible-l,.visible-desktop{display:inherit !important} .hidden-l,.hidden-desktop{display:none !important}}
