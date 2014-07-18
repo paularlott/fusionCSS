@@ -121,4 +121,25 @@ $fl(document).ready(function() {
 				.attr('aria-hidden', false);
 		});
 	}
+
+	// Add scroll to top
+	var toTop = $fl('#scrollToTop');
+	if(toTop.length) {
+		function scrollToTop() {
+			var e = $fl(window);
+			if(e.scrollTop() > 10) {
+				e.scrollTop(Math.max(0, e.scrollTop() - Math.max(10, e.scrollTop() / 20)));
+				window.setTimeout(scrollToTop, 10);
+			}
+		}
+
+		toTop.bind('click', scrollToTop);
+
+		$fl(window).bind('scroll', function() {
+			if($fl(this).scrollTop() > (toTop.attr('show-at') != null ? toTop.attr('show-at') : 600))
+				toTop.removeClass('hide');
+			else
+				toTop.addClass('hide');
+		});
+	}
 });

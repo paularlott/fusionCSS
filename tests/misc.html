@@ -186,6 +186,18 @@
 			</div>
 		</div>
 
+		<div class="row">
+			<div class="span-s4">
+				<h2>Scroll To Top</h2>
+				<p>Adding the ID scrollToTop makes the element clickable, once clicked the page is scrolled to the top.</p>
+				<p>The default is to make the element visible once the window is scrolled past 600 pixels, this can by changed by adding show-at attribute to the element with the number of pixels of scroll after which to show the element.</p>
+			</div>
+			<div class="span-s8">
+				<h3>Example</h3>
+				<pre class="brush: html; toolbar: false;">&lt;div id="scrollToTop" class="hide" show-at="800">Top&lt;/div></pre>
+			</div>
+		</div>
+
 		<footer class="row">
 			<div class="span-s12">
 				Copyright &copy; 2013 - 2014 <a href="http://fusioncss.com/">fusionCSS</a>. All rights reserved.
@@ -193,6 +205,8 @@
 		</footer>
 
 	</div>
+
+	<div id="scrollToTop" class="hide">Top</div>
 
 </body>
 </html>
