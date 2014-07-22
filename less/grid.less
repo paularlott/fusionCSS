@@ -61,6 +61,14 @@
 
 		.col(@spanName, @numColumns);
 		.offset(@spanName, @numColumns - 1);
+
+		// Make columns equal height needs IE10+
+		&.@{spanName}-equal-height {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: -ms-flexbox;
+			display: flex;
+		}
 	}
 
 	.makeRow(span-t);
