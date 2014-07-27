@@ -137,6 +137,7 @@ table.bordered tr:last-child td{border-bottom:none}
 .alert.note{border-color:#757575;color:#5b5b5b;background-color:#f4f4f4}
 .logo{text-decoration:none}.logo img{border:none}
 .hero-unit{clear:both;width:100%}
+.sr-only{position:absolute !important;clip:rect(1px, 1px, 1px, 1px);width:1px;height:1px;overflow:hidden;padding:0;margin:-1}
 textarea{resize:vertical;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 form{margin:0 auto}
 form:after,from dl{content:".";display:block;height:0;clear:both;visibility:hidden}
