@@ -3,6 +3,16 @@
  * @link http://fusionCSS.com
  * @version 2.0.0
  */
+/*
+// USe bootstrap 3 column names
+@colName:               col;
+@offsetName:            offset;
+@tinyName:              -xs-;
+@smallName:             -sm-;
+@mediumName:            -md-;
+@largeName:             -lg-;
+@separator:             ~'';
+*/
 * {
   margin: 0;
   padding: 0;
@@ -127,9 +137,15 @@ blockquote cite {
   clear: both;
   visibility: hidden;
 }
+.row .row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
 .row [class^="span"] {
   display: block;
   min-height: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .row [class^="span"].no-left-gutter {
   padding-left: 0;
@@ -143,8 +159,6 @@ blockquote cite {
 }
 .row [class^="span-t"] {
   float: left;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 .row .span-t-push0 {
   left: inherit;
@@ -155,6 +169,9 @@ blockquote cite {
 .row .span-t12 {
   width: 100%;
 }
+.row .offset-t12 {
+  margin-left: 100%;
+}
 .row .span-t-push12 {
   left: 100%;
 }
@@ -163,6 +180,9 @@ blockquote cite {
 }
 .row .span-t11 {
   width: 91.66666666666667%;
+}
+.row .offset-t11 {
+  margin-left: 91.66666666666667%;
 }
 .row .span-t-push11 {
   left: 91.66666666666667%;
@@ -173,6 +193,9 @@ blockquote cite {
 .row .span-t10 {
   width: 83.33333333333333%;
 }
+.row .offset-t10 {
+  margin-left: 83.33333333333334%;
+}
 .row .span-t-push10 {
   left: 83.33333333333333%;
 }
@@ -181,6 +204,9 @@ blockquote cite {
 }
 .row .span-t9 {
   width: 75%;
+}
+.row .offset-t9 {
+  margin-left: 75%;
 }
 .row .span-t-push9 {
   left: 75%;
@@ -191,6 +217,9 @@ blockquote cite {
 .row .span-t8 {
   width: 66.66666666666667%;
 }
+.row .offset-t8 {
+  margin-left: 66.66666666666667%;
+}
 .row .span-t-push8 {
   left: 66.66666666666667%;
 }
@@ -199,6 +228,9 @@ blockquote cite {
 }
 .row .span-t7 {
   width: 58.333333333333336%;
+}
+.row .offset-t7 {
+  margin-left: 58.333333333333336%;
 }
 .row .span-t-push7 {
   left: 58.333333333333336%;
@@ -209,6 +241,9 @@ blockquote cite {
 .row .span-t6 {
   width: 50.00000000000001%;
 }
+.row .offset-t6 {
+  margin-left: 50%;
+}
 .row .span-t-push6 {
   left: 50.00000000000001%;
 }
@@ -217,6 +252,9 @@ blockquote cite {
 }
 .row .span-t5 {
   width: 41.66666666666667%;
+}
+.row .offset-t5 {
+  margin-left: 41.66666666666667%;
 }
 .row .span-t-push5 {
   left: 41.66666666666667%;
@@ -227,6 +265,9 @@ blockquote cite {
 .row .span-t4 {
   width: 33.333333333333336%;
 }
+.row .offset-t4 {
+  margin-left: 33.333333333333336%;
+}
 .row .span-t-push4 {
   left: 33.333333333333336%;
 }
@@ -235,6 +276,9 @@ blockquote cite {
 }
 .row .span-t3 {
   width: 25%;
+}
+.row .offset-t3 {
+  margin-left: 25%;
 }
 .row .span-t-push3 {
   left: 25%;
@@ -245,6 +289,9 @@ blockquote cite {
 .row .span-t2 {
   width: 16.666666666666668%;
 }
+.row .offset-t2 {
+  margin-left: 16.666666666666668%;
+}
 .row .span-t-push2 {
   left: 16.666666666666668%;
 }
@@ -254,44 +301,14 @@ blockquote cite {
 .row .span-t1 {
   width: 8.333333333333334%;
 }
+.row .offset-t1 {
+  margin-left: 8.333333333333334%;
+}
 .row .span-t-push1 {
   left: 8.333333333333334%;
 }
 .row .span-t-pull1 {
   right: 8.333333333333334%;
-}
-.row [class^="span-t"].offset11 {
-  margin-left: 91.66666666666667%;
-}
-.row [class^="span-t"].offset10 {
-  margin-left: 83.33333333333334%;
-}
-.row [class^="span-t"].offset9 {
-  margin-left: 75%;
-}
-.row [class^="span-t"].offset8 {
-  margin-left: 66.66666666666667%;
-}
-.row [class^="span-t"].offset7 {
-  margin-left: 58.333333333333336%;
-}
-.row [class^="span-t"].offset6 {
-  margin-left: 50%;
-}
-.row [class^="span-t"].offset5 {
-  margin-left: 41.66666666666667%;
-}
-.row [class^="span-t"].offset4 {
-  margin-left: 33.333333333333336%;
-}
-.row [class^="span-t"].offset3 {
-  margin-left: 25%;
-}
-.row [class^="span-t"].offset2 {
-  margin-left: 16.666666666666668%;
-}
-.row [class^="span-t"].offset1 {
-  margin-left: 8.333333333333334%;
 }
 .row.span-t-equal-height {
   display: -webkit-box;
@@ -300,172 +317,85 @@ blockquote cite {
   display: flex;
 }
 @media (min-width: 768px) {
-  .row .row {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
   .row [class^="span"] {
     float: left;
     padding-left: 10px;
     padding-right: 10px;
   }
-  .row .span-push0 {
-    left: inherit;
-  }
-  .row .span-pull0 {
-    right: inherit;
-  }
   .row .span12 {
     width: 100%;
   }
-  .row .span-push12 {
-    left: 100%;
-  }
-  .row .span-pull12 {
-    right: 100%;
+  .row .offset12 {
+    margin-left: 100%;
   }
   .row .span11 {
     width: 91.66666666666667%;
   }
-  .row .span-push11 {
-    left: 91.66666666666667%;
-  }
-  .row .span-pull11 {
-    right: 91.66666666666667%;
+  .row .offset11 {
+    margin-left: 91.66666666666667%;
   }
   .row .span10 {
     width: 83.33333333333333%;
   }
-  .row .span-push10 {
-    left: 83.33333333333333%;
-  }
-  .row .span-pull10 {
-    right: 83.33333333333333%;
+  .row .offset10 {
+    margin-left: 83.33333333333334%;
   }
   .row .span9 {
     width: 75%;
   }
-  .row .span-push9 {
-    left: 75%;
-  }
-  .row .span-pull9 {
-    right: 75%;
+  .row .offset9 {
+    margin-left: 75%;
   }
   .row .span8 {
     width: 66.66666666666667%;
   }
-  .row .span-push8 {
-    left: 66.66666666666667%;
-  }
-  .row .span-pull8 {
-    right: 66.66666666666667%;
+  .row .offset8 {
+    margin-left: 66.66666666666667%;
   }
   .row .span7 {
     width: 58.333333333333336%;
   }
-  .row .span-push7 {
-    left: 58.333333333333336%;
-  }
-  .row .span-pull7 {
-    right: 58.333333333333336%;
+  .row .offset7 {
+    margin-left: 58.333333333333336%;
   }
   .row .span6 {
     width: 50.00000000000001%;
   }
-  .row .span-push6 {
-    left: 50.00000000000001%;
-  }
-  .row .span-pull6 {
-    right: 50.00000000000001%;
+  .row .offset6 {
+    margin-left: 50%;
   }
   .row .span5 {
     width: 41.66666666666667%;
   }
-  .row .span-push5 {
-    left: 41.66666666666667%;
-  }
-  .row .span-pull5 {
-    right: 41.66666666666667%;
+  .row .offset5 {
+    margin-left: 41.66666666666667%;
   }
   .row .span4 {
     width: 33.333333333333336%;
   }
-  .row .span-push4 {
-    left: 33.333333333333336%;
-  }
-  .row .span-pull4 {
-    right: 33.333333333333336%;
+  .row .offset4 {
+    margin-left: 33.333333333333336%;
   }
   .row .span3 {
     width: 25%;
   }
-  .row .span-push3 {
-    left: 25%;
-  }
-  .row .span-pull3 {
-    right: 25%;
+  .row .offset3 {
+    margin-left: 25%;
   }
   .row .span2 {
     width: 16.666666666666668%;
   }
-  .row .span-push2 {
-    left: 16.666666666666668%;
-  }
-  .row .span-pull2 {
-    right: 16.666666666666668%;
+  .row .offset2 {
+    margin-left: 16.666666666666668%;
   }
   .row .span1 {
     width: 8.333333333333334%;
   }
-  .row .span-push1 {
-    left: 8.333333333333334%;
-  }
-  .row .span-pull1 {
-    right: 8.333333333333334%;
-  }
-  .row [class^="span"].offset11 {
-    margin-left: 91.66666666666667%;
-  }
-  .row [class^="span"].offset10 {
-    margin-left: 83.33333333333334%;
-  }
-  .row [class^="span"].offset9 {
-    margin-left: 75%;
-  }
-  .row [class^="span"].offset8 {
-    margin-left: 66.66666666666667%;
-  }
-  .row [class^="span"].offset7 {
-    margin-left: 58.333333333333336%;
-  }
-  .row [class^="span"].offset6 {
-    margin-left: 50%;
-  }
-  .row [class^="span"].offset5 {
-    margin-left: 41.66666666666667%;
-  }
-  .row [class^="span"].offset4 {
-    margin-left: 33.333333333333336%;
-  }
-  .row [class^="span"].offset3 {
-    margin-left: 25%;
-  }
-  .row [class^="span"].offset2 {
-    margin-left: 16.666666666666668%;
-  }
-  .row [class^="span"].offset1 {
+  .row .offset1 {
     margin-left: 8.333333333333334%;
-  }
-  .row.span-equal-height {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
   }
   .row [class^="span-s"] {
     float: left;
-    padding-left: 10px;
-    padding-right: 10px;
   }
   .row .span-s-push0 {
     left: inherit;
@@ -476,6 +406,9 @@ blockquote cite {
   .row .span-s12 {
     width: 100%;
   }
+  .row .offset-s12 {
+    margin-left: 100%;
+  }
   .row .span-s-push12 {
     left: 100%;
   }
@@ -484,6 +417,9 @@ blockquote cite {
   }
   .row .span-s11 {
     width: 91.66666666666667%;
+  }
+  .row .offset-s11 {
+    margin-left: 91.66666666666667%;
   }
   .row .span-s-push11 {
     left: 91.66666666666667%;
@@ -494,6 +430,9 @@ blockquote cite {
   .row .span-s10 {
     width: 83.33333333333333%;
   }
+  .row .offset-s10 {
+    margin-left: 83.33333333333334%;
+  }
   .row .span-s-push10 {
     left: 83.33333333333333%;
   }
@@ -502,6 +441,9 @@ blockquote cite {
   }
   .row .span-s9 {
     width: 75%;
+  }
+  .row .offset-s9 {
+    margin-left: 75%;
   }
   .row .span-s-push9 {
     left: 75%;
@@ -512,6 +454,9 @@ blockquote cite {
   .row .span-s8 {
     width: 66.66666666666667%;
   }
+  .row .offset-s8 {
+    margin-left: 66.66666666666667%;
+  }
   .row .span-s-push8 {
     left: 66.66666666666667%;
   }
@@ -520,6 +465,9 @@ blockquote cite {
   }
   .row .span-s7 {
     width: 58.333333333333336%;
+  }
+  .row .offset-s7 {
+    margin-left: 58.333333333333336%;
   }
   .row .span-s-push7 {
     left: 58.333333333333336%;
@@ -530,6 +478,9 @@ blockquote cite {
   .row .span-s6 {
     width: 50.00000000000001%;
   }
+  .row .offset-s6 {
+    margin-left: 50%;
+  }
   .row .span-s-push6 {
     left: 50.00000000000001%;
   }
@@ -538,6 +489,9 @@ blockquote cite {
   }
   .row .span-s5 {
     width: 41.66666666666667%;
+  }
+  .row .offset-s5 {
+    margin-left: 41.66666666666667%;
   }
   .row .span-s-push5 {
     left: 41.66666666666667%;
@@ -548,6 +502,9 @@ blockquote cite {
   .row .span-s4 {
     width: 33.333333333333336%;
   }
+  .row .offset-s4 {
+    margin-left: 33.333333333333336%;
+  }
   .row .span-s-push4 {
     left: 33.333333333333336%;
   }
@@ -556,6 +513,9 @@ blockquote cite {
   }
   .row .span-s3 {
     width: 25%;
+  }
+  .row .offset-s3 {
+    margin-left: 25%;
   }
   .row .span-s-push3 {
     left: 25%;
@@ -566,6 +526,9 @@ blockquote cite {
   .row .span-s2 {
     width: 16.666666666666668%;
   }
+  .row .offset-s2 {
+    margin-left: 16.666666666666668%;
+  }
   .row .span-s-push2 {
     left: 16.666666666666668%;
   }
@@ -575,44 +538,14 @@ blockquote cite {
   .row .span-s1 {
     width: 8.333333333333334%;
   }
+  .row .offset-s1 {
+    margin-left: 8.333333333333334%;
+  }
   .row .span-s-push1 {
     left: 8.333333333333334%;
   }
   .row .span-s-pull1 {
     right: 8.333333333333334%;
-  }
-  .row [class^="span-s"].offset11 {
-    margin-left: 91.66666666666667%;
-  }
-  .row [class^="span-s"].offset10 {
-    margin-left: 83.33333333333334%;
-  }
-  .row [class^="span-s"].offset9 {
-    margin-left: 75%;
-  }
-  .row [class^="span-s"].offset8 {
-    margin-left: 66.66666666666667%;
-  }
-  .row [class^="span-s"].offset7 {
-    margin-left: 58.333333333333336%;
-  }
-  .row [class^="span-s"].offset6 {
-    margin-left: 50%;
-  }
-  .row [class^="span-s"].offset5 {
-    margin-left: 41.66666666666667%;
-  }
-  .row [class^="span-s"].offset4 {
-    margin-left: 33.333333333333336%;
-  }
-  .row [class^="span-s"].offset3 {
-    margin-left: 25%;
-  }
-  .row [class^="span-s"].offset2 {
-    margin-left: 16.666666666666668%;
-  }
-  .row [class^="span-s"].offset1 {
-    margin-left: 8.333333333333334%;
   }
   .row.span-s-equal-height {
     display: -webkit-box;
@@ -622,14 +555,8 @@ blockquote cite {
   }
 }
 @media (min-width: 992px) {
-  .row .row {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
   .row [class^="span-m"] {
     float: left;
-    padding-left: 10px;
-    padding-right: 10px;
   }
   .row .span-m-push0 {
     left: inherit;
@@ -640,6 +567,9 @@ blockquote cite {
   .row .span-m12 {
     width: 100%;
   }
+  .row .offset-m12 {
+    margin-left: 100%;
+  }
   .row .span-m-push12 {
     left: 100%;
   }
@@ -648,6 +578,9 @@ blockquote cite {
   }
   .row .span-m11 {
     width: 91.66666666666667%;
+  }
+  .row .offset-m11 {
+    margin-left: 91.66666666666667%;
   }
   .row .span-m-push11 {
     left: 91.66666666666667%;
@@ -658,6 +591,9 @@ blockquote cite {
   .row .span-m10 {
     width: 83.33333333333333%;
   }
+  .row .offset-m10 {
+    margin-left: 83.33333333333334%;
+  }
   .row .span-m-push10 {
     left: 83.33333333333333%;
   }
@@ -666,6 +602,9 @@ blockquote cite {
   }
   .row .span-m9 {
     width: 75%;
+  }
+  .row .offset-m9 {
+    margin-left: 75%;
   }
   .row .span-m-push9 {
     left: 75%;
@@ -676,6 +615,9 @@ blockquote cite {
   .row .span-m8 {
     width: 66.66666666666667%;
   }
+  .row .offset-m8 {
+    margin-left: 66.66666666666667%;
+  }
   .row .span-m-push8 {
     left: 66.66666666666667%;
   }
@@ -684,6 +626,9 @@ blockquote cite {
   }
   .row .span-m7 {
     width: 58.333333333333336%;
+  }
+  .row .offset-m7 {
+    margin-left: 58.333333333333336%;
   }
   .row .span-m-push7 {
     left: 58.333333333333336%;
@@ -694,6 +639,9 @@ blockquote cite {
   .row .span-m6 {
     width: 50.00000000000001%;
   }
+  .row .offset-m6 {
+    margin-left: 50%;
+  }
   .row .span-m-push6 {
     left: 50.00000000000001%;
   }
@@ -702,6 +650,9 @@ blockquote cite {
   }
   .row .span-m5 {
     width: 41.66666666666667%;
+  }
+  .row .offset-m5 {
+    margin-left: 41.66666666666667%;
   }
   .row .span-m-push5 {
     left: 41.66666666666667%;
@@ -712,6 +663,9 @@ blockquote cite {
   .row .span-m4 {
     width: 33.333333333333336%;
   }
+  .row .offset-m4 {
+    margin-left: 33.333333333333336%;
+  }
   .row .span-m-push4 {
     left: 33.333333333333336%;
   }
@@ -720,6 +674,9 @@ blockquote cite {
   }
   .row .span-m3 {
     width: 25%;
+  }
+  .row .offset-m3 {
+    margin-left: 25%;
   }
   .row .span-m-push3 {
     left: 25%;
@@ -730,6 +687,9 @@ blockquote cite {
   .row .span-m2 {
     width: 16.666666666666668%;
   }
+  .row .offset-m2 {
+    margin-left: 16.666666666666668%;
+  }
   .row .span-m-push2 {
     left: 16.666666666666668%;
   }
@@ -739,44 +699,14 @@ blockquote cite {
   .row .span-m1 {
     width: 8.333333333333334%;
   }
+  .row .offset-m1 {
+    margin-left: 8.333333333333334%;
+  }
   .row .span-m-push1 {
     left: 8.333333333333334%;
   }
   .row .span-m-pull1 {
     right: 8.333333333333334%;
-  }
-  .row [class^="span-m"].offset11 {
-    margin-left: 91.66666666666667%;
-  }
-  .row [class^="span-m"].offset10 {
-    margin-left: 83.33333333333334%;
-  }
-  .row [class^="span-m"].offset9 {
-    margin-left: 75%;
-  }
-  .row [class^="span-m"].offset8 {
-    margin-left: 66.66666666666667%;
-  }
-  .row [class^="span-m"].offset7 {
-    margin-left: 58.333333333333336%;
-  }
-  .row [class^="span-m"].offset6 {
-    margin-left: 50%;
-  }
-  .row [class^="span-m"].offset5 {
-    margin-left: 41.66666666666667%;
-  }
-  .row [class^="span-m"].offset4 {
-    margin-left: 33.333333333333336%;
-  }
-  .row [class^="span-m"].offset3 {
-    margin-left: 25%;
-  }
-  .row [class^="span-m"].offset2 {
-    margin-left: 16.666666666666668%;
-  }
-  .row [class^="span-m"].offset1 {
-    margin-left: 8.333333333333334%;
   }
   .row.span-m-equal-height {
     display: -webkit-box;
@@ -786,14 +716,8 @@ blockquote cite {
   }
 }
 @media (min-width: 1200px) {
-  .row .row {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
   .row [class^="span-l"] {
     float: left;
-    padding-left: 10px;
-    padding-right: 10px;
   }
   .row .span-l-push0 {
     left: inherit;
@@ -804,6 +728,9 @@ blockquote cite {
   .row .span-l12 {
     width: 100%;
   }
+  .row .offset-l12 {
+    margin-left: 100%;
+  }
   .row .span-l-push12 {
     left: 100%;
   }
@@ -812,6 +739,9 @@ blockquote cite {
   }
   .row .span-l11 {
     width: 91.66666666666667%;
+  }
+  .row .offset-l11 {
+    margin-left: 91.66666666666667%;
   }
   .row .span-l-push11 {
     left: 91.66666666666667%;
@@ -822,6 +752,9 @@ blockquote cite {
   .row .span-l10 {
     width: 83.33333333333333%;
   }
+  .row .offset-l10 {
+    margin-left: 83.33333333333334%;
+  }
   .row .span-l-push10 {
     left: 83.33333333333333%;
   }
@@ -830,6 +763,9 @@ blockquote cite {
   }
   .row .span-l9 {
     width: 75%;
+  }
+  .row .offset-l9 {
+    margin-left: 75%;
   }
   .row .span-l-push9 {
     left: 75%;
@@ -840,6 +776,9 @@ blockquote cite {
   .row .span-l8 {
     width: 66.66666666666667%;
   }
+  .row .offset-l8 {
+    margin-left: 66.66666666666667%;
+  }
   .row .span-l-push8 {
     left: 66.66666666666667%;
   }
@@ -848,6 +787,9 @@ blockquote cite {
   }
   .row .span-l7 {
     width: 58.333333333333336%;
+  }
+  .row .offset-l7 {
+    margin-left: 58.333333333333336%;
   }
   .row .span-l-push7 {
     left: 58.333333333333336%;
@@ -858,6 +800,9 @@ blockquote cite {
   .row .span-l6 {
     width: 50.00000000000001%;
   }
+  .row .offset-l6 {
+    margin-left: 50%;
+  }
   .row .span-l-push6 {
     left: 50.00000000000001%;
   }
@@ -866,6 +811,9 @@ blockquote cite {
   }
   .row .span-l5 {
     width: 41.66666666666667%;
+  }
+  .row .offset-l5 {
+    margin-left: 41.66666666666667%;
   }
   .row .span-l-push5 {
     left: 41.66666666666667%;
@@ -876,6 +824,9 @@ blockquote cite {
   .row .span-l4 {
     width: 33.333333333333336%;
   }
+  .row .offset-l4 {
+    margin-left: 33.333333333333336%;
+  }
   .row .span-l-push4 {
     left: 33.333333333333336%;
   }
@@ -884,6 +835,9 @@ blockquote cite {
   }
   .row .span-l3 {
     width: 25%;
+  }
+  .row .offset-l3 {
+    margin-left: 25%;
   }
   .row .span-l-push3 {
     left: 25%;
@@ -894,6 +848,9 @@ blockquote cite {
   .row .span-l2 {
     width: 16.666666666666668%;
   }
+  .row .offset-l2 {
+    margin-left: 16.666666666666668%;
+  }
   .row .span-l-push2 {
     left: 16.666666666666668%;
   }
@@ -903,44 +860,14 @@ blockquote cite {
   .row .span-l1 {
     width: 8.333333333333334%;
   }
+  .row .offset-l1 {
+    margin-left: 8.333333333333334%;
+  }
   .row .span-l-push1 {
     left: 8.333333333333334%;
   }
   .row .span-l-pull1 {
     right: 8.333333333333334%;
-  }
-  .row [class^="span-l"].offset11 {
-    margin-left: 91.66666666666667%;
-  }
-  .row [class^="span-l"].offset10 {
-    margin-left: 83.33333333333334%;
-  }
-  .row [class^="span-l"].offset9 {
-    margin-left: 75%;
-  }
-  .row [class^="span-l"].offset8 {
-    margin-left: 66.66666666666667%;
-  }
-  .row [class^="span-l"].offset7 {
-    margin-left: 58.333333333333336%;
-  }
-  .row [class^="span-l"].offset6 {
-    margin-left: 50%;
-  }
-  .row [class^="span-l"].offset5 {
-    margin-left: 41.66666666666667%;
-  }
-  .row [class^="span-l"].offset4 {
-    margin-left: 33.333333333333336%;
-  }
-  .row [class^="span-l"].offset3 {
-    margin-left: 25%;
-  }
-  .row [class^="span-l"].offset2 {
-    margin-left: 16.666666666666668%;
-  }
-  .row [class^="span-l"].offset1 {
-    margin-left: 8.333333333333334%;
   }
   .row.span-l-equal-height {
     display: -webkit-box;
@@ -1271,11 +1198,6 @@ textarea {
 }
 form {
   margin: 0 auto;
-  max-width: 600px;
-}
-.hform form,
-form.hform {
-  max-width: 800px;
 }
 form:after,
 from dl {
