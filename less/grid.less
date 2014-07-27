@@ -34,8 +34,6 @@
 
 		[class^="@{colName}@{spanName}"] {
 			float: left;
-//			padding-left: @colGutter / 2;
-//			padding-right: @colGutter / 2;
 		}
 
 		.makeCols(@name, @span) when (@span > 0) {
@@ -98,30 +96,15 @@
 	.makeRow(@tinyName);
 
 	@media (min-width: @breakpoint-s) {
-//		.row {
-//			margin-left: -@colGutter / 2;
-//			margin-right: -@colGutter / 2;
-//		}
-
 		.makeRow1Compat();
 		.makeRow(@smallName);
 	}
 
 	@media (min-width: @breakpoint-m) {
-//		.row {
-//			margin-left: -@colGutter / 2;
-//			margin-right: -@colGutter / 2;
-//		}
-
 		.makeRow(@mediumName);
 	}
 
 	@media (min-width: @breakpoint-l) {
-//		.row {
-//			margin-left: -@colGutter / 2;
-//			margin-right: -@colGutter / 2;
-//		}
-
 		.makeRow(@largeName);
 	}
 }
