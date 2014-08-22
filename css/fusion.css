@@ -3,16 +3,6 @@
  * @link http://fusionCSS.com
  * @version 2.0.0
  */
-/*
-// USe bootstrap 3 column names
-@colName:               col;
-@offsetName:            offset;
-@tinyName:              -xs-;
-@smallName:             -sm-;
-@mediumName:            -md-;
-@largeName:             -lg-;
-@separator:             ~'';
-*/
 * {
   margin: 0;
   padding: 0;
