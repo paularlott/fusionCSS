@@ -136,7 +136,7 @@ $fl(document).ready(function() {
 		toTop.bind('click', scrollToTop);
 
 		$fl(window).bind('scroll', function() {
-			if($fl(this).scrollTop() > (toTop.attr('show-at') != null ? toTop.attr('show-at') : 600))
+			if($fl(this).scrollTop() > (toTop.attr('data-showat') != null ? toTop.attr('data-showat') : 600))
 				toTop.removeClass('hide');
 			else
 				toTop.addClass('hide');
