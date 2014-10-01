@@ -47,8 +47,13 @@ $fl(document).ready(function() {
 			cssDone = true;
 		}
 
-		if(menu.hasClass('hidden-s') || menu.hasClass('hidden-phone')) {
+		if(menu.hasClass('hidden-s')) {
 			collapsed.addClass('visible-s');
+			cssDone = true;
+		}
+
+		if(menu.hasClass('hidden-phone')) {
+			collapsed.addClass('visible-phone');
 			cssDone = true;
 		}
 
@@ -88,7 +93,7 @@ $fl(document).ready(function() {
 		// Add markup to body
 		$fl('body')
 			.append('<div id="slideInMenuOverlay"></div>')
-			.append('<div id="slideInMenu"></div>');
+			.append('<div id="slideInMenu" role="menu"></div>');
 		$fl('#slideInMenu').attr('aria-hidden', true);
 
 		// Copy menu HTML to slide in
