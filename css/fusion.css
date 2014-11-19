@@ -150,6 +150,9 @@ blockquote cite {
 .row [class^="span-t"] {
   float: left;
 }
+.row [class*="span-t-"] {
+  position: relative;
+}
 .row .span-t-push0 {
   left: inherit;
 }
@@ -387,6 +390,9 @@ blockquote cite {
   .row [class^="span-s"] {
     float: left;
   }
+  .row [class*="span-s-"] {
+    position: relative;
+  }
   .row .span-s-push0 {
     left: inherit;
   }
@@ -548,6 +554,9 @@ blockquote cite {
   .row [class^="span-m"] {
     float: left;
   }
+  .row [class*="span-m-"] {
+    position: relative;
+  }
   .row .span-m-push0 {
     left: inherit;
   }
@@ -708,6 +717,9 @@ blockquote cite {
 @media (min-width: 1200px) {
   .row [class^="span-l"] {
     float: left;
+  }
+  .row [class*="span-l-"] {
+    position: relative;
   }
   .row .span-l-push0 {
     left: inherit;

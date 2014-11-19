@@ -13,8 +13,8 @@
 	[class^="@{colName}"] {
 		display: block;
 		min-height: 1px;
-			padding-left: @colGutter / 2;
-			padding-right: @colGutter / 2;
+		padding-left: @colGutter / 2;
+		padding-right: @colGutter / 2;
 
 		&.no-left-gutter {
 			padding-left: 0;
@@ -34,6 +34,9 @@
 
 		[class^="@{colName}@{spanName}"] {
 			float: left;
+		}
+		[class*="@{colName}@{spanName}@{separator}"] {
+			position: relative;
 		}
 
 		.makeCols(@name, @span) when (@span > 0) {
