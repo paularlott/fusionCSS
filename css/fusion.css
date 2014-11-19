@@ -1533,10 +1533,8 @@ form #submit-list dd {
   display: block;
   float: left;
   margin-right: .2em;
-}
-.tabs a {
+  cursor: pointer;
   outline: none;
-  display: block;
   padding: .2em .5em;
   color: #ffffff;
   background-color: #355582;
@@ -1548,12 +1546,17 @@ form #submit-list dd {
   -o-transition: all 250ms linear;
   transition: all 250ms linear;
 }
-.tabs a:hover {
+.tabs li:hover {
   color: #ffffff;
   background-color: #4e6a91;
 }
-.tabs a.active {
+.tabs li.active {
   background-color: #222222;
+}
+.tabs a,
+.tabs a:hover {
+  color: inherit;
+  background-color: transparent;
 }
 .tabpanels {
   clear: both;
@@ -1582,8 +1585,6 @@ form #submit-list dd {
 .vtabs .tabs li {
   float: none;
   margin-right: 0;
-}
-.vtabs .tabs a {
   -moz-border-radius: 3px 0 0 3px;
   -webkit-border-radius: 3px 0 0 3px;
   border-radius: 3px 0 0 3px;
@@ -1605,12 +1606,10 @@ form #submit-list dd {
     -webkit-border-radius: 0 0 3px 3px;
     border-radius: 0 0 3px 3px;
   }
+  .vtabs .tabs li,
   .tabs li {
     float: none;
     margin-right: 0;
-  }
-  .vtabs .tabs a,
-  .tabs a {
     -moz-border-radius: inherit;
     -webkit-border-radius: inherit;
     border-radius: inherit;

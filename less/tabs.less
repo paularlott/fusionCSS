@@ -9,22 +9,27 @@
 		display: block;
 		float: left;
 		margin-right: .2em;
-	}
-	a {
+		cursor: pointer;
 		outline: none;
-		display: block;
 		padding: .2em .5em;
 		color: @navColor;
 		background-color: @navBg;
 		.border-radius(@radius @radius 0 0);
 		.transition();
+
+		&:hover {
+			color: @navColor;
+			background-color: @navBgHover;
+		}
+
+		&.active {
+			background-color: @navBgActive;
+		}
 	}
-	a:hover {
-		color: @navColor;
-		background-color: @navBgHover;
-	}
-	a.active {
-		background-color: @navBgActive;
+
+	a, a:hover {
+		color: inherit;
+		background-color: transparent;
 	}
 }
 
@@ -50,8 +55,9 @@
 	width: 20%;
 	height: 100%;
 
-	li { float: none; margin-right: 0; }
-	a {
+	li {
+		float: none;
+		margin-right: 0;
 		.border-radius(@radius 0 0 @radius);
 	}
 }
@@ -73,11 +79,10 @@
 	.tabpanels {
 		.border-radius(0 0 @radius @radius);
 	}
+	.vtabs .tabs li,
 	.tabs li {
 		float: none;
 		margin-right: 0;
-	}
-	.vtabs .tabs a, .tabs a {
 		.border-radius(inherit);
 	}
 }

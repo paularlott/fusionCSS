@@ -24,16 +24,25 @@ fusionLib.fn.extend({
 		var tabActive,
 			tabs = {};
 
-		this.find('.tabs li a').each(function() {
+		// Hide the panels
+		this.find('.tabpanels li').each(function() {
+			$fl(this).addClass('tabhidepanel').attr('aria-expanded', false);
+		});
+
+		// Add handlers to tabs
+		this.find('.tabs li').each(function() {
 			var el = $fl(this),
-				tabName = el.attr('href').replace(/^.*#/, ''),
-				panel = $fl('#' + tabName);
+				tabName,
+				panel;
+
+			if((tabName = el.attr('data-tabpanel')) == null)
+				tabName = el.find('a').attr('href').replace(/^.*#/, '');
+			panel = $fl('#' + tabName);
 
 			if(tabActive == undefined || (activeTab != undefined && activeTab == tabName))
 				tabActive = tabName;
 
 			el.parent().attr('aria-selected', false);
-			panel.addClass('tabhidepanel').attr('aria-expanded', false);
 			tabs[tabName] = [el, panel];
 
 			// Add click handler to tabs
