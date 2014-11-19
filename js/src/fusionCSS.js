@@ -132,7 +132,7 @@ $fl(document).ready(function() {
 	if(toTop.length) {
 		function scrollToTop() {
 			var e = $fl(window);
-			if(e.scrollTop() > 10) {
+			if(e.scrollTop() > 0) {
 				e.scrollTop(Math.max(0, e.scrollTop() - Math.max(10, e.scrollTop() / 20)));
 				window.setTimeout(scrollToTop, 10);
 			}
