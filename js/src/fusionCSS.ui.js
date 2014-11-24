@@ -26,7 +26,14 @@ fusionLib.fn.extend({
 
 		// Hide the panels
 		this.find('.tabpanels li').each(function() {
-			$fl(this).addClass('tabhidepanel').attr('aria-expanded', false);
+			var e = $fl(this);
+			if(e.attr('role') == 'tabpanel')
+				e.addClass('tabhidepanel').attr('aria-expanded', false);
+		});
+		this.find('.tabpanels div').each(function() {
+			var e = $fl(this);
+			if(e.attr('role') == 'tabpanel')
+				e.addClass('tabhidepanel').attr('aria-expanded', false);
 		});
 
 		// Add handlers to tabs
