@@ -1,8 +1,31 @@
 
-// Define the number of columns and the size of a column
+// Define the number of columns and the size of the column gutter
 @numColumns: 	        12;
-@colWidth:		        6.5%;
-@colGutter:		        2%;
+@colGutter:		        20px;
+
+// Define names for columns and sizes
+
+// Use bootstrap 3 column names
+//@colName:               col;
+//@offsetName:            offset;
+//@tinyName:              -xs-;
+//@smallName:             -sm-;
+//@mediumName:            -md-;
+//@largeName:             -lg-;
+//@separator:             ~'';
+
+@colName:               span;
+@offsetName:            offset;
+@tinyName:              -t;
+@smallName:             -s;
+@mediumName:            -m;
+@largeName:             -l;
+@separator:             -;
+
+// Define breakpoints
+@breakpoint-s:          768px;
+@breakpoint-m:          992px;
+@breakpoint-l:          1200px;
 
 // Radius when rounding corners
 @radius:                3px;
@@ -15,6 +38,7 @@
 
 // Forms
 @formBorderColor:       #9BA6AB;
+@formElementBGColor:    #fff;
 @formValidatorShadow:   #000;
 @formValidatorColor:    #fff;
 @formValidatorBg:       #000;
@@ -48,3 +72,10 @@
 // Pagination
 @pagColor:              #222;
 @pagBg:                 #c3c3c3;
+
+// Alert colours
+@alertSuccessBg:        #D1E8D2;
+@alertErrorBg:          #FACFCF;
+@alertWarningBg:        #FDEFBD;
+@alertInfoBg:           #D8E7FA;
+@alertNoteBg:           #F4F4F4;

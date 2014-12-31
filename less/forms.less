@@ -10,35 +10,25 @@ textarea {
 // Limit the max width of a form and have it center & base style
 form {
 	margin: 0 auto;
-	max-width: 600px;
 }
-.hform form, form.hform { max-width: 800px; }
 form:after, from dl { .clear; }
 
 form fieldset {
 	border: 1px solid @formBorderColor;
 	margin: 15px 0;
 	padding: 10px 12px;
-	-webkit-border-radius: @radius;
-	-moz-border-radius: @radius;
-	border-radius: @radius;
-	-moz-background-clip: padding-box;
-	-webkit-background-clip: padding-box;
-	background-clip: padding-box;
+	.border-radius(@radius);
+	.background-clip(padding-box);
 	min-width: 0; // stop auto resize on Chrome
-	display:table-column; // stop auto resize on Firefox
-	display: block\9; // undo the above on IE
+/*	display:table-column; // stop auto resize on Firefox
+	display: block\9; // undo the above on IE */
 }
 
 form legend {
 	padding: 0 5px;
 	border: 1px solid @formBorderColor;
-	-webkit-border-radius: @radius;
-	-moz-border-radius: @radius;
-	border-radius: @radius;
-	-moz-background-clip: padding-box;
-	-webkit-background-clip: padding-box;
-	background-clip: padding-box;
+	.border-radius(@radius);
+	.background-clip(padding-box);
 }
 
 // Labels & validation
@@ -69,15 +59,9 @@ form .validation {
 	left: 40%;
 	text-align: left;
 	display: none;
-	-webkit-border-radius: @radius;
-	-moz-border-radius: @radius;
-	border-radius: @radius;
-	-moz-background-clip: padding-box;
-	-webkit-background-clip: padding-box;
-	background-clip: padding-box;
-	-webkit-box-shadow: 0 3px 10px @formValidatorShadow;
-	-moz-box-shadow: 0 3px 10px @formValidatorShadow;
-	box-shadow: 0 3px 10px @formValidatorShadow;
+	.border-radius(@radius);
+	.background-clip(padding-box);
+	.box-shadow(0, 3px, 10px, @formValidatorShadow);
 	padding: .45em 0 4px 0;
 }
 .hform form .validation,
@@ -117,18 +101,10 @@ form textarea {
 	*width: 95%;
 	padding: .3em .6em;
 	border: 1px solid @formBorderColor;
-	-webkit-border-radius: @radius;
-	-moz-border-radius: @radius;
-	border-radius: @radius;
-	-moz-background-clip: padding-box;
-	-webkit-background-clip: padding-box;
-	background-clip: padding-box;
-	-webkit-transition: -webkit-box-shadow 250ms ease-out;
-	-moz-transition: -moz-box-shadow 250ms ease-out;
-	transition: box-shadow 250ms ease-out;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+	background-color: @formElementBGColor;
+	.border-radius(@radius);
+	.background-clip(padding-box);
+	.transition();
 }
 
 form input[type="text"]:focus,
@@ -140,9 +116,7 @@ form input[type="search"]:focus,
 form select:focus,
 form textarea:focus {
 	border: 1px solid @formFocusBdrColor;
-	-webkit-box-shadow: 0 0 5px @formFocusColor;
-	-moz-box-shadow: 0 0 5px @formFocusColor;
-	box-shadow: 0 0 5px @formFocusColor;
+	.box-shadow(0, 0, 5px, @formFocusColor);
 }
 
 form input[type="file"] {
@@ -164,18 +138,11 @@ form button {
 	border: none;
 	color: @formSubmitColor;
 	background-color: @formSubmitBg;
-	-webkit-border-radius: @radius;
-	-moz-border-radius: @radius;
-	border-radius: @radius;
-	-moz-background-clip: padding-box;
-	-webkit-background-clip: padding-box;
-	background-clip: padding-box;
-	-o-transition: background-color 250ms ease-out;
-	-webkit-transition: background-color 250ms ease-out;
-	-moz-transition: background-color 250ms ease-out;
-	transition: background-color 250ms ease-out;
+	.border-radius(@radius);
+	.background-clip(padding-box);
+	.transition();
 }
-.button { padding: .2em .6em; }
+.button { padding: .2em .6em; white-space: nowrap; }
 
 .button:hover,
 form input[type="submit"]:hover,
@@ -254,22 +221,15 @@ form .checklist {
 	list-style: none;
 	overflow: auto;
 	border: 1px solid @formBorderColor;
-	-webkit-border-radius: @radius;
-	-moz-border-radius: @radius;
-	border-radius: @radius;
-	-moz-background-clip: padding-box;
-	-webkit-background-clip: padding-box;
-	background-clip: padding-box;
+	.border-radius(@radius);
+	.background-clip(padding-box);
 }
 
 form .checklist li {
 	padding: 4px;
 	margin: 0;
 	background-color: transparent;
-	-o-transition : background-color 250ms ease-out;
-	-webkit-transition : background-color 250ms ease-out;
-	-moz-transition : background-color 250ms ease-out;
-	transition : background-color 250ms ease-out;
+	.transition();
 }
 
 form .checklist li.selected {
@@ -337,4 +297,24 @@ form #submit-list dd {
 	padding-right: 2px;
 }
 
-// responsive.less contains options to scale hform
+@media (max-width: (@breakpoint-s - 1)) {
+
+	.hform form dt,
+	form.hform dt,
+	.hform form dd,
+	form.hform dd,
+	.hform #submit-list {
+		float: none;
+		width: 100%;
+	}
+	.hform form dt label,
+	form.hform dt label {
+		text-align: left;
+	}
+	.hform form .validation,
+	form.hform .validation {
+		width: auto;
+		left: 40%;
+		bottom: -.5em;
+	}
+}

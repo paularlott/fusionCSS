@@ -1,7 +1,6 @@
-/*
- Copyright (c) 2013 fusionCSS. All rights reserved.
- @link http://fusionCSS.com
-*/
-window.fusionLib||(window.$fl=window.fusionLib=jQuery);
-fusionLib.fn.extend({tabs:function(f){var c,b={};this.find(".tabs li a").each(function(){var e=$fl(this),d=e.attr("href").replace(/^.*#/,""),a=$fl("#"+d);if(void 0==c||void 0!=f&&f==d)c=d;e.parent().attr("aria-selected",!1);a.addClass("tabhidepanel").attr("aria-expanded",!1);b[d]=[e,a];e.bind("click",function(a){b[c][1].addClass("tabhidepanel").attr("aria-expanded",!1);b[d][1].removeClass("tabhidepanel").attr("aria-expanded",!0);b[c][0].removeClass("active").parent().attr("aria-selected",!1);b[d][0].addClass("active").parent().attr("aria-selected",
-!0);c=d;a.preventDefault();a.stopPropagation();return!1})});void 0!=c&&(b[c][0].addClass("active").parent().attr("aria-selected",!0),b[c][1].removeClass("tabhidepanel").attr("aria-expanded",!0));for(var a=this[0];a;){if("FORM"==a.tagName){var g=function(){for(var a in b)if(b[a][1].find(".validation").hasClass("failed")){b[a][0].trigger("click");break}};$fl(a).bind("formValidationFailed",g).addClass("tabwidgetcontainer");g();break}a=a.parentNode}return this}});
+/**
+ * Copyright (c) 2013 - 2014 fusionCSS. All rights reserved.
+ * @link http://fusionCSS.com
+ * @version 2.0.0
+ */
+window.fusionLib||(window.$fl=window.fusionLib=jQuery),fusionLib.fn.extend({tabs:function(a){function t(){for(var a in i)if(i[a][1].find(".validation").hasClass("failed")){i[a][0].trigger("click");break}}var e,i={};this.find(".tabpanels li").each(function(){var a=$fl(this);"tabpanel"==a.attr("role")&&a.addClass("tabhidepanel").attr("aria-expanded",!1)}),this.find(".tabpanels div").each(function(){var a=$fl(this);"tabpanel"==a.attr("role")&&a.addClass("tabhidepanel").attr("aria-expanded",!1)}),this.find(".tabs li").each(function(){var t,n,r=$fl(this);null==(t=r.attr("data-tabpanel"))&&(t=r.find("a").attr("href").replace(/^.*#/,"")),n=$fl("#"+t),(void 0==e||void 0!=a&&a==t)&&(e=t),r.parent().attr("aria-selected",!1),i[t]=[r,n],r.bind("click",function(a){return i[e][1].addClass("tabhidepanel").attr("aria-expanded",!1),i[t][1].removeClass("tabhidepanel").attr("aria-expanded",!0),i[e][0].removeClass("active").parent().attr("aria-selected",!1),i[t][0].addClass("active").parent().attr("aria-selected",!0),e=t,a.preventDefault(),a.stopPropagation(),!1})}),void 0!=e&&(i[e][0].addClass("active").parent().attr("aria-selected",!0),i[e][1].removeClass("tabhidepanel").attr("aria-expanded",!0));for(var n=this[0];n;){if("FORM"==n.tagName){$fl(n).bind("formValidationFailed",t).addClass("tabwidgetcontainer"),t();break}n=n.parentNode}return this}});

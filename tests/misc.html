@@ -1,77 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link href="../css/fusion.css" rel="stylesheet">
 	<link href="test.css" rel="stylesheet">
-	<!--[if lt IE 9]><script type="text/javascript" src="../js/html5shiv.js"></script><![endif]-->
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript" src="../js/fusionCSS.js"></script></head>
+	<!--[if lt IE 9]>
+	<script src="//cdn.jsdelivr.net/g/respond,html5shiv"></script>
+	<![endif]-->
+	<script src="//cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/fusionCSS.js"></script>
 </head>
 <body>
 
-	<div class="container layout">
+	<div class="container">
 
 		<header class="row">
-			<div class="span4">
+			<div class="span-t4">
 				<a href="http://fusioncss.com/"><img src="logo.png" alt="fusionCSS" class="logo" /></a>
 			</div>
-			<div class="span3 offset5">
+			<div class="span-t3 offset5">
 				<div id="viewSlideInMenu">MENU</div>
 			</div>
 		</header>
 
 		<nav class="row">
-			<div class="span12">
-				<ul class="hnav pill collapseMenu slideInMenu">
+			<div class="span-s12">
+				<ul class="hnav pill collapseMenu slideInMenu hidden-t hidden-s">
+					<li><a href="index.html">Getting Started</a></li>
 					<li><a href="grid.html">Grid</a></li>
-					<li><a href="images.html">Images</a></li>
+					<li><a href="visibility.html">Visibility</a></li>
 					<li><a href="navigation.html">Navigation</a></li>
 					<li><a href="tables.html">Tables</a></li>
-					<li><a href="visibility.html">Visibility</a></li>
-					<li class="active"><a href="misc.html">Miscellaneous</a></li>
-					<li><a href="forms.html">Forms</a></li>
+					<li><a href="misc.html">Miscellaneous</a></li>
 					<li><a href="ui.html">UI</a></li>
+					<li><a href="forms.html">Forms</a></li>
+					<li><a href="images.html">Images</a></li>
 				</ul>
 			</div>
 		</nav>
 
 		<div class="row">
-			<section class="span12">
+			<div class="span-s12">
 				<h1>Miscellaneous</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span-s4">
 				<h2>Alerts</h2>
+				<p>fusionCSS provides a set of alert styles for displaying message alerts, the alert classes are:</p>
+				<ul>
+					<li>success</li>
+					<li>error</li>
+					<li>warning</li>
+					<li>info</li>
+					<li>note</li>
+				</ul>
+			</div>
+			<div class="span-s8">
+				<h3>Example</h3>
+		<pre class="brush: html; toolbar: false;">&lt;div class="alert success">&lt;strong>Success&lt;/strong>
+	&lt;p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&lt;/p>
+&lt;/div></pre>
+				<h3>Result</h3>
 				<div class="row">
-					<div class="span4">
-						<div class="alert success">
-							<strong>Success</strong>
+					<div class="span-s6">
+						<div class="alert success"><strong>Success</strong>
 							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
 						</div>
-						<div class="alert error">
-							<strong>Error</strong>
+						<div class="alert error"><strong>Error</strong>
 							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
 						</div>
-					</div>
-					<div class="span4">
-						<div class="alert warning">
-							<strong>Warning</strong>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-						</div>
-						<div class="alert info">
-							<strong>Info</strong>
+						<div class="alert warning"><strong>Warning</strong>
 							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
 						</div>
 					</div>
-					<div class="span4">
-						<div class="alert note">
-							<strong>Note</strong>
+					<div class="span-s6">
+						<div class="alert info"><strong>Info</strong>
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+						</div>
+						<div class="alert note"><strong>Note</strong>
 							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
 
+		<div class="row">
+			<div class="span-s4">
+				<h2>Blockquotes</h2>
+			</div>
+			<div class="span-s8">
+				<blockquote>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p><cite>The source</cite></blockquote>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span-s4">
 				<h2>Lists</h2>
+				<p>fusionCSS includes basic styling for both ordered and unordered lists.</p>
+			</div>
+			<div class="span-s8">
 				<div class="row">
-					<div class="span2">
+					<div class="span-s6">
 						<ul>
 							<li>Item 1</li>
 							<li>Item 2</li>
@@ -80,12 +115,11 @@
 									<li>Item 3.1</li>
 									<li>Item 3.2</li>
 									<li>Item 3.3</li>
-								</ul>
-							</li>
+								</ul></li>
 							<li>Item 4</li>
 						</ul>
 					</div>
-					<div class="span2">
+					<div class="span-s6">
 						<ol>
 							<li>Item 1</li>
 							<li>Item 2</li>
@@ -94,12 +128,21 @@
 									<li>Item 3.1</li>
 									<li>Item 3.2</li>
 									<li>Item 3.3</li>
-								</ol>
-							</li>
+								</ol></li>
 							<li>Item 4</li>
 						</ol>
 					</div>
-					<div class="span3">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span-s4">
+				<h2>Definition Lists</h2>
+			</div>
+			<div class="span-s8">
+				<div class="row">
+					<div class="span-s6">
 						<dl>
 							<dt>Item 1</dt>
 							<dd>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</dd>
@@ -107,7 +150,7 @@
 							<dd>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</dd>
 						</dl>
 					</div>
-					<div class="span5">
+					<div class="span-s6">
 						<dl class="hdl">
 							<dt>Item 1</dt>
 							<dd>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</dd>
@@ -116,21 +159,77 @@
 						</dl>
 					</div>
 				</div>
-				<h2>Blockquotes</h2>
-				<blockquote>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-					<cite>The source</cite>
-				</blockquote>
-			</section>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span-s4">
+				<h2>Text Alignment</h2>
+			</div>
+			<div class="span-s8">
+				<p class="text-left">text-left</p>
+				<p class="text-center">text-center</p>
+				<p class="text-right">text-right</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span-s4">
+				<h2>Responsive Video</h2>
+				<p>YouTube and Vimeo videos can be wrapped with &lt;div class="flex-video"&gt; .. &lt;/div&gt;.</p>
+			</div>
+			<div class="span-s8">
+				<h3>Example</h3>
+				<pre class="brush: html; toolbar: false;">&lt;div class="flex-video">
+	&lt;iframe width="560" height="315" src="//www.youtube.com/embed/........." frameborder="0" allowfullscreen>&lt;/iframe>
+&lt;/div></pre>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span-s4">
+				<h2>Scroll To Top</h2>
+				<p>Adding the ID scrollToTop makes the element clickable, once clicked the page is scrolled to the top.</p>
+				<p>The default is to make the element visible once the window is scrolled past 600 pixels, this can by changed by adding data-showat attribute to the element with the number of pixels of scroll after which to show the element.</p>
+			</div>
+			<div class="span-s8">
+				<h3>Example</h3>
+				<pre class="brush: html; toolbar: false;">&lt;div id="scrollToTop" class="hide" data-showat="800">Top&lt;/div></pre>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span-s4">
+				<h2>Equal Height Columns</h2>
+				<p>Depending on browser support e.g. IE10+ adding span-*-equal-height class to a row, where * is t, s, m or l.</p>
+			</div>
+			<div class="span-s8">
+				<h3>Example</h3>
+		<pre class="brush: html; toolbar: false;">&lt;div class="row span-s-equal-height">
+	&lt;div class="span-s6">Cell 1&lt;/div>
+	&lt;div class="span-s6 no-gutter">
+		&lt;img src="small.jpg" alt="test" />
+	&lt;/div>
+&lt;/div></pre>
+				<h3>Result</h3>
+				<div class="row example span-s-equal-height">
+					<div class="span-s6">Cell 1</div>
+					<div class="span-s6 no-gutter">
+						<img src="small.jpg" alt="test" />
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<footer class="row">
-			<div class="span12">
+			<div class="span-s12">
 				Copyright &copy; 2013 - 2014 <a href="http://fusioncss.com/">fusionCSS</a>. All rights reserved.
 			</div>
 		</footer>
 
 	</div>
+
+	<div id="scrollToTop" class="hide">Top</div>
 
 </body>
 </html>

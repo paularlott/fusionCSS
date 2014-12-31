@@ -1,0 +1,45 @@
+
+.show { display: inherit !important };
+
+.hide,
+.visible-t, .visible-phone,
+.visible-s, .visible-tablet,
+.visible-m, .visible-desktop,
+.visible-l {
+	display: none !important;
+}
+
+@media (max-width: (@breakpoint-s - 1)) {
+	.visible-t, .visible-phone {
+		display: inherit !important;
+	}
+	.hidden-t, .hidden-phone {
+		display: none !important;
+	}
+}
+
+@media (min-width: @breakpoint-s) and (max-width: (@breakpoint-m - 1)) {
+	.visible-s, .visible-tablet {
+		display: inherit !important;
+	}
+	.hidden-s, .hidden-tablet {
+		display: none !important;
+	}
+}
+
+@media (min-width: @breakpoint-m) and (max-width: (@breakpoint-l - 1)) {
+	.visible-m, .visible-desktop {
+		display: inherit !important;
+	}
+	.hidden-m, .hidden-desktop {
+		display: none !important;
+	}
+}
+@media (min-width: @breakpoint-l) {
+	.visible-l, .visible-desktop {
+		display: inherit !important;
+	}
+	.hidden-l, .hidden-desktop {
+		display: none !important;
+	}
+}

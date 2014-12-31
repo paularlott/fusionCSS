@@ -1,46 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link href="../css/fusion.css" rel="stylesheet">
 	<link href="test.css" rel="stylesheet">
-	<!--[if lt IE 9]><script type="text/javascript" src="../js/html5shiv.js"></script><![endif]-->
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript" src="../js/fusionCSS.js"></script></head>
+	<!--[if lt IE 9]>
+	<script src="//cdn.jsdelivr.net/g/respond,html5shiv"></script>
+	<![endif]-->
+	<script src="//cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/fusionCSS.js"></script>
 </head>
 <body>
 
-	<div class="container layout">
+	<div class="container">
 
 		<header class="row">
-			<div class="span4">
+			<div class="span-t4">
 				<a href="http://fusioncss.com/"><img src="logo.png" alt="fusionCSS" class="logo" /></a>
 			</div>
-			<div class="span3 offset5">
+			<div class="span-t3 offset5">
 				<div id="viewSlideInMenu">MENU</div>
 			</div>
 		</header>
 
 		<nav class="row">
-			<div class="span12">
-				<ul class="hnav pill collapseMenu slideInMenu">
+			<div class="span-s12">
+				<ul class="hnav pill collapseMenu slideInMenu hidden-t hidden-s">
+					<li><a href="index.html">Getting Started</a></li>
 					<li><a href="grid.html">Grid</a></li>
-					<li><a href="images.html">Images</a></li>
-					<li><a href="navigation.html">Navigation</a></li>
-					<li class="active"><a href="tables.html">Tables</a></li>
 					<li><a href="visibility.html">Visibility</a></li>
+					<li><a href="navigation.html">Navigation</a></li>
+					<li><a href="tables.html">Tables</a></li>
 					<li><a href="misc.html">Miscellaneous</a></li>
-					<li><a href="forms.html">Forms</a></li>
 					<li><a href="ui.html">UI</a></li>
+					<li><a href="forms.html">Forms</a></li>
+					<li><a href="images.html">Images</a></li>
 				</ul>
 			</div>
 		</nav>
 
 		<div class="row">
-			<div class="span12">
+			<div class="span-s12">
 				<h1>Tables</h1>
+				<p>Basic table styling is provided within fusionCSS.</p>
+			</div>
+		</div>
 
+		<div class="row">
+			<div class="span-s4">
 				<h2>Simple Table</h2>
+				<p>The basic table styling.</p>  </div>
+			<div class="span-s8">
+				<h3>Example</h3>
+		<pre class="brush: html; toolbar: false;">&lt;table>
+	&lt;thead>
+		&lt;tr>
+			&lt;th>Column 1&lt;/th>
+			&lt;th>Column 2&lt;/th>
+			&lt;th>Column 3&lt;/th>
+			&lt;th>Column 3&lt;/th>
+		&lt;/tr>
+	&lt;/thead>
+	&lt;tbody>
+		&lt;tr>
+			&lt;td>1.1&lt;/td>
+			&lt;td>1.2&lt;/td>
+			&lt;td>1.3&lt;/td>
+			&lt;td>1.4&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>2.1&lt;/td>
+			&lt;td>2.2&lt;/td>
+			&lt;td>2.3&lt;/td>
+			&lt;td>2.4&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>3.1&lt;/td>
+			&lt;td>3.2&lt;/td>
+			&lt;td>3.3&lt;/td>
+			&lt;td>3.4&lt;/td>
+		&lt;/tr>
+	&lt;/tbody>
+&lt;/table></pre>
+				<h3>Result</h3>
+				<table>
+					<thead>
+					<tr>
+						<th>Column 1</th>
+						<th>Column 2</th>
+						<th>Column 3</th>
+						<th>Column 4</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1.1</td>
+						<td>1.2</td>
+						<td>1.3</td>
+						<td>1.4</td>
+					</tr>
+					<tr>
+						<td>2.1</td>
+						<td>2.2</td>
+						<td>2.3</td>
+						<td>2.4</td>
+					</tr>
+					<tr>
+						<td>3.1</td>
+						<td>3.2</td>
+						<td>3.3</td>
+						<td>3.4</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span-s4">
+				<h2>Bordered Table</h2>
+			</div>
+			<div class="span-s8">
+				<h3>Example</h3>
+		<pre class="brush: html; toolbar: false;">&lt;table class="bordered">
+	&lt;thead>
+		&lt;tr>
+			&lt;th>Column 1&lt;/th>
+			&lt;th>Column 2&lt;/th>
+			&lt;th>Column 3&lt;/th>
+			&lt;th>Column 3&lt;/th>
+		&lt;/tr>
+	&lt;/thead>
+	&lt;tbody>
+		&lt;tr>
+			&lt;td>1.1&lt;/td>
+			&lt;td>1.2&lt;/td>
+			&lt;td>1.3&lt;/td>
+			&lt;td>1.4&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>2.1&lt;/td>
+			&lt;td>2.2&lt;/td>
+			&lt;td>2.3&lt;/td>
+			&lt;td>2.4&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>3.1&lt;/td>
+			&lt;td>3.2&lt;/td>
+			&lt;td>3.3&lt;/td>
+			&lt;td>3.4&lt;/td>
+		&lt;/tr>
+	&lt;/tbody>
+&lt;/table></pre>
+				<h3>Result</h3>
+				<table class="bordered">
+					<thead>
+					<tr>
+						<th>Column 1</th>
+						<th>Column 2</th>
+						<th>Column 3</th>
+						<th>Column 4</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1.1</td>
+						<td>1.2</td>
+						<td>1.3</td>
+						<td>1.4</td>
+					</tr>
+					<tr>
+						<td>2.1</td>
+						<td>2.2</td>
+						<td>2.3</td>
+						<td>2.4</td>
+					</tr>
+					<tr>
+						<td>3.1</td>
+						<td>3.2</td>
+						<td>3.3</td>
+						<td>3.4</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span-s4">
+				<h2>Bordered and Striped Table</h2>
+			</div>
+			<div class="span-s8">
+				<h3>Example</h3>
+		<pre class="brush: html; toolbar: false;">&lt;table class="bordered striped">
+	&lt;thead>
+		&lt;tr>
+			&lt;th>Column 1&lt;/th>
+			&lt;th>Column 2&lt;/th>
+			&lt;th>Column 3&lt;/th>
+			&lt;th>Column 3&lt;/th>
+		&lt;/tr>
+	&lt;/thead>
+	&lt;tbody>
+		&lt;tr>
+			&lt;td>1.1&lt;/td>
+			&lt;td>1.2&lt;/td>
+			&lt;td>1.3&lt;/td>
+			&lt;td>1.4&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>2.1&lt;/td>
+			&lt;td>2.2&lt;/td>
+			&lt;td>2.3&lt;/td>
+			&lt;td>2.4&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>3.1&lt;/td>
+			&lt;td>3.2&lt;/td>
+			&lt;td>3.3&lt;/td>
+			&lt;td>3.4&lt;/td>
+		&lt;/tr>
+	&lt;/tbody>
+&lt;/table></pre>
+				<h3>Result</h3>
+				<table class="bordered striped">
+					<thead>
+					<tr>
+						<th>Column 1</th>
+						<th>Column 2</th>
+						<th>Column 3</th>
+						<th>Column 4</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1.1</td>
+						<td>1.2</td>
+						<td>1.3</td>
+						<td>1.4</td>
+					</tr>
+					<tr>
+						<td>2.1</td>
+						<td>2.2</td>
+						<td>2.3</td>
+						<td>2.4</td>
+					</tr>
+					<tr>
+						<td>3.1</td>
+						<td>3.2</td>
+						<td>3.3</td>
+						<td>3.4</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span-s4">
+				<h2>Bordered and Striped Table with Hover</h2>
+			</div>
+			<div class="span-s8">
+				<h3>Example</h3>
+		<pre class="brush: html; toolbar: false;">&lt;table class="bordered striped rowhover">
+	&lt;thead>
+		&lt;tr>
+			&lt;th>Column 1&lt;/th>
+			&lt;th>Column 2&lt;/th>
+			&lt;th>Column 3&lt;/th>
+			&lt;th>Column 3&lt;/th>
+		&lt;/tr>
+	&lt;/thead>
+	&lt;tbody>
+		&lt;tr>
+			&lt;td>1.1&lt;/td>
+			&lt;td>1.2&lt;/td>
+			&lt;td>1.3&lt;/td>
+			&lt;td>1.4&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>2.1&lt;/td>
+			&lt;td>2.2&lt;/td>
+			&lt;td>2.3&lt;/td>
+			&lt;td>2.4&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>3.1&lt;/td>
+			&lt;td>3.2&lt;/td>
+			&lt;td>3.3&lt;/td>
+			&lt;td>3.4&lt;/td>
+		&lt;/tr>
+	&lt;/tbody>
+&lt;/table></pre>
+				<h3>Result</h3>
+				<table class="bordered striped rowhover">
+					<thead>
+					<tr>
+						<th>Column 1</th>
+						<th>Column 2</th>
+						<th>Column 3</th>
+						<th>Column 4</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1.1</td>
+						<td>1.2</td>
+						<td>1.3</td>
+						<td>1.4</td>
+					</tr>
+					<tr>
+						<td>2.1</td>
+						<td>2.2</td>
+						<td>2.3</td>
+						<td>2.4</td>
+					</tr>
+					<tr>
+						<td>3.1</td>
+						<td>3.2</td>
+						<td>3.3</td>
+						<td>3.4</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span-s4">
+				<h2>Responsive Tables</h2>
+				<p>Adding the class responsive to a table makes the table responsive, this functionality requires fusionCSS.js to be included.</p>
+			</div>
+			<div class="span-s8">
+				<h3>Example</h3>
+		<pre class="brush: html; toolbar: false;">&lt;table class="bordered striped rowhover responsive">
+	&lt;thead>
+		&lt;tr>
+			&lt;th>Column 1&lt;/th>
+			&lt;th>Column 2&lt;/th>
+			&lt;th>Column 3&lt;/th>
+			&lt;th>Column 4&lt;/th>
+			&lt;th>Column 5&lt;/th>
+			&lt;th>Column 6&lt;/th>
+		&lt;/tr>
+	&lt;/thead>
+	&lt;tbody>
+		&lt;tr>
+			&lt;td>1.1&lt;/td>
+			&lt;td>1.2&lt;/td>
+			&lt;td>1.3&lt;/td>
+			&lt;td>1.4&lt;/td>
+			&lt;td>1.5&lt;/td>
+			&lt;td>1.6&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>2.1&lt;/td>
+			&lt;td>2.2&lt;/td>
+			&lt;td>2.3&lt;/td>
+			&lt;td>2.4&lt;/td>
+			&lt;td>2.5&lt;/td>
+			&lt;td>2.6&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>3.1&lt;/td>
+			&lt;td>3.2&lt;/td>
+			&lt;td>3.3&lt;/td>
+			&lt;td>3.4&lt;/td>
+			&lt;td>3.5&lt;/td>
+			&lt;td>3.6&lt;/td>
+		&lt;/tr>
+	&lt;/tbody>
+&lt;/table></pre>
+				<h3>Result</h3>
+				<table class="bordered striped rowhover responsive">
+					<thead>
+					<tr>
+						<th>Column 1</th>
+						<th>Column 2</th>
+						<th>Column 3</th>
+						<th>Column 4</th>
+						<th>Column 5</th>
+						<th>Column 6</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1.1</td>
+						<td>1.2</td>
+						<td>1.3</td>
+						<td>1.4</td>
+						<td>1.5</td>
+						<td>1.6</td>
+					</tr>
+					<tr>
+						<td>2.1</td>
+						<td>2.2</td>
+						<td>2.3</td>
+						<td>2.4</td>
+						<td>2.5</td>
+						<td>2.6</td>
+					</tr>
+					<tr>
+						<td>3.1</td>
+						<td>3.2</td>
+						<td>3.3</td>
+						<td>3.4</td>
+						<td>3.5</td>
+						<td>3.6</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span12">
+				<h2>Other Table Examples</h2>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span-s12">
+
+				<h3>Simple Table</h3>
 				<table class="responsive">
 					<thead>
 					<tr>
@@ -78,7 +462,7 @@
 					</tbody>
 				</table>
 
-				<h2>Bordered</h2>
+				<h3>Bordered</h3>
 				<table class="bordered responsive">
 					<thead>
 					<tr>
@@ -116,7 +500,7 @@
 					</tbody>
 				</table>
 
-				<h2>Bordered and Striped</h2>
+				<h3>Bordered and Striped</h3>
 				<table class="bordered striped responsive">
 					<thead>
 					<tr>
@@ -154,7 +538,7 @@
 					</tbody>
 				</table>
 
-				<h2>Bordered, Striped and Hover</h2>
+				<h3>Bordered, Striped and Hover</h3>
 				<table class="bordered striped rowhover responsive">
 					<thead>
 					<tr>
@@ -192,7 +576,7 @@
 					</tbody>
 				</table>
 
-				<h2>Bordred and Striped Header Only</h2>
+				<h3>Bordred and Striped Header Only</h3>
 				<table class="bordered striped responsive">
 					<thead>
 					<tr>
@@ -234,7 +618,7 @@
 					</tbody>
 				</table>
 
-				<h2>Others</h2>
+				<h3>Others</h3>
 				<table class="bordered striped rowhover responsive">
 					<thead>
 					<tr>
@@ -272,8 +656,8 @@
 		</div>
 
 		<div class="row">
-			<div class="span4">Example Text</div>
-			<div class="span8">
+			<div class="span-s4">Example text with a table next to it.</div>
+			<div class="span-s8">
 				<table class="bordered striped rowhover responsive">
 					<thead>
 					<tr>
@@ -325,12 +709,14 @@
 		</div>
 
 		<footer class="row">
-			<div class="span12">
+			<div class="span-s12">
 				Copyright &copy; 2013 - 2014 <a href="http://fusioncss.com/">fusionCSS</a>. All rights reserved.
 			</div>
 		</footer>
 
 	</div>
+
+	<div id="scrollToTop" class="hide">Top</div>
 
 </body>
 </html>

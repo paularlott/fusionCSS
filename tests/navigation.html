@@ -1,115 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link href="../css/fusion.css" rel="stylesheet">
 	<link href="test.css" rel="stylesheet">
-	<!--[if lt IE 9]><script type="text/javascript" src="../js/html5shiv.js"></script><![endif]-->
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript" src="../js/fusionCSS.js"></script></head>
+	<!--[if lt IE 9]>
+	<script src="//cdn.jsdelivr.net/g/respond,html5shiv"></script>
+	<![endif]-->
+	<script src="//cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/fusionCSS.js"></script>
 </head>
 <body>
 
-	<div class="container layout">
+	<div class="container">
 
 		<header class="row">
-			<div class="span4">
+			<div class="span-t4">
 				<a href="http://fusioncss.com/"><img src="logo.png" alt="fusionCSS" class="logo" /></a>
 			</div>
-			<div class="span3 offset5">
+			<div class="span-t3 offset5">
 				<div id="viewSlideInMenu">MENU</div>
 			</div>
 		</header>
 
 		<nav class="row">
-			<div class="span12">
-				<ul class="hnav pill collapseMenu slideInMenu" id="menu">
+			<div class="span-s12">
+				<ul class="hnav pill collapseMenu slideInMenu hidden-t hidden-s">
+					<li><a href="index.html">Getting Started</a></li>
 					<li><a href="grid.html">Grid</a></li>
-					<li><a href="images.html">Images</a></li>
-					<li class="active"><a href="navigation.html">Navigation</a></li>
-					<li><a href="tables.html">Tables</a></li>
 					<li><a href="visibility.html">Visibility</a></li>
+					<li><a href="navigation.html">Navigation</a></li>
+					<li><a href="tables.html">Tables</a></li>
 					<li><a href="misc.html">Miscellaneous</a></li>
-					<li><a href="forms.html">Forms</a></li>
 					<li><a href="ui.html">UI</a></li>
+					<li><a href="forms.html">Forms</a></li>
+					<li><a href="images.html">Images</a></li>
 				</ul>
 			</div>
 		</nav>
 
 		<div class="row">
-			<div class="span3">
-				<ul class="vnav collapseMenu">
+			<div class="span-s12">
+				<h1>Navigation</h1>
+				<p>fusionCSS makes use of JavaScript to convert horizontal or vertical navigation marked with the collapseMenu class into a drop down list or if marked with SlideInMenu to a menu that slides into view on demand. This functionality requires fusionCSS.js to be included.</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span-s4">
+				<h2>Horizontal Navigation</h2>
+				<p>The horizontal navigation can be automatically converted to a drop down list when the browser width falls below the small device width by including the class collapseMenu e.g. &lt;ul class="hnav collapseMenu">.</p>  </div>
+			<div class="span-s8">
+				<h3>Example</h3>
+		<pre class="brush: html; toolbar: false;">&lt;ul class="hnav">
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li class="active">&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+&lt;/ul></pre>
+				<h3>Result</h3>
+				<ul class="hnav example">
 					<li><a href="#stay">Link</a></li>
-					<li class="active"><a href="#stay">Active</a></li>
+					<li class="active"><a href="#stay">Link</a></li>
 					<li><a href="#stay">Link</a></li>
 					<li><a href="#stay">Link</a></li>
 				</ul>
 			</div>
-			<div class="span9">
-				<h1>Navigation</h1>
+		</div>
 
-				<h2>Horizontal Navigation</h2>
-				<ul class="hnav">
+		<div class="row">
+			<div class="span-s4">
+				<h2>Horizontal Navigation (Pill)</h2>
+			</div>
+			<div class="span-s8">
+				<h3>Example</h3>
+		<pre class="brush: html; toolbar: false;">&lt;ul class="hnav pill">
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li class="active">&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+&lt;/ul></pre>
+				<h3>Result</h3>
+				<ul class="hnav pill example">
 					<li><a href="#stay">Link</a></li>
 					<li class="active"><a href="#stay">Link</a></li>
 					<li><a href="#stay">Link</a></li>
 					<li><a href="#stay">Link</a></li>
 				</ul>
+			</div>
+		</div>
 
-				<h2>Horizontal Navigation Pill</h2>
-				<ul class="hnav pill">
+		<div class="row">
+			<div class="span-s4">
+				<h2>Vertical Navigation</h2>
+				<p>The vertical navigation can be automatically converted to a drop down list when the browser width falls below 768 pixels by includeing the class collapseMenu e.g. &lt;ul class="vnav collapseMenu">.</p>  </div>
+			<div class="span-s8">
+				<h3>Example</h3>
+		<pre class="brush: html; toolbar: false;">&lt;ul class="vnav">
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li class="active">&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+&lt;/ul></pre>
+				<h3>Result</h3>
+				<ul class="vnav example">
 					<li><a href="#stay">Link</a></li>
 					<li class="active"><a href="#stay">Link</a></li>
 					<li><a href="#stay">Link</a></li>
 					<li><a href="#stay">Link</a></li>
 				</ul>
+			</div>
+		</div>
 
-				<h2>Breadcrumb Widget</h2>
+		<div class="row">
+			<div class="span-s4">
+				<h2>Breadcrumb</h2>
+				<p>Converts an unordered list item into a breadcrumb.</p>  </div>
+			<div class="span-s8">
+				<h3>Example</h3>
+		<pre class="brush: html; toolbar: false;">&lt;ul class="breadcrumbwidget">
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li class="active">&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+&lt;/ul></pre>
+				<h3>Result</h3>
 				<ul class="breadcrumbwidget">
 					<li><a href="#stay">Link</a></li>
-					<li><a href="#stay">Active</a></li>
+					<li class="active"><a href="#stay">Link</a></li>
 					<li><a href="#stay">Link</a></li>
-					<li>Link</li>
+					<li><a href="#stay">Link</a></li>
 				</ul>
+			</div>
+		</div>
 
-				<h2>Breadcrumb Widget as Path</h2>
+		<div class="row">
+			<div class="span-s4">
+				<h2>Breadcrumb (Path)</h2>
+				<p>Converts an unordered list item into a breadcrumb.</p>  </div>
+			<div class="span-s8">
+				<h3>Example</h3>
+		<pre class="brush: html; toolbar: false;">&lt;ul class="breadcrumbwidget path">
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li class="active">&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+&lt;/ul></pre>
+				<h3>Result</h3>
 				<ul class="breadcrumbwidget path">
 					<li><a href="#stay">Link</a></li>
-					<li><a href="#stay">Active</a></li>
+					<li class="active"><a href="#stay">Link</a></li>
 					<li><a href="#stay">Link</a></li>
-					<li>Link</li>
+					<li><a href="#stay">Link</a></li>
 				</ul>
+			</div>
+		</div>
 
-				<h2>Breadcrumb Widget as Sections</h2>
+		<div class="row">
+			<div class="span-s4">
+				<h2>Breadcrumb (Section)</h2>
+				<p>Converts an unordered list item into a breadcrumb.</p>  </div>
+			<div class="span-s8">
+				<h3>Example</h3>
+		<pre class="brush: html; toolbar: false;">&lt;ul class="breadcrumbwidget section">
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li class="active">&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">Link&lt;/a>&lt;/li>
+&lt;/ul></pre>
+				<h3>Result</h3>
 				<ul class="breadcrumbwidget section">
 					<li><a href="#stay">Link</a></li>
-					<li><a href="#stay">Active</a></li>
+					<li class="active"><a href="#stay">Link</a></li>
 					<li><a href="#stay">Link</a></li>
-					<li>Link</li>
+					<li><a href="#stay">Link</a></li>
 				</ul>
+			</div>
+		</div>
 
-				<h2>Pagination Widget</h2>
-				<ul class="paginationwidget">
-					<li><span>1</span></li>
+		<div class="row">
+			<div class="span-s4">
+				<h2>Pagination</h2>
+				<p>Converts an unordered list item into a pagination widget, it is designed to style the pagination widget within fusionLib.</p>  </div>
+			<div class="span-s8">
+				<h3>Example</h3>
+		<pre class="brush: html; toolbar: false;">&lt;ul class="paginationwidget">
+	&lt;li>&lt;span>1&lt;/span>&lt;/li>
+	&lt;li>&lt;a href="#stay">2&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">3&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">4&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">5&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">>&lt;/a>&lt;/li>
+	&lt;li>&lt;&lt;a href="#stay">»&lt;/a>&lt;/li>
+&lt;/ul></pre>
+				<h3>Result</h3>
+				<ul class="paginationwidget example">
+					<li><span class="">1</span></li>
 					<li><a href="#stay">2</a></li>
 					<li><a href="#stay">3</a></li>
 					<li><a href="#stay">4</a></li>
 					<li><a href="#stay">5</a></li>
-					<li><a href="#stay">6</a></li>
-					<li><a href="#stay">&gt;</a></li>
-					<li><a href="#stay">&raquo;</a></li>
+					<li><a href="#stay">></a></li>
+					<li><a href="#stay">»</a></li>
 				</ul>
+			</div>
+		</div>
 
+		<div class="row">
+			<div class="span-s4">
+				<h2>Mobile Navigation</h2>
+				<p>fusionCSS can convert an unordered list to either a drop down menu or a slide out navigation menu.</p>
+				<p>Adding the class collapseMenu to the ul element for the menu causes a drop down menu to be created while adding the class slideInMenu generates a slide out menu from the list.</p>
+				<p>For collapseMenu, if one or more hidden classes are included then the menu will change on those steps otherwise the drop down is presented for small and tiny devices.</p>
+				<p>For a slide in menu an element of with an id of viewSlideInMenu is required, when the user clicks this element the slide in menu is displayed.</p>
+			</div>
+			<div class="span-s8">
+				<h3>Example</h3>
+		<pre class="brush: html; toolbar: false;">&lt;ul class="hnav pill collapseMenu slideInMenu">
+	&lt;li>&lt;a href="#stay">Menu Item 1&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">Menu Item 2&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#stay">Menu Item 3&lt;/a>&lt;/li>
+&lt;/ul>
+
+&lt;div id="viewSlideInMenu">MENU&lt;/div></pre>
 			</div>
 		</div>
 
 		<footer class="row">
-			<div class="span12">
+			<div class="span-s12">
 				Copyright &copy; 2013 - 2014 <a href="http://fusioncss.com/">fusionCSS</a>. All rights reserved.
 			</div>
 		</footer>
 
 	</div>
+
+	<div id="scrollToTop" class="hide">Top</div>
 
 </body>
 </html>

@@ -18,9 +18,12 @@ $fl(document).ready(function() {
 
 	// Find all menus and build collapsed version
 	$fl('.collapseMenu').each(function(idx) {
-		var optionsList = '<option value="" selected="selected">Menu...</option>';
+		var optionsList = '<option value="" selected="selected">Menu...</option>',
+			menu = $fl(this),
+			collapsed,
+			cssDone = false;
 
-		$fl(this).find('a').each(function() {
+		menu.find('a').each(function() {
 			var e = $fl(this),
 				depth = 0,
 				indent = '',
@@ -35,8 +38,41 @@ $fl(document).ready(function() {
 
 			optionsList += '<option value="' + e.attr('href') + '">' + indent + e.text() + '</option>';
 		});
-		$fl(this).addClass('hidden-phone').after('<select id="collapsedMenu' + idx + '" class="visible-phone">' + optionsList + '</select>');
-		$fl('#collapsedMenu' + idx).bind('change', function() {
+
+		menu.after('<select id="collapsedMenu' + idx + '">' + optionsList + '</select>');
+		collapsed = $fl('#collapsedMenu' + idx);
+
+		if(menu.hasClass('hidden-t')) {
+			collapsed.addClass('visible-t');
+			cssDone = true;
+		}
+
+		if(menu.hasClass('hidden-s')) {
+			collapsed.addClass('visible-s');
+			cssDone = true;
+		}
+
+		if(menu.hasClass('hidden-phone')) {
+			collapsed.addClass('visible-phone');
+			cssDone = true;
+		}
+
+		if(menu.hasClass('hidden-m') || menu.hasClass('hidden-desktop')) {
+			collapsed.addClass('visible-m');
+			cssDone = true;
+		}
+
+		if(menu.hasClass('hidden-l')) {
+			collapsed.addClass('visible-l');
+			cssDone = true;
+		}
+
+		if(!cssDone) {
+			menu.addClass('hidden-t').addClass('hidden-s');
+			collapsed.addClass('visible-t').addClass('visible-s');
+		}
+
+		collapsed.bind('change', function() {
 			window.location = $fl(this).val();
 		});
 	});
@@ -57,7 +93,7 @@ $fl(document).ready(function() {
 		// Add markup to body
 		$fl('body')
 			.append('<div id="slideInMenuOverlay"></div>')
-			.append('<div id="slideInMenu"></div>');
+			.append('<div id="slideInMenu" role="menu"></div>');
 		$fl('#slideInMenu').attr('aria-hidden', true);
 
 		// Copy menu HTML to slide in
@@ -88,6 +124,27 @@ $fl(document).ready(function() {
 			$fl('#slideInMenu')
 				.addClass('slideInMenuShow')
 				.attr('aria-hidden', false);
+		});
+	}
+
+	// Add scroll to top
+	var toTop = $fl('#scrollToTop');
+	if(toTop.length) {
+		function scrollToTop() {
+			var e = $fl(window);
+			if(e.scrollTop() > 0) {
+				e.scrollTop(Math.max(0, e.scrollTop() - Math.max(10, e.scrollTop() / 20)));
+				window.setTimeout(scrollToTop, 10);
+			}
+		}
+
+		toTop.bind('click', scrollToTop);
+
+		$fl(window).bind('scroll', function() {
+			if($fl(this).scrollTop() > (toTop.attr('data-showat') != null ? toTop.attr('data-showat') : 600))
+				toTop.removeClass('hide');
+			else
+				toTop.addClass('hide');
 		});
 	}
 });

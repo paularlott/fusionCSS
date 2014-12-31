@@ -10,7 +10,8 @@ css/fusion.css: less/*.less
 
 css/fusion.min.css: less/*.less
 	mkdir -p css
-	lessc -x less/fusionCSS.less > css/fusion.min.css
+	cat less/version.less > css/fusion.min.css
+	lessc -x less/fusionCSS.less >> css/fusion.min.css
 
 js/fusionCSS.js: js/src/fusionCSS.js
 	java -jar /opt/closure/compiler.jar --js=js/src/fusionCSS.js --js_output_file=js/fusionCSS.js
