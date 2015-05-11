@@ -1,0 +1,133 @@
+
+//////////////////////////////////////////////////////////////////////
+// Define the color palette
+//////////////////////////////////////////////////////////////////////
+
+@colorPrimary:      @cyan-500;
+@colorPrimaryLight: @cyan-100;
+@colorPrimaryDark:  @cyan-700;
+@colorAccent:       @purple-A200;
+
+@colorPage:         #eee;
+@colorText:         @black-alpha-87;
+@colorPaper:        @white;
+@colorTextIcons:    @white;
+@colorDivider:      @black-alpha-12;
+
+//////////////////////////////////////////////////////////////////////
+// Alerts
+//////////////////////////////////////////////////////////////////////
+
+@alertColorSuccessFg:   @white;
+@alertColorSuccessBg:   @green-500;
+@alertColorErrorFg:     @white;
+@alertColorErrorBg:     @red-500;
+@alertColorWarningFg:   @white;
+@alertColorWarningBg:   @orange-500;
+@alertColorInfoFg:      @black-alpha-87;
+@alertColorInfoBg:      @light-blue-100;
+@alertColorNoteFg:      @black-alpha-87;
+@alertColorNoteBg:      @blue-grey-50;
+
+//////////////////////////////////////////////////////////////////////
+// Forms and buttons
+//////////////////////////////////////////////////////////////////////
+
+@btnColorDefaultText:   @colorText;
+@btnColorDefault:       transparent;
+@btnColorPrimaryText:   @white;
+@btnColorAccentText:    @white;
+@btnColorWarningText:   @white;
+@btnColorWarning:       @deep-orange-500;
+@btnColorDangerText:    @white;
+@btnColorDanger:        @red-500;
+@formValidatorReq:      @red-500;
+@formValidatorFailed:   @red-500;
+
+//////////////////////////////////////////////////////////////////////
+// Toast popup colours
+//////////////////////////////////////////////////////////////////////
+
+@toastBgColor:          #323232;
+@toastFgColor:          #ffffff;
+
+//////////////////////////////////////////////////////////////////////
+// Table colours
+//////////////////////////////////////////////////////////////////////
+
+@tableHeaderFontWeight: normal;
+@tableHeaderColorText:  inhert;
+@tableHeaderColor:      @black-alpha-12;
+@tableOddColor:         @black-alpha-5;
+@tableEvenColor:        transparent;
+@tableBorderColor:      @colorDivider;
+@tableHoverColor:       @yellow-50;
+
+//////////////////////////////////////////////////////////////////////
+// Slide in nav
+//////////////////////////////////////////////////////////////////////
+
+@slideInBg:             #1e1e1e;
+@slideInLink:           #eee;
+@slideInLinkHover:      #ccc;
+@slideInLinkHoverBg:    #1a1a1a;
+@slideInSep:            #222;
+
+//////////////////////////////////////////////////////////////////////
+// Tabs
+//////////////////////////////////////////////////////////////////////
+
+@tabsCompactWidth:      33.33333333%;
+@tabsTextColor:         @btnColorPrimaryText;
+@tabsBgColor:           @colorPrimary;
+@tabsActiveColor:       @colorPrimaryLight;
+
+//////////////////////////////////////////////////////////////////////
+// Pagination
+//////////////////////////////////////////////////////////////////////
+
+@paginColorText:        @colorText;
+@paginColorActiveText:  @colorText;
+@paginColorActiveBg:    @colorPrimaryLight;
+@paginColorHoverBg:     @black-alpha-5;
+
+//////////////////////////////////////////////////////////////////////
+// Menus
+//////////////////////////////////////////////////////////////////////
+
+@mnuColorText:  @btnColorPrimaryText;
+@mnuColorBg:    @colorPrimary;
+
+//////////////////////////////////////////////////////////////////////
+// Misc
+//////////////////////////////////////////////////////////////////////
+
+@colorBlockquote: @colorDivider;
+
+//////////////////////////////////////////////////////////////////////
+// Include components
+//////////////////////////////////////////////////////////////////////
+
+@import "base/version.less";
+@import "base/variables.less";
+@import "base/mixins.less";
+
+@import "base/base.less";
+@import "base/grid.less";
+
+@import "base/tables.less";
+@import "material/pagination.less";
+@import "base/breadcrumb.less";
+@import "material/navigation.less";
+@import "material/alerts.less";
+@import "base/misc.less";
+@import "material/tabs.less";
+@import "base/slideinmenu.less";
+@import "material/toast.less";
+@import "base/visibility.less";
+
+@import "material/colors.less";
+@import "material/cards.less";
+@import "material/shadow.less";
+@import "material/forms.less";
+@import "material/buttons.less";

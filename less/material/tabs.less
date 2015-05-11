@@ -1,0 +1,122 @@
+
+// Tab element
+.tabs {
+	list-style: none;
+	margin-left: 0;
+	padding: 0;
+	color: @tabsTextColor;
+	background-color: @tabsBgColor;
+	.z-depth1();
+
+	&:after {
+		.clearfix();
+	}
+
+	li {
+		float: left;
+		display: block;
+		cursor: pointer;
+		outline: none;
+		padding: .5em 1em;
+		margin: 0;
+		.transition(all, 100ms);
+		border-top: 3px solid @tabsBgColor;
+		border-bottom: 3px solid @tabsBgColor;
+
+		&:hover,
+		&.active {
+			border-bottom-color: @tabsActiveColor;
+		}
+
+		a, a:hover {
+			color: inherit;
+			background-color: transparent;
+		}
+	}
+}
+
+.tabpanels {
+	clear: both;
+	list-style: none;
+	margin-left: 0;
+	border: 1px solid @colorDivider;
+
+	> li {
+		margin: 0 1em;
+	}
+
+	.tabhidepanel {
+		display: none;
+	}
+}
+
+.vtabs {
+	position: relative;
+
+	.tabwidget {
+		position: relative;;
+
+	}
+	.tabs {
+		position: absolute;
+		width: 20%;
+		height: 100%;
+		.z-depth0();
+
+		li {
+			float: none;
+			margin-right: 0;
+			width: 100%;
+			position: relative;
+
+			&:hover,
+			&.active {
+				border-bottom-color: @tabsBgColor;
+
+				&:before {
+					content: ' ';
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: .25em;
+					margin-right: .5em;
+					width: 0;
+					height: 0;
+					border-style: solid;
+					margin-top: -.25em;
+					border-width: .25em 0 .25em .5em;
+					border-color: transparent transparent transparent @tabsActiveColor;
+				}
+			}
+		}
+	}
+
+	.tabpanels {
+		position: relative;
+		left: 20%;
+		width: 80%;
+	}
+}
+
+@media (max-width: (@breakpoint-s - 1)) {
+	.vtabs {
+		.tabs,
+		.tabpanels {
+			position: inherit;
+			left: 0;
+			width: auto;
+		}
+
+		.tabs li {
+			display: block;
+		}
+	}
+
+	.tabs {
+		li {
+			width: @tabsCompactWidth;
+			padding: .5em 0;
+			text-align: center;
+		};
+	}
+}

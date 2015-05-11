@@ -2,16 +2,13 @@
 // Limit resize in firefox, options are none, vertical, horizontal or both
 textarea {
 	resize: vertical;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 }
 
 // Limit the max width of a form and have it center & base style
 form {
 	margin: 0 auto;
 }
-form:after, from dl { .clear; }
+form:after { .clear; }
 
 form fieldset {
 	border: 1px solid @formBorderColor;
@@ -126,12 +123,13 @@ form input[type="file"] {
 
 // Submit buttons
 form input[type="submit"],
-form button { font-size: 100%; }
+form button, button { font-size: 100%; }
 
 .uploadButton,
 .button,
 form input[type="submit"],
-form button {
+form button,
+button {
 	margin-top: 8px;
 	cursor: pointer;
 	padding: .3em .6em;
@@ -141,35 +139,23 @@ form button {
 	.border-radius(@radius);
 	.background-clip(padding-box);
 	.transition();
+
+	&:hover {
+		color: @formSubmitColor;
+		background-color: @formSubmitBgHover;
+	}
+
+	&.delete, &.warning, &.danger {
+		color: @formSubmitColor;
+		background-color: @formSubmitBgWarn;
+
+		&:hover {
+			color: @formSubmitColor;
+			background-color: @formSubmitBgWarnHover;
+		}
+	}
 }
 .button { padding: .2em .6em; white-space: nowrap; }
-
-.button:hover,
-form input[type="submit"]:hover,
-form button:hover {
-	color: @formSubmitColor;
-	background-color: @formSubmitBgHover;
-}
-
-.button.delete,
-.button.warning,
-form input.warning[type="submit"],
-form input.delete[type="submit"],
-form button.warning,
-form button.delete {
-	color: @formSubmitColor;
-	background-color: @formSubmitBgWarn;
-}
-
-.button.delete:hover,
-.button.warning:hover,
-form input.warning[type="submit"]:hover,
-form input.delete[type="submit"]:hover,
-form button.warning:hover,
-form button.delete:hover {
-	color: @formSubmitColor;
-	background-color: @formSubmitBgWarnHover;
-}
 
 .uploadButton {
 	margin-top: 0;
@@ -179,23 +165,24 @@ form button.delete:hover {
 	display: inline-block;
 	*display: inline;
 	background-color: @uploadBg;
-}
-.uploadButton:hover {
-	color: @formSubmitColor;
-	background-color: @uploadBgHover;
-}
 
-.uploadButton input[type="file"] {
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 0;
-	padding: 0;
-	font-size: 40px;
-	cursor: pointer;
-	filter: alpha(opacity=0);
-	-moz-opacity: 0;
-	opacity: 0;
+	&:hover {
+		color: @formSubmitColor;
+		background-color: @uploadBgHover;
+	}
+
+	input[type="file"] {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 0;
+		padding: 0;
+		font-size: 40px;
+		cursor: pointer;
+		filter: alpha(opacity=0);
+		-moz-opacity: 0;
+		opacity: 0;
+	}
 }
 
 // Radio group

@@ -1,6 +1,6 @@
 <a href="http://fusioncss.com/"><img src="http://fusioncss.com/assets/public_files/images/logo.png" alt="fusionCSS" /></a>
 
-fusionCSS V2.0.0
+fusionCSS V2.1.0
 ====
 
 [http://fusioncss.com](http://fusioncss.com)
@@ -29,21 +29,13 @@ The easiest way to start using fusionCSS within your projects is to copy the pre
 Within the head section of your HTML document you should have:
 
 <link href="css/fusion.min.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="js/fusionCSS.js"></script>
 <!--[if lt IE 9]><script type="text/javascript" src="//cdn.jsdelivr.net/g/respond,html5shiv"></script><![endif]-->
 
 Custom Build
 ----
 
-fusionCSS was initially built on an Ubuntu workstation with LESS and Google closure compiler installed, the makefile within the repository assumes:
+To build a fusionCSS, edit the .less files within the less folder and then:
 
-* Google closure compiler has been installed as /opt/closure/compiler.jar and that java -jar /opt/closure/compiler.jar will invoke it
-* LESS has been installed e.g. sudo apt-get install node-less and that lessc runs
-
-With version 2 the build system was moved to gulp but the Makefile has been retained.
-
-To build a new version of fusionCSS, edit the .less files within the less folder and then either:
-
-* Invoke make, the compiled output will be placed into the css and js folders.
 * Invoke gulp, the default operation will compile the less files and minimise the JavaScript, the output will be placed into the css and js folders.

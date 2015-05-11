@@ -1,11 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
 
 body {
-	color: #000;
-	background-color: #eee;
+	color: rgba(0, 0, 0, 0.87);
+	background-color: #eeeeee;
 	font-family: 'Roboto', sans-serif;
-	font-size: 110%;
-	padding: 30px;
+	font-size: 100%;
+	padding: 10px 0;
 }
 
 /* Make the spans visible */
@@ -36,7 +36,7 @@ h3 { color: #4e6a91; font-size: 110%; margin-top: 1em; font-weight: bold; }
 a { color: #4e6a91; text-decoration: none; }
 a:hover { color: #000; }
 img {vertical-align: middle; }
-header { margin-bottom: 2em; position: relative; }
+body > .container > header { margin-bottom: 2em; position: relative; }
 nav { margin-bottom: 1em; }
 footer { margin-top: 1em; }
 table.centered {
@@ -86,7 +86,7 @@ pre {
 
 #scrollToTop {
 	position: fixed;
-	left: 10px;
+	right: 10px;
 	bottom: 10px;
 	cursor: pointer;
 	color: #fff;

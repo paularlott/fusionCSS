@@ -1,0 +1,57 @@
+
+// Horizontal navigation
+.hnav, .vnav {
+	background-color: @mnuColorBg;
+	list-style: none;
+	margin: 0;
+
+	&:after {
+		.clearfix;
+	}
+	li {
+		float: left;
+
+		a {
+			padding: .5em 1em;
+			display: block;
+			color: @mnuColorText;
+
+			&:hover {
+				background-color: lighten(@mnuColorBg, 5%);
+			}
+		}
+	}
+
+	.active a {
+		background-color: lighten(@mnuColorBg, 5%);
+	}
+
+	&.pill {
+		background-color: transparent;
+		a {
+			.border-radius(@radius);
+			background-color: @mnuColorBg;
+		}
+		li {
+			margin-right: .5em;
+		}
+	}
+}
+
+.vnav {
+	li {
+		float: none;
+	}
+}
+
+// Collapsed Nav
+[id*="collapsedMenu"] {
+	font-size: 100%;
+	width: 50%;
+	margin: .5em auto;
+	padding: .3em .6em;
+	border: 1px solid @colorDivider;
+	.border-radius(@radius);
+	.background-clip(padding-box);
+	.transition();
+}

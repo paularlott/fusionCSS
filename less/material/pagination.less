@@ -1,0 +1,41 @@
+// Pagination
+.paginationwidget {
+	display: table;
+	margin: 0 auto;
+	list-style: none;
+	text-align: center;
+	border: 1px solid @colorDivider;
+	.border-radius(@radius);
+
+	li {
+		display: block;
+		float: left;
+
+		span, a {
+			display: inline-block;
+			text-decoration: none;
+			padding: .2em .5em;
+			color: @paginColorText;
+		}
+
+		&:first-child {
+			span, a {
+				.border-radius(@radius 0 0 @radius);
+			}
+		}
+		&:last-child {
+			span, a {
+				.border-radius(0 @radius @radius 0);
+			}
+		}
+
+		span {
+			color: @paginColorActiveText;
+			background-color: @colorPrimaryLight;
+		}
+
+		a:hover {
+			background-color: @paginColorHoverBg;
+		}
+	}
+}

@@ -4,13 +4,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link href="../css/fusion.css" rel="stylesheet">
+	<link id="pagestyle" href="../css/fusion.css" rel="stylesheet">
 	<link href="test.css" rel="stylesheet">
 	<!--[if lt IE 9]>
 	<script src="//cdn.jsdelivr.net/g/respond,html5shiv"></script>
 	<![endif]-->
-	<script src="//cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/fusionCSS.js"></script>
+	<script type="text/javascript" src="../tests/test.js"></script>
 </head>
 <body>
 
@@ -27,7 +28,7 @@
 
 		<nav class="row">
 			<div class="span-s12">
-				<ul class="hnav pill collapseMenu slideInMenu hidden-t hidden-s">
+				<ul class="hnav collapseMenu slideInMenu hidden-t hidden-s">
 					<li><a href="index.html">Getting Started</a></li>
 					<li><a href="grid.html">Grid</a></li>
 					<li><a href="visibility.html">Visibility</a></li>
@@ -37,9 +38,19 @@
 					<li><a href="ui.html">UI</a></li>
 					<li><a href="forms.html">Forms</a></li>
 					<li><a href="images.html">Images</a></li>
+					<li><a href="material.html">Material</a></li>
 				</ul>
 			</div>
 		</nav>
+
+		<nav class="row">
+			<div class="span-t12" id="cssoption">
+			</div>
+		</nav>
+
+		<div class="row">
+			<div class="span12">
+				<div class="card"><div>
 
 		<div class="row">
 			<div class="span-s12">
@@ -221,9 +232,13 @@
 			</div>
 		</div>
 
+				</div></div>
+			</div>
+		</div>
+
 		<footer class="row">
 			<div class="span-s12">
-				Copyright &copy; 2013 - 2014 <a href="http://fusioncss.com/">fusionCSS</a>. All rights reserved.
+				Copyright &copy; 2013 - 2015 <a href="http://fusioncss.com/">fusionCSS</a>. All rights reserved.
 			</div>
 		</footer>
 

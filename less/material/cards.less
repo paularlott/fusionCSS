@@ -1,0 +1,28 @@
+.card {
+	color: @colorText;
+	background-color: @colorPaper;
+	margin-bottom: 1em;
+	.z-depth2();
+
+	header {
+		background-color: @black-alpha-12;
+		padding: .5em 1em;
+	}
+
+	&.primary {
+		header {
+			color: @colorTextIcons;
+			background-color: @colorPrimary;
+		}
+	}
+	&.accent {
+		header {
+			color: @colorTextIcons;
+			background-color: @colorAccent;
+		}
+	}
+
+	> div {
+		padding: .5em 1em;
+	}
+}

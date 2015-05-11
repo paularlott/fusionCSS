@@ -4,13 +4,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link href="../css/fusion.css" rel="stylesheet">
+	<link id="pagestyle" href="../css/fusion.css" rel="stylesheet">
 	<link href="test.css" rel="stylesheet">
 	<!--[if lt IE 9]>
 	<script src="//cdn.jsdelivr.net/g/respond,html5shiv"></script>
 	<![endif]-->
-	<script src="//cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/fusionCSS.js"></script>
+	<script type="text/javascript" src="../tests/test.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -26,7 +27,7 @@
 
 		<nav class="row">
 			<div class="span-s12">
-				<ul class="hnav pill collapseMenu slideInMenu hidden-t hidden-s">
+				<ul class="hnav collapseMenu slideInMenu hidden-t hidden-s">
 					<li><a href="index.html">Getting Started</a></li>
 					<li><a href="grid.html">Grid</a></li>
 					<li><a href="visibility.html">Visibility</a></li>
@@ -36,13 +37,22 @@
 					<li><a href="ui.html">UI</a></li>
 					<li><a href="forms.html">Forms</a></li>
 					<li><a href="images.html">Images</a></li>
+					<li><a href="material.html">Material</a></li>
 				</ul>
 			</div>
 		</nav>
 
+		<nav class="row">
+			<div class="span-t12" id="cssoption">
+			</div>
+		</nav>
+
 		<div class="row">
-			<div class="span12 hform"><h1>Forms</h1>
-				<form id="couponform" action="#stay" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
+			<div class="span12">
+				<div class="card"><div>
+
+				<h1>Forms</h1>
+				<form id="couponform" class="hform" action="#stay" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
 					<fieldset id="details-group">
 						<legend>Details</legend>
 						<dl id="details-list">
@@ -188,7 +198,7 @@
 							<div class="description" id="cartqty-desc"></div>
 						</dd>
 						<dt><label id="email-label" for="email" aria-atomic="true" aria-live="polite">Email Address <em>(Required)</em> <span class="validation failed" id="email-validation"><strong>Email Address must be a valid working email address.</strong></span></label></dt>
-						<dd id="email-container"><input type="text" id="email" name="email" value="example@example.com" aria-labelledby="email-label" aria-required="true">
+						<dd id="email-container"><input type="text" id="email" name="email" value="example@example.com" aria-labelledby="email-label" aria-required="true" class="validationError">
 						</dd>
 						<dt><label id="message-label" for="message" aria-atomic="true" aria-live="polite">Your Message <em>(Required)</em> <span class="validation " id="message-validation"><strong>&nbsp;</strong></span></label></dt>
 						<dd id="message-container"><textarea id="message" name="message" cols="30" rows="10" aria-labelledby="message-label" aria-required="true"></textarea>
@@ -202,13 +212,34 @@
 					</dl>
 				</form>
 
+				<h2>Vertical Form</h2>
+				<form id="cartaddform2" action="#stay" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
+					<dl id="cartaddform-list">
+						<dt><label id="cartqty-label2" for="cartqty2" aria-atomic="true" aria-live="polite">Quantity <span class="validation " id="cartqty-validation"><strong>&nbsp;</strong></span></label></dt>
+						<dd id="cartqty-container2"><input type="number" id="cartqty2" name="cartqty" value="1" min="1" aria-labelledby="cartqty-label2" aria-describedby="cartqty-desc" max="">
+							<div class="description" id="cartqty-desc2"></div>
+						</dd>
+						<dt><label id="email-label2" for="email2" aria-atomic="true" aria-live="polite">Email Address <em>(Required)</em> <span class="validation failed" id="email-validation"><strong>Email Address must be a valid working email address.</strong></span></label></dt>
+						<dd id="email-container2"><input type="text" id="email2" name="email" value="example@example.com" aria-labelledby="email-label2" aria-required="true" class="validationError">
+						</dd>
+						<dt><label id="message-label2" for="message2" aria-atomic="true" aria-live="polite">Your Message <em>(Required)</em> <span class="validation " id="message-validation2"><strong>&nbsp;</strong></span></label></dt>
+						<dd id="message-container2"><textarea id="message2" name="message" cols="30" rows="10" aria-labelledby="message-label2" aria-required="true"></textarea>
+						</dd>
+						<dt></dt>
+						<dd id="cartadd-container2"><input type="submit" id="cartadd2" name="cartadd" value="Add to Cart" style="display: inline;">
+						</dd>
+					</dl>
+				</form>
+
 				<p><a href="#stay" class="button">Button</a> <a href="#stay" class="button delete">Delete</a> <a href="#stay" class="button warning">Warning</a></p>
+
+				</div></div>
 			</div>
 		</div>
 
 		<footer class="row">
 			<div class="span-s12">
-				Copyright &copy; 2013 - 2014 <a href="http://fusioncss.com/">fusionCSS</a>. All rights reserved.
+				Copyright &copy; 2013 - 2015 <a href="http://fusioncss.com/">fusionCSS</a>. All rights reserved.
 			</div>
 		</footer>
 

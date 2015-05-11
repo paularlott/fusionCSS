@@ -1,0 +1,28 @@
+// Toast popup
+#toast {
+	color: @toastFgColor;
+	background-color: @toastBgColor;
+	position: fixed;
+	z-index: 20;
+	bottom:  -100px;
+	left: 0;
+	padding: .5em 1em;
+	text-align: left;
+	min-width: 50%;
+	width: 100%;
+	.z-depth1();
+	.transition(all, 100ms);
+	cursor: pointer;
+
+	&.exposed {
+		bottom: 0;
+	}
+
+	@media (min-width: @breakpoint-s) {
+		left: 15px;
+		width: auto;
+		&.exposed {
+			bottom: 20px;
+		}
+	}
+}

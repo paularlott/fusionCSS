@@ -1,11 +1,21 @@
 // Basic table styles
-table { margin: 1em 0; width: 100%; border-spacing: 0; }
-th { text-align: center; }
+table {
+	margin: 1em 0;
+	width: 100%;
+	border-spacing: 0;
+}
+th {
+	text-align: center;
+	font-weight: @tableHeaderFontWeight;
+}
 th, td { padding: .25em .5em; }
 
 // Striped tables
 table.striped tr { background-color: @tableOddColor; }
-table.striped th,
+table.striped th {
+	background-color: @tableHeaderColor;
+	color: @tableHeaderColorText;
+}
 table.striped tr:nth-child(even) { background-color: @tableEvenColor; }
 
 // Row hovers
@@ -13,7 +23,7 @@ table.rowhover tr {
 	.transition();
 }
 
-table.rowhover tr:hover { background-color: @tableHoverColor; }
+table.rowhover tr:hover td { background-color: @tableHoverColor; }
 
 // Bordered
 table.bordered {
