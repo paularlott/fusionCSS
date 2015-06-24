@@ -313,7 +313,7 @@ $fl(document).ready(function() {
 					var el = $fl(this),
 						t = el.attr('type');
 
-					if(document.activeElement != el.get(0) && t != 'checkbox' && t != 'submit' && t != 'file' && el.attr('data-old-value') != el.val()) {
+					if(document.activeElement != el[0] && t != 'checkbox' && t != 'submit' && t != 'file' && el.attr('data-old-value') != el.val()) {
 						var l = $fl('#' + el.attr('id') + '-label');
 						if(el.val())
 							l.removeClass('floatDown');
