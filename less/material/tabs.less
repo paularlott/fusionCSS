@@ -4,9 +4,6 @@
 	list-style: none;
 	margin-left: 0;
 	padding: 0;
-	color: @tabsTextColor;
-	background-color: @tabsBgColor;
-	.z-depth1();
 
 	&:after {
 		.clearfix();
@@ -19,13 +16,22 @@
 		outline: none;
 		padding: .5em 1em;
 		margin: 0;
-		.transition(all, 100ms);
-		border-top: 3px solid @tabsBgColor;
-		border-bottom: 3px solid @tabsBgColor;
+		.transition();
+		position: relative;
 
 		&:hover,
 		&.active {
-			border-bottom-color: @tabsActiveColor;
+			color: @tabsTextColor;
+
+			&:after {
+				content: ' ';
+				display: block;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				border-bottom: 2px solid @tabsActiveColor;
+			}
 		}
 
 		a, a:hover {
@@ -43,6 +49,10 @@
 
 	> li {
 		margin: 0 1em;
+
+		&:after {
+			.clearfix();
+		}
 	}
 
 	.tabhidepanel {
@@ -67,25 +77,13 @@
 			float: none;
 			margin-right: 0;
 			width: 100%;
-			position: relative;
 
 			&:hover,
 			&.active {
-				border-bottom-color: @tabsBgColor;
-
-				&:before {
-					content: ' ';
-					display: block;
-					position: absolute;
-					top: 50%;
-					left: .25em;
-					margin-right: .5em;
-					width: 0;
-					height: 0;
-					border-style: solid;
-					margin-top: -.25em;
-					border-width: .25em 0 .25em .5em;
-					border-color: transparent transparent transparent @tabsActiveColor;
+				color: @tabsVertActiveColor;
+				background-color: @tabsVertBgColor;
+				&:after {
+					display: none;
 				}
 			}
 		}

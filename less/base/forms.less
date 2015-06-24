@@ -33,12 +33,20 @@ form label {
 	display: block;
 	padding-top: 6px;
 	position: relative;
+	top: 0;
+	.transition();
 }
 
-form label em {
-	font-style: normal;
-	font-size: 85%;
-	color: @formValidatorReq;
+.floatingLabels label {
+	em {
+		font-style: normal;
+		font-size: 85%;
+		color: @formValidatorReq;
+	}
+
+	&.floatDown {
+		top: 2em;
+	}
 }
 
 form .description {

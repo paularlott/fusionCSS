@@ -34,12 +34,29 @@ form label {
 	font-weight: 500;
 	font-size: 85%;
 	color: @black-alpha-54;
+	top: 0;
+	.transition();
+
+	em {
+		font-style: normal;
+		font-size: 85%;
+		color: fadeout(@formValidatorReq, 13%);
+	}
+
+	&.validationError span:first-child {
+		display: none;
+	}
 }
 
-form label em {
-	font-style: normal;
-	font-size: 85%;
-	color: @formValidatorReq;
+.floatingLabels label {
+	&.floatDown {
+		color: @black-alpha-87;
+		top: 2em;
+
+		em {
+			color: @formValidatorReq;
+		}
+	}
 }
 
 form .description {
@@ -50,15 +67,12 @@ form .description {
 
 form .validation {
 	color: @formValidatorFailed;
-	font-size: 95%;
-	text-align: left;
 	display: none;
-	padding: .45em 0 4px 0;
-}
 
-form .validation strong {
-	font-weight: normal;
-	display: block;
+	strong {
+		font-weight: normal;
+		display: block;
+	}
 }
 
 form .ok,
@@ -90,7 +104,7 @@ form textarea {
 	border: none;
 	border-bottom: 2px solid @colorDivider;
 	background-color: transparent;
-	.transition(all, 100ms);
+	.transition();
 
 	&:focus {
 		border-bottom: 2px solid @colorPrimaryDark;

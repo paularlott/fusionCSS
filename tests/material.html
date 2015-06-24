@@ -11,7 +11,6 @@
 	<![endif]-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/src/fusionCSS.js"></script>
-	<script type="text/javascript" src="../js/src/fusionCSS.ui.js"></script>
 	<script type="text/javascript" src="../tests/test.js"></script>
 </head>
 <body>
@@ -147,7 +146,7 @@
 					<section class="card">
 						<header>Basic Form Test</header>
 						<div>
-							<form id="couponform" class="hform" action="#stay" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
+							<form id="couponform" class="vform floatingLabels" action="#stay" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
 								<fieldset id="details-group">
 									<legend>Details</legend>
 									<dl id="details-list">
@@ -180,6 +179,12 @@
 										<dd id="discount-container"><input type="number" id="discount" name="discount" value="20" min="0" aria-labelledby="discount-label" aria-describedby="discount-desc" aria-required="true">
 											<div class="description" id="discount-desc">A percentage for Percentage Discounts or a monetary value for Fixed Amount Discounts and Gift Certificates.</div>
 										</dd>
+										<dt>
+											<label id="email-label" for="email" aria-atomic="true" aria-live="polite" class="validationError"><span>Email Address <em>(Required)</em></span> <span class="validation failed" id="email-validation"><strong>Email Address must be a valid working email address.</strong></span></label>
+										</dt>
+										<dd id="email-container">
+											<input type="text" id="email" name="email" value="example@example.com" aria-labelledby="email-label" aria-required="true" class="validationError">
+										</dd>
 									</dl>
 								</fieldset>
 							</form>
@@ -193,12 +198,18 @@
 				<header>Toast Test</header>
 				<div>
 					<div class="button" id="testToast">Click for Toast</div>
+					<div class="button" id="testToast2">Toast Click to Hide</div>
 				</div>
 			</section>
 
 			<script type="text/javascript">
 				$fl('#testToast').bind('click', function (e) {
 					$fl.toastShow('Via Lib: This is the toast message <br>' + (new Date()));
+					e.preventDefault();
+					return false;
+				});
+				$fl('#testToast2').bind('click', function (e) {
+					$fl.toastShow('Via Lib: This is the toast 2 message <br>' + (new Date()), true);
 					e.preventDefault();
 					return false;
 				});

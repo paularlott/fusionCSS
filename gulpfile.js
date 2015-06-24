@@ -55,12 +55,6 @@ gulp.task('js', function() {
 		.pipe(insert.prepend(version))
 		.pipe(rename('fusionCSS.js'))
 		.pipe(gulp.dest('./js/'));
-
-	gulp.src('./js/src/fusionCSS.ui.js')
-		.pipe(uglify())
-		.pipe(insert.prepend(version))
-		.pipe(rename('fusionCSS.ui.js'))
-		.pipe(gulp.dest('./js/'));
 });
 
 gulp.task('clean', function() {
@@ -72,7 +66,6 @@ gulp.task('clean', function() {
 	fs.unlinkSync('./css/fusion.css');
 	fs.unlinkSync('./css/fusion.min.css');
 	fs.unlinkSync('./js/fusionCSS.js');
-	fs.unlinkSync('./js/fusionCSS.ui.js');
 });
 
 gulp.task('watch', function() {

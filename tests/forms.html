@@ -13,7 +13,7 @@
 	<script type="text/javascript" src="../js/fusionCSS.js"></script>
 	<script type="text/javascript" src="../tests/test.js"></script>
 </head>
-<body>
+<body class="floatingLabels">
 	<div class="container">
 
 		<header class="row">
@@ -194,10 +194,10 @@
 						</ol>
 						</dd>
 						<dt><label id="cartqty-label" for="cartqty" aria-atomic="true" aria-live="polite">Quantity <span class="validation " id="cartqty-validation"><strong>&nbsp;</strong></span></label></dt>
-						<dd id="cartqty-container"><input type="number" id="cartqty" name="cartqty" value="1" min="1" aria-labelledby="cartqty-label" aria-describedby="cartqty-desc" max="">
+						<dd id="cartqty-container"><input type="number" id="cartqty" name="cartqty" value="1" min="1" aria-labelledby="cartqty-label" aria-describedby="cartqty-desc" max="">##
 							<div class="description" id="cartqty-desc"></div>
 						</dd>
-						<dt><label id="email-label" for="email" aria-atomic="true" aria-live="polite">Email Address <em>(Required)</em> <span class="validation failed" id="email-validation"><strong>Email Address must be a valid working email address.</strong></span></label></dt>
+						<dt><label id="email-label" for="email" aria-atomic="true" aria-live="polite" class="validationError"><span>Email Address <em>(Required)</em></span> <span class="validation failed" id="email-validation"><strong>Email Address must be a valid working email address.</strong></span></label></dt>
 						<dd id="email-container"><input type="text" id="email" name="email" value="example@example.com" aria-labelledby="email-label" aria-required="true" class="validationError">
 						</dd>
 						<dt><label id="message-label" for="message" aria-atomic="true" aria-live="polite">Your Message <em>(Required)</em> <span class="validation " id="message-validation"><strong>&nbsp;</strong></span></label></dt>
@@ -215,11 +215,11 @@
 				<h2>Vertical Form</h2>
 				<form id="cartaddform2" action="#stay" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
 					<dl id="cartaddform-list">
-						<dt><label id="cartqty-label2" for="cartqty2" aria-atomic="true" aria-live="polite">Quantity <span class="validation " id="cartqty-validation"><strong>&nbsp;</strong></span></label></dt>
+						<dt><label id="cartqty2-label" for="cartqty2" aria-atomic="true" aria-live="polite">Quantity <span class="validation " id="cartqty-validation"><strong>&nbsp;</strong></span></label></dt>
 						<dd id="cartqty-container2"><input type="number" id="cartqty2" name="cartqty" value="1" min="1" aria-labelledby="cartqty-label2" aria-describedby="cartqty-desc" max="">
 							<div class="description" id="cartqty-desc2"></div>
 						</dd>
-						<dt><label id="email-label2" for="email2" aria-atomic="true" aria-live="polite">Email Address <em>(Required)</em> <span class="validation failed" id="email-validation"><strong>Email Address must be a valid working email address.</strong></span></label></dt>
+						<dt><label id="email2-label" for="email2" aria-atomic="true" aria-live="polite" class="validationError"><span>Email Address <em>(Required)</em></span> <span class="validation failed" id="email-validation"><strong>Email Address must be a valid working email address.</strong></span></label></dt>
 						<dd id="email-container2"><input type="text" id="email2" name="email" value="example@example.com" aria-labelledby="email-label2" aria-required="true" class="validationError">
 						</dd>
 						<dt><label id="message-label2" for="message2" aria-atomic="true" aria-live="polite">Your Message <em>(Required)</em> <span class="validation " id="message-validation2"><strong>&nbsp;</strong></span></label></dt>
