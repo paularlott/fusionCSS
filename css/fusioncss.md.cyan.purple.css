@@ -908,7 +908,7 @@ table.rowhover tr {
   transition: all 100ms linear;
 }
 table.rowhover tr:hover td {
-  background-color: #fffde7;
+  background-color: #FFFDE7;
 }
 table.bordered {
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -988,7 +988,7 @@ table.bordered tr:last-child td {
 }
 .paginationwidget li span {
   color: rgba(0, 0, 0, 0.87);
-  background-color: #b2ebf2;
+  background-color: #B2EBF2;
 }
 .paginationwidget li a:hover {
   background-color: rgba(0, 0, 0, 0.05);
@@ -1017,7 +1017,7 @@ table.bordered tr:last-child td {
 }
 .hnav,
 .vnav {
-  background-color: #00bcd4;
+  background-color: #00BCD4;
   list-style: none;
   margin: 0;
 }
@@ -1056,7 +1056,7 @@ table.bordered tr:last-child td {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  background-color: #00bcd4;
+  background-color: #00BCD4;
 }
 .hnav.pill li,
 .vnav.pill li {
@@ -1090,23 +1090,23 @@ table.bordered tr:last-child td {
 }
 .alert.success {
   color: #ffffff;
-  background-color: #4caf50;
+  background-color: #4CAF50;
 }
 .alert.error {
   color: #ffffff;
-  background-color: #f44336;
+  background-color: #F44336;
 }
 .alert.warning {
   color: #ffffff;
-  background-color: #ff9800;
+  background-color: #FF9800;
 }
 .alert.info {
   color: rgba(0, 0, 0, 0.87);
-  background-color: #b3e5fc;
+  background-color: #B3E5FC;
 }
 .alert.note {
   color: rgba(0, 0, 0, 0.87);
-  background-color: #eceff1;
+  background-color: #ECEFF1;
 }
 .logo {
   text-decoration: none;
@@ -1154,7 +1154,7 @@ table.bordered tr:last-child td {
 }
 .tabs li:hover,
 .tabs li.active {
-  color: #0097a7;
+  color: #0097A7;
 }
 .tabs li:hover:after,
 .tabs li.active:after {
@@ -1164,7 +1164,7 @@ table.bordered tr:last-child td {
   left: 0;
   bottom: 0;
   width: 100%;
-  border-bottom: 2px solid #0097a7;
+  border-bottom: 2px solid #0097A7;
 }
 .tabs li a,
 .tabs li a:hover {
@@ -1281,22 +1281,22 @@ table.bordered tr:last-child td {
 }
 #slideInMenu ul + ul,
 #slideInMenu ul ul {
-  border-top: 1px solid #222222;
+  border-top: 1px solid #222;
 }
 #slideInMenu li {
   padding: 0;
-  border-bottom: 1px solid #222222;
+  border-bottom: 1px solid #222;
 }
 #slideInMenu li:last-child {
   border-bottom: 0;
 }
 #slideInMenu a {
-  color: #eeeeee;
+  color: #eee;
   padding: 1em 1em;
   display: block;
 }
 #slideInMenu a:hover {
-  color: #cccccc;
+  color: #ccc;
   background-color: #1a1a1a;
 }
 #slideInMenu li li a {
@@ -1401,11 +1401,11 @@ table.bordered tr:last-child td {
 }
 .card.primary header {
   color: #ffffff;
-  background-color: #00bcd4;
+  background-color: #00BCD4;
 }
 .card.accent header {
   color: #ffffff;
-  background-color: #e040fb;
+  background-color: #E040FB;
 }
 .card > div {
   padding: .5em 1em;
@@ -1501,7 +1501,7 @@ form label.validationError span:first-child {
   top: 2em;
 }
 .floatingLabels label.floatDown em {
-  color: #f44336;
+  color: #F44336;
 }
 form .description {
   padding: .3em 0;
@@ -1509,7 +1509,7 @@ form .description {
   color: rgba(0, 0, 0, 0.54);
 }
 form .validation {
-  color: #f44336;
+  color: #F44336;
   display: none;
 }
 form .validation strong {
@@ -1559,7 +1559,7 @@ form input[type="password"]:focus,
 form input[type="search"]:focus,
 form select:focus,
 form textarea:focus {
-  border-bottom: 2px solid #0097a7;
+  border-bottom: 2px solid #0097A7;
 }
 form input[type="text"].validationError,
 form input[type="number"].validationError,
@@ -1569,7 +1569,7 @@ form input[type="password"].validationError,
 form input[type="search"].validationError,
 form select.validationError,
 form textarea.validationError {
-  border-bottom-color: #f44336;
+  border-bottom-color: #F44336;
 }
 form input[type="file"] {
   font-size: 100%;
@@ -1634,7 +1634,7 @@ form .checklist input {
   margin-right: .25em;
 }
 form dd {
-  padding: .5em 0 1.25em 0;
+  padding: .3em 0;
 }
 .hform form dt,
 form.hform dt {
@@ -1736,7 +1736,7 @@ form button.primary,
 button.primary,
 .button.primary {
   color: #ffffff;
-  background-color: #00bcd4;
+  background-color: #00BCD4;
 }
 .uploadButton.primary:hover,
 form input[type="submit"].primary:hover,
@@ -1751,7 +1751,7 @@ form button.accent,
 button.accent,
 .button.accent {
   color: #ffffff;
-  background-color: #e040fb;
+  background-color: #E040FB;
 }
 .uploadButton.accent:hover,
 form input[type="submit"].accent:hover,
@@ -1771,7 +1771,7 @@ form button.danger,
 button.danger,
 .button.danger {
   color: #ffffff;
-  background-color: #f44336;
+  background-color: #F44336;
 }
 .uploadButton.delete:hover,
 form input[type="submit"].delete:hover,
@@ -1791,7 +1791,7 @@ form button.warning,
 button.warning,
 .button.warning {
   color: #ffffff;
-  background-color: #ff5722;
+  background-color: #FF5722;
 }
 .uploadButton.warning:hover,
 form input[type="submit"].warning:hover,
@@ -1823,21 +1823,21 @@ form input[type="submit"].flat.primary,
 form button.flat.primary,
 button.flat.primary,
 .button.flat.primary {
-  color: #00bcd4;
+  color: #00BCD4;
 }
 .uploadButton.flat.accent,
 form input[type="submit"].flat.accent,
 form button.flat.accent,
 button.flat.accent,
 .button.flat.accent {
-  color: #e040fb;
+  color: #E040FB;
 }
 .uploadButton.flat.warning,
 form input[type="submit"].flat.warning,
 form button.flat.warning,
 button.flat.warning,
 .button.flat.warning {
-  color: #ff5722;
+  color: #FF5722;
 }
 .uploadButton.flat.delete,
 form input[type="submit"].flat.delete,
@@ -1849,7 +1849,7 @@ form input[type="submit"].flat.danger,
 form button.flat.danger,
 button.flat.danger,
 .button.flat.danger {
-  color: #f44336;
+  color: #F44336;
 }
 .uploadButton.raised,
 form input[type="submit"].raised,
@@ -1875,7 +1875,7 @@ form button.floating,
 button.floating,
 .button.floating {
   color: #ffffff;
-  background-color: #e040fb;
+  background-color: #E040FB;
   display: inline-block;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -1919,6 +1919,7 @@ button.floating:hover,
   padding: 0;
   font-size: 40px;
   cursor: pointer;
+  visibility: hidden;
   -moz-opacity: 0;
   -webkit-opacity: 0;
   opacity: 0;

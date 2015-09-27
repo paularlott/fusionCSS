@@ -5,75 +5,71 @@ var gulp = require('gulp'),
 	minifyCSS = require('gulp-minify-css'),
 	rename = require('gulp-rename'),
 	insert = require('gulp-insert'),
-	uglify = require('gulp-uglify');
+	uglify = require('gulp-uglify'),
+	concat = require('gulp-concat'),
+	del = require('del');
 
-var themes = [
-	'cyan.purple'
-];
-
-gulp.task('less', function() {
-	gulp.src('./less/fusionCSS.less')
+/**
+ * Compile the source less generating both normal and minified CSS
+ *
+ * @param string src The source to compile.
+ * @param string dst The target file name.
+ * @param string dstMin The target file name for the minified version.
+ * @returns gulp
+ */
+function cssTask(src, dst, dstMin) {
+	return gulp.src(src)
 		.pipe(less({
 			compress: false
 		}))
-		.pipe(rename('fusion.css'))
-		.pipe(gulp.dest('./css/'));
+		.pipe(rename(dst))
+		.pipe(gulp.dest('./css/'))
 
-	gulp.src('./less/fusionCSS.less')
-		.pipe(less({
-			compress: true
-		}))
 		.pipe(minifyCSS())
 		.pipe(insert.prepend(version))
-		.pipe(rename('fusion.min.css'))
+		.pipe(rename(dstMin))
 		.pipe(gulp.dest('./css/'));
+}
+
+gulp.task('base', function() {
+	 return cssTask('./less/fusionCSS.less', 'fusion.css', 'fusion.min.css');
 });
 
-gulp.task('mdless', function() {
-	for(var i=0;i<themes.length;i++) {
-		gulp.src('./less/fusionCSS.MD.' + themes[i] + '.less')
-			.pipe(less({
-				compress: false
-			}))
-			.pipe(rename('fusioncss.md.' + themes[i] + '.css'))
-			.pipe(gulp.dest('./css/'));
-
-		gulp.src('./less/fusionCSS.MD.' + themes[i] + '.less')
-			.pipe(less({
-				compress: true
-			}))
-			.pipe(minifyCSS())
-			.pipe(insert.prepend(version))
-			.pipe(rename('fusioncss.md.' + themes[i] + '.min.css'))
-			.pipe(gulp.dest('./css/'));
-	}
+gulp.task('cyan.purple', function() {
+	var theme = 'cyan.purple';
+	return cssTask('./less/fusionCSS.MD.' + theme + '.less', 'fusioncss.md.' + theme + '.css', 'fusioncss.md.' + theme + '.min.css');
 });
+
+// Build the material themes
+gulp.task('material', [
+	'cyan.purple'
+]);
 
 gulp.task('js', function() {
-	gulp.src('./js/src/fusionCSS.js')
+	return gulp.src([
+		'./js/src/fusionCSS.js'
+	])
+		.pipe(concat('fusionCSS.js'))
 		.pipe(uglify())
 		.pipe(insert.prepend(version))
-		.pipe(rename('fusionCSS.js'))
 		.pipe(gulp.dest('./js/'));
 });
 
 gulp.task('clean', function() {
-	for(var i=0;i<themes.length;i++) {
-		fs.unlinkSync('./css/fusioncss.md.' + themes[i] + '.css');
-		fs.unlinkSync('./css/fusioncss.md.' + themes[i] + '.min.css');
-	}
-
-	fs.unlinkSync('./css/fusion.css');
-	fs.unlinkSync('./css/fusion.min.css');
-	fs.unlinkSync('./js/fusionCSS.js');
+	return del([
+		'./css/*.css',
+		'./js/*.js'
+	]);
 });
 
 gulp.task('watch', function() {
-	gulp.watch('./less/*.less', ['less', 'mdless']);
-	gulp.watch('./less/base/*.less', ['less']);
-	gulp.watch('./less/material/*.less', ['mdless']);
+	gulp.watch([
+		'./less/*.less',
+		'./less/base/*.less',
+		'./less/material/*.less'
+	], ['base', 'material']);
 	gulp.watch('./js/src/*.js', ['js']);
 });
 
-gulp.task('default', ['less', 'mdless', 'js']);
+gulp.task('default', ['base', 'material', 'js']);
 
