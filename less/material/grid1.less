@@ -1,0 +1,28 @@
+.row {
+	// Build a row compatible with V1.x span & offset
+	.makeRow1Compat() {
+		@colWidth: percentage((100 / @numColumns) / 100);
+
+		[class^="span"] {
+			float: left;
+			padding-left: @colGutter / 2;
+			padding-right: @colGutter / 2;
+		}
+
+		.makeCols(@span) when (@span > 0) {
+			.span@{span} {
+				width: @colWidth + (@colWidth * (@span - 1));
+			}
+			.offset@{span} {
+				margin-left: @colWidth * @span;
+			}
+			.makeCols(@span - 1);
+		}
+
+		.makeCols(@numColumns);
+	}
+
+	@media (min-width: @breakpoint-s) {
+		.makeRow1Compat();
+	}
+}

@@ -9,12 +9,11 @@
 		.clearfix;
 	}
 	li {
-		float: left;
-
 		a {
-			padding: .5em 1em;
+			padding: .5rem 1rem;
 			display: block;
 			color: @mnuColorText;
+			text-decoration: none;
 
 			&:hover {
 				background-color: lighten(@mnuColorBg, 5%);
@@ -33,14 +32,14 @@
 			background-color: @mnuColorBg;
 		}
 		li {
-			margin-right: .5em;
+			margin-right: .5rem;
 		}
 	}
 }
 
-.vnav {
+.hnav {
 	li {
-		float: none;
+		float: left;
 	}
 }
 
@@ -48,8 +47,8 @@
 [id*="collapsedMenu"] {
 	font-size: 100%;
 	width: 50%;
-	margin: .5em auto;
-	padding: .3em .6em;
+	margin: .5rem auto;
+	padding: .3rem .6rem;
 	border: 1px solid @colorDivider;
 	.border-radius(@radius);
 	.background-clip(padding-box);

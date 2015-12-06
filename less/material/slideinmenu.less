@@ -1,0 +1,73 @@
+#slideInMenuOverlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: @black-alpha-26;
+	cursor: pointer;
+	z-index: 99000;
+
+	&.slideInMenuShow {
+		display: block;
+	}
+}
+
+#slideInMenu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 0;
+	max-width: 16rem;
+	height: 100%;
+	overflow-y: auto;
+	background-color: @slideInBg;
+	z-index: 99010;
+	.transition();
+
+	&.slideInMenuShow {
+		display: block;
+		width: 80%;
+		-webkit-box-shadow: 3px 0 6px rgba(0,0,0,0.16), 3px 0 6px rgba(0,0,0,0.23);
+		-moz-box-shadow: 3px 0 6px rgba(0,0,0,0.16), 3px 0 6px rgba(0,0,0,0.23);
+		box-shadow: 3px 0 6px rgba(0,0,0,0.16), 3px 0 6px rgba(0,0,0,0.23);
+	}
+
+	a {
+		color: @slideInLink;
+		padding: .75rem 1rem;
+		display: block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		&:hover {
+			background-color: @slideInLinkHoverBg;
+		}
+	}
+
+	ul {
+		margin: 0;
+		padding: 1rem 0 0 0;
+
+		& + ul {
+			margin-top: .5rem;
+			padding-top: .5rem;
+			border-top: 1px solid @colorDivider;
+		}
+	}
+
+	li {
+		padding: 0;
+
+		li a {
+			padding-left: 2rem;
+		}
+	}
+}
+
+body.disableScroll {
+	height: 100%;
+	overflow: hidden;
+}

@@ -108,6 +108,17 @@ blockquote {
 	}
 }
 
+// Screen Reader only, see http://webaim.org/techniques/css/invisiblecontent/
+.sr-only {
+	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px);
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	padding: 0;
+	margin: -1;
+}
+
 // IE10 Metro, see http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
 @-ms-viewport{
 	width: device-width;

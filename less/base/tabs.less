@@ -14,7 +14,7 @@
 		padding: .2em .5em;
 		color: @navColor;
 		background-color: @navBg;
-		.border-radius(@radius @radius 0 0);
+		.border-radius(@radius, @radius, 0, 0);
 		.transition();
 
 		&:hover {
@@ -38,7 +38,7 @@
 	list-style: none;
 	margin-left: 0;
 	border: 1px solid @formBorderColor;
-	.border-radius(0 @radius @radius @radius);
+	.border-radius(0, @radius, @radius, @radius);
 
 	> li {
 		margin: 0 1em;
@@ -58,7 +58,7 @@
 	li {
 		float: none;
 		margin-right: 0;
-		.border-radius(@radius 0 0 @radius);
+		.border-radius(@radius, 0, 0, @radius);
 	}
 }
 
@@ -77,7 +77,7 @@
 	}
 
 	.tabpanels {
-		.border-radius(0 0 @radius @radius);
+		.border-radius(0, 0, @radius, @radius);
 	}
 	.vtabs .tabs li,
 	.tabs li {

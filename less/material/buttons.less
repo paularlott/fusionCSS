@@ -9,32 +9,45 @@ button,
 	background-color: @btnColorDefault;
 	font-weight: 400;
 	text-transform: uppercase;
-	padding: .3em 1em;
+	padding: .5rem 1rem;
 	cursor: pointer;
 	outline: none;
 	border: none;
 	display: inline-block;
+	margin-bottom: .5rem;
 	.border-radius(@radius);
 	.transition();
 
 	&:hover {
-		background-color: lighten(@btnColorDefault, 5%);
+		background-color: lighten(@btnColorDefault, @btnHoverLighten);
 		.z-depth2();
 	}
 
+	&:disabled {
+		.z-depth0();
+		cursor: default;
+		.opacity(@btnDisabled);
+	}
+
 	&.primary {
-		color: @btnColorPrimaryText;
+		color: @colorPrimaryText;
 		background-color: @colorPrimary;
 		&:hover {
-			background-color: lighten(@colorPrimary, 5%);
+			background-color: lighten(@colorPrimary, @btnHoverLighten);
+		}
+		&:disabled {
+			background-color: @colorPrimary;
 		}
 	}
 
 	&.accent {
-		color: @btnColorAccentText;
+		color: @colorAccentText;
 		background-color: @colorAccent;
 		&:hover {
-			background-color: lighten(@colorAccent, 5%);
+			background-color: lighten(@colorAccent, @btnHoverLighten);
+		}
+		&:disabled {
+			background-color: @colorAccent;
 		}
 	}
 
@@ -42,14 +55,10 @@ button,
 		color: @btnColorDangerText;
 		background-color: @btnColorDanger;
 		&:hover {
-			background-color: lighten(@btnColorDanger, 5%);
+			background-color: lighten(@btnColorDanger, @btnHoverLighten);
 		}
-	}
-	&.warning {
-		color: @btnColorWarningText;
-		background-color: @btnColorWarning;
-		&:hover {
-			background-color: lighten(@btnColorWarning, 5%);
+		&:disabled {
+			background-color: @btnColorDanger;
 		}
 	}
 
@@ -59,8 +68,11 @@ button,
 		background-color: transparent;
 
 		&:hover {
-			background-color: @black-alpha-5;
+			background-color: @btnColorFlatBg;
 			.z-depth0();
+		}
+		&:disabled {
+			background-color: transparent;
 		}
 
 		&.primary {
@@ -69,10 +81,6 @@ button,
 
 		&.accent {
 			color: @colorAccent;
-		}
-
-		&.warning {
-			color: @btnColorWarning;
 		}
 
 		&.delete, &.danger {
@@ -86,36 +94,34 @@ button,
 		&:hover {
 			.z-depth2();
 		}
+		&:disabled {
+			.z-depth0();
+		}
 	}
 
 	// Floating
 	&.floating {
-		color: @btnColorAccentText;
-		background-color: @colorAccent;
 		display: inline-block;
 		.border-radius(50%);
-		width: 3em;
-		height: 3em;
-		line-height: 3em;
+		width: 3rem;
+		height: 3rem;
+		line-height: 3rem;
 		text-align: center;
 		padding: 0;
 		.z-depth1();
 
 		&.mini {
-			width: 2.25em;
-			height: 2.25em;
-			line-height: 2.25em;
-		}
-
-		&:hover {
-			background-color: lighten(@colorAccent, 5%);
-			.z-depth2();
+			width: 2.25rem;
+			height: 2.25rem;
+			line-height: 2.25rem;
 		}
 	}
 }
 
 .uploadButton {
 	position: relative;
+	overflow: hidden;
+	display: inline-block;
 
 	input[type="file"] {
 		position: absolute;
@@ -125,7 +131,6 @@ button,
 		padding: 0;
 		font-size: 40px;
 		cursor: pointer;
-		visibility: hidden;
 		.opacity(0);
 	}
 }

@@ -3,12 +3,12 @@
 // Define the color palette
 //////////////////////////////////////////////////////////////////////
 
-@colorPrimary:      @cyan-500;
-@colorPrimaryLight: @cyan-100;
-@colorPrimaryDark:  @cyan-700;
-@colorAccent:       @purple-A200;
+@colorPrimaryText:  @white;
+@colorPrimary:      @blue-500;
+@colorAccentText:   @white;
+@colorAccent:       @pink-A200;
 
-@colorPage:         #eee;
+@colorPage:         @grey-200;
 @colorText:         @black-alpha-87;
 @colorPaper:        @white;
 @colorTextIcons:    @white;
@@ -23,11 +23,9 @@
 @alertColorErrorFg:     @white;
 @alertColorErrorBg:     @red-500;
 @alertColorWarningFg:   @white;
-@alertColorWarningBg:   @orange-500;
-@alertColorInfoFg:      @black-alpha-87;
-@alertColorInfoBg:      @light-blue-100;
-@alertColorNoteFg:      @black-alpha-87;
-@alertColorNoteBg:      @blue-grey-50;
+@alertColorWarningBg:   @deep-orange-500;
+@alertColorInfoFg:      @white;
+@alertColorInfoBg:      @light-blue-500;
 
 //////////////////////////////////////////////////////////////////////
 // Forms and buttons
@@ -35,75 +33,85 @@
 
 @btnColorDefaultText:   @colorText;
 @btnColorDefault:       transparent;
-@btnColorPrimaryText:   @white;
-@btnColorAccentText:    @white;
-@btnColorWarningText:   @white;
-@btnColorWarning:       @deep-orange-500;
 @btnColorDangerText:    @white;
 @btnColorDanger:        @red-500;
+@btnColorFlatBg:        @grey-200;
+@btnHoverLighten:       5%;
+@btnDisabled:           .6;
 @formValidatorReq:      @red-500;
 @formValidatorFailed:   @red-500;
+@formTextDesc:          @black-alpha-54;
+@checklistHoeverBg:     @grey-200;
 
 //////////////////////////////////////////////////////////////////////
 // Toast popup colours
 //////////////////////////////////////////////////////////////////////
 
-@toastBgColor:          #323232;
-@toastFgColor:          #ffffff;
+@toastBgColor:          @black;
+@toastFgColor:          @white;
 
 //////////////////////////////////////////////////////////////////////
 // Table colours
 //////////////////////////////////////////////////////////////////////
 
 @tableHeaderFontWeight: normal;
-@tableHeaderColorText:  inhert;
-@tableHeaderColor:      @black-alpha-12;
+@tableHeaderColorText:  @black-alpha-54;
 @tableOddColor:         @black-alpha-5;
 @tableEvenColor:        transparent;
 @tableBorderColor:      @colorDivider;
-@tableHoverColor:       @yellow-50;
+@tableHoverColor:       @grey-200;
+
+//////////////////////////////////////////////////////////////////////
+// Breadcrumb colours
+//////////////////////////////////////////////////////////////////////
+
+@bcTextColor:    @black-alpha-54;
+@bcHoverColor:   @black-alpha-26;
+@bcHoverBgColor: @white;
+
+@bcFlatBgColor:     @white;
+@bcFlatAccent:      @colorAccent;
+@bcFlatAccentText:  @colorAccentText;
+@bcFlatText:        @colorText;
 
 //////////////////////////////////////////////////////////////////////
 // Slide in nav
 //////////////////////////////////////////////////////////////////////
 
-@slideInBg:             #1e1e1e;
-@slideInLink:           #eee;
-@slideInLinkHover:      #ccc;
-@slideInLinkHoverBg:    #1a1a1a;
-@slideInSep:            #222;
+@slideInBg:             @white;
+@slideInLink:           @colorText;
+@slideInLinkHoverBg:    @grey-200;
 
 //////////////////////////////////////////////////////////////////////
 // Tabs
 //////////////////////////////////////////////////////////////////////
 
-@tabsCompactWidth:      33.33333333%;
-@tabsTextColor:         @colorPrimaryDark;
-@tabsActiveColor:       @colorPrimaryDark;
-@tabsVertActiveColor:   @colorText;
-@tabsVertBgColor:       @black-alpha-5;
+@tabsTextColor:         @colorText;
+@tabsActiveColor:       @colorPrimary;
+@tabsHoverColor:        lighten(@colorPrimary, 25%);
 
 //////////////////////////////////////////////////////////////////////
 // Pagination
 //////////////////////////////////////////////////////////////////////
 
 @paginColorText:        @colorText;
-@paginColorActiveText:  @colorText;
-@paginColorActiveBg:    @colorPrimaryLight;
-@paginColorHoverBg:     @black-alpha-5;
+@paginColorActiveText:  @white;
+@paginColorActiveBg:    @colorAccent;
+@paginColorHoverBg:     @grey-200;
 
 //////////////////////////////////////////////////////////////////////
 // Menus
 //////////////////////////////////////////////////////////////////////
 
-@mnuColorText:  @btnColorPrimaryText;
+@mnuColorText:  @colorPrimaryText;
 @mnuColorBg:    @colorPrimary;
 
 //////////////////////////////////////////////////////////////////////
 // Misc
 //////////////////////////////////////////////////////////////////////
 
-@colorBlockquote: @colorDivider;
+@colorBlockquote:       @colorAccent;
+@colorBlockquoteCite:   @black-alpha-54;
 
 //////////////////////////////////////////////////////////////////////
 // Include components
@@ -113,22 +121,26 @@
 @import "base/variables.less";
 @import "base/mixins.less";
 
-@import "base/base.less";
-@import "base/grid.less";
+@import "material/typography.less";
+@import "material/grid.less";
+//@import "material/grid1.less";
+@import "material/utilities.less";
+@import "material/colors.less";
 
 @import "material/tables.less";
 @import "material/pagination.less";
-@import "base/breadcrumb.less";
+@import "material/breadcrumb.less";
 @import "material/navigation.less";
 @import "material/alerts.less";
-@import "base/misc.less";
-@import "material/tabs.less";
-@import "base/slideinmenu.less";
-@import "material/toast.less";
 @import "base/visibility.less";
 
-@import "material/colors.less";
 @import "material/cards.less";
-@import "material/shadow.less";
 @import "material/forms.less";
 @import "material/buttons.less";
+
+@import "material/slideinmenu.less";
+@import "material/toast.less";
+@import "material/tabs.less";
+@import "material/chips.less";
+
+@import "material/shadow.less";

@@ -1,3 +1,7 @@
+// jQuery or fusionLib
+if(!window.$)
+	window.$ = window.jQuery = fusionLib;
+
 $(document).ready(function() {
 
 	var css = [
@@ -6,8 +10,8 @@ $(document).ready(function() {
 			'../css/fusion.css',
 		],
 		[
-			'Cyan',
-			'../css/fusioncss.md.cyan.purple.css'
+			'Blue',
+			'../css/fusioncss.md.blue.pink.css'
 		]
 	];
 
@@ -22,7 +26,7 @@ $(document).ready(function() {
 	if(selected != null)
 		$('#pagestyle').attr('href', selected);
 
-	$('#cssoption button').click(function(e) {
+	$('#cssoption button').bind('click', function(e) {
 		$('#pagestyle').attr('href', $(this).attr('data-sheet'));
 		localStorage.setItem('fusionCSS.test.sheet', $(this).attr('data-sheet'));
 		e.preventDefault();

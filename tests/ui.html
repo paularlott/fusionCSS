@@ -50,7 +50,7 @@
 
 		<div class="row">
 			<div class="span12">
-				<div class="card"><div>
+				<div class="card"><div class="content">
 
 		<div class="row">
 			<div class="span-s12">
@@ -66,7 +66,7 @@
 			<div class="span-s8">
 				<h3>Example</h3>
 				<h4>HTML</h4>
-		<pre class="brush: html; toolbar: false;">&lt;div id="tabs1" class="tabwidget vtabs" role="tabpanel">
+		<pre class="brush: html; toolbar: false;">&lt;div id="tabs1" class="tabwidget vtabs" role="tabpanel" data-tabs-active="tabs-2">
 	&lt;ul class="tabs" role="tablist">
 		&lt;li role="tab" data-tabpanel="tabs-1">Tab 1&lt;/li>
 		&lt;li role="tab" data-tabpanel="tabs-2">Tab 2&lt;/li>
@@ -92,18 +92,8 @@
 	&lt;/ul>
 &lt;/div></pre>
 
-				<h4>JavaScript</h4>
-
-				<p>The following enables tabbing and makes the tab 'tabs-2' the active tab.</p>
-		<pre class="brush: js; toolbar: false;">&lt;script type="text/javascript">
-//&lt;![CDATA[
-$fl(document).ready(function() {
-	$fl('#tabs1').tabs('tabs-2');
-});
-//]]>
-&lt;/script></pre>
 				<h3>Result</h3>
-				<div id="tabs1" class="tabwidget vtabs" role="tabpanel">
+				<div id="tabs1" class="tabwidget vtabs" role="tabpanel" data-tabs-active="tabs-2">
 					<ul class="tabs" role="tablist">
 						<li role="tab" data-tabpanel="tabs-1">Tab 1</li>
 						<li role="tab" data-tabpanel="tabs-2">Tab 2</li>
@@ -161,15 +151,7 @@ $fl(document).ready(function() {
 	&lt;/ul>
 &lt;/div></pre>
 
-				<h4>JavaScript</h4>
-		<pre class="brush: js; toolbar: false;">&lt;script type="text/javascript">
-//&lt;![CDATA[
-$fl(document).ready(function() {
-	$fl('#tabs2');
-});
-//]]>
-&lt;/script></pre>
-				<h3>Result</h3>
+s				<h3>Result</h3>
 				<div id="tabs2" class="tabwidget" role="tabpanel">
 					<ul class="tabs" role="tablist">
 						<li role="tab" data-tabpanel="tabs2-1">Tab 1</li>
@@ -194,14 +176,6 @@ $fl(document).ready(function() {
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript">
-			//<![CDATA[
-			$fl(document).ready(function() {
-				$fl('#tabs1').tabs('tabs-2');
-				$fl('#tabs2').tabs();
-			});
-			//]]>
-		</script>
 
 		<div class="row">
 			<div class="span12">
@@ -211,7 +185,7 @@ $fl(document).ready(function() {
 
 		<div class="row">
 			<div class="span-s12">
-				<div id="tabso1" class="tabwidget vtabs" role="tabpanel">
+				<div id="tabso1" class="tabwidget vtabs" role="tabpanel" data-tabs-active="tabso-2">
 					<ul class="tabs" role="tablist">
 						<li role="tab"><a href="#tabso-1">Tab 1</a></li>
 						<li role="tab"><a href="#tabso-2">Tab 2</a></li>
@@ -233,6 +207,37 @@ $fl(document).ready(function() {
 								<li>asaf saf sfa sfas f</li>
 							</ul>
 							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+						</li>
+					</ul>
+				</div>
+
+				<h3>Nested Tabs</h3>
+				<div id="tabso3" class="tabwidget vtabs" role="tabpanel">
+					<ul class="tabs" role="tablist">
+						<li role="tab"><a href="#tabso3-1">Tab 1</a></li>
+						<li role="tab"><a href="#tabso3-2">Tab 2</a></li>
+					</ul>
+					<ul class="tabpanels">
+						<li id="tabso3-1" role="tabpanel">
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+						</li>
+						<li id="tabso3-2" role="tabpanel">
+
+							<div id="tabso4" class="tabwidget" role="tabpanel" data-tabs-active="tabso4-2">
+								<ul class="tabs" role="tablist">
+									<li role="tab"><a href="#tabso4-1">Tab A</a></li>
+									<li role="tab"><a href="#tabso4-2">Tab B</a></li>
+								</ul>
+								<ul class="tabpanels">
+									<li id="tabso4-1" role="tabpanel">
+										<p>A - Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+									</li>
+									<li id="tabso4-2" role="tabpanel">
+										<p>B - Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+									</li>
+								</ul>
+							</div>
+
 						</li>
 					</ul>
 				</div>
@@ -381,13 +386,6 @@ $fl(document).ready(function() {
 		</footer>
 
 	</div>
-
-<script type="text/javascript">
-	$fl(document).ready(function() {
-		$fl('#tabso1').tabs('tabso-2');
-		$fl('#tabso2').tabs();
-	});
-</script>
 
 	<div id="scrollToTop" class="hide">Top</div>
 

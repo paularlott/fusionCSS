@@ -12,42 +12,25 @@
 	background-clip: @arg;
 }
 
-.border-radius(@radius) {
-	-moz-border-radius: @radius;
-	-webkit-border-radius: @radius;
-	border-radius: @radius;
-}
-.border-radius(@topleft, @topright, @bottomright, @bottomleft) {
-	-moz-border-radius: @topleft @topright @bottomright @bottomleft;
-	-webkit-border-radius: @topleft @topright @bottomright @bottomleft;
-	border-radius: @topleft @topright @bottomright @bottomleft;
+.border-radius(...) {
+	-moz-border-radius: @arguments;
+	-webkit-border-radius: @arguments;
+	border-radius: @arguments;
 }
 
-.box-shadow(@xoffset, @yoffset, @blur, @color) {
-	-webkit-box-shadow: @xoffset @yoffset @blur @color;
-	-moz-box-shadow: @xoffset @yoffset @blur @color;
-	box-shadow: @xoffset @yoffset @blur @color;
+.box-shadow(...) {
+	-webkit-box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+	box-shadow: @arguments;
 }
 
-.box-shadow(@xoffset, @yoffset, @blur, @spread, @color) {
-	-webkit-box-shadow: @xoffset @yoffset @blur @spread @color;
-	-moz-box-shadow: @xoffset @yoffset @blur @spread @color;
-	box-shadow: @xoffset @yoffset @blur @spread @color;
+.inner-shadow(...) {
+	-webkit-box-shadow: inset @arguments;
+	-moz-box-shadow: inset @arguments;
+	box-shadow: inset @arguments;
 }
 
-.inner-shadow(@xoffset, @yoffset, @blur, @color) {
-	-webkit-box-shadow: inset @xoffset @yoffset @blur @color;
-	-moz-box-shadow: inset @xoffset @yoffset @blur @color;
-	box-shadow: inset @xoffset @yoffset @blur @color;
-}
-
-.inner-shadow(@xoffset, @yoffset, @blur, @spread, @color) {
-	-webkit-box-shadow: inset @xoffset @yoffset @blur @spread @color;
-	-moz-box-shadow: inset xoffset @yoffset @blur @spread @color;
-	box-shadow: inset @xoffset @yoffset @blur @spread @color;
-}
-
-.transition(@prop: all, @time: 100ms, @ease: linear) {
+.transition(@prop: all, @time: 250ms, @ease: linear) {
 	-webkit-transition: @prop @time @ease;
 	-moz-transition: @prop @time @ease;
 	-o-transition: @prop @time @ease;
@@ -119,9 +102,6 @@
 	-moz-opacity: @opacity;
 	-webkit-opacity: @opacity;
 	opacity: @opacity;
-	@o: @opacity * 100;
-	-ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{o})";
-	filter: ~"alpha(opacity=@{o})";
 }
 
 .font-size-ems(@sizepx, @basesizepx: 16px) {

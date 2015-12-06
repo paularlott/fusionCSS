@@ -4,11 +4,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link id="pagestyle" href="../css/fusioncss.md.cyan.purple.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link id="pagestyle" href="../css/fusioncss.md.blue.pink.css" rel="stylesheet">
 	<link href="test.css" rel="stylesheet">
-	<!--[if lt IE 9]>
-	<script type="text/javascript" src="//cdn.jsdelivr.net/g/respond,html5shiv"></script>
-	<![endif]-->
 	<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/src/fusionCSS.js"></script>
 	<script type="text/javascript" src="test.js"></script>
@@ -51,39 +49,43 @@
 	<div class="row">
 		<div class="span-s12">
 
+			<ul class="vnav slideInMenu hidden-t hidden-s">
+				<li><a href="colors.html">Colors</a></li>
+				<li><a href="cards.html">Cards</a></li>
+			</ul>
+
 			<h1>Getting Started</h1>
 
 			<section class="card z-depth1">
-				<div>z-depth1</div>
+				<div class="content">z-depth1</div>
 			</section>
 			<section class="card z-depth2">
-				<div>z-depth2</div>
+				<div class="content">z-depth2</div>
 			</section>
 			<section class="card z-depth3">
-				<div>z-depth3</div>
+				<div class="content">z-depth3</div>
 			</section>
 			<section class="card z-depth4">
-				<div>z-depth4</div>
+				<div class="content">z-depth4</div>
 			</section>
 			<section class="card z-depth5">
-				<div>z-depth5</div>
+				<div class="content">z-depth5</div>
 			</section>
 
 			<section class="card">
-				<header>Panel header</header>
-				<div>Panel content</div>
+				<div class="header">Panel header</div>
+				<div class="content">Panel content</div>
 			</section>
 
 			<div class="row">
 				<div class="span-s12">
 					<section class="card">
-						<header>Normal Buttons</header>
-						<div>
+						<div class="header">Normal Buttons</div>
+						<div class="content">
 							<p>
 								<a href="#stays" class="button">Button</a>
 								<a href="#stays" class="button primary">Button</a>
 								<a href="#stays" class="button accent">Button</a>
-								<a href="#stays" class="button warning">Button</a>
 								<a href="#stays" class="button danger">Button</a>
 							</p>
 						</div>
@@ -91,13 +93,12 @@
 				</div>
 				<div class="span-s12">
 					<section class="card">
-						<header>Flat Buttons</header>
-						<div>
+						<div class="header">Flat Buttons</div>
+						<div class="content">
 							<p>
 								<a href="#stays" class="button flat">Flat</a>
 								<a href="#stays" class="button flat primary">Flat</a>
 								<a href="#stays" class="button flat accent">Flat</a>
-								<a href="#stays" class="button flat warning">Flat</a>
 								<a href="#stays" class="button flat danger">Flat</a>
 							</p>
 						</div>
@@ -105,13 +106,12 @@
 				</div>
 				<div class="span-s12">
 					<section class="card">
-						<header>Raised Buttons</header>
-						<div>
+						<div class="header">Raised Buttons</div>
+						<div class="content">
 							<p>
 								<a href="#stays" class="button raised">Raised</a>
 								<a href="#stays" class="button raised primary">Raised</a>
 								<a href="#stays" class="button raised accent">Raised</a>
-								<a href="#stays" class="button raised warning">Raised</a>
 								<a href="#stays" class="button raised danger">Raised</a>
 							</p>
 						</div>
@@ -119,15 +119,44 @@
 				</div>
 				<div class="span-s12">
 					<section class="card primary">
-						<header>Form Buttons</header>
-						<div>
+						<div class="header">Form Buttons</div>
+						<div class="content">
 							<form>
 								<div>
 									<input type="submit" value="Submit"/>
 									<input type="submit" value="Submit" class="primary"/>
 									<input type="submit" value="Submit" class="accent"/>
-									<input type="submit" value="Submit" class="warning"/>
 									<input type="submit" value="Submit" class="danger"/>
+								</div>
+								<div style="margin-top: 1em;">
+									<input type="submit" value="Submit" disabled="disabled"/>
+									<input type="submit" value="Submit" class="primary" disabled="disabled"/>
+									<input type="submit" value="Submit" class="accent" disabled="disabled"/>
+									<input type="submit" value="Submit" class="danger" disabled="disabled"/>
+								</div>
+								<div style="margin-top: 1em;">
+									<input type="submit" value="Submit" class="flat"/>
+									<input type="submit" value="Submit" class="flat primary"/>
+									<input type="submit" value="Submit" class="flat accent"/>
+									<input type="submit" value="Submit" class="flat danger"/>
+								</div>
+								<div style="margin-top: 1em;">
+									<input type="submit" value="Submit" class="flat" disabled="disabled"/>
+									<input type="submit" value="Submit" class="flat primary" disabled="disabled"/>
+									<input type="submit" value="Submit" class="flat accent" disabled="disabled"/>
+									<input type="submit" value="Submit" class="flat danger" disabled="disabled"/>
+								</div>
+								<div style="margin-top: 1em;">
+									<input type="submit" value="Submit" class="raised"/>
+									<input type="submit" value="Submit" class="raised primary"/>
+									<input type="submit" value="Submit" class="raised accent"/>
+									<input type="submit" value="Submit" class="raised danger"/>
+								</div>
+								<div style="margin-top: 1em;">
+									<input type="submit" value="Submit" class="raised" disabled="disabled"/>
+									<input type="submit" value="Submit" class="raised primary" disabled="disabled"/>
+									<input type="submit" value="Submit" class="raised accent" disabled="disabled"/>
+									<button class="raised danger" disabled="disabled">Submit</button>
 								</div>
 							</form>
 						</div>
@@ -135,17 +164,34 @@
 				</div>
 				<div class="span-s6">
 					<section class="card">
-						<header>Floating Buttons</header>
-						<div>
-							<p><a href="#stays" class="button floating">+</a> <a href="#stays" class="button floating mini">+</a></p>
+						<div class="header">Floating Buttons</div>
+						<div class="content">
+							<button class="button floating">+</button>
+							<button class="button floating primary">+</button>
+							<button class="button floating accent">+</button>
+							<button class="button floating danger">+</button>
+							<button class="button floating mini">+</button>
+							<button class="button floating primary mini">+</button>
+							<button class="button floating accent mini">+</button>
+							<button class="button floating danger mini">+</button>
+						</div>
+						<div class="content">
+							<button class="button floating" disabled="disabled">+</button>
+							<button class="button floating primary" disabled="disabled">+</button>
+							<button class="button floating accent" disabled="disabled">+</button>
+							<button class="button floating danger" disabled="disabled">+</button>
+							<button class="button floating mini" disabled="disabled">+</button>
+							<button class="button floating primary mini" disabled="disabled">+</button>
+							<button class="button floating accent mini" disabled="disabled">+</button>
+							<button class="button floating danger mini" disabled="disabled">+</button>
 						</div>
 					</section>
 				</div>
 
 				<div class="span-s12">
 					<section class="card">
-						<header>Basic Form Test</header>
-						<div>
+						<div class="header">Basic Form Test</div>
+						<div class="content">
 							<form id="couponform" class="vform floatingLabels" action="#stay" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
 								<fieldset id="details-group">
 									<legend>Details</legend>
@@ -195,8 +241,22 @@
 			</div>
 
 			<section class="card accent">
-				<header>Toast Test</header>
-				<div>
+				<div class="header">Chips</div>
+				<div class="content">
+					<div class="chip">Example 1</div>
+					<div class="chip">Example 2 <i class="fa fa-times"></i></div>
+					<div class="chip">
+						<img src="small.jpg" alt="Image" />
+						Example 3
+					</div>
+					<div class="chip"><b class="primary">E</b>Example 4</div>
+					<div class="chip"><b class="accent">E</b>Example 5</div>
+				</div>
+			</section>
+
+			<section class="card accent">
+				<div class="header">Toast Test</div>
+				<div class="content">
 					<div class="button" id="testToast">Click for Toast</div>
 					<div class="button" id="testToast2">Toast Click to Hide</div>
 				</div>
@@ -204,12 +264,12 @@
 
 			<script type="text/javascript">
 				$fl('#testToast').bind('click', function (e) {
-					$fl.toastShow('Via Lib: This is the toast message <br>' + (new Date()));
+					$fl.toastShow('', 'Via Lib: This is the toast message <br>' + (new Date()));
 					e.preventDefault();
 					return false;
 				});
 				$fl('#testToast2').bind('click', function (e) {
-					$fl.toastShow('Via Lib: This is the toast 2 message <br>' + (new Date()), true);
+					$fl.toastShow('success', 'Via Lib: This is the toast 2 message <br>' + (new Date()), 'Dismiss', function() { console.log('hello world'); });
 					e.preventDefault();
 					return false;
 				});

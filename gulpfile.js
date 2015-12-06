@@ -35,14 +35,14 @@ gulp.task('base', function() {
 	 return cssTask('./less/fusionCSS.less', 'fusion.css', 'fusion.min.css');
 });
 
-gulp.task('cyan.purple', function() {
-	var theme = 'cyan.purple';
+gulp.task('blue.pink', function() {
+	var theme = 'blue.pink';
 	return cssTask('./less/fusionCSS.MD.' + theme + '.less', 'fusioncss.md.' + theme + '.css', 'fusioncss.md.' + theme + '.min.css');
 });
 
 // Build the material themes
 gulp.task('material', [
-	'cyan.purple'
+	'blue.pink'
 ]);
 
 gulp.task('js', function() {

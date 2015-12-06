@@ -1,10 +1,18 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
 
+html {
+	font-size: 16px;
+}
+@media (max-width: 767px) {
+	html {
+		font-size: 14px;
+	}
+}
+
 body {
 	color: rgba(0, 0, 0, 0.87);
 	background-color: #eeeeee;
 	font-family: 'Roboto', sans-serif;
-	font-size: 100%;
 	padding: 10px 0;
 }
 
@@ -30,15 +38,12 @@ body {
 .container { max-width: 980px; margin: 0 auto; }
 
 /* Style elements */
-h1 { color: #4e6a91; font-size: 150%; margin: 1em 0; font-weight: bold; }
-h2 { color: #4e6a91; font-size: 120%; margin-top: 1em; font-weight: bold; }
-h3 { color: #4e6a91; font-size: 110%; margin-top: 1em; font-weight: bold; }
 a { color: #4e6a91; text-decoration: none; }
 a:hover { color: #000; }
 img {vertical-align: middle; }
 body > .container > header { margin-bottom: 2em; position: relative; }
 nav { margin-bottom: 1em; }
-footer { margin-top: 1em; }
+footer { padding-top: 1em; }
 table.centered {
 	text-align: center;
 }
@@ -61,8 +66,8 @@ pre {
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: 10px;
+	right: 10px;
 	cursor: pointer;
 	background-color: #ddd;
 	padding: 7px;
@@ -95,4 +100,17 @@ pre {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+}
+
+.colorGroup {
+	list-style: none;
+	padding: 1rem 1.5rem;
+	margin: 0;
+}
+.colorGroup li {
+	padding: .75em;
+	color: #fff;
+}
+.colorGroup li.dark {
+	color: #222;
 }

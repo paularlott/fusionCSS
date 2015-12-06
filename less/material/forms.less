@@ -4,54 +4,12 @@ textarea {
 	resize: vertical;
 }
 
-// Limit the max width of a form and have it center & base style
-form {
-	margin: 0 auto;
-}
-form:after { .clear; }
-
-form fieldset {
-	border: 1px solid @colorDivider;
-	margin: 15px 0;
-	padding: 10px 12px;
-	.border-radius(@radius);
-	.background-clip(padding-box);
-	min-width: 0; // stop auto resize on Chrome
-}
-
-form legend {
-	padding: 0 5px;
-	border: 1px solid @colorDivider;
-	.border-radius(@radius);
-	.background-clip(padding-box);
-}
-
-// Labels & validation
-form label {
-	display: block;
-	padding-top: 6px;
-	position: relative;
-	font-weight: 500;
-	font-size: 85%;
-	color: @black-alpha-54;
-	top: 0;
-	.transition();
-
-	em {
-		font-style: normal;
-		font-size: 85%;
-		color: fadeout(@formValidatorReq, 13%);
-	}
-
-	&.validationError span:first-child {
-		display: none;
-	}
-}
-
 .floatingLabels label {
 	&.floatDown {
-		color: @black-alpha-87;
-		top: 2em;
+		color: @formTextDesc;
+		top: 1.75rem;
+		cursor: text;
+		font-size: 100%;
 
 		em {
 			color: @formValidatorReq;
@@ -59,200 +17,260 @@ form label {
 	}
 }
 
-form .description {
-	padding: .3em 0;
-	font-size: 85%;
-	color: @black-alpha-54;
-}
+form {
+	margin: 0 auto;
 
-form .validation {
-	color: @formValidatorFailed;
-	display: none;
+	&:after {
+		.clear;
+	}
 
-	strong {
-		font-weight: normal;
+	fieldset {
+		border: 1px solid @colorDivider;
+		margin: 15px 0;
+		padding: 10px 12px;
+		.border-radius(@radius);
+		.background-clip(padding-box);
+		min-width: 0; // stop auto resize on Chrome
+	}
+
+	legend {
+		padding: 0 5px;
+		border: 1px solid @colorDivider;
+		.border-radius(@radius);
+		.background-clip(padding-box);
+	}
+
+	// Labels & validation
+	label {
+		display: block;
+		padding-top: 6px;
+		position: relative;
+		font-weight: 500;
+		font-size: 85%;
+		color: @colorText;
+		top: 0;
+		.transition();
+
+		em {
+			font-style: normal;
+			font-size: 85%;
+			color: fadeout(@formValidatorReq, 13%);
+		}
+
+		&.validationError span:first-child {
+			display: none;
+		}
+
+		&.focused {
+			color: @colorPrimary;
+		}
+	}
+
+	.description {
+		padding: .3rem 0;
+		font-size: 85%;
+		color: @formTextDesc;
+	}
+
+	.validation {
+		color: @formValidatorFailed;
+		display: none;
+
+		strong {
+			font-weight: normal;
+			display: block;
+		}
+	}
+
+	.ok,
+	.failed,
+	.ajax {
 		display: block;
 	}
-}
 
-form .ok,
-form .failed,
-form .ajax {
-	display: block;
-}
-
-// Form elements
-form input[disabled] {
-	cursor: not-allowed;
-	.opacity(.5);
-}
-
-form input[type="text"],
-form input[type="number"],
-form input[type="email"],
-form input[type="url"],
-form input[type="password"],
-form input[type="search"],
-form select,
-form textarea {
-	outline: none;
-	font-family: inherit;
-	font-size: 100%;
-	width: 100%;
-	*width: 95%;
-	padding: 2px 2px 1px 2px;
-	border: none;
-	border-bottom: 2px solid @colorDivider;
-	background-color: transparent;
-	.transition();
-
-	&:focus {
-		border-bottom: 2px solid @colorPrimaryDark;
+	// Form elements
+	input[disabled] {
+		cursor: not-allowed;
+		.opacity(.5);
 	}
 
-	&.validationError {
-		border-bottom-color: @formValidatorFailed;
-	}
-}
+	input[type="text"],
+	input[type="number"],
+	input[type="email"],
+	input[type="url"],
+	input[type="password"],
+	input[type="search"],
+	select,
+	textarea {
+		outline: none;
+		font-family: inherit;
+		font-size: 100%;
+		width: 100%;
+		*width: 95%;
+		padding: 2px 2px 1px 2px;
+		border: none;
+		border-bottom: 2px solid @colorDivider;
+		background-color: transparent;
+		.transition();
 
-form input[type="file"] {
-	font-size: 100%;
-	width: auto;
+		&:focus {
+			border-bottom: 2px solid @colorPrimary;
+		}
+
+		&.validationError {
+			border-bottom-color: @formValidatorFailed;
+		}
+	}
+
+	input[type="file"] {
+		font-size: 100%;
+		width: auto;
+	}
+
+	// Radio group
+	.radiogroup {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			padding: 4px 0;
+			margin: 0;
+		}
+
+		input {
+			margin-right: .5rem;
+		}
+
+		label {
+			color: @colorText;
+			font-size: 100%;
+		}
+	}
+
+	// Checklist
+	.checklist {
+		padding: 4px;
+		margin: 0;
+		list-style: none;
+		overflow: auto;
+		border: 1px solid @colorDivider;
+		.border-radius(@radius);
+		.background-clip(padding-box);
+
+		li {
+			padding: 4px;
+			margin: 0;
+			background-color: transparent;
+			.transition();
+
+			&.selected {
+				background-color: @checklistHoeverBg;
+			}
+
+			&:hover {
+				background-color: @checklistHoeverBg;
+			}
+
+			label {
+				display: block;
+				font-weight: normal;
+				color: @colorText;
+				font-size: 100%;
+				cursor: pointer;
+			}
+		}
+
+		input {
+			margin-right: .25rem;
+		}
+	}
+
+	// Stacked Layout
+	dd {
+		padding: .3rem 0;
+	}
 }
 
 // Submit buttons
 form input[type="submit"],
 form button, button { font-size: 100%; }
 
-// Radio group
-form .radiogroup {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-
-	li {
-		padding: 4px 0;
-		margin: 0;
-	}
-
-	input {
-		margin-right: .5em;
-	}
-
-	label {
-		color: @colorText;
-		font-size: 100%;
-	}
-}
-
-// Checklist
-form .checklist {
-	padding: 4px;
-	margin: 0;
-	list-style: none;
-	overflow: auto;
-	border: 1px solid @colorDivider;
-	.border-radius(@radius);
-	.background-clip(padding-box);
-
-	li {
-		padding: 4px;
-		margin: 0;
-		background-color: transparent;
-		.transition();
-
-		&.selected {
-			background-color: @black-alpha-12;
-		}
-
-		&:hover {
-			background-color: @black-alpha-12;
-		}
+// Horizontal Layout
+.hform form,
+form.hform {
+	dt {
+		float: left;
+		clear: both;
+		width: 28%;
+		margin-right: 2%;
 
 		label {
-			display: block;
-			font-weight: normal;
-			color: @colorText;
+			text-align: right;
 			font-size: 100%;
+			color: @colorText;
 		}
 	}
-
-	input {
-		margin-right: .25em;
+	dd {
+		float: right;
+		width: 70%;
+		padding-top: .3rem;
+	}
+	.radiogroup {
+		li:first-child {
+			padding-top: 0;
+		}
 	}
 }
 
-// Stacked Layout
-form dd {
-	padding: .3em 0;
-}
-
-// Horizontal Layout
-.hform form dt,
-form.hform dt {
-	float: left;
-	clear: both;
-	width: 28%;
-	margin-right: 2%;
-}
-.hform form dt label,
-form.hform dt label {
-	text-align: right;
-	font-size: 100%;
-	color: @colorText;
-}
-.hform form dd,
-form.hform dd {
-	float: right;
-	width: 70%;
-	padding-top: .3em;
-}
-
-.hform form .radiogroup li:first-child,
-form.hform .radiogroup li:first-child { padding-top: 0; }
-
 // Submit button list layout
-form #submit-list {
-	clear: both;
+form {
+	#submit-list {
+		clear: both;
+
+		dt {
+			display: none;
+		}
+		dd {
+			float: none;
+			width: auto;
+			display: inline;
+			padding-left: 2px;
+			padding-right: 2px;
+		}
+	}
 }
 
-.hform #submit-list {
-	float: right;
-	width: 70%;
-}
-
-form #submit-list dt {
-	display: none;
-}
-
-form #submit-list dd {
-	float: none;
-	width: auto;
-	display: inline;
-	padding-left: 2px;
-	padding-right: 2px;
+.hform {
+	#submit-list {
+		float: right;
+		width: 70%;
+	}
 }
 
 @media (max-width: (@breakpoint-s - 1)) {
 
-	.hform form dt,
-	form.hform dt,
-	.hform form dd,
-	form.hform dd,
 	.hform #submit-list {
 		float: none;
 		width: 100%;
 	}
-	.hform form dt label,
-	form.hform dt label {
-		text-align: left;
-		font-size: 85%;
-		color: @black-alpha-54;
-	}
-	.hform form .validation,
-	form.hform .validation {
-		width: auto;
-		left: 40%;
-		bottom: -.5em;
+	.hform form,
+	form.hform {
+		dt, dd {
+			float: none;
+			width: 100%;
+		}
+
+		dt label {
+			text-align: left;
+			font-size: 85%;
+			color: @formTextDesc;
+		}
+
+		.validation {
+			width: auto;
+			left: 40%;
+			bottom: -.5rem;
+		}
 	}
 }

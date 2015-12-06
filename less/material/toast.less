@@ -3,26 +3,61 @@
 	color: @toastFgColor;
 	background-color: @toastBgColor;
 	position: fixed;
-	z-index: 20;
+	z-index: 99020;
 	bottom:  -100px;
-	left: 0;
-	padding: .5em 1em;
+	left: 5%;
+	padding: .5rem 1rem;
 	text-align: left;
-	min-width: 50%;
-	width: 100%;
-	.z-depth1();
-	.transition();
-	cursor: pointer;
+	width: 90%;
+	.z-depth2();
+	.transition(all, 300ms);
+	.opacity(0);
+
+	a {
+		float: right;
+		display: inline-block;
+		margin-left: 1.5rem;
+		color: @toastFgColor;
+		text-transform: uppercase;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 
 	&.exposed {
-		bottom: 0;
+		.opacity(1);
+		bottom: 1rem;
 	}
 
 	@media (min-width: @breakpoint-s) {
-		left: 15px;
-		width: auto;
-		&.exposed {
-			bottom: 20px;
-		}
+		left: 50%;
+		margin-left: -25%;
+		width: 50%;
+	}
+
+	&.success {
+		color: @alertColorSuccessFg;
+		background-color: @alertColorSuccessBg;
+	}
+
+	&.error {
+		color: @alertColorErrorFg;
+		background-color: @alertColorErrorBg;
+	}
+
+	&.warning {
+		color: @alertColorWarningFg;
+		background-color: @alertColorWarningBg;
+	}
+
+	&.primary {
+		color: @colorPrimaryText;
+		background-color: @colorPrimary;
+	}
+
+	&.accent {
+		color: @colorAccentText;
+		background-color: @colorAccent;
 	}
 }

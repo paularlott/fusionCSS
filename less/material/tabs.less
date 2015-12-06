@@ -9,46 +9,36 @@
 		.clearfix();
 	}
 
-	li {
+	> li {
 		float: left;
 		display: block;
 		cursor: pointer;
 		outline: none;
-		padding: .5em 1em;
-		margin: 0;
+		padding: .5rem 1rem;
+		margin: 0 0 -1px 0;
+		border-bottom: 2px solid transparent;
 		.transition();
-		position: relative;
 
-		&:hover,
+		&:hover {
+			border-bottom-color: @tabsHoverColor;
+		}
 		&.active {
-			color: @tabsTextColor;
-
-			&:after {
-				content: ' ';
-				display: block;
-				position: absolute;
-				left: 0;
-				bottom: 0;
-				width: 100%;
-				border-bottom: 2px solid @tabsActiveColor;
-			}
+			border-bottom-color: @tabsActiveColor;
 		}
 
-		a, a:hover {
-			color: inherit;
-			background-color: transparent;
+		a {
+			color: @tabsTextColor;
 		}
 	}
 }
 
 .tabpanels {
-	clear: both;
 	list-style: none;
 	margin-left: 0;
-	border: 1px solid @colorDivider;
+	border-top: 1px solid @colorDivider;
 
 	> li {
-		margin: 0 1em;
+		margin: 0 1rem;
 
 		&:after {
 			.clearfix();
@@ -60,61 +50,38 @@
 	}
 }
 
-.vtabs {
-	position: relative;
+@media (min-width: (@breakpoint-s)) {
 
-	.tabwidget {
-		position: relative;;
+	.tabwidget.vtabs {
+		position: relative;
 
-	}
-	.tabs {
-		position: absolute;
-		width: 20%;
-		height: 100%;
-		.z-depth0();
+		> .tabs {
+			position: absolute;
+			width: 20%;
+			height: 100%;
 
-		li {
-			float: none;
-			margin-right: 0;
-			width: 100%;
+			li {
+				float: none;
+				margin-right: 0;
+				width: 100%;
+				border-right: 2px solid transparent;
+				border-bottom: none;
 
-			&:hover,
-			&.active {
-				color: @tabsVertActiveColor;
-				background-color: @tabsVertBgColor;
-				&:after {
-					display: none;
+				&:hover {
+					border-right-color: @tabsHoverColor;
+				}
+				&.active {
+					border-right-color: @tabsActiveColor;
 				}
 			}
 		}
-	}
 
-	.tabpanels {
-		position: relative;
-		left: 20%;
-		width: 80%;
-	}
-}
-
-@media (max-width: (@breakpoint-s - 1)) {
-	.vtabs {
-		.tabs,
-		.tabpanels {
-			position: inherit;
-			left: 0;
-			width: auto;
+		> .tabpanels {
+			position: relative;
+			left: 20%;
+			width: 80%;
+			border-left: 1px solid @colorDivider;
+			border-top: none;
 		}
-
-		.tabs li {
-			display: block;
-		}
-	}
-
-	.tabs {
-		li {
-			width: @tabsCompactWidth;
-			padding: .5em 0;
-			text-align: center;
-		};
 	}
 }
