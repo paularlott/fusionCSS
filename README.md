@@ -1,6 +1,6 @@
 <a href="http://fusioncss.com/"><img src="http://fusioncss.com/assets/public_files/images/logo.png" alt="fusionCSS" /></a>
 
-fusionCSS V2.1.0
+fusionCSS V3.0.0
 ====
 
 [http://fusioncss.com](http://fusioncss.com)
@@ -31,7 +31,6 @@ Within the head section of your HTML document you should have:
 <link href="css/fusion.min.css" rel="stylesheet" type="text/css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="js/fusionCSS.js"></script>
-<!--[if lt IE 9]><script type="text/javascript" src="//cdn.jsdelivr.net/g/respond,html5shiv"></script><![endif]-->
 
 Custom Build
 ----

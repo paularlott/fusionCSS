@@ -1,0 +1,45 @@
+
+// Horizontal navigation
+.hnav, .vnav {
+	background-color: @mnuColorBg;
+	list-style: none;
+	margin: 0;
+	.user-select();
+
+	&:after {
+		.clearfix;
+	}
+	li {
+		a {
+			padding: .5rem 1rem;
+			display: block;
+			color: @mnuColorText;
+			text-decoration: none;
+
+			&:hover {
+				background-color: lighten(@mnuColorBg, 5%);
+			}
+		}
+	}
+
+	.active a {
+		background-color: lighten(@mnuColorBg, 5%);
+	}
+
+	&.pill {
+		background-color: transparent;
+		a {
+			border-radius: @radius;
+			background-color: @mnuColorBg;
+		}
+		li {
+			margin-right: .5rem;
+		}
+	}
+}
+
+.hnav {
+	li {
+		float: left;
+	}
+}

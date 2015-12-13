@@ -212,22 +212,26 @@ if(!window.fusionLib)
 		 */
 		if($fl('#viewSlideInMenu').length) {
 			// Add markup to body
-			$fl('body')
-					.append('<div id="slideInMenuOverlay"></div>')
-					.append('<div id="slideInMenu" role="menu"></div>');
-			$fl('#slideInMenu').attr('aria-hidden', true);
+			$fl('body').append('<div id="slideInMenuOverlay"></div>');
 
-			// Copy menu HTML to slide in
-			$fl('ul.slideInMenu').each(function(idx) {
-				if($fl(this).hasClass('slideInMenuRootOnly')) {
-					$fl('#slideInMenuOverlay')
-							.html('<ul>' + $fl(this).html() + '</ul>')
-							.find('li ul').remove();
-					$fl('#slideInMenu').append($fl('#slideInMenuOverlay').html());
-				}
-				else
-					$fl('#slideInMenu').append('<ul>' + $fl(this).html() + '</ul>');
-			});
+			// Build the slidein menu if not already defined
+			if(!$fl('#slideInMenu').length) {
+				$fl('body').append('<div id="slideInMenu" role="menu"></div>');
+
+				// Copy menu HTML to slide in
+				$fl('ul.slideInMenu').each(function (idx) {
+					if ($fl(this).hasClass('slideInMenuRootOnly')) {
+						$fl('#slideInMenuOverlay')
+								.html('<ul>' + $fl(this).html() + '</ul>')
+								.find('li ul').remove();
+						$fl('#slideInMenu').append($fl('#slideInMenuOverlay').html());
+					}
+					else
+						$fl('#slideInMenu').append('<ul>' + $fl(this).html() + '</ul>');
+				});
+			}
+
+			$fl('#slideInMenu').attr('aria-hidden', true);
 
 			// Capture menu hide, click off menu
 			$fl('#slideInMenuOverlay')
@@ -276,7 +280,6 @@ if(!window.fusionLib)
 		/**
 		 * Floating labels
 		 */
-		// .floatingLabels form || form.floatingLabels
 		function floatLabels() {
 			var f = $fl(this);
 			if(!f.hasClass('hform')) {

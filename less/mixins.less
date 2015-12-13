@@ -1,0 +1,49 @@
+// fusionCSS Mixins
+
+.transition(@prop: all, @time: 150ms, @ease: linear) {
+	transition: @prop @time @ease;
+}
+
+.transform(@rotation: 0deg, @scale: 1, @skew: 0deg, @translatex: 0, @translatey: 0) {
+	transform: rotate(@rotation) scale(@scale) skew(@skew) translate(@translatex, @translatey);
+}
+
+.rotate(@rotation) {
+	transform: rotate(@rotation);
+}
+
+.scale(@scale) {
+	transform: scale(@scale);
+}
+
+.skew(@skew, @skew2: 0) {
+	transform: skew(@skew, @skew2);
+}
+
+.translate(@translatex, @translatey) {
+	transform: translate(@translatex, @translatey);
+}
+
+.tint(@direction, @start, @end) {
+	background-image: linear-gradient(@direction, @start, @end);
+}
+
+.gradient(@direction, @start, @end) {
+	background-color: @start;
+	.tint(@direction, @start, @end);
+}
+
+.transform-origin(@x:center, @y:center) {
+	transform-origin: @x @y;
+}
+
+.user-select(@select: none) {
+	-webkit-user-select: @select;
+	-moz-user-select: @select;
+	-ms-user-select: @select;
+	user-select: @select;
+}
+
+.font-size-ems(@sizepx, @basesizepx: 16px) {
+	font-size: (@sizepx / @basesizepx) * 1em;
+}

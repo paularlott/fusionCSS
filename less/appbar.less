@@ -1,0 +1,40 @@
+
+.appbar {
+	color: @colorPrimaryText;
+	background-color: @colorPrimary;
+	font-size: 1.3em;
+	padding: .5rem 1rem;
+	margin-bottom: 1rem;
+	.z-depth2();
+	.user-select();
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 9000;
+
+	&.unfix {
+		position: relative;
+	}
+
+	a, a:hover {
+		color: @colorPrimaryText;
+	}
+
+	&:after {
+		.clearfix();
+	}
+
+	ul {
+		margin: 0;
+	}
+
+	li {
+		display: inline-block;
+		margin-right: .75rem;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}

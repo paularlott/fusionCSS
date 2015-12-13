@@ -1,13 +1,14 @@
 var gulp = require('gulp'),
 	fs = require('fs'),
-	version = fs.readFileSync('./less/base/version.less', 'utf8'),
+	version = fs.readFileSync('./less/version.less', 'utf8'),
 	less = require('gulp-less'),
 	minifyCSS = require('gulp-minify-css'),
 	rename = require('gulp-rename'),
 	insert = require('gulp-insert'),
 	uglify = require('gulp-uglify'),
 	concat = require('gulp-concat'),
-	del = require('del');
+	del = require('del'),
+	panini = require('panini');
 
 /**
  * Compile the source less generating both normal and minified CSS
@@ -31,18 +32,20 @@ function cssTask(src, dst, dstMin) {
 		.pipe(gulp.dest('./css/'));
 }
 
-gulp.task('base', function() {
-	 return cssTask('./less/fusionCSS.less', 'fusion.css', 'fusion.min.css');
-});
-
 gulp.task('blue.pink', function() {
 	var theme = 'blue.pink';
-	return cssTask('./less/fusionCSS.MD.' + theme + '.less', 'fusioncss.md.' + theme + '.css', 'fusioncss.md.' + theme + '.min.css');
+	return cssTask('./less/themes/fusionCSS.' + theme + '.less', 'fusioncss.' + theme + '.css', 'fusioncss.' + theme + '.min.css');
+});
+
+gulp.task('bluegrey.red', function() {
+	var theme = 'bluegrey.red';
+	return cssTask('./less/themes/fusionCSS.' + theme + '.less', 'fusioncss.' + theme + '.css', 'fusioncss.' + theme + '.min.css');
 });
 
 // Build the material themes
-gulp.task('material', [
-	'blue.pink'
+gulp.task('less', [
+	'blue.pink',
+	'bluegrey.red'
 ]);
 
 gulp.task('js', function() {
@@ -58,18 +61,30 @@ gulp.task('js', function() {
 gulp.task('clean', function() {
 	return del([
 		'./css/*.css',
-		'./js/*.js'
+		'./js/*.js',
+		'./docs/*.html'
 	]);
+});
+
+gulp.task('docs', function() {
+	gulp.src('./docs_src/*.html')
+		.pipe(panini({
+			root: './docs_src/',
+			layouts: './docs_src/layouts/',
+			partials: './docs_src/partials/',
+			helpers: './docs_src/helpers/',
+			data: './docs_src/data/'
+		}))
+		.pipe(gulp.dest('docs'));
 });
 
 gulp.task('watch', function() {
 	gulp.watch([
 		'./less/*.less',
-		'./less/base/*.less',
-		'./less/material/*.less'
-	], ['base', 'material']);
+		'./less/themes/*.less'
+	], ['less']);
 	gulp.watch('./js/src/*.js', ['js']);
 });
 
-gulp.task('default', ['base', 'material', 'js']);
+gulp.task('default', ['less', 'js']);
 

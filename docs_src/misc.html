@@ -1,0 +1,50 @@
+
+<h1>Miscellaneous</h1>
+
+<h2>Responsive Video</h2>
+<p>YouTube and Vimeo videos can be wrapped with &lt;div class="flex-video"&gt; .. &lt;/div&gt;.</p>
+
+<div class="card">
+	<div class="content">
+
+		<pre><code class="language-markup">&lt;div class="flex-video">
+	&lt;iframe width="560" height="315" src="//www.youtube.com/embed/........." frameborder="0" allowfullscreen>&lt;/iframe>
+&lt;/div></code></pre>
+
+	</div>
+</div>
+
+<h2>Scroll To Top</h2>
+<p>Adding an element with the ID of scrollToTop makes the element clickable, once clicked the page is scrolled to the top.</p>
+<p>The default is to make the element visible once the window is scrolled past 600 pixels, this can by changed by adding data-showat attribute to the element with the number of pixels of scroll after which to show the element.</p>
+
+<div class="card">
+	<div class="content">
+
+		<pre><code class="language-markup">&lt;div id="scrollToTop" class="hide" data-showat="800">Top&lt;/div></code></pre>
+
+	</div>
+</div>
+
+<h2>Equal Height Columns</h2>
+<p>Depending on browser support e.g. IE10+ adding span-*-equal-height class to a row, where * is t, s, m or l.</p>
+
+<div class="card">
+	<div class="content">
+
+		<div class="row example span-s-equal-height">
+			<div class="span-s6">Cell 1</div>
+			<div class="span-s6 no-gutter">
+				<img src="small.jpg" alt="test" />
+			</div>
+		</div>
+
+		<pre><code class="language-markup">&lt;div class="row span-s-equal-height">
+	&lt;div class="span-s6">Cell 1&lt;/div>
+	&lt;div class="span-s6 no-gutter">
+		&lt;img src="small.jpg" alt="test" />
+	&lt;/div>
+&lt;/div></code></pre>
+
+	</div>
+</div>

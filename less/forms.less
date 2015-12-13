@@ -1,0 +1,273 @@
+
+// Limit resize in firefox, options are none, vertical, horizontal or both
+textarea {
+	resize: vertical;
+}
+
+.floatingLabels label {
+	&.floatDown {
+		color: @formTextDesc;
+		top: 1.75rem;
+		cursor: text;
+		font-size: 100%;
+
+		em {
+			color: @formValidatorReq;
+		}
+	}
+}
+
+form {
+	margin: 0 auto;
+
+	&:after {
+		.clear;
+	}
+
+	fieldset {
+		border: 1px solid @colorDivider;
+		margin: 15px 0;
+		padding: 10px 12px;
+		border-radius: @radius;
+		min-width: 0; // stop auto resize on Chrome
+	}
+
+	legend {
+		padding: 0 5px;
+		border: 1px solid @colorDivider;
+		border-radius: @radius;
+	}
+
+	// Labels & validation
+	label {
+		display: block;
+		padding-top: 6px;
+		position: relative;
+		font-weight: 500;
+		font-size: 85%;
+		color: @colorText;
+		top: 0;
+		.transition();
+
+		em {
+			font-style: normal;
+			font-size: 85%;
+			color: fadeout(@formValidatorReq, 13%);
+		}
+
+		&.validationError span:first-child {
+			display: none;
+		}
+
+		&.focused {
+			color: @colorPrimary;
+		}
+	}
+
+	.description {
+		padding: .3rem 0;
+		font-size: 85%;
+		color: @formTextDesc;
+	}
+
+	.validation {
+		color: @formValidatorFailed;
+		display: none;
+
+		strong {
+			font-weight: normal;
+			display: block;
+		}
+	}
+
+	.ok,
+	.failed,
+	.ajax {
+		display: block;
+	}
+
+	// Form elements
+	input[disabled] {
+		cursor: not-allowed;
+		opacity: .5;
+	}
+
+	input[type="text"],
+	input[type="number"],
+	input[type="email"],
+	input[type="url"],
+	input[type="password"],
+	input[type="search"],
+	select,
+	textarea {
+		outline: none;
+		font-family: inherit;
+		font-size: 100%;
+		width: 100%;
+		*width: 95%;
+		padding: 2px 2px 1px 2px;
+		border: none;
+		border-bottom: 2px solid @colorDivider;
+		background-color: transparent;
+		.transition();
+
+		&:focus {
+			border-bottom: 2px solid @colorPrimary;
+		}
+
+		&.validationError {
+			border-bottom-color: @formValidatorFailed;
+		}
+	}
+
+	input[type="file"] {
+		font-size: 100%;
+		width: auto;
+	}
+
+	// Radio group
+	.radiogroup {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			padding: 4px 0;
+			margin: 0;
+		}
+
+		input {
+			margin-right: .5rem;
+		}
+
+		label {
+			color: @colorText;
+			font-size: 100%;
+		}
+	}
+
+	// Checklist
+	.checklist {
+		padding: 4px;
+		margin: 0;
+		list-style: none;
+		overflow: auto;
+		border: 1px solid @colorDivider;
+		border-radius: @radius;
+
+		li {
+			padding: 4px;
+			margin: 0;
+			background-color: transparent;
+			.transition();
+
+			&.selected {
+				background-color: @checklistHoeverBg;
+			}
+
+			&:hover {
+				background-color: @checklistHoeverBg;
+			}
+
+			label {
+				display: block;
+				font-weight: normal;
+				color: @colorText;
+				font-size: 100%;
+				cursor: pointer;
+			}
+		}
+
+		input {
+			margin-right: .25rem;
+		}
+	}
+
+	// Stacked Layout
+	dd {
+		padding: .3rem 0;
+	}
+}
+
+// Submit buttons
+form input[type="submit"],
+form button, button { font-size: 100%; }
+
+// Horizontal Layout
+.hform form,
+form.hform {
+	dt {
+		float: left;
+		clear: both;
+		width: 28%;
+		margin-right: 2%;
+
+		label {
+			text-align: right;
+			font-size: 100%;
+			color: @colorText;
+		}
+	}
+	dd {
+		float: right;
+		width: 70%;
+		padding-top: .3rem;
+	}
+	.radiogroup {
+		li:first-child {
+			padding-top: 0;
+		}
+	}
+}
+
+// Submit button list layout
+form {
+	#submit-list {
+		clear: both;
+
+		dt {
+			display: none;
+		}
+		dd {
+			float: none;
+			width: auto;
+			display: inline;
+			padding-left: 2px;
+			padding-right: 2px;
+		}
+	}
+}
+
+.hform {
+	#submit-list {
+		float: right;
+		width: 70%;
+	}
+}
+
+@media (max-width: (@breakpoint-s - 1)) {
+
+	.hform #submit-list {
+		float: none;
+		width: 100%;
+	}
+	.hform form,
+	form.hform {
+		dt, dd {
+			float: none;
+			width: 100%;
+		}
+
+		dt label {
+			text-align: left;
+			font-size: 85%;
+			color: @formTextDesc;
+		}
+
+		.validation {
+			width: auto;
+			left: 40%;
+			bottom: -.5rem;
+		}
+	}
+}

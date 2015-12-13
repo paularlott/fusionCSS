@@ -1,0 +1,20 @@
+
+<h1>Getting Started With fusionCSS</h1>
+
+<p>fusionCSS requires that you include a CSS file within the &lt;head> section of your page. It also requires the inclusion of a JavaScript file to implement functionality such as converting horizontal and vertical navigation to drop down lists.</p>
+<p>The JavaScript relies on the presence of either jQuery or fusionLib and is supplied in the file fusionCSS.js.</p>
+
+<h2>Using With jQuery</h2>
+<pre><code class="language-markup">&lt;link href="css/fusion.min.css" rel="stylesheet" type="text/css" />
+&lt;script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js">&lt;/script>
+&lt;script type="text/javascript" src="js/fusionCSS.js">&lt;/script></code></pre>
+
+<h2>Using With fusionLib</h2>
+<pre><code class="language-markup">&lt;link href="css/fusion.min.css" rel="stylesheet" type="text/css" />
+&lt;script type="text/javascript" src="system/libs/js/fusionLib.js">&lt;/script>
+&lt;script type="text/javascript" src="js/fusionCSS.js">&lt;/script></code></pre>
+
+<h2>Using With clearFusionCMS</h2>
+<p>The fusionCSS.js and fusion.min.css files can either be included from the files system or placed into documents with content types of JavaScript and CSS respectively.</p>
+<pre><code class="language-markup">&lt;link href="css/fusion.min.css" rel="stylesheet" type="text/css" />
+&#91;&#91;javascript &amp;core=`1` &amp;src=`js/fusionCSS.js`&#93;&#93;</code></pre>

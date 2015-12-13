@@ -1,0 +1,72 @@
+.chips {
+	list-style: none;
+	margin-left: 0;
+}
+
+.chips li,
+.chip {
+	background-color: @grey-300;
+	display: inline-block;
+	display: inline-block;
+	border-radius: 2rem;
+	line-height: 2rem;
+	padding: 0 .75rem;
+	white-space: nowrap;
+	margin-bottom: .5rem;
+	margin-right: .5rem;
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	i {
+		border-radius: 100%;
+		color: @grey-300;
+		background-color: @grey-500;
+		width: 1.4rem;
+		height: 1.4rem;
+		line-height: 1.4rem;
+		display: inline-block;
+		text-align: center;
+		font-style: normal;
+		margin-left: .25rem;
+		margin-right: -.5rem;
+		margin-top: -.3rem;
+		cursor: pointer;
+
+		&:hover {
+			background-color: @grey-400;
+		}
+	}
+
+	img {
+		border-radius: 100%;
+		width: 2rem;
+		height: 2em;
+		display: inline-block;
+		margin-right: .25rem;
+		margin-left: -.75rem;
+		max-width: inherit;
+	}
+
+	b {
+		border-radius: 100%;
+		width: 2rem;
+		height: 2rem;
+		display: inline-block;
+		margin-right: .25rem;
+		margin-left: -.75rem;
+		font-weight: normal;
+		text-align: center;
+	}
+
+	.primary {
+		color: @colorPrimaryText;
+		background-color: @colorPrimary;
+	}
+
+	.accent {
+		color: @colorAccentText;
+		background-color: @colorAccent;
+	}
+}
