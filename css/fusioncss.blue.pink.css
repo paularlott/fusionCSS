@@ -819,6 +819,9 @@ img {
   width: 100%;
   height: 100%;
 }
+.text-color {
+  color: rgba(0, 0, 0, 0.87);
+}
 .primary {
   color: #2196F3;
 }
@@ -950,7 +953,6 @@ table.bordered td {
 .breadcrumbwidget a:hover {
   color: rgba(0, 0, 0, 0.54);
   border-color: rgba(0, 0, 0, 0.26);
-  background-color: #ffffff;
 }
 .breadcrumbwidget li + li:before {
   content: " >";
@@ -1778,7 +1780,7 @@ body.disableScroll {
   transition: all 250ms linear;
 }
 .tabs > li:hover {
-  border-bottom-color: #9acffa;
+  border-bottom-color: #BBDEFB;
 }
 .tabs > li.active {
   border-bottom-color: #2196F3;
@@ -1822,7 +1824,7 @@ body.disableScroll {
     border-bottom: none;
   }
   .tabwidget.vtabs > .tabs li:hover {
-    border-right-color: #9acffa;
+    border-right-color: #BBDEFB;
   }
   .tabwidget.vtabs > .tabs li.active {
     border-right-color: #2196F3;
