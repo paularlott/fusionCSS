@@ -38,326 +38,371 @@
 	<div class="row">
 		<div class="span-t12">
 
-<h1>Forms</h1>
+<div class="floatingLabels">
+	<h1>Forms</h1>
 
-<h2>Horizontal Form</h2>
-<div class="card">
-	<div class="content">
+	<h2>Horizontal Form</h2>
 
-		<form id="couponform" class="hform" action="#stay" method="post" enctype="application/x-www-form-urlencoded"
-		      accept-charset="utf-8">
-			<fieldset id="details-group">
-				<legend>Details</legend>
-				<dl id="details-list">
-					<dt><label id="upld-label" for="code" aria-atomic="true" aria-live="polite">Upload a File <em>(Required)</em>
-						<span class="validation hide" id="upld-validation"><strong>&nbsp;</strong></span></label></dt>
-					<dd id="upld-container"><input type="file" id="upld" name="upld" aria-labelledby="upld-label"
-					                               aria-required="true">
-					</dd>
-					<dt><label id="upld2-label" for="code" aria-atomic="true" aria-live="polite">Styled Upload <em>(Required)</em>
-						<span class="validation hide" id="upld2-validation"><strong>&nbsp;</strong></span></label></dt>
-					<dd id="upld2-container">
-						<div class="uploadButton primary">
-							<span aria-live="polite">Choose File</span>
-							<input type="file" id="upld2" name="upld2" aria-labelledby="upld2-label"
-							       aria-required="true">
-						</div>
-					</dd>
-					<dt><label id="code-label" for="code" aria-atomic="true" aria-live="polite">Coupon Code <em>(Required)</em>
-						<span class="validation hide" id="code-validation"><strong>&nbsp;</strong></span></label></dt>
-					<dd id="code-container"><input type="text" id="code" name="code" value="111-222-333-444"
-					                               aria-labelledby="code-label" aria-required="true">
-					</dd>
-					<dt><label id="desc-label" for="desc" aria-atomic="true" aria-live="polite">Description <em>(Required)</em>
-						<span class="validation " id="desc-validation"><strong>&nbsp;</strong></span></label></dt>
-					<dd id="desc-container"><input type="text" id="desc" disabled="disabled" name="desc" value="EXAMPLE"
-					                               aria-labelledby="desc-label" aria-required="true">
+	<div class="card">
+		<div class="content">
+
+			<form id="couponform" class="hform" action="#stay" method="post" enctype="application/x-www-form-urlencoded"
+			      accept-charset="utf-8">
+				<fieldset id="details-group">
+					<legend>Details</legend>
+					<dl id="details-list">
+						<dt><label id="upld-label" for="code" aria-atomic="true" aria-live="polite">Upload a File <em>(Required)</em>
+							<span class="validation hide" id="upld-validation"><strong>&nbsp;</strong></span></label>
+						</dt>
+						<dd id="upld-container"><input type="file" id="upld" name="upld" aria-labelledby="upld-label"
+						                               aria-required="true">
+						</dd>
+						<dt><label id="upld2-label" for="code" aria-atomic="true" aria-live="polite">Styled Upload <em>(Required)</em>
+							<span class="validation hide" id="upld2-validation"><strong>&nbsp;</strong></span></label>
+						</dt>
+						<dd id="upld2-container">
+							<div class="uploadButton primary">
+								<span aria-live="polite">Choose File</span>
+								<input type="file" id="upld2" name="upld2" aria-labelledby="upld2-label"
+								       aria-required="true">
+							</div>
+						</dd>
+						<dt><label id="code-label" for="code" aria-atomic="true" aria-live="polite">Coupon Code <em>(Required)</em>
+							<span class="validation hide" id="code-validation"><strong>&nbsp;</strong></span></label>
+						</dt>
+						<dd id="code-container"><input type="text" id="code" name="code" value="111-222-333-444"
+						                               aria-labelledby="code-label" aria-required="true">
+						</dd>
+						<dt><label id="desc-label" for="desc" aria-atomic="true" aria-live="polite">Description <em>(Required)</em>
+							<span class="validation " id="desc-validation"><strong>&nbsp;</strong></span></label></dt>
+						<dd id="desc-container"><input type="text" id="desc" disabled="disabled" name="desc"
+						                               value="EXAMPLE"
+						                               aria-labelledby="desc-label" aria-required="true">
+						</dd>
+						<dt></dt>
+						<dd id="active-container"><label id="active-label" aria-atomic="true" aria-live="polite"><input
+							name="active" id="active" type="checkbox" value="1" checked="checked"
+							aria-labelledby="active-label"> Coupon Active <span class="validation "
+						                                                        id="active-validation"><strong>
+							&nbsp;</strong></span></label></dd>
+						<dt><label id="type-label" for="type" aria-atomic="true" aria-live="polite">Type of Coupon <span
+							class="validation " id="type-validation"><strong>&nbsp;</strong></span></label></dt>
+						<dd id="type-container"><select id="type" name="type" aria-labelledby="type-label">
+							<option value="%" selected="selected">Percentage Discount</option>
+							<option value="f">Fixed Amount Discount</option>
+							<option value="g">Gift Certificate</option>
+						</select>
+						</dd>
+						<dt><label id="discount-label" for="discount" aria-atomic="true" aria-live="polite">Discount
+							<em>(Required)</em>
+							<span class="validation " id="discount-validation"><strong>&nbsp;</strong></span></label>
+						</dt>
+						<dd id="discount-container"><input type="number" id="discount" name="discount" value="20"
+						                                   min="0"
+						                                   aria-labelledby="discount-label"
+						                                   aria-describedby="discount-desc"
+						                                   aria-required="true">
+
+							<div class="description" id="discount-desc">A percentage for Percentage Discounts or a
+								monetary
+								value for Fixed Amount Discounts and Gift Certificates.
+							</div>
+						</dd>
+					</dl>
+				</fieldset>
+				<fieldset id="genrestrictions-group">
+					<legend>General Restrictions</legend>
+					<dl id="genrestrictions-list">
+						<dt><label id="min-label" for="min" aria-atomic="true" aria-live="polite">Minimum Order
+							Cost <span
+								class="validation " id="min-validation"><strong>&nbsp;</strong></span></label></dt>
+						<dd id="min-container"><input type="number" id="min" name="min" value="" min="0"
+						                              aria-labelledby="min-label" aria-describedby="min-desc">
+
+							<div class="description" id="min-desc">Leave blank or set to 0 for no minimum order cost.
+							</div>
+						</dd>
+						<dt><label id="uses-label" for="uses" aria-atomic="true" aria-live="polite">Maximum Number of
+							Uses
+							<span class="validation " id="uses-validation"><strong>&nbsp;</strong></span></label></dt>
+						<dd id="uses-container"><input type="number" id="uses" name="uses" value="" min="0"
+						                               aria-labelledby="uses-label" aria-describedby="uses-desc">
+
+							<div class="description" id="uses-desc">Leave blank or set to 0 for unlimited uses.</div>
+						</dd>
+						<dt><label id="usescustomer-label" for="usescustomer" aria-atomic="true" aria-live="polite">Maximum
+							Uses Per Customer <span class="validation " id="usescustomer-validation"><strong>
+								&nbsp;</strong></span></label>
+						</dt>
+						<dd id="usescustomer-container"><input type="number" id="usescustomer" name="usescustomer"
+						                                       value=""
+						                                       min="0" aria-labelledby="usescustomer-label"
+						                                       aria-describedby="usescustomer-desc">
+
+							<div class="description" id="usescustomer-desc">Leave blank or set to 0 for unlimited uses.
+							</div>
+						</dd>
+						<dt><label id="start-label" for="start" aria-atomic="true" aria-live="polite">Valid From Date
+							(year-month-day hh:mm) <span class="validation " id="start-validation"><strong>
+								&nbsp;</strong></span></label></dt>
+						<dd id="start-container"><input type="text" id="start" name="start" value=""
+						                                aria-labelledby="start-label" aria-describedby="start-desc">
+
+							<div class="description" id="start-desc">Leave blank for no start date restriction.</div>
+						</dd>
+						<dt><label id="expire-label" for="expire" aria-atomic="true" aria-live="polite">Expiration Date
+							(year-month-day hh:mm) <span class="validation " id="expire-validation"><strong>
+								&nbsp;</strong></span></label>
+						</dt>
+						<dd id="expire-container"><input type="text" id="expire" name="expire" value=""
+						                                 aria-labelledby="expire-label" aria-describedby="expire-desc">
+
+							<div class="description" id="expire-desc">Leave blank if the coupon should never expire.
+							</div>
+						</dd>
+						<dt><label id="permission-label" for="permission" aria-atomic="true" aria-live="polite">Limit to
+							Users with a Permission of <span class="validation " id="permission-validation"><strong>
+								&nbsp;</strong></span></label></dt>
+						<dd id="permission-container">
+							<ol id="permission" class="checklist" title="Limit to Users with a Permission of">
+								<li><label><input name="permission[]" type="checkbox" value="__flLoggedInUser__"
+								                  aria-labelledby="permission-label" aria-describedby="permission-desc">
+									[Logged in Users]</label></li>
+							</ol>
+							<div class="description" id="permission-desc">A user only needs one of the above selected
+								permissions to be able to use the coupon. If no permissions are selected then no
+								permissions
+								are required.
+							</div>
+						</dd>
+						<dt></dt>
+						<dd id="genresinfo-container">
+							<div class="alert info">
+								<strong>Information</strong><br>These restrictions must be met by an order before the
+								coupon
+								will be considered valid for that order. If the coupon is not valid for an order then
+								other
+								restrictions will not be tried.
+							</div>
+						</dd>
+					</dl>
+				</fieldset>
+				<fieldset id="skurestrict-group">
+					<legend>Product Restrictions</legend>
+					<dl id="skurestrict-list">
+						<dt><label id="sku-label" for="sku" aria-atomic="true" aria-live="polite">Restrict to SKU <span
+							class="validation " id="sku-validation"><strong>&nbsp;</strong></span></label></dt>
+						<dd id="sku-container"><input type="text" id="sku" name="sku" value=""
+						                              aria-labelledby="sku-label"
+						                              aria-describedby="sku-desc">
+
+							<div class="description" id="sku-desc">If given restrict coupon to SKU.</div>
+						</dd>
+						<dt><label id="maxqty-label" for="maxqty" aria-atomic="true" aria-live="polite">Maximum Quantity
+							to
+							Discount <span class="validation " id="maxqty-validation"><strong>
+								&nbsp;</strong></span></label>
+						</dt>
+						<dd id="maxqty-container"><input type="number" id="maxqty" name="maxqty" value="" min="0"
+						                                 aria-labelledby="maxqty-label" aria-describedby="maxqty-desc">
+
+							<div class="description" id="maxqty-desc">The maximum quantity of items to discount if
+								restricting by SKU.
+							</div>
+						</dd>
+						<dt><label id="qtystep-label" for="qtystep" aria-atomic="true" aria-live="polite">Discount
+							Quantity
+							Step <span class="validation " id="qtystep-validation"><strong>
+								&nbsp;</strong></span></label>
+						</dt>
+						<dd id="qtystep-container"><input type="number" id="qtystep" name="qtystep" value="" min="0"
+						                                  aria-labelledby="qtystep-label"
+						                                  aria-describedby="qtystep-desc">
+
+							<div class="description" id="qtystep-desc">The discount quantity stepping if restricting by
+								SKU.
+							</div>
+						</dd>
+						<dt><label id="prodclasses-label" for="prodclasses" aria-atomic="true" aria-live="polite">Limit
+							to
+							Product Classes <span class="validation " id="prodclasses-validation"><strong>
+								&nbsp;</strong></span></label></dt>
+						<dd id="prodclasses-container">
+							<ol id="prodclasses" class="checklist" title="Limit to Product Classes">
+								<li><label><input name="prodclasses[]" type="checkbox" value="2"
+								                  aria-labelledby="prodclasses-label"
+								                  aria-describedby="prodclasses-desc">
+									Accessories</label></li>
+								<li class="selected"><label><input checked="checked" name="prodclasses[]"
+								                                   type="checkbox"
+								                                   value="1" aria-labelledby="prodclasses-label"
+								                                   aria-describedby="prodclasses-desc"> Standard</label>
+								</li>
+							</ol>
+							<div class="description" id="prodclasses-desc">If no product classes are selected then the
+								coupon will apply to all product classes.
+							</div>
+						</dd>
+						<dt></dt>
+						<dd id="skuresinfo-container">
+							<div class="alert info">
+								<strong>Information</strong><br>If a specific SKU is given then the product class
+								restrictions will be ignored.
+							</div>
+							<div class="alert warning">
+								<strong>Warning</strong><br>These options only have an effect for percentage discount
+								coupons.
+							</div>
+						</dd>
+					</dl>
+				</fieldset>
+				<fieldset id="freship-group">
+					<legend>Shipping</legend>
+					<dl id="freship-list">
+						<dt><label id="shipping-label" for="shipping" aria-atomic="true" aria-live="polite">Free
+							Shipping On
+							<span class="validation " id="shipping-validation"><strong>&nbsp;</strong></span></label>
+						</dt>
+						<dd id="shipping-container">
+							<ol id="shipping" class="checklist" title="Free Shipping On">
+								<li><label><input name="shipping[]" type="checkbox" value="2."
+								                  aria-labelledby="shipping-label"> Free</label></li>
+								<li><label><input name="shipping[]" type="checkbox" value="1."
+								                  aria-labelledby="shipping-label"> Standard</label></li>
+							</ol>
+						</dd>
+						<dt></dt>
+						<dd id="shipinfo-container">
+							<div class="alert info">
+								<strong>Information</strong><br>The shipping methods that will become free if the order
+								meets the general restrictions for the coupon.
+							</div>
+						</dd>
+					</dl>
+				</fieldset>
+				<dl id="submit-list">
+					<dt></dt>
+					<dd id="updatecoupon-container"><input type="submit" id="updatecoupon" name="updatecoupon"
+					                                       value="Update">
 					</dd>
 					<dt></dt>
-					<dd id="active-container"><label id="active-label" aria-atomic="true" aria-live="polite"><input
-						name="active" id="active" type="checkbox" value="1" checked="checked"
-						aria-labelledby="active-label"> Coupon Active <span class="validation "
-					                                                        id="active-validation"><strong>
-						&nbsp;</strong></span></label></dd>
-					<dt><label id="type-label" for="type" aria-atomic="true" aria-live="polite">Type of Coupon <span
-						class="validation " id="type-validation"><strong>&nbsp;</strong></span></label></dt>
-					<dd id="type-container"><select id="type" name="type" aria-labelledby="type-label">
-						<option value="%" selected="selected">Percentage Discount</option>
-						<option value="f">Fixed Amount Discount</option>
-						<option value="g">Gift Certificate</option>
-					</select>
-					</dd>
-					<dt><label id="discount-label" for="discount" aria-atomic="true" aria-live="polite">Discount <em>(Required)</em>
-						<span class="validation " id="discount-validation"><strong>&nbsp;</strong></span></label></dt>
-					<dd id="discount-container"><input type="number" id="discount" name="discount" value="20" min="0"
-					                                   aria-labelledby="discount-label" aria-describedby="discount-desc"
-					                                   aria-required="true">
-
-						<div class="description" id="discount-desc">A percentage for Percentage Discounts or a monetary
-							value for Fixed Amount Discounts and Gift Certificates.
-						</div>
-					</dd>
-				</dl>
-			</fieldset>
-			<fieldset id="genrestrictions-group">
-				<legend>General Restrictions</legend>
-				<dl id="genrestrictions-list">
-					<dt><label id="min-label" for="min" aria-atomic="true" aria-live="polite">Minimum Order Cost <span
-						class="validation " id="min-validation"><strong>&nbsp;</strong></span></label></dt>
-					<dd id="min-container"><input type="number" id="min" name="min" value="" min="0"
-					                              aria-labelledby="min-label" aria-describedby="min-desc">
-
-						<div class="description" id="min-desc">Leave blank or set to 0 for no minimum order cost.</div>
-					</dd>
-					<dt><label id="uses-label" for="uses" aria-atomic="true" aria-live="polite">Maximum Number of Uses
-						<span class="validation " id="uses-validation"><strong>&nbsp;</strong></span></label></dt>
-					<dd id="uses-container"><input type="number" id="uses" name="uses" value="" min="0"
-					                               aria-labelledby="uses-label" aria-describedby="uses-desc">
-
-						<div class="description" id="uses-desc">Leave blank or set to 0 for unlimited uses.</div>
-					</dd>
-					<dt><label id="usescustomer-label" for="usescustomer" aria-atomic="true" aria-live="polite">Maximum
-						Uses Per Customer <span class="validation " id="usescustomer-validation"><strong>&nbsp;</strong></span></label>
-					</dt>
-					<dd id="usescustomer-container"><input type="number" id="usescustomer" name="usescustomer" value=""
-					                                       min="0" aria-labelledby="usescustomer-label"
-					                                       aria-describedby="usescustomer-desc">
-
-						<div class="description" id="usescustomer-desc">Leave blank or set to 0 for unlimited uses.
-						</div>
-					</dd>
-					<dt><label id="start-label" for="start" aria-atomic="true" aria-live="polite">Valid From Date
-						(year-month-day hh:mm) <span class="validation " id="start-validation"><strong>
-							&nbsp;</strong></span></label></dt>
-					<dd id="start-container"><input type="text" id="start" name="start" value=""
-					                                aria-labelledby="start-label" aria-describedby="start-desc">
-
-						<div class="description" id="start-desc">Leave blank for no start date restriction.</div>
-					</dd>
-					<dt><label id="expire-label" for="expire" aria-atomic="true" aria-live="polite">Expiration Date
-						(year-month-day hh:mm) <span class="validation " id="expire-validation"><strong>&nbsp;</strong></span></label>
-					</dt>
-					<dd id="expire-container"><input type="text" id="expire" name="expire" value=""
-					                                 aria-labelledby="expire-label" aria-describedby="expire-desc">
-
-						<div class="description" id="expire-desc">Leave blank if the coupon should never expire.</div>
-					</dd>
-					<dt><label id="permission-label" for="permission" aria-atomic="true" aria-live="polite">Limit to
-						Users with a Permission of <span class="validation " id="permission-validation"><strong>
-							&nbsp;</strong></span></label></dt>
-					<dd id="permission-container">
-						<ol id="permission" class="checklist" title="Limit to Users with a Permission of">
-							<li><label><input name="permission[]" type="checkbox" value="__flLoggedInUser__"
-							                  aria-labelledby="permission-label" aria-describedby="permission-desc">
-								[Logged in Users]</label></li>
-						</ol>
-						<div class="description" id="permission-desc">A user only needs one of the above selected
-							permissions to be able to use the coupon. If no permissions are selected then no permissions
-							are required.
-						</div>
+					<dd id="duplicatecoupon-container"><input type="submit" id="duplicatecoupon" name="duplicatecoupon"
+					                                          value="Duplicate">
 					</dd>
 					<dt></dt>
-					<dd id="genresinfo-container">
-						<div class="alert info">
-							<strong>Information</strong><br>These restrictions must be met by an order before the coupon
-							will be considered valid for that order. If the coupon is not valid for an order then other
-							restrictions will not be tried.
-						</div>
+					<dd id="delcoupon-container"><input type="submit" id="delcoupon" name="delcoupon"
+					                                    value="Delete Coupon"
+					                                    class="delete">
 					</dd>
 				</dl>
-			</fieldset>
-			<fieldset id="skurestrict-group">
-				<legend>Product Restrictions</legend>
-				<dl id="skurestrict-list">
-					<dt><label id="sku-label" for="sku" aria-atomic="true" aria-live="polite">Restrict to SKU <span
-						class="validation " id="sku-validation"><strong>&nbsp;</strong></span></label></dt>
-					<dd id="sku-container"><input type="text" id="sku" name="sku" value="" aria-labelledby="sku-label"
-					                              aria-describedby="sku-desc">
+			</form>
 
-						<div class="description" id="sku-desc">If given restrict coupon to SKU.</div>
-					</dd>
-					<dt><label id="maxqty-label" for="maxqty" aria-atomic="true" aria-live="polite">Maximum Quantity to
-						Discount <span class="validation " id="maxqty-validation"><strong>&nbsp;</strong></span></label>
-					</dt>
-					<dd id="maxqty-container"><input type="number" id="maxqty" name="maxqty" value="" min="0"
-					                                 aria-labelledby="maxqty-label" aria-describedby="maxqty-desc">
+		</div>
+	</div>
 
-						<div class="description" id="maxqty-desc">The maximum quantity of items to discount if
-							restricting by SKU.
-						</div>
-					</dd>
-					<dt><label id="qtystep-label" for="qtystep" aria-atomic="true" aria-live="polite">Discount Quantity
-						Step <span class="validation " id="qtystep-validation"><strong>&nbsp;</strong></span></label>
-					</dt>
-					<dd id="qtystep-container"><input type="number" id="qtystep" name="qtystep" value="" min="0"
-					                                  aria-labelledby="qtystep-label" aria-describedby="qtystep-desc">
+	<h2>With Radio</h2>
 
-						<div class="description" id="qtystep-desc">The discount quantity stepping if restricting by
-							SKU.
-						</div>
-					</dd>
-					<dt><label id="prodclasses-label" for="prodclasses" aria-atomic="true" aria-live="polite">Limit to
-						Product Classes <span class="validation " id="prodclasses-validation"><strong>
-							&nbsp;</strong></span></label></dt>
-					<dd id="prodclasses-container">
-						<ol id="prodclasses" class="checklist" title="Limit to Product Classes">
-							<li><label><input name="prodclasses[]" type="checkbox" value="2"
-							                  aria-labelledby="prodclasses-label" aria-describedby="prodclasses-desc">
-								Accessories</label></li>
-							<li class="selected"><label><input checked="checked" name="prodclasses[]" type="checkbox"
-							                                   value="1" aria-labelledby="prodclasses-label"
-							                                   aria-describedby="prodclasses-desc"> Standard</label>
+	<div class="card">
+		<div class="content">
+			<form id="cartaddform" class="hform" action="#stay" method="post"
+			      enctype="application/x-www-form-urlencoded"
+			      accept-charset="utf-8">
+				<dl id="cartaddform-list">
+					<dt><label id="cartattrib1-label" for="cartattrib1" aria-atomic="true"
+					           aria-live="polite">Color <span
+						class="validation " id="cartattrib1-validation"><strong>&nbsp;</strong></span></label></dt>
+					<dd id="cartattrib1-container">
+						<ol id="cartattrib1" class="radiogroup" title="Color">
+							<li><label><input name="cartattrib1" type="radio" value="2"
+							                  aria-labelledby="cartattrib1-label">Red</label>
+							</li>
+							<li><label><input name="cartattrib1" type="radio" value="3" checked="checked"
+							                  aria-labelledby="cartattrib1-label">Green</label></li>
+							<li><label><input name="cartattrib1" type="radio" value="4"
+							                  aria-labelledby="cartattrib1-label">Blue</label>
 							</li>
 						</ol>
-						<div class="description" id="prodclasses-desc">If no product classes are selected then the
-							coupon will apply to all product classes.
-						</div>
+					</dd>
+					<dt><label id="cartqty-label" for="cartqty" aria-atomic="true" aria-live="polite">Quantity <span
+						class="validation " id="cartqty-validation"><strong>&nbsp;</strong></span></label></dt>
+					<dd id="cartqty-container"><input type="number" id="cartqty" name="cartqty" value="1" min="1"
+					                                  aria-labelledby="cartqty-label" aria-describedby="cartqty-desc"
+					                                  max="">##
+						<div class="description" id="cartqty-desc"></div>
+					</dd>
+					<dt><label id="email-label" for="email" aria-atomic="true" aria-live="polite"
+					           class="validationError"><span>Email Address <em>(Required)</em></span> <span
+						class="validation failed" id="email-validation"><strong>Email Address must be a valid working
+						email
+						address.</strong></span></label></dt>
+					<dd id="email-container"><input type="text" id="email" name="email" value="example@example.com"
+					                                aria-labelledby="email-label" aria-required="true"
+					                                class="validationError">
+					</dd>
+					<dt><label id="message-label" for="message" aria-atomic="true" aria-live="polite">Your Message <em>(Required)</em>
+						<span class="validation " id="message-validation"><strong>&nbsp;</strong></span></label></dt>
+					<dd id="message-container"><textarea id="message" name="message" cols="30" rows="10"
+					                                     aria-labelledby="message-label"
+					                                     aria-required="true"></textarea>
+					</dd>
+					<dt><label id="imgfile-label" for="imgfile" aria-atomic="true" aria-live="polite">New Image
+						File <span
+							class="validation " id="imgfile-validation"><strong>&nbsp;</strong></span></label></dt>
+					<dd id="imgfile-container"><input type="file" id="imgfile" name="imgfile"
+					                                  aria-labelledby="imgfile-label">
 					</dd>
 					<dt></dt>
-					<dd id="skuresinfo-container">
-						<div class="alert info">
-							<strong>Information</strong><br>If a specific SKU is given then the product class
-							restrictions will be ignored.
-						</div>
-						<div class="alert warning">
-							<strong>Warning</strong><br>These options only have an effect for percentage discount
-							coupons.
-						</div>
+					<dd id="cartadd-container"><input type="submit" id="cartadd" name="cartadd" value="Add to Cart"
+					                                  style="display: inline;">
 					</dd>
 				</dl>
-			</fieldset>
-			<fieldset id="freship-group">
-				<legend>Shipping</legend>
-				<dl id="freship-list">
-					<dt><label id="shipping-label" for="shipping" aria-atomic="true" aria-live="polite">Free Shipping On
-						<span class="validation " id="shipping-validation"><strong>&nbsp;</strong></span></label></dt>
-					<dd id="shipping-container">
-						<ol id="shipping" class="checklist" title="Free Shipping On">
-							<li><label><input name="shipping[]" type="checkbox" value="2."
-							                  aria-labelledby="shipping-label"> Free</label></li>
-							<li><label><input name="shipping[]" type="checkbox" value="1."
-							                  aria-labelledby="shipping-label"> Standard</label></li>
-						</ol>
-					</dd>
-					<dt></dt>
-					<dd id="shipinfo-container">
-						<div class="alert info">
-							<strong>Information</strong><br>The shipping methods that will become free if the order
-							meets the general restrictions for the coupon.
-						</div>
-					</dd>
-				</dl>
-			</fieldset>
-			<dl id="submit-list">
-				<dt></dt>
-				<dd id="updatecoupon-container"><input type="submit" id="updatecoupon" name="updatecoupon"
-				                                       value="Update">
-				</dd>
-				<dt></dt>
-				<dd id="duplicatecoupon-container"><input type="submit" id="duplicatecoupon" name="duplicatecoupon"
-				                                          value="Duplicate">
-				</dd>
-				<dt></dt>
-				<dd id="delcoupon-container"><input type="submit" id="delcoupon" name="delcoupon" value="Delete Coupon"
-				                                    class="delete">
-				</dd>
-			</dl>
-		</form>
-
+			</form>
+		</div>
 	</div>
-</div>
 
-<h2>With Radio</h2>
+	<h2>Vertical Form</h2>
 
-<div class="card">
-	<div class="content">
-		<form id="cartaddform" class="hform" action="#stay" method="post" enctype="application/x-www-form-urlencoded"
-		      accept-charset="utf-8">
-			<dl id="cartaddform-list">
-				<dt><label id="cartattrib1-label" for="cartattrib1" aria-atomic="true" aria-live="polite">Color <span
-					class="validation " id="cartattrib1-validation"><strong>&nbsp;</strong></span></label></dt>
-				<dd id="cartattrib1-container">
-					<ol id="cartattrib1" class="radiogroup" title="Color">
-						<li><label><input name="cartattrib1" type="radio" value="2" aria-labelledby="cartattrib1-label">Red</label>
-						</li>
-						<li><label><input name="cartattrib1" type="radio" value="3" checked="checked"
-						                  aria-labelledby="cartattrib1-label">Green</label></li>
-						<li><label><input name="cartattrib1" type="radio" value="4" aria-labelledby="cartattrib1-label">Blue</label>
-						</li>
-					</ol>
-				</dd>
-				<dt><label id="cartqty-label" for="cartqty" aria-atomic="true" aria-live="polite">Quantity <span
-					class="validation " id="cartqty-validation"><strong>&nbsp;</strong></span></label></dt>
-				<dd id="cartqty-container"><input type="number" id="cartqty" name="cartqty" value="1" min="1"
-				                                  aria-labelledby="cartqty-label" aria-describedby="cartqty-desc"
-				                                  max="">##
-					<div class="description" id="cartqty-desc"></div>
-				</dd>
-				<dt><label id="email-label" for="email" aria-atomic="true" aria-live="polite"
-				           class="validationError"><span>Email Address <em>(Required)</em></span> <span
-					class="validation failed" id="email-validation"><strong>Email Address must be a valid working email
-					address.</strong></span></label></dt>
-				<dd id="email-container"><input type="text" id="email" name="email" value="example@example.com"
-				                                aria-labelledby="email-label" aria-required="true"
-				                                class="validationError">
-				</dd>
-				<dt><label id="message-label" for="message" aria-atomic="true" aria-live="polite">Your Message <em>(Required)</em>
-					<span class="validation " id="message-validation"><strong>&nbsp;</strong></span></label></dt>
-				<dd id="message-container"><textarea id="message" name="message" cols="30" rows="10"
-				                                     aria-labelledby="message-label" aria-required="true"></textarea>
-				</dd>
-				<dt><label id="imgfile-label" for="imgfile" aria-atomic="true" aria-live="polite">New Image File <span
-					class="validation " id="imgfile-validation"><strong>&nbsp;</strong></span></label></dt>
-				<dd id="imgfile-container"><input type="file" id="imgfile" name="imgfile"
-				                                  aria-labelledby="imgfile-label">
-				</dd>
-				<dt></dt>
-				<dd id="cartadd-container"><input type="submit" id="cartadd" name="cartadd" value="Add to Cart"
-				                                  style="display: inline;">
-				</dd>
-			</dl>
-		</form>
-	</div>
-</div>
+	<div class="card">
+		<div class="content">
+			<form id="cartaddform2" action="#stay" method="post" enctype="application/x-www-form-urlencoded"
+			      accept-charset="utf-8">
+				<dl id="cartaddform2-list">
+					<dt><label id="cartqty2-label" for="cartqty2" aria-atomic="true" aria-live="polite">Quantity <span
+						class="validation " id="cartqty-validation2"><strong>&nbsp;</strong></span></label></dt>
+					<dd id="cartqty-container2"><input type="number" id="cartqty2" name="cartqty" value="1" min="1"
+					                                   aria-labelledby="cartqty-label2" aria-describedby="cartqty-desc"
+					                                   max="">
 
-<h2>Vertical Form</h2>
-
-<div class="card">
-	<div class="content">
-		<form id="cartaddform2" action="#stay" method="post" enctype="application/x-www-form-urlencoded"
-		      accept-charset="utf-8">
-			<dl id="cartaddform2-list">
-				<dt><label id="cartqty2-label" for="cartqty2" aria-atomic="true" aria-live="polite">Quantity <span
-					class="validation " id="cartqty-validation2"><strong>&nbsp;</strong></span></label></dt>
-				<dd id="cartqty-container2"><input type="number" id="cartqty2" name="cartqty" value="1" min="1"
-				                                   aria-labelledby="cartqty-label2" aria-describedby="cartqty-desc"
-				                                   max="">
-
-					<div class="description" id="cartqty-desc2"></div>
-				</dd>
-				<dt><label id="email2-label" for="email2" aria-atomic="true" aria-live="polite" class="validationError"><span>Email Address <em>(Required)</em></span>
+						<div class="description" id="cartqty-desc2"></div>
+					</dd>
+					<dt><label id="email2-label" for="email2" aria-atomic="true" aria-live="polite"
+					           class="validationError"><span>Email Address <em>(Required)</em></span>
 					<span class="validation failed" id="email-validation2"><strong>Email Address must be a valid working
 						email address.</strong></span></label></dt>
-				<dd id="email-container2"><input type="text" id="email2" name="email" value="example@example.com"
-				                                 aria-labelledby="email-label2" aria-required="true"
-				                                 class="validationError">
-				</dd>
-				<dt><label id="message2-label" for="message2" aria-atomic="true" aria-live="polite">Your Message <em>(Required)</em>
-					<span class="validation " id="message-validation2"><strong>&nbsp;</strong></span></label></dt>
-				<dd id="message-container2"><textarea id="message2" name="message" cols="30" rows="10"
-				                                      aria-labelledby="message-label2" aria-required="true"></textarea>
-				</dd>
-				<dt></dt>
-				<dd id="cartadd-container2"><input type="submit" id="cartadd2" name="cartadd" value="Add to Cart"
-				                                   style="display: inline;">
-				</dd>
-			</dl>
-		</form>
+					<dd id="email-container2"><input type="text" id="email2" name="email" value="example@example.com"
+					                                 aria-labelledby="email-label2" aria-required="true"
+					                                 class="validationError">
+					</dd>
+					<dt><label id="message2-label" for="message2" aria-atomic="true" aria-live="polite">Your Message
+						<em>(Required)</em>
+						<span class="validation " id="message-validation2"><strong>&nbsp;</strong></span></label></dt>
+					<dd id="message-container2"><textarea id="message2" name="message" cols="30" rows="10"
+					                                      aria-labelledby="message-label2"
+					                                      aria-required="true"></textarea>
+					</dd>
+					<dt></dt>
+					<dd id="cartadd-container2"><input type="submit" id="cartadd2" name="cartadd" value="Add to Cart"
+					                                   style="display: inline;">
+					</dd>
+				</dl>
+			</form>
 
-		<p><a href="#stay" class="button">Button</a> <a href="#stay" class="button delete">Delete</a> <a href="#stay"
-		                                                                                                 class="button warning">Warning</a>
-		</p>
+			<p><a href="#stay" class="button">Button</a> <a href="#stay" class="button danger">Delete</a> <a
+				href="#stay"
+				class="button accent">Warning</a>
+			</p>
 
+		</div>
 	</div>
 </div>
 

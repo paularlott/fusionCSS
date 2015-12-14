@@ -19,6 +19,10 @@ button,
 	.user-select();
 	.transition();
 
+	&.full-width {
+		width: 100%;
+	}
+
 	&:hover {
 		background-color: lighten(@btnColorDefault, @btnHoverLighten);
 		.z-depth2();

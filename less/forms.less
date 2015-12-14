@@ -7,9 +7,8 @@ textarea {
 .floatingLabels label {
 	&.floatDown {
 		color: @formTextDesc;
-		top: 1.75rem;
+		top: 2rem;
 		cursor: text;
-		font-size: 100%;
 
 		em {
 			color: @formValidatorReq;
@@ -26,14 +25,14 @@ form {
 
 	fieldset {
 		border: 1px solid @colorDivider;
-		margin: 15px 0;
-		padding: 10px 12px;
+		margin: 1rem 0;
+		padding: 1rem;
 		border-radius: @radius;
 		min-width: 0; // stop auto resize on Chrome
 	}
 
 	legend {
-		padding: 0 5px;
+		padding: 0 .5rem;
 		border: 1px solid @colorDivider;
 		border-radius: @radius;
 	}
@@ -41,17 +40,15 @@ form {
 	// Labels & validation
 	label {
 		display: block;
-		padding-top: 6px;
 		position: relative;
 		font-weight: 500;
-		font-size: 85%;
+		font-size: 1rem;
 		color: @colorText;
 		top: 0;
 		.transition();
 
 		em {
 			font-style: normal;
-			font-size: 85%;
 			color: fadeout(@formValidatorReq, 13%);
 		}
 
@@ -65,8 +62,8 @@ form {
 	}
 
 	.description {
-		padding: .3rem 0;
-		font-size: 85%;
+		padding: .3rem 0 0 0;
+		font-size: .85rem;
 		color: @formTextDesc;
 	}
 
@@ -102,10 +99,9 @@ form {
 	textarea {
 		outline: none;
 		font-family: inherit;
-		font-size: 100%;
+		font-size: 1rem;
 		width: 100%;
-		*width: 95%;
-		padding: 2px 2px 1px 2px;
+		padding: .5rem 0;
 		border: none;
 		border-bottom: 2px solid @colorDivider;
 		background-color: transparent;
@@ -121,7 +117,7 @@ form {
 	}
 
 	input[type="file"] {
-		font-size: 100%;
+		font-size: 1rem;
 		width: auto;
 	}
 
@@ -132,7 +128,7 @@ form {
 		list-style: none;
 
 		li {
-			padding: 4px 0;
+			padding: .25rem 0;
 			margin: 0;
 		}
 
@@ -142,13 +138,13 @@ form {
 
 		label {
 			color: @colorText;
-			font-size: 100%;
+			font-size: 1rem;
 		}
 	}
 
 	// Checklist
 	.checklist {
-		padding: 4px;
+		padding: .25rem;
 		margin: 0;
 		list-style: none;
 		overflow: auto;
@@ -156,7 +152,7 @@ form {
 		border-radius: @radius;
 
 		li {
-			padding: 4px;
+			padding: .25rem;
 			margin: 0;
 			background-color: transparent;
 			.transition();
@@ -173,7 +169,7 @@ form {
 				display: block;
 				font-weight: normal;
 				color: @colorText;
-				font-size: 100%;
+				font-size: 1rem;
 				cursor: pointer;
 			}
 		}
@@ -185,13 +181,18 @@ form {
 
 	// Stacked Layout
 	dd {
-		padding: .3rem 0;
+		padding: 0 0 .3rem 0;
+		margin-bottom: .75rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
 
 // Submit buttons
 form input[type="submit"],
-form button, button { font-size: 100%; }
+form button, button { font-size: 1rem; }
 
 // Horizontal Layout
 .hform form,
@@ -204,14 +205,13 @@ form.hform {
 
 		label {
 			text-align: right;
-			font-size: 100%;
+			padding: .4rem 0 .5rem 0;
 			color: @colorText;
 		}
 	}
 	dd {
 		float: right;
 		width: 70%;
-		padding-top: .3rem;
 	}
 	.radiogroup {
 		li:first-child {
@@ -260,7 +260,7 @@ form {
 
 		dt label {
 			text-align: left;
-			font-size: 85%;
+			font-size: .85rem;
 			color: @formTextDesc;
 		}
 

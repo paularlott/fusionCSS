@@ -1172,9 +1172,8 @@ textarea {
 }
 .floatingLabels label.floatDown {
   color: rgba(0, 0, 0, 0.54);
-  top: 1.75rem;
+  top: 2rem;
   cursor: text;
-  font-size: 100%;
 }
 .floatingLabels label.floatDown em {
   color: #F44336;
@@ -1191,29 +1190,27 @@ form:after {
 }
 form fieldset {
   border: 1px solid rgba(0, 0, 0, 0.12);
-  margin: 15px 0;
-  padding: 10px 12px;
+  margin: 1rem 0;
+  padding: 1rem;
   border-radius: 3px;
   min-width: 0;
 }
 form legend {
-  padding: 0 5px;
+  padding: 0 .5rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 3px;
 }
 form label {
   display: block;
-  padding-top: 6px;
   position: relative;
   font-weight: 500;
-  font-size: 85%;
+  font-size: 1rem;
   color: rgba(0, 0, 0, 0.87);
   top: 0;
   transition: all 150ms linear;
 }
 form label em {
   font-style: normal;
-  font-size: 85%;
   color: rgba(244, 67, 54, 0.87);
 }
 form label.validationError span:first-child {
@@ -1223,8 +1220,8 @@ form label.focused {
   color: #607D8B;
 }
 form .description {
-  padding: .3rem 0;
-  font-size: 85%;
+  padding: .3rem 0 0 0;
+  font-size: .85rem;
   color: rgba(0, 0, 0, 0.54);
 }
 form .validation {
@@ -1254,10 +1251,9 @@ form select,
 form textarea {
   outline: none;
   font-family: inherit;
-  font-size: 100%;
+  font-size: 1rem;
   width: 100%;
-  *width: 95%;
-  padding: 2px 2px 1px 2px;
+  padding: .5rem 0;
   border: none;
   border-bottom: 2px solid rgba(0, 0, 0, 0.12);
   background-color: transparent;
@@ -1284,7 +1280,7 @@ form textarea.validationError {
   border-bottom-color: #F44336;
 }
 form input[type="file"] {
-  font-size: 100%;
+  font-size: 1rem;
   width: auto;
 }
 form .radiogroup {
@@ -1293,7 +1289,7 @@ form .radiogroup {
   list-style: none;
 }
 form .radiogroup li {
-  padding: 4px 0;
+  padding: .25rem 0;
   margin: 0;
 }
 form .radiogroup input {
@@ -1301,10 +1297,10 @@ form .radiogroup input {
 }
 form .radiogroup label {
   color: rgba(0, 0, 0, 0.87);
-  font-size: 100%;
+  font-size: 1rem;
 }
 form .checklist {
-  padding: 4px;
+  padding: .25rem;
   margin: 0;
   list-style: none;
   overflow: auto;
@@ -1312,7 +1308,7 @@ form .checklist {
   border-radius: 3px;
 }
 form .checklist li {
-  padding: 4px;
+  padding: .25rem;
   margin: 0;
   background-color: transparent;
   transition: all 150ms linear;
@@ -1327,19 +1323,23 @@ form .checklist li label {
   display: block;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.87);
-  font-size: 100%;
+  font-size: 1rem;
   cursor: pointer;
 }
 form .checklist input {
   margin-right: .25rem;
 }
 form dd {
-  padding: .3rem 0;
+  padding: 0 0 .3rem 0;
+  margin-bottom: .75rem;
+}
+form dd:last-child {
+  margin-bottom: 0;
 }
 form input[type="submit"],
 form button,
 button {
-  font-size: 100%;
+  font-size: 1rem;
 }
 .hform form dt,
 form.hform dt {
@@ -1351,14 +1351,13 @@ form.hform dt {
 .hform form dt label,
 form.hform dt label {
   text-align: right;
-  font-size: 100%;
+  padding: .4rem 0 .5rem 0;
   color: rgba(0, 0, 0, 0.87);
 }
 .hform form dd,
 form.hform dd {
   float: right;
   width: 70%;
-  padding-top: .3rem;
 }
 .hform form .radiogroup li:first-child,
 form.hform .radiogroup li:first-child {
@@ -1396,7 +1395,7 @@ form #submit-list dd {
   .hform form dt label,
   form.hform dt label {
     text-align: left;
-    font-size: 85%;
+    font-size: .85rem;
     color: rgba(0, 0, 0, 0.54);
   }
   .hform form .validation,
@@ -1427,6 +1426,13 @@ button,
   -ms-user-select: none;
   user-select: none;
   transition: all 150ms linear;
+}
+.uploadButton.full-width,
+form input[type="submit"].full-width,
+form button.full-width,
+button.full-width,
+.button.full-width {
+  width: 100%;
 }
 .uploadButton:hover,
 form input[type="submit"]:hover,

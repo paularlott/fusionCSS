@@ -327,6 +327,9 @@ if(!window.fusionLib)
 
 		$fl('.floatingLabels form').each(floatLabels);
 		$fl('form.floatingLabels').each(floatLabels);
+		setTimeout(function() {
+			$fl(document.activeElement).trigger('focus');
+		}, 100);
 
 		// Replace val function so that it triggers a change event on update
 		var fnVal = fusionLib.fn.val;
@@ -340,5 +343,15 @@ if(!window.fusionLib)
 			return result;
 		};
 
+		// Replace focus function so that it updates the styles on the element
+		var fnFocus = fusionLib.fn.focus;
+		fusionLib.fn.focus = function() {
+			fnFocus.call(this);
+
+			var l = $fl('#' + $fl(this[0]).attr('id') + '-label');
+			l.removeClass('floatDown');
+			l.addClass('focused');
+			return this;
+		};
 	});
 })();
