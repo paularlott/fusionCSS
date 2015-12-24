@@ -170,7 +170,7 @@ if(!window.fusionLib)
 								.removeClass(type)
 								.attr('aria-hidden', true);
 						toastTimer = 0;
-					}, 8000);
+					}, 5000);
 				}
 			}, delay);
 
@@ -278,6 +278,20 @@ if(!window.fusionLib)
 		}
 
 		/**
+		 * Label styling
+		 */
+		function styleLabel() {
+			var el = $fl(this),
+					l = $fl('#' + el.attr('id') + '-label');
+
+			el.bind('focus', function() {
+				l.addClass('focused');
+			}).bind('blur', function() {
+				l.removeClass('focused');
+			});
+		}
+
+		/**
 		 * Floating labels
 		 */
 		function floatLabels() {
@@ -312,16 +326,8 @@ if(!window.fusionLib)
 					}
 				});
 
-				f.find('textarea').each(function() {
-					var el = $fl(this),
-						l = $fl('#' + el.attr('id') + '-label');
-
-					el.bind('focus', function() {
-						l.addClass('focused');
-					}).bind('blur', function() {
-						l.removeClass('focused');
-					});
-				});
+				f.find('textarea').each(styleLabel);
+				f.find('select').each(styleLabel);
 			}
 		}
 
@@ -353,5 +359,45 @@ if(!window.fusionLib)
 			l.addClass('focused');
 			return this;
 		};
+
+		// Floating action menu
+		var hasFAMs = false;
+		$fl('.fam').each(function() {
+			var fam = $fl(this),
+				menu = fam.find('ul');
+
+			// Mark as hidden
+			menu.attr('aria-hidden', menu.hasClass('exposed') ? false : true);
+
+			// Attach click handler to menu button
+			fam.find('a').first().bind('click', function(e) {
+				if(menu.hasClass('exposed')) {
+					menu.removeClass('exposed').attr('aria-hidden', true);
+				}
+				else {
+					// Close any open
+					$fl('.fam ul').removeClass('exposed').attr('aria-hidden', true);
+
+					menu.addClass('exposed').attr('aria-hidden', false);
+				}
+				e.preventDefault();
+			}).attr('data-fam-menu', 1);
+
+			hasFAMs = true;
+		});
+
+		// Close FAMs on click off menu
+		if(hasFAMs) {
+			$fl('body').bind('click', function (e) {
+				if(!$fl(e.target).attr('data-fam-menu') &&
+					!$fl(e.target).parent().attr('data-fam-menu') &&
+					!$fl(e.target).hasClass('leave-open') &&
+					!$fl(e.target).parent().hasClass('leave-open')
+				) {
+					$fl('.fam ul').removeClass('exposed').attr('aria-hidden', true);
+				}
+			});
+		}
+
 	});
 })();

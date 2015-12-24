@@ -24,6 +24,7 @@ button,
 	}
 
 	&:hover {
+		text-decoration: none;
 		background-color: lighten(@btnColorDefault, @btnHoverLighten);
 		.z-depth2();
 	}
@@ -56,7 +57,7 @@ button,
 		}
 	}
 
-	&.delete, &.danger {
+	&.danger {
 		color: @btnColorDangerText;
 		background-color: @btnColorDanger;
 		&:hover {

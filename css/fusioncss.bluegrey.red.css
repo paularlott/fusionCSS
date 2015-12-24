@@ -953,6 +953,7 @@ table.bordered td {
 .breadcrumbwidget a:hover {
   color: rgba(0, 0, 0, 0.54);
   border-color: rgba(0, 0, 0, 0.26);
+  text-decoration: none;
 }
 .breadcrumbwidget li + li:before {
   content: " >";
@@ -1000,6 +1001,7 @@ table.bordered td {
 }
 .breadcrumbwidget.flat li:hover,
 .breadcrumbwidget.flat li:hover:after {
+  color: #ffffff;
   background-color: #FF5252;
 }
 .breadcrumbwidget.flat li a {
@@ -1205,11 +1207,12 @@ form label {
   position: relative;
   font-weight: 500;
   font-size: 1rem;
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(0, 0, 0, 0.54);
   top: 0;
   transition: all 150ms linear;
 }
 form label em {
+  font-size: .85rem;
   font-style: normal;
   color: rgba(244, 67, 54, 0.87);
 }
@@ -1439,6 +1442,7 @@ form input[type="submit"]:hover,
 form button:hover,
 button:hover,
 .button:hover {
+  text-decoration: none;
   background-color: rgba(13, 13, 13, 0);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
@@ -1495,11 +1499,6 @@ button.accent:disabled,
 .button.accent:disabled {
   background-color: #FF5252;
 }
-.uploadButton.delete,
-form input[type="submit"].delete,
-form button.delete,
-button.delete,
-.button.delete,
 .uploadButton.danger,
 form input[type="submit"].danger,
 form button.danger,
@@ -1508,11 +1507,6 @@ button.danger,
   color: #ffffff;
   background-color: #F44336;
 }
-.uploadButton.delete:hover,
-form input[type="submit"].delete:hover,
-form button.delete:hover,
-button.delete:hover,
-.button.delete:hover,
 .uploadButton.danger:hover,
 form input[type="submit"].danger:hover,
 form button.danger:hover,
@@ -1520,11 +1514,6 @@ button.danger:hover,
 .button.danger:hover {
   background-color: #f55a4e;
 }
-.uploadButton.delete:disabled,
-form input[type="submit"].delete:disabled,
-form button.delete:disabled,
-button.delete:disabled,
-.button.delete:disabled,
 .uploadButton.danger:disabled,
 form input[type="submit"].danger:disabled,
 form button.danger:disabled,
@@ -1917,9 +1906,8 @@ body.disableScroll {
 .appbar {
   color: #ffffff;
   background-color: #607D8B;
-  font-size: 1.3em;
+  font-size: 1.3rem;
   padding: .5rem 1rem;
-  margin-bottom: 1rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1937,6 +1925,7 @@ body.disableScroll {
 .appbar a,
 .appbar a:hover {
   color: #ffffff;
+  margin-bottom: 1rem;
 }
 .appbar:after {
   content: ".";
@@ -1953,6 +1942,47 @@ body.disableScroll {
   margin-right: .75rem;
 }
 .appbar li:last-child {
+  margin-right: 0;
+}
+.fam {
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.fam a:fist-child {
+  z-index: 9000;
+}
+.fam ul {
+  position: absolute;
+  top: .35rem;
+  left: 4rem;
+  list-style: none;
+  margin-left: 0;
+  width: 23.5rem;
+  z-index: 9010;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 250ms linear;
+}
+.fam ul.exposed {
+  opacity: 1;
+  visibility: visible;
+}
+.fam li {
+  display: inline-block;
+  margin-right: .5rem;
+}
+.fam li:last-child {
+  margin-right: 0;
+}
+.fam.vertical ul {
+  top: 3.5rem;
+  left: .5rem;
+  width: 2.5rem;
+}
+.fam.vertical li {
   margin-right: 0;
 }
 .z-depth0 {
