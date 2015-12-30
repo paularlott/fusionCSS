@@ -4,23 +4,47 @@
 	overflow: hidden;
 	margin: 1rem 0;
 
+	a {
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
 	&.success {
 		color: @alertColorSuccessFg;
 		background-color: @alertColorSuccessBg;
+
+		a {
+			color: @alertColorSuccessFg;
+		}
 	}
 
 	&.error {
 		color: @alertColorErrorFg;
 		background-color: @alertColorErrorBg;
+
+		a {
+			color: @alertColorErrorFg;
+		}
 	}
 
 	&.warning {
 		color: @alertColorWarningFg;
 		background-color: @alertColorWarningBg;
+
+		a {
+			color: @alertColorWarningFg;
+		}
 	}
 
 	&.info {
 		color: @alertColorInfoFg;
 		background-color: @alertColorInfoBg;
+
+		a {
+			color: @alertColorInfoFg;
+		}
 	}
 }

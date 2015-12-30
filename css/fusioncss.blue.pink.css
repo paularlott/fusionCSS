@@ -61,10 +61,10 @@ p {
   text-align: justify;
 }
 .pull-left {
-  float: left;
+  float: left !important;
 }
 .pull-right {
-  float: right;
+  float: right !important;
 }
 ul,
 ol {
@@ -877,24 +877,20 @@ table.rowhover tr:hover td {
 table.bordered td {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
-@media only screen and (max-width: 767px) {
-  table.responsive {
-    margin: 0;
-    width: 100%;
-  }
-  div.responsiveTableWrapper {
-    width: 100%;
-    margin: 1rem 0;
-  }
-  div.responsiveTableWrapperInner {
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    position: relative;
-    overflow: hidden;
-    overflow: scroll;
-    overflow-y: hidden;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    -webkit-overflow-scrolling: touch;
-  }
+table.responsive {
+  margin: 0;
+  width: 100%;
+}
+div.responsiveTableWrapper {
+  width: 100%;
+  margin: 1rem 0;
+}
+div.responsiveTableWrapperInner {
+  position: relative;
+  overflow: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -webkit-overflow-scrolling: touch;
 }
 .paginationwidget {
   display: table;
@@ -971,7 +967,7 @@ table.bordered td {
   display: inline-block;
   overflow: hidden;
   background-color: #ffffff;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   border-radius: 3px;
 }
 .breadcrumbwidget.flat li {
@@ -1083,21 +1079,39 @@ table.bordered td {
   overflow: hidden;
   margin: 1rem 0;
 }
+.alert a {
+  text-decoration: underline;
+}
+.alert a:hover {
+  text-decoration: none;
+}
 .alert.success {
   color: #ffffff;
   background-color: #4CAF50;
+}
+.alert.success a {
+  color: #ffffff;
 }
 .alert.error {
   color: #ffffff;
   background-color: #F44336;
 }
+.alert.error a {
+  color: #ffffff;
+}
 .alert.warning {
   color: #ffffff;
   background-color: #F57C00;
 }
+.alert.warning a {
+  color: #ffffff;
+}
 .alert.info {
   color: #ffffff;
   background-color: #03A9F4;
+}
+.alert.info a {
+  color: #ffffff;
 }
 .show {
   display: inherit !important;
@@ -1446,6 +1460,11 @@ button:hover,
   background-color: rgba(13, 13, 13, 0);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
+.uploadButton.disabled,
+form input[type="submit"].disabled,
+form button.disabled,
+button.disabled,
+.button.disabled,
 .uploadButton:disabled,
 form input[type="submit"]:disabled,
 form button:disabled,
@@ -1470,6 +1489,11 @@ button.primary:hover,
 .button.primary:hover {
   background-color: #39a1f4;
 }
+.uploadButton.primary.disabled,
+form input[type="submit"].primary.disabled,
+form button.primary.disabled,
+button.primary.disabled,
+.button.primary.disabled,
 .uploadButton.primary:disabled,
 form input[type="submit"].primary:disabled,
 form button.primary:disabled,
@@ -1492,6 +1516,11 @@ button.accent:hover,
 .button.accent:hover {
   background-color: #ff5a92;
 }
+.uploadButton.accent.disabled,
+form input[type="submit"].accent.disabled,
+form button.accent.disabled,
+button.accent.disabled,
+.button.accent.disabled,
 .uploadButton.accent:disabled,
 form input[type="submit"].accent:disabled,
 form button.accent:disabled,
@@ -1514,6 +1543,11 @@ button.danger:hover,
 .button.danger:hover {
   background-color: #f55a4e;
 }
+.uploadButton.danger.disabled,
+form input[type="submit"].danger.disabled,
+form button.danger.disabled,
+button.danger.disabled,
+.button.danger.disabled,
 .uploadButton.danger:disabled,
 form input[type="submit"].danger:disabled,
 form button.danger:disabled,
@@ -1537,6 +1571,11 @@ button.flat:hover,
   background-color: #EEEEEE;
   box-shadow: none;
 }
+.uploadButton.flat.disabled,
+form input[type="submit"].flat.disabled,
+form button.flat.disabled,
+button.flat.disabled,
+.button.flat.disabled,
 .uploadButton.flat:disabled,
 form input[type="submit"].flat:disabled,
 form button.flat:disabled,
@@ -1558,11 +1597,6 @@ button.flat.accent,
 .button.flat.accent {
   color: #FF4081;
 }
-.uploadButton.flat.delete,
-form input[type="submit"].flat.delete,
-form button.flat.delete,
-button.flat.delete,
-.button.flat.delete,
 .uploadButton.flat.danger,
 form input[type="submit"].flat.danger,
 form button.flat.danger,
@@ -1584,6 +1618,11 @@ button.raised:hover,
 .button.raised:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
+.uploadButton.raised.disabled,
+form input[type="submit"].raised.disabled,
+form button.raised.disabled,
+button.raised.disabled,
+.button.raised.disabled,
 .uploadButton.raised:disabled,
 form input[type="submit"].raised:disabled,
 form button.raised:disabled,
@@ -1598,21 +1637,37 @@ button.floating,
 .button.floating {
   display: inline-block;
   border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  line-height: 3.25rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.6rem;
+  line-height: 3.5rem;
   text-align: center;
   padding: 0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.uploadButton.floating i,
+form input[type="submit"].floating i,
+form button.floating i,
+button.floating i,
+.button.floating i {
+  line-height: 3.5rem;
 }
 .uploadButton.floating.mini,
 form input[type="submit"].floating.mini,
 form button.floating.mini,
 button.floating.mini,
 .button.floating.mini {
-  width: 2.25rem;
-  height: 2.25rem;
-  line-height: 2.4rem;
+  font-size: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+.uploadButton.floating.mini i,
+form input[type="submit"].floating.mini i,
+form button.floating.mini i,
+button.floating.mini i,
+.button.floating.mini i {
+  line-height: 2.5rem;
 }
 .uploadButton {
   position: relative;
@@ -1946,6 +2001,7 @@ body.disableScroll {
 }
 .fam {
   position: relative;
+  display: inline-block;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1960,6 +2016,7 @@ body.disableScroll {
   left: 4rem;
   list-style: none;
   margin-left: 0;
+  margin-bottom: 0;
   width: 23.5rem;
   z-index: 9010;
   opacity: 0;
@@ -1977,13 +2034,22 @@ body.disableScroll {
 .fam li:last-child {
   margin-right: 0;
 }
+.fam.left ul {
+  left: inherit;
+  right: 4rem;
+  text-align: right;
+}
 .fam.vertical ul {
-  top: 3.5rem;
+  top: 4rem;
   left: .5rem;
   width: 2.5rem;
 }
 .fam.vertical li {
   margin-right: 0;
+}
+.fam.vertical.up ul {
+  top: inherit;
+  bottom: 4rem;
 }
 .z-depth0 {
   box-shadow: none;

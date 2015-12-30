@@ -51,21 +51,17 @@ table {
 }
 
 // Responsive Tables
-@media only screen and (max-width: (@breakpoint-s - 1)) {
-	table.responsive {
-		margin: 0; width: 100%;
-	}
-	div.responsiveTableWrapper {
-		width: 100%;
-		margin: 1rem 0;
-	}
-	div.responsiveTableWrapperInner {
-		border: 1px solid @tableBorderColor;
-		position: relative;
-		overflow: hidden;
-		overflow: scroll;
-		overflow-y: hidden;
-		-ms-overflow-style: -ms-autohiding-scrollbar;
-		-webkit-overflow-scrolling: touch;
-	}
+table.responsive {
+	margin: 0; width: 100%;
+}
+div.responsiveTableWrapper {
+	width: 100%;
+	margin: 1rem 0;
+}
+div.responsiveTableWrapperInner {
+	position: relative;
+	overflow: auto;
+	overflow-y: hidden;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	-webkit-overflow-scrolling: touch;
 }

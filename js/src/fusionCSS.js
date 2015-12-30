@@ -18,7 +18,8 @@ if(!window.fusionLib)
 	/**
 	 * The ID of the toast timer
 	 */
-	var toastTimer = 0;
+	var toastTimer = 0,
+		toastClass = '';
 
 	fusionLib.fn.extend({
 		/**
@@ -118,6 +119,8 @@ if(!window.fusionLib)
 		toastShow: function(type, msg, actionLabel, callback) {
 			var delay = 0;
 
+			toastClass = type;
+
 			if(actionLabel) {
 				msg = '<a href="#">' + actionLabel + '</a>' + msg
 			}
@@ -175,10 +178,26 @@ if(!window.fusionLib)
 			}, delay);
 
 			return this;
+		},
+
+		/**
+		 * Hide any visible toast messages.
+		 */
+		toastHide: function() {
+			if (toastTimer) {
+				clearTimeout(toastTimer);
+				toastTimer = 0;
+			}
+
+			$fl('#toast')
+				.removeClass('exposed')
+				.removeClass(toastClass)
+				.attr('aria-hidden', true);
 		}
 	});
 
 	fusionLib.toastShow = fusionLib.fn.toastShow;
+	fusionLib.toastHide = fusionLib.fn.toastHide;
 
 	$fl(document).ready(function() {
 
@@ -343,10 +362,13 @@ if(!window.fusionLib)
 			if (typeof value == 'undefined') {
 				return fnVal.call(this);
 			}
-			var result = fnVal.call(this, value);
-			if(fusionLib.fn.hasClass.call(this, 'hasFloatingLabel'))
-				fusionLib.fn.trigger.call(this, 'change');
-			return result;
+
+			var l = $fl('#' + $fl(this[0]).attr('id') + '-label');
+			if(value.length)
+				l.removeClass('floatDown');
+			else
+				l.addClass('floatDown');
+			return fnVal.call(this, value);
 		};
 
 		// Replace focus function so that it updates the styles on the element
@@ -388,11 +410,15 @@ if(!window.fusionLib)
 
 		// Close FAMs on click off menu
 		if(hasFAMs) {
-			$fl('body').bind('click', function (e) {
-				if(!$fl(e.target).attr('data-fam-menu') &&
-					!$fl(e.target).parent().attr('data-fam-menu') &&
-					!$fl(e.target).hasClass('leave-open') &&
-					!$fl(e.target).parent().hasClass('leave-open')
+			$fl(document).bind('click', function (e) {
+				var el = $fl(e.target);
+
+				if(e.target.nodeName == 'HTML' || (
+						!el.attr('data-fam-menu') &&
+						!el.hasClass('leave-open') &&
+						!el.parent().attr('data-fam-menu') &&
+						!el.parent().hasClass('leave-open')
+					)
 				) {
 					$fl('.fam ul').removeClass('exposed').attr('aria-hidden', true);
 				}
