@@ -55,57 +55,63 @@
 			text-decoration: none;
 			outline: none;
 			line-height: 2rem;
-			padding: 0 1rem 0 2rem;
 			position: relative;
 			margin: 0;
-			.transition(all, 0.25s);
 
 			&:first-child {
 				border-radius: @radius 0 0 @radius;
-				padding-left: 1.5rem;
+				a, span {
+					padding-left: 1.5rem;
+				}
 			}
 
 			&:last-child {
 				border-radius: 0 @radius @radius 0;
-				padding-right: 1.5rem;
+				a, span {
+					padding-right: 1.5rem;
 
-				&:after {
-					content: none;
+					&:after {
+						content: none;
+					}
 				}
 			}
 
-			&:hover,
-			&:hover:after {
-				color: @bcFlatAccentText;
-				background-color: @bcFlatAccent;
+			span {
+				padding: 0 1rem 0 2rem;
 			}
 
 			a {
 				color: @bcFlatText;
 				background-color: transparent;
 				display: block;
-				padding: 0;
+				padding: 0 1rem 0 2rem;
 				border: none;
-			}
-
-			&:hover a {
-				color: @bcFlatAccentText;
-			}
-
-			// The chevron
-			&:after {
-				content: '';
-				position: absolute;
-				top: 0;
-				right: -.925rem;
-				width: 2rem;
-				height: 2rem;
-				z-index: 1;
-				background-color: @bcFlatBgColor;
-				.transform(45deg, .65);
-				box-shadow: 2px -2px 0 2px @bcFlatAccent;
-				border-radius: 0 @radius 0 100%;
 				.transition(all, 0.25s);
+
+				// The chevron
+				&:after {
+					content: '';
+					position: absolute;
+					top: 0;
+					right: -.925rem;
+					width: 2rem;
+					height: 2rem;
+					z-index: 1;
+					background-color: @bcFlatBgColor;
+					.transform(45deg, .65);
+					box-shadow: 2px -2px 0 2px @bcFlatAccent;
+					border-radius: 0 @radius 0 100%;
+					.transition(all, 0.25s);
+				}
+
+				&:hover {
+					color: @bcFlatAccentText;
+					background-color: @bcFlatAccent;
+
+					&:after {
+						background-color: @bcFlatAccent;
+					}
+				}
 			}
 		}
 	}

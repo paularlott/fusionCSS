@@ -935,19 +935,19 @@ div.responsiveTableWrapperInner {
 .breadcrumbwidget li {
   display: inline-block;
   margin-right: .25rem;
-  color: rgba(0, 0, 0, 0.54);
+  color: rgba(0, 0, 0, 0.87);
 }
 .breadcrumbwidget li:last-child {
   font-weight: 600;
 }
 .breadcrumbwidget a {
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.54);
+  color: rgba(0, 0, 0, 0.87);
   border: 1px solid transparent;
   padding: .25rem;
 }
 .breadcrumbwidget a:hover {
-  color: rgba(0, 0, 0, 0.54);
+  color: rgba(0, 0, 0, 0.87);
   border-color: rgba(0, 0, 0, 0.26);
   text-decoration: none;
 }
@@ -976,41 +976,42 @@ div.responsiveTableWrapperInner {
   text-decoration: none;
   outline: none;
   line-height: 2rem;
-  padding: 0 1rem 0 2rem;
   position: relative;
   margin: 0;
-  transition: all 0.25s linear;
 }
 .breadcrumbwidget.flat li + li:before {
   display: none;
 }
 .breadcrumbwidget.flat li:first-child {
   border-radius: 3px 0 0 3px;
+}
+.breadcrumbwidget.flat li:first-child a,
+.breadcrumbwidget.flat li:first-child span {
   padding-left: 1.5rem;
 }
 .breadcrumbwidget.flat li:last-child {
   border-radius: 0 3px 3px 0;
+}
+.breadcrumbwidget.flat li:last-child a,
+.breadcrumbwidget.flat li:last-child span {
   padding-right: 1.5rem;
 }
-.breadcrumbwidget.flat li:last-child:after {
+.breadcrumbwidget.flat li:last-child a:after,
+.breadcrumbwidget.flat li:last-child span:after {
   content: none;
 }
-.breadcrumbwidget.flat li:hover,
-.breadcrumbwidget.flat li:hover:after {
-  color: #ffffff;
-  background-color: #FF5252;
+.breadcrumbwidget.flat li span {
+  padding: 0 1rem 0 2rem;
 }
 .breadcrumbwidget.flat li a {
   color: rgba(0, 0, 0, 0.87);
   background-color: transparent;
   display: block;
-  padding: 0;
+  padding: 0 1rem 0 2rem;
   border: none;
+  transition: all 0.25s linear;
 }
-.breadcrumbwidget.flat li:hover a {
-  color: #ffffff;
-}
-.breadcrumbwidget.flat li:after {
+.breadcrumbwidget.flat li a:after {
   content: '';
   position: absolute;
   top: 0;
@@ -1023,6 +1024,13 @@ div.responsiveTableWrapperInner {
   box-shadow: 2px -2px 0 2px #FF5252;
   border-radius: 0 3px 0 100%;
   transition: all 0.25s linear;
+}
+.breadcrumbwidget.flat li a:hover {
+  color: #ffffff;
+  background-color: #FF5252;
+}
+.breadcrumbwidget.flat li a:hover:after {
+  background-color: #FF5252;
 }
 .hnav,
 .vnav {
