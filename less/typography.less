@@ -64,6 +64,41 @@ p {
 	float: right !important;
 }
 
+@media (max-width: (@breakpoint-s - 1)) {
+	.pull-left-t {
+		float: left !important;
+	}
+	.pull-right-t {
+		float: right !important;
+	}
+}
+
+@media (min-width: @breakpoint-s) and (max-width: (@breakpoint-m - 1)) {
+	.pull-left-s {
+		float: left !important;
+	}
+	.pull-right-s {
+		float: right !important;
+	}
+}
+
+@media (min-width: @breakpoint-m) and (max-width: (@breakpoint-l - 1)) {
+	.pull-left-m {
+		float: left !important;
+	}
+	.pull-right-m {
+		float: right !important;
+	}
+}
+@media (min-width: @breakpoint-l) {
+	.pull-left-l {
+		float: left !important;
+	}
+	.pull-right-l {
+		float: right !important;
+	}
+}
+
 ul, ol {
 	margin: 0 0 1rem 2rem;
 }

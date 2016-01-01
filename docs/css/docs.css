@@ -21,8 +21,8 @@ body {
 	text-align: center;
 	background-color: #BBDEFB;
 	border: 1px solid #0D47A1;
-	line-height: 2em;
-	margin-top: .25em;
+	line-height: 2rem;
+	margin-top: .25rem;
 }
 .example [class^="span"] [class^="span"] {
 	margin-top: 0;
@@ -33,6 +33,21 @@ body {
 .card > .content > .example {
 	margin-left: 0;
 	margin-right: 0;
+}
+
+.examplerow {
+	background-color: #BBDEFB;
+	border: 1px solid #0D47A1;
+	line-height: 2rem;
+	margin-bottom: .25rem;
+	padding: 0 .5rem;
+}
+.examplerow:after {
+	content: " ";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	height: 0;
 }
 
 /* Limit width */

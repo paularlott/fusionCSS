@@ -66,6 +66,38 @@ p {
 .pull-right {
   float: right !important;
 }
+@media (max-width: 767px) {
+  .pull-left-t {
+    float: left !important;
+  }
+  .pull-right-t {
+    float: right !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .pull-left-s {
+    float: left !important;
+  }
+  .pull-right-s {
+    float: right !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .pull-left-m {
+    float: left !important;
+  }
+  .pull-right-m {
+    float: right !important;
+  }
+}
+@media (min-width: 1200px) {
+  .pull-left-l {
+    float: left !important;
+  }
+  .pull-right-l {
+    float: right !important;
+  }
+}
 ul,
 ol {
   margin: 0 0 1rem 2rem;
@@ -2016,9 +2048,6 @@ body.disableScroll {
   -ms-user-select: none;
   user-select: none;
 }
-.fam a:fist-child {
-  z-index: 9000;
-}
 .fam ul {
   position: absolute;
   top: .35rem;
@@ -2027,7 +2056,6 @@ body.disableScroll {
   margin-left: 0;
   margin-bottom: 0;
   width: 23.5rem;
-  z-index: 9010;
   opacity: 0;
   visibility: hidden;
   transition: all 250ms linear;
