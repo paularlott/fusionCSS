@@ -1127,28 +1127,28 @@ div.responsiveTableWrapperInner {
 }
 .alert.success {
   color: #ffffff;
-  background-color: #4CAF50;
+  background-color: #7CB342;
 }
 .alert.success a {
   color: #ffffff;
 }
 .alert.error {
   color: #ffffff;
-  background-color: #F44336;
+  background-color: #E53935;
 }
 .alert.error a {
   color: #ffffff;
 }
 .alert.warning {
   color: #ffffff;
-  background-color: #F57C00;
+  background-color: #FFA000;
 }
 .alert.warning a {
   color: #ffffff;
 }
 .alert.info {
   color: #ffffff;
-  background-color: #03A9F4;
+  background-color: #1976D2;
 }
 .alert.info a {
   color: #ffffff;
@@ -1792,7 +1792,7 @@ body.disableScroll {
   color: #ffffff;
   background-color: #212121;
   position: fixed;
-  z-index: 9000;
+  z-index: 9008;
   bottom: -100px;
   left: 50%;
   margin-left: -45%;
@@ -1825,15 +1825,15 @@ body.disableScroll {
 }
 #toast.success {
   color: #ffffff;
-  background-color: #4CAF50;
+  background-color: #7CB342;
 }
 #toast.error {
   color: #ffffff;
-  background-color: #F44336;
+  background-color: #E53935;
 }
 #toast.warning {
   color: #ffffff;
-  background-color: #F57C00;
+  background-color: #FFA000;
 }
 #toast.primary {
   color: #ffffff;

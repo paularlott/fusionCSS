@@ -5,16 +5,17 @@
 <p>The JavaScript relies on the presence of either jQuery or fusionLib and is supplied in the file fusionCSS.js.</p>
 
 <h2>Using With jQuery</h2>
-<pre><code class="language-markup">&lt;link href="css/fusion.min.css" rel="stylesheet" type="text/css" />
-&lt;script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js">&lt;/script>
+<pre><code class="language-markup">&lt;link href="css/fusioncss.blue.pink.min.css" rel="stylesheet" type="text/css" />
+&lt;script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js">&lt;/script>
 &lt;script type="text/javascript" src="js/fusionCSS.js">&lt;/script></code></pre>
 
 <h2>Using With fusionLib</h2>
-<pre><code class="language-markup">&lt;link href="css/fusion.min.css" rel="stylesheet" type="text/css" />
+<pre><code class="language-markup">&lt;link href="css/fusioncss.blue.pink.min.css" rel="stylesheet" type="text/css" />
 &lt;script type="text/javascript" src="system/libs/js/fusionLib.js">&lt;/script>
 &lt;script type="text/javascript" src="js/fusionCSS.js">&lt;/script></code></pre>
 
 <h2>Using With clearFusionCMS</h2>
-<p>The fusionCSS.js and fusion.min.css files can either be included from the files system or placed into documents with content types of JavaScript and CSS respectively.</p>
-<pre><code class="language-markup">&lt;link href="css/fusion.min.css" rel="stylesheet" type="text/css" />
-&#91;&#91;javascript &amp;core=`1` &amp;src=`js/fusionCSS.js`&#93;&#93;</code></pre>
+<p>fusionCSS.js should be copied into a new document of type .js and fusioncss.blue.pink.min.css copied to a document of type .css.</p>
+<p>Assuming the document holding the JavaScript has an ID of 100 and the CSS has an ID of 101 then fusionCSS can be included by adding the following to the head section of the templates:</p>
+<pre><code class="language-markup">&lt;link href="&#91;&#91;~101&#93;&#93;" rel="stylesheet" type="text/css" />
+&#91;&#91;javascript &amp;core=`1` &amp;src=`&#91;&#91;~100&#93;&#93;`&#93;&#93;</code></pre>
