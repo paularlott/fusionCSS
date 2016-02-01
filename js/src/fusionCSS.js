@@ -238,15 +238,22 @@ if(!window.fusionLib)
 				$fl('body').append('<div id="slideInMenu" role="menu"></div>');
 
 				// Copy menu HTML to slide in
-				$fl('ul.slideInMenu').each(function (idx) {
+				$fl('.slideInMenu').each(function (idx) {
+					var o = '', e = '';
+
+					if(this.nodeName.toLowerCase() == 'ul') {
+						o = '<ul>';
+						e = '</ul>';
+					}
+
 					if ($fl(this).hasClass('slideInMenuRootOnly')) {
 						$fl('#slideInMenuOverlay')
-								.html('<ul>' + $fl(this).html() + '</ul>')
+								.html(o + $fl(this).html() + e)
 								.find('li ul').remove();
 						$fl('#slideInMenu').append($fl('#slideInMenuOverlay').html());
 					}
 					else
-						$fl('#slideInMenu').append('<ul>' + $fl(this).html() + '</ul>');
+						$fl('#slideInMenu').append(o + $fl(this).html() + e);
 				});
 			}
 
