@@ -1478,6 +1478,7 @@ button,
   display: inline-block;
   margin-bottom: .5rem;
   border-radius: 3px;
+  text-decoration: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
