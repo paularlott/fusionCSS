@@ -131,6 +131,7 @@ blockquote cite {
   content: ".";
   display: block;
   height: 0;
+  line-height: 0;
   clear: both;
   visibility: hidden;
 }
@@ -825,6 +826,7 @@ blockquote cite {
   content: ".";
   display: block;
   height: 0;
+  line-height: 0;
   clear: both;
   visibility: hidden;
 }
@@ -1079,6 +1081,7 @@ div.responsiveTableWrapperInner {
   content: ".";
   display: block;
   height: 0;
+  line-height: 0;
   clear: both;
   visibility: hidden;
 }
@@ -1241,6 +1244,7 @@ form:after {
   content: ".";
   display: block;
   height: 0;
+  line-height: 0;
   clear: both;
   visibility: hidden;
 }
@@ -1858,6 +1862,7 @@ body.disableScroll {
   content: ".";
   display: block;
   height: 0;
+  line-height: 0;
   clear: both;
   visibility: hidden;
 }
@@ -1893,6 +1898,7 @@ body.disableScroll {
   content: ".";
   display: block;
   height: 0;
+  line-height: 0;
   clear: both;
   visibility: hidden;
 }
@@ -2028,6 +2034,7 @@ body.disableScroll {
   content: ".";
   display: block;
   height: 0;
+  line-height: 0;
   clear: both;
   visibility: hidden;
 }
