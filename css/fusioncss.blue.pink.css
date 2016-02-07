@@ -1684,7 +1684,7 @@ button.floating,
   line-height: 3.5rem;
   text-align: center;
   padding: 0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 .uploadButton.floating i,
 form input[type="submit"].floating i,
@@ -1766,6 +1766,7 @@ button.floating.mini i,
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-decoration: none;
 }
 #slideInMenu a:hover {
   background-color: #EEEEEE;
