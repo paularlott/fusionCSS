@@ -6,7 +6,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  *
  * @package fusionCSS
- * @copyright Copyright (c) 2013 - 2015 fusionCSS. All rights reserved.
+ * @copyright Copyright (c) 2013 - 2016 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
  */
 
@@ -19,7 +19,8 @@ if(!window.fusionLib)
 	 * The ID of the toast timer
 	 */
 	var toastTimer = 0,
-		toastClass = '';
+		toastClass = '',
+		toastHasHTML = false;
 
 	fusionLib.fn.extend({
 		/**
@@ -119,6 +120,12 @@ if(!window.fusionLib)
 		toastShow: function(type, msg, actionLabel, callback) {
 			var delay = 0;
 
+			// Add the toast container to the page
+			if(!toastHasHTML) {
+				$fl('body').append('<div id="toast" role="alert" aria-hidden="true"></div>');
+				toastHasHTML = true;
+			}
+
 			toastClass = type;
 
 			if(actionLabel) {
@@ -205,11 +212,6 @@ if(!window.fusionLib)
 		$fl('.tabwidget').each(function() {
 			$fl(this).tabs();
 		});
-
-		/**
-		 * Add the toast container to the page
-		 */
-		$fl('body').append('<div id="toast" role="alert" aria-hidden="true"></div>');
 
 		/**
 		 * Find all upload buttons and set to copy file name to display
