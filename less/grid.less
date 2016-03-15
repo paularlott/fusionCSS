@@ -32,7 +32,7 @@
 	.makeRow(@spanName) {
 		@colWidth: percentage((100 / @numColumns) / 100);
 
-		[class^="@{colName}@{spanName}"] {
+		[class*="@{colName}@{spanName}"] {
 			float: left;
 		}
 		[class*="@{colName}@{spanName}@{separator}"] {

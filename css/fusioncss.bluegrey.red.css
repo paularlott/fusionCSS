@@ -155,7 +155,7 @@ blockquote cite {
   padding-left: 0;
   padding-right: 0;
 }
-.row [class^="span-t"] {
+.row [class*="span-t"] {
   float: left;
 }
 .row [class*="span-t-"] {
@@ -318,7 +318,7 @@ blockquote cite {
   display: flex;
 }
 @media (min-width: 768px) {
-  .row [class^="span-s"] {
+  .row [class*="span-s"] {
     float: left;
   }
   .row [class*="span-s-"] {
@@ -482,7 +482,7 @@ blockquote cite {
   }
 }
 @media (min-width: 992px) {
-  .row [class^="span-m"] {
+  .row [class*="span-m"] {
     float: left;
   }
   .row [class*="span-m-"] {
@@ -646,7 +646,7 @@ blockquote cite {
   }
 }
 @media (min-width: 1200px) {
-  .row [class^="span-l"] {
+  .row [class*="span-l"] {
     float: left;
   }
   .row [class*="span-l-"] {
