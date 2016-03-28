@@ -2,7 +2,7 @@ var gulp = require('gulp'),
 	fs = require('fs'),
 	version = fs.readFileSync('./less/version.less', 'utf8'),
 	less = require('gulp-less'),
-	minifyCSS = require('gulp-minify-css'),
+	cleanCSS = require('gulp-clean-css'),
 	rename = require('gulp-rename'),
 	insert = require('gulp-insert'),
 	uglify = require('gulp-uglify'),
@@ -26,7 +26,7 @@ function cssTask(src, dst, dstMin) {
 		.pipe(rename(dst))
 		.pipe(gulp.dest('./css/'))
 
-		.pipe(minifyCSS())
+		.pipe(cleanCSS())
 		.pipe(insert.prepend(version))
 		.pipe(rename(dstMin))
 		.pipe(gulp.dest('./css/'));
