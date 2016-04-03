@@ -333,24 +333,26 @@ if(!window.fusionLib)
 
 					if(!el.hasClass('hasFloatingLabel') && t != 'checkbox' && t != 'submit' && t != 'file') {
 						var l = $fl('#' + el.attr('id') + '-label');
-						el.addClass('hasFloatingLabel');
-						el.bind('focus', function() {
-							l.removeClass('floatDown');
-							l.addClass('focused');
-						}).bind('blur', function() {
-							l.removeClass('focused');
-							if(el.val())
+						if(l.length) {
+							el.addClass('hasFloatingLabel');
+							el.bind('focus', function () {
 								l.removeClass('floatDown');
-							else
-								l.addClass('floatDown');
-						}).bind('change', function() {
-							l.removeClass('focused');
-							if(el.val())
-								l.removeClass('floatDown');
-							else
-								l.addClass('floatDown');
-						});
-						el.attr('placeholder', '').addClass('floatDown').trigger('blur');
+								l.addClass('focused');
+							}).bind('blur', function () {
+								l.removeClass('focused');
+								if (el.val())
+									l.removeClass('floatDown');
+								else
+									l.addClass('floatDown');
+							}).bind('change', function () {
+								l.removeClass('focused');
+								if (el.val())
+									l.removeClass('floatDown');
+								else
+									l.addClass('floatDown');
+							});
+							el.attr('placeholder', '').addClass('floatDown').trigger('blur');
+						}
 					}
 				});
 
