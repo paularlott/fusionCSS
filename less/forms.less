@@ -4,18 +4,6 @@ textarea {
 	resize: vertical;
 }
 
-.floatingLabels label {
-	&.floatDown {
-		color: @formTextDesc;
-		top: 2rem;
-		cursor: text;
-
-		em {
-			color: @formValidatorReq;
-		}
-	}
-}
-
 form {
 	margin: 0 auto;
 
@@ -63,7 +51,7 @@ form {
 	}
 
 	.description {
-		padding: .3rem 0 0 0;
+		padding: .25rem 0 0 0;
 		font-size: .85rem;
 		color: @formTextDesc;
 	}
@@ -102,19 +90,22 @@ form {
 		font-family: inherit;
 		font-size: 1rem;
 		width: 100%;
-		padding: .5rem 0;
-		border: none;
-		border-bottom: 2px solid @colorDivider;
+		padding: .5rem .25rem;
+		border: 1px solid @colorDivider;
 		background-color: transparent;
 		.transition();
 
 		&:focus {
-			border-bottom: 2px solid @colorPrimary;
+			border: 1px solid @colorPrimary;
 		}
 
 		&.validationError {
-			border-bottom-color: @formValidatorFailed;
+			border-color: @formValidatorFailed;
 		}
+	}
+
+	dt {
+		position: relative;
 	}
 
 	input[type="file"] {
@@ -191,6 +182,84 @@ form {
 	}
 }
 
+// Give form input fields an application style
+.appFormStyle {
+	form {
+		input[type="text"],
+		input[type="number"],
+		input[type="email"],
+		input[type="url"],
+		input[type="password"],
+		input[type="search"],
+		select,
+		textarea {
+			padding: .5rem 0;
+			border: none;
+			border-bottom: 2px solid @colorDivider;
+
+			&:focus {
+				border: none;
+				border-bottom: 2px solid @colorPrimary;
+			}
+
+			&.validationError {
+				border: none;
+				border-bottom: 2px solid @formValidatorFailed;
+			}
+		}
+	}
+}
+
+.floatingLabels {
+	label {
+		&.floatUp {
+			color: @formTextDesc;
+			position: absolute;
+			top: .25rem;
+			left: .25rem;
+			font-size: .75rem;
+		}
+
+		&.floatDown {
+			color: @formFloatLabel;
+			position: absolute;
+			top: 1rem;
+			left: .25rem;
+			cursor: text;
+		}
+	}
+
+	form {
+		input[type="text"],
+		input[type="number"],
+		input[type="email"],
+		input[type="url"],
+		input[type="password"],
+		input[type="search"] {
+			padding: 1.5rem .25rem .5rem .25rem;
+		}
+	}
+
+	&.appFormStyle,
+	.appFormStyle {
+		label {
+			&.floatUp,
+			&.floatDown {
+				left: 0;
+			}
+		}
+
+		input[type="text"],
+		input[type="number"],
+		input[type="email"],
+		input[type="url"],
+		input[type="password"],
+		input[type="search"] {
+			padding: 1.5rem 0 .5rem 0;
+		}
+	}
+}
+
 // Submit buttons
 form input[type="submit"],
 form button, button { font-size: 1rem; }
@@ -218,6 +287,14 @@ form.hform {
 		li:first-child {
 			padding-top: 0;
 		}
+	}
+	input[type="text"],
+	input[type="number"],
+	input[type="email"],
+	input[type="url"],
+	input[type="password"],
+	input[type="search"] {
+		padding: .5rem .25rem !important;
 	}
 }
 

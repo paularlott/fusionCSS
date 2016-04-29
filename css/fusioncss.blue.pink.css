@@ -1229,14 +1229,6 @@ div.responsiveTableWrapperInner {
 textarea {
   resize: vertical;
 }
-.floatingLabels label.floatDown {
-  color: rgba(0, 0, 0, 0.54);
-  top: 2rem;
-  cursor: text;
-}
-.floatingLabels label.floatDown em {
-  color: #F44336;
-}
 form {
   margin: 0 auto;
 }
@@ -1281,7 +1273,7 @@ form label.focused {
   color: #2196F3;
 }
 form .description {
-  padding: .3rem 0 0 0;
+  padding: .25rem 0 0 0;
   font-size: .85rem;
   color: rgba(0, 0, 0, 0.54);
 }
@@ -1314,9 +1306,8 @@ form textarea {
   font-family: inherit;
   font-size: 1rem;
   width: 100%;
-  padding: .5rem 0;
-  border: none;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+  padding: .5rem .25rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
   background-color: transparent;
   transition: all 150ms linear;
 }
@@ -1328,7 +1319,7 @@ form input[type="password"]:focus,
 form input[type="search"]:focus,
 form select:focus,
 form textarea:focus {
-  border-bottom: 2px solid #2196F3;
+  border: 1px solid #2196F3;
 }
 form input[type="text"].validationError,
 form input[type="number"].validationError,
@@ -1338,7 +1329,10 @@ form input[type="password"].validationError,
 form input[type="search"].validationError,
 form select.validationError,
 form textarea.validationError {
-  border-bottom-color: #F44336;
+  border-color: #F44336;
+}
+form dt {
+  position: relative;
 }
 form input[type="file"] {
   font-size: 1rem;
@@ -1397,6 +1391,82 @@ form dd {
 form dd:last-child {
   margin-bottom: 0;
 }
+.appFormStyle form input[type="text"],
+.appFormStyle form input[type="number"],
+.appFormStyle form input[type="email"],
+.appFormStyle form input[type="url"],
+.appFormStyle form input[type="password"],
+.appFormStyle form input[type="search"],
+.appFormStyle form select,
+.appFormStyle form textarea {
+  padding: .5rem 0;
+  border: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+}
+.appFormStyle form input[type="text"]:focus,
+.appFormStyle form input[type="number"]:focus,
+.appFormStyle form input[type="email"]:focus,
+.appFormStyle form input[type="url"]:focus,
+.appFormStyle form input[type="password"]:focus,
+.appFormStyle form input[type="search"]:focus,
+.appFormStyle form select:focus,
+.appFormStyle form textarea:focus {
+  border: none;
+  border-bottom: 2px solid #2196F3;
+}
+.appFormStyle form input[type="text"].validationError,
+.appFormStyle form input[type="number"].validationError,
+.appFormStyle form input[type="email"].validationError,
+.appFormStyle form input[type="url"].validationError,
+.appFormStyle form input[type="password"].validationError,
+.appFormStyle form input[type="search"].validationError,
+.appFormStyle form select.validationError,
+.appFormStyle form textarea.validationError {
+  border: none;
+  border-bottom: 2px solid #F44336;
+}
+.floatingLabels label.floatUp {
+  color: rgba(0, 0, 0, 0.54);
+  position: absolute;
+  top: .25rem;
+  left: .25rem;
+  font-size: .75rem;
+}
+.floatingLabels label.floatDown {
+  color: rgba(0, 0, 0, 0.26);
+  position: absolute;
+  top: 1rem;
+  left: .25rem;
+  cursor: text;
+}
+.floatingLabels form input[type="text"],
+.floatingLabels form input[type="number"],
+.floatingLabels form input[type="email"],
+.floatingLabels form input[type="url"],
+.floatingLabels form input[type="password"],
+.floatingLabels form input[type="search"] {
+  padding: 1.5rem .25rem .5rem .25rem;
+}
+.floatingLabels.appFormStyle label.floatUp,
+.floatingLabels .appFormStyle label.floatUp,
+.floatingLabels.appFormStyle label.floatDown,
+.floatingLabels .appFormStyle label.floatDown {
+  left: 0;
+}
+.floatingLabels.appFormStyle input[type="text"],
+.floatingLabels .appFormStyle input[type="text"],
+.floatingLabels.appFormStyle input[type="number"],
+.floatingLabels .appFormStyle input[type="number"],
+.floatingLabels.appFormStyle input[type="email"],
+.floatingLabels .appFormStyle input[type="email"],
+.floatingLabels.appFormStyle input[type="url"],
+.floatingLabels .appFormStyle input[type="url"],
+.floatingLabels.appFormStyle input[type="password"],
+.floatingLabels .appFormStyle input[type="password"],
+.floatingLabels.appFormStyle input[type="search"],
+.floatingLabels .appFormStyle input[type="search"] {
+  padding: 1.5rem 0 .5rem 0;
+}
 form input[type="submit"],
 form button,
 button {
@@ -1423,6 +1493,20 @@ form.hform dd {
 .hform form .radiogroup li:first-child,
 form.hform .radiogroup li:first-child {
   padding-top: 0;
+}
+.hform form input[type="text"],
+form.hform input[type="text"],
+.hform form input[type="number"],
+form.hform input[type="number"],
+.hform form input[type="email"],
+form.hform input[type="email"],
+.hform form input[type="url"],
+form.hform input[type="url"],
+.hform form input[type="password"],
+form.hform input[type="password"],
+.hform form input[type="search"],
+form.hform input[type="search"] {
+  padding: .5rem .25rem !important;
 }
 form #submit-list {
   clear: both;

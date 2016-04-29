@@ -384,6 +384,10 @@
 					                                 aria-labelledby="email-label2" aria-required="true"
 					                                 class="validationError">
 					</dd>
+					<dt></dt>
+					<dd id="q2-container">
+						<input type="text" id="q2" name="email" value="example@example.com" aria-required="true">
+					</dd>
 					<dt><label id="message2-label" for="message2" aria-atomic="true" aria-live="polite">Your Message
 						<em>(Required)</em>
 						<span class="validation " id="message-validation2"><strong>&nbsp;</strong></span></label></dt>
@@ -402,6 +406,64 @@
 
 					<dt></dt>
 					<dd id="cartadd-container2"><input type="submit" id="cartadd2" name="cartadd" value="Add to Cart"
+					                                   style="display: inline;">
+					</dd>
+				</dl>
+			</form>
+
+			<p><a href="#stay" class="button">Button</a> <a href="#stay" class="button danger">Delete</a> <a
+				href="#stay"
+				class="button accent">Warning</a>
+			</p>
+
+		</div>
+	</div>
+
+	<h2>Application Style Form</h2>
+
+	<div class="card appFormStyle">
+		<div class="content">
+			<form id="cartaddform3" action="#stay" method="post" enctype="application/x-www-form-urlencoded"
+			      accept-charset="utf-8">
+				<dl id="cartaddform3-list">
+					<dt><label id="cartqty3-label" for="cartqty3" aria-atomic="true" aria-live="polite">Quantity <span
+						class="validation " id="cartqty-validation3"><strong>&nbsp;</strong></span></label></dt>
+					<dd id="cartqty-container3"><input type="number" id="cartqty3" name="cartqty" value="1" min="1"
+					                                   aria-labelledby="cartqty-label2" aria-describedby="cartqty-desc"
+					                                   max="">
+
+						<div class="description" id="cartqty-desc3"></div>
+					</dd>
+					<dt><label id="email3-label" for="email3" aria-atomic="true" aria-live="polite"
+					           class="validationError"><span>Email Address <em>(Required)</em></span>
+					<span class="validation failed" id="email-validation3"><strong>Email Address must be a valid working
+						email address.</strong></span></label></dt>
+					<dd id="email-container3"><input type="text" id="email3" name="email" value="example@example.com"
+					                                 aria-labelledby="email-label3" aria-required="true"
+					                                 class="validationError">
+					</dd>
+					<dt></dt>
+					<dd id="q3-container">
+						<input type="text" id="q3" name="email" value="example@example.com" aria-required="true">
+					</dd>
+					<dt><label id="message3-label" for="message3" aria-atomic="true" aria-live="polite">Your Message
+						<em>(Required)</em>
+						<span class="validation " id="message-validation3"><strong>&nbsp;</strong></span></label></dt>
+					<dd id="message-container3"><textarea id="message3" name="message" cols="30" rows="10"
+					                                      aria-labelledby="message-label2"
+					                                      aria-required="true"></textarea>
+					</dd>
+					<dt><label id="type3-label" for="type3" aria-atomic="true" aria-live="polite">Type of Coupon <span
+							class="validation " id="type3-validation"><strong>&nbsp;</strong></span></label></dt>
+					<dd id="type3-container"><select id="type3" name="type3" aria-labelledby="type3-label">
+						<option value="%" selected="selected">Percentage Discount</option>
+						<option value="f">Fixed Amount Discount</option>
+						<option value="g">Gift Certificate</option>
+					</select>
+					</dd>
+
+					<dt></dt>
+					<dd id="cartadd-container3"><input type="submit" id="cartadd3" name="cartadd" value="Add to Cart"
 					                                   style="display: inline;">
 					</dd>
 				</dl>

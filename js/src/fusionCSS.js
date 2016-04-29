@@ -336,22 +336,22 @@ if(!window.fusionLib)
 						if(l.length) {
 							el.addClass('hasFloatingLabel');
 							el.bind('focus', function () {
-								l.removeClass('floatDown');
+								l.removeClass('floatDown').addClass('floatUp');
 								l.addClass('focused');
 							}).bind('blur', function () {
 								l.removeClass('focused');
 								if (el.val())
-									l.removeClass('floatDown');
+									l.removeClass('floatDown').addClass('floatUp');
 								else
-									l.addClass('floatDown');
+									l.addClass('floatDown').removeClass('floatUp');
 							}).bind('change', function () {
 								l.removeClass('focused');
 								if (el.val())
-									l.removeClass('floatDown');
+									l.removeClass('floatDown').addClass('floatUp');
 								else
-									l.addClass('floatDown');
+									l.addClass('floatDown').removeClass('floatUp');
 							});
-							el.attr('placeholder', '').addClass('floatDown').trigger('blur');
+							el.attr('placeholder', '').trigger('blur');
 						}
 					}
 				});
