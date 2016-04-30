@@ -1433,7 +1433,7 @@ form dd:last-child {
   font-size: .75rem;
 }
 .floatingLabels label.floatDown {
-  color: rgba(0, 0, 0, 0.26);
+  color: rgba(0, 0, 0, 0.54);
   position: absolute;
   top: 1rem;
   left: .25rem;
