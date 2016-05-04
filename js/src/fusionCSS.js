@@ -116,8 +116,9 @@ if(!window.fusionLib)
 		 * @param string msg The message to display in the toast popup.
 		 * @param string actionLabel The label to show on the action e.g. dismiss.
 		 * @param function callback The function to call if the action is clicked.
+		 * @param bool withTimeout true to auto dismiss the popup.
 		 */
-		toastShow: function(type, msg, actionLabel, callback) {
+		toastShow: function(type, msg, actionLabel, callback, withTimeout) {
 			var delay = 0;
 
 			// Add the toast container to the page
@@ -172,8 +173,9 @@ if(!window.fusionLib)
 						e.preventDefault();
 					});
 				}
+
 				// Timeout toast
-				else {
+				if((!actionLabel && withTimeout !== false) || withTimeout === true) {
 					toastTimer = setTimeout(function () {
 						$fl('#toast')
 								.removeClass('exposed')
