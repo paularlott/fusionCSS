@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/prism.css" rel="stylesheet" />
+	<link id="pagestyle" href="../css/fusioncss.blue.pink.css" rel="stylesheet">
+	<link href="css/docs.css" rel="stylesheet">
+	<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/src/fusionCSS.js"></script>
+	<script type="text/javascript" src="js/docs.js"></script>
+	<script src="js/prism.js"></script>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+<nav class="appbar fixed">
+	<ul class="pull-left">
+		<li>
+			<div id="viewSlideInMenu"><i class="fa fa-bars"></i><span class="sr-only">MENU</span></div>
+		</li>
+		<li id="style-select">
+			Style
+			<ul class="hide" id="cssoption"></ul>
+		</li>
+	</ul>
+	<ul class="pull-right">
+		<li><a href="https://github.com/paularlott/fusionCSS"><i class="fa fa-github"></i><span class="sr-only">GitHub</span></a></li>
+		<li><a href="htt://fusioncss.com/"><i class="fa fa-home"></i><span class="sr-only">fusioncss.com</span></a></li>
+	</ul>
+</nav>
+
+<div class="container">
+
+	<div class="row">
+		<div class="span-t12">
+
+
+<h1>Getting Started With fusionCSS</h1>
+
+<p>fusionCSS requires that you include a CSS file within the &lt;head> section of your page. It also requires the inclusion of a JavaScript file to implement functionality such as converting horizontal and vertical navigation to drop down lists.</p>
+<p>The JavaScript relies on the presence of either jQuery or fusionLib and is supplied in the file fusionCSS.js.</p>
+
+<h2>Using With jQuery</h2>
+<pre><code class="language-markup">&lt;link href="css/fusioncss.blue.pink.min.css" rel="stylesheet" type="text/css" />
+&lt;script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js">&lt;/script>
+&lt;script type="text/javascript" src="js/fusionCSS.js">&lt;/script></code></pre>
+
+<h2>Using With fusionLib</h2>
+<pre><code class="language-markup">&lt;link href="css/fusioncss.blue.pink.min.css" rel="stylesheet" type="text/css" />
+&lt;script type="text/javascript" src="system/libs/js/fusionLib.js">&lt;/script>
+&lt;script type="text/javascript" src="js/fusionCSS.js">&lt;/script></code></pre>
+
+<h2>Using With clearFusionCMS</h2>
+<p>fusionCSS.js should be copied into a new document of type .js and fusioncss.blue.pink.min.css copied to a document of type .css.</p>
+<p>Assuming the document holding the JavaScript has an ID of 100 and the CSS has an ID of 101 then fusionCSS can be included by adding the following to the head section of the templates:</p>
+<pre><code class="language-markup">&lt;link href="&#91;&#91;~101&#93;&#93;" rel="stylesheet" type="text/css" />
+&#91;&#91;javascript &amp;core=`1` &amp;src=`&#91;&#91;~100&#93;&#93;`&#93;&#93;</code></pre>
+
+
+		</div>
+	</div>
+
+	<footer class="row">
+		<div class="span-s12 text-center">
+			Copyright &copy; 2013 - 2016 <a href="http://fusioncss.com/">fusionCSS</a>. All rights reserved.
+		</div>
+	</footer>
+
+</div>
+
+</div>
+
+<nav id="slideInMenu">
+	<ul>
+		<li class="logo">
+			<a href="http://fusioncss.com/"><img src="logo.png" alt="fusionCSS" /></a>
+		</li>
+		<li  class="active"><a href="index.html">Getting Started</a></li>
+		<li ><a href="typography.html">Typography</a></li>
+		<li ><a href="colors.html">Colors</a></li>
+		<li ><a href="grid.html">Grid</a></li>
+		<li ><a href="visibility.html">Visibility</a></li>
+		<li ><a href="navigation.html">Navigation</a></li>
+		<li ><a href="tables.html">Tables</a></li>
+		<li ><a href="alerts.html">Alerts</a></li>
+		<li ><a href="forms.html">Forms</a></li>
+		<li ><a href="images.html">Images</a></li>
+		<li ><a href="buttons.html">Buttons</a></li>
+		<li ><a href="shadows.html">Shadows</a></li>
+		<li ><a href="chips.html">Chips</a></li>
+		<li ><a href="cards.html">Cards</a></li>
+		<li ><a href="appbar.html">Appbar</a></li>
+		<li ><a href="misc.html">Miscellaneous</a></li>
+	</ul>
+
+	<ul>
+		<li ><a href="fam.html">Floating Action Menu</a></li>
+		<li ><a href="tabs.html">Tabs</a></li>
+		<li ><a href="toast.html">Toast</a></li>
+	</ul>
+</nav>
+
+<div id="scrollToTop" class="hide">Top</div>
+
+</body>
+</html>

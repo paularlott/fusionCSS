@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/prism.css" rel="stylesheet" />
+	<link id="pagestyle" href="../css/fusioncss.blue.pink.css" rel="stylesheet">
+	<link href="css/docs.css" rel="stylesheet">
+	<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/src/fusionCSS.js"></script>
+	<script type="text/javascript" src="js/docs.js"></script>
+	<script src="js/prism.js"></script>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+<nav class="appbar fixed">
+	<ul class="pull-left">
+		<li>
+			<div id="viewSlideInMenu"><i class="fa fa-bars"></i><span class="sr-only">MENU</span></div>
+		</li>
+		<li id="style-select">
+			Style
+			<ul class="hide" id="cssoption"></ul>
+		</li>
+	</ul>
+	<ul class="pull-right">
+		<li><a href="https://github.com/paularlott/fusionCSS"><i class="fa fa-github"></i><span class="sr-only">GitHub</span></a></li>
+		<li><a href="htt://fusioncss.com/"><i class="fa fa-home"></i><span class="sr-only">fusioncss.com</span></a></li>
+	</ul>
+</nav>
+
+<div class="container">
+
+	<div class="row">
+		<div class="span-t12">
+
+<h1>Tables</h1>
+<p>Basic table styling is provided within fusionCSS.</p>
+
+<h2>Simple Table</h2>
+<p>The basic table styling.</p>
+
+<div class="card">
+	<div class="content">
+
+		<table>
+			<thead>
+			<tr>
+				<th>Column 1</th>
+				<th>Column 2</th>
+				<th>Column 3</th>
+				<th>Column 4</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>1.1</td>
+				<td>1.2</td>
+				<td>1.3</td>
+				<td>1.4</td>
+			</tr>
+			<tr>
+				<td>2.1</td>
+				<td>2.2</td>
+				<td>2.3</td>
+				<td>2.4</td>
+			</tr>
+			<tr>
+				<td>3.1</td>
+				<td>3.2</td>
+				<td>3.3</td>
+				<td>3.4</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<pre><code class="language-markup">&lt;table>
+	&lt;thead>
+		&lt;tr>
+			&lt;th>Column 1&lt;/th>
+			&lt;th>Column 2&lt;/th>
+			&lt;th>Column 3&lt;/th>
+			&lt;th>Column 3&lt;/th>
+		&lt;/tr>
+	&lt;/thead>
+	&lt;tbody>
+		&lt;tr>
+			&lt;td>1.1&lt;/td>
+			&lt;td>1.2&lt;/td>
+			&lt;td>1.3&lt;/td>
+			&lt;td>1.4&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>2.1&lt;/td>
+			&lt;td>2.2&lt;/td>
+			&lt;td>2.3&lt;/td>
+			&lt;td>2.4&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>3.1&lt;/td>
+			&lt;td>3.2&lt;/td>
+			&lt;td>3.3&lt;/td>
+			&lt;td>3.4&lt;/td>
+		&lt;/tr>
+	&lt;/tbody>
+&lt;/table></code></pre>
+
+	</div>
+</div>
+
+<h2>Bordered Table</h2>
+
+<div class="card">
+	<div class="content">
+
+		<table class="bordered">
+			<thead>
+			<tr>
+				<th>Column 1</th>
+				<th>Column 2</th>
+				<th>Column 3</th>
+				<th>Column 4</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>1.1</td>
+				<td>1.2</td>
+				<td>1.3</td>
+				<td>1.4</td>
+			</tr>
+			<tr>
+				<td>2.1</td>
+				<td>2.2</td>
+				<td>2.3</td>
+				<td>2.4</td>
+			</tr>
+			<tr>
+				<td>3.1</td>
+				<td>3.2</td>
+				<td>3.3</td>
+				<td>3.4</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<pre><code class="language-markup">&lt;table class="bordered">
+	&lt;thead>
+		&lt;tr>
+			&lt;th>Column 1&lt;/th>
+			&lt;th>Column 2&lt;/th>
+			&lt;th>Column 3&lt;/th>
+			&lt;th>Column 3&lt;/th>
+		&lt;/tr>
+	&lt;/thead>
+	&lt;tbody>
+		&lt;tr>
+			&lt;td>1.1&lt;/td>
+			&lt;td>1.2&lt;/td>
+			&lt;td>1.3&lt;/td>
+			&lt;td>1.4&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>2.1&lt;/td>
+			&lt;td>2.2&lt;/td>
+			&lt;td>2.3&lt;/td>
+			&lt;td>2.4&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>3.1&lt;/td>
+			&lt;td>3.2&lt;/td>
+			&lt;td>3.3&lt;/td>
+			&lt;td>3.4&lt;/td>
+		&lt;/tr>
+	&lt;/tbody>
+&lt;/table></code></pre>
+
+	</div>
+</div>
+
+<h2>Bordered and Striped Table</h2>
+
+<div class="card">
+	<div class="content">
+
+		<table class="bordered striped">
+			<thead>
+			<tr>
+				<th>Column 1</th>
+				<th>Column 2</th>
+				<th>Column 3</th>
+				<th>Column 4</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>1.1</td>
+				<td>1.2</td>
+				<td>1.3</td>
+				<td>1.4</td>
+			</tr>
+			<tr>
+				<td>2.1</td>
+				<td>2.2</td>
+				<td>2.3</td>
+				<td>2.4</td>
+			</tr>
+			<tr>
+				<td>3.1</td>
+				<td>3.2</td>
+				<td>3.3</td>
+				<td>3.4</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<pre><code class="language-markup">&lt;table class="bordered striped">
+	&lt;thead>
+		&lt;tr>
+			&lt;th>Column 1&lt;/th>
+			&lt;th>Column 2&lt;/th>
+			&lt;th>Column 3&lt;/th>
+			&lt;th>Column 3&lt;/th>
+		&lt;/tr>
+	&lt;/thead>
+	&lt;tbody>
+		&lt;tr>
+			&lt;td>1.1&lt;/td>
+			&lt;td>1.2&lt;/td>
+			&lt;td>1.3&lt;/td>
+			&lt;td>1.4&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>2.1&lt;/td>
+			&lt;td>2.2&lt;/td>
+			&lt;td>2.3&lt;/td>
+			&lt;td>2.4&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>3.1&lt;/td>
+			&lt;td>3.2&lt;/td>
+			&lt;td>3.3&lt;/td>
+			&lt;td>3.4&lt;/td>
+		&lt;/tr>
+	&lt;/tbody>
+&lt;/table></code></pre>
+
+	</div>
+</div>
+
+<h2>Bordered and Striped Table with Hover</h2>
+
+<div class="card">
+	<div class="content">
+
+		<table class="bordered striped rowhover">
+			<thead>
+			<tr>
+				<th>Column 1</th>
+				<th>Column 2</th>
+				<th>Column 3</th>
+				<th>Column 4</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>1.1</td>
+				<td>1.2</td>
+				<td>1.3</td>
+				<td>1.4</td>
+			</tr>
+			<tr>
+				<td>2.1</td>
+				<td>2.2</td>
+				<td>2.3</td>
+				<td>2.4</td>
+			</tr>
+			<tr>
+				<td>3.1</td>
+				<td>3.2</td>
+				<td>3.3</td>
+				<td>3.4</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<pre><code class="language-markup">&lt;table class="bordered striped rowhover">
+	&lt;thead>
+		&lt;tr>
+			&lt;th>Column 1&lt;/th>
+			&lt;th>Column 2&lt;/th>
+			&lt;th>Column 3&lt;/th>
+			&lt;th>Column 3&lt;/th>
+		&lt;/tr>
+	&lt;/thead>
+	&lt;tbody>
+		&lt;tr>
+			&lt;td>1.1&lt;/td>
+			&lt;td>1.2&lt;/td>
+			&lt;td>1.3&lt;/td>
+			&lt;td>1.4&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>2.1&lt;/td>
+			&lt;td>2.2&lt;/td>
+			&lt;td>2.3&lt;/td>
+			&lt;td>2.4&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>3.1&lt;/td>
+			&lt;td>3.2&lt;/td>
+			&lt;td>3.3&lt;/td>
+			&lt;td>3.4&lt;/td>
+		&lt;/tr>
+	&lt;/tbody>
+&lt;/table></code></pre>
+
+	</div>
+</div>
+
+<h2>Responsive Tables</h2>
+<p>Adding the class responsive to a table makes the table responsive, this functionality requires fusionCSS.js to be included.</p>
+
+<div class="card">
+	<div class="content">
+
+		<table class="bordered striped rowhover responsive">
+			<thead>
+			<tr>
+				<th>Column 1</th>
+				<th>Column 2</th>
+				<th>Column 3</th>
+				<th>Column 4</th>
+				<th>Column 5</th>
+				<th>Column 6</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>1.1</td>
+				<td>1.2</td>
+				<td>1.3</td>
+				<td>1.4</td>
+				<td>1.5</td>
+				<td>1.6</td>
+			</tr>
+			<tr>
+				<td>2.1</td>
+				<td>2.2</td>
+				<td>2.3</td>
+				<td>2.4</td>
+				<td>2.5</td>
+				<td>2.6</td>
+			</tr>
+			<tr>
+				<td>3.1</td>
+				<td>3.2</td>
+				<td>3.3</td>
+				<td>3.4</td>
+				<td>3.5</td>
+				<td>3.6</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<pre><code class="language-markup">&lt;table class="bordered striped rowhover responsive">
+	&lt;thead>
+		&lt;tr>
+			&lt;th>Column 1&lt;/th>
+			&lt;th>Column 2&lt;/th>
+			&lt;th>Column 3&lt;/th>
+			&lt;th>Column 4&lt;/th>
+			&lt;th>Column 5&lt;/th>
+			&lt;th>Column 6&lt;/th>
+		&lt;/tr>
+	&lt;/thead>
+	&lt;tbody>
+		&lt;tr>
+			&lt;td>1.1&lt;/td>
+			&lt;td>1.2&lt;/td>
+			&lt;td>1.3&lt;/td>
+			&lt;td>1.4&lt;/td>
+			&lt;td>1.5&lt;/td>
+			&lt;td>1.6&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>2.1&lt;/td>
+			&lt;td>2.2&lt;/td>
+			&lt;td>2.3&lt;/td>
+			&lt;td>2.4&lt;/td>
+			&lt;td>2.5&lt;/td>
+			&lt;td>2.6&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>3.1&lt;/td>
+			&lt;td>3.2&lt;/td>
+			&lt;td>3.3&lt;/td>
+			&lt;td>3.4&lt;/td>
+			&lt;td>3.5&lt;/td>
+			&lt;td>3.6&lt;/td>
+		&lt;/tr>
+	&lt;/tbody>
+&lt;/table></code></pre>
+
+	</div>
+</div>
+
+
+		</div>
+	</div>
+
+	<footer class="row">
+		<div class="span-s12 text-center">
+			Copyright &copy; 2013 - 2016 <a href="http://fusioncss.com/">fusionCSS</a>. All rights reserved.
+		</div>
+	</footer>
+
+</div>
+
+</div>
+
+<nav id="slideInMenu">
+	<ul>
+		<li class="logo">
+			<a href="http://fusioncss.com/"><img src="logo.png" alt="fusionCSS" /></a>
+		</li>
+		<li ><a href="index.html">Getting Started</a></li>
+		<li ><a href="typography.html">Typography</a></li>
+		<li ><a href="colors.html">Colors</a></li>
+		<li ><a href="grid.html">Grid</a></li>
+		<li ><a href="visibility.html">Visibility</a></li>
+		<li ><a href="navigation.html">Navigation</a></li>
+		<li  class="active"><a href="tables.html">Tables</a></li>
+		<li ><a href="alerts.html">Alerts</a></li>
+		<li ><a href="forms.html">Forms</a></li>
+		<li ><a href="images.html">Images</a></li>
+		<li ><a href="buttons.html">Buttons</a></li>
+		<li ><a href="shadows.html">Shadows</a></li>
+		<li ><a href="chips.html">Chips</a></li>
+		<li ><a href="cards.html">Cards</a></li>
+		<li ><a href="appbar.html">Appbar</a></li>
+		<li ><a href="misc.html">Miscellaneous</a></li>
+	</ul>
+
+	<ul>
+		<li ><a href="fam.html">Floating Action Menu</a></li>
+		<li ><a href="tabs.html">Tabs</a></li>
+		<li ><a href="toast.html">Toast</a></li>
+	</ul>
+</nav>
+
+<div id="scrollToTop" class="hide">Top</div>
+
+</body>
+</html>

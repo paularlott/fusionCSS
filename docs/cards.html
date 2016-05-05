@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/prism.css" rel="stylesheet" />
+	<link id="pagestyle" href="../css/fusioncss.blue.pink.css" rel="stylesheet">
+	<link href="css/docs.css" rel="stylesheet">
+	<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/src/fusionCSS.js"></script>
+	<script type="text/javascript" src="js/docs.js"></script>
+	<script src="js/prism.js"></script>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+<nav class="appbar fixed">
+	<ul class="pull-left">
+		<li>
+			<div id="viewSlideInMenu"><i class="fa fa-bars"></i><span class="sr-only">MENU</span></div>
+		</li>
+		<li id="style-select">
+			Style
+			<ul class="hide" id="cssoption"></ul>
+		</li>
+	</ul>
+	<ul class="pull-right">
+		<li><a href="https://github.com/paularlott/fusionCSS"><i class="fa fa-github"></i><span class="sr-only">GitHub</span></a></li>
+		<li><a href="htt://fusioncss.com/"><i class="fa fa-home"></i><span class="sr-only">fusioncss.com</span></a></li>
+	</ul>
+</nav>
+
+<div class="container">
+
+	<div class="row">
+		<div class="span-t12">
+
+
+<h1>Cards</h1>
+
+<h2>Basic Cards</h2>
+
+<div class="card">
+	<div class="content">
+		<section class="card">
+			<div class="header">Header</div>
+			<div class="content">
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+			</div>
+			<div class="footer">Footer</div>
+		</section>
+
+		<pre><code class="language-markup">&lt;section class="card">
+	&lt;div class="header">
+		Header
+	&lt;/div>
+	&lt;div class="content">
+		Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.			&lt;/div>
+	&lt;div class="footer">
+		Footer
+	&lt;/div>
+&lt;/section></code></pre>
+	</div>
+</div>
+
+<div class="row">
+
+	<div class="span-s3">
+		<section class="card">
+			<div class="content">
+				This is the card content
+			</div>
+		</section>
+	</div>
+
+	<div class="span-s3">
+		<section class="card">
+			<div class="header">Header</div>
+			<div class="content">
+				This is the card 2 content
+			</div>
+		</section>
+	</div>
+
+	<div class="span-s3">
+		<section class="card">
+			<div class="header">Header</div>
+			<div class="content">
+				This is the card 3 content
+			</div>
+			<div class="footer">Footer</div>
+		</section>
+	</div>
+
+	<div class="span-s3">
+		<section class="card">
+			<div class="content">
+				This is the card 4 content
+			</div>
+			<div class="footer">Footer</div>
+		</section>
+	</div>
+</div>
+
+<h2>Photo Cards</h2>
+
+<div class="card">
+	<div class="content">
+		<section class="card">
+			<div class="header">Header</div>
+			<div class="picture">
+				<img src="large.jpg" alt="large image"/>
+			</div>
+			<div class="footer">Footer</div>
+		</section>
+
+		<pre><code class="language-markup">&lt;section class="card">
+	&lt;div class="header">
+		Header
+	&lt;/div>
+	&lt;div class="picture">
+		&lt;img src="large.jpg" alt="large image"/>
+	&lt;/div>
+	&lt;div class="footer">
+		Footer
+	&lt;/div>
+&lt;/section></code></pre>
+	</div>
+</div>
+
+<div class="row">
+
+	<div class="span-s3">
+		<section class="card z-depth3">
+			<img src="large.jpg"/>
+		</section>
+	</div>
+
+	<div class="span-s3">
+		<section class="card z-depth3">
+			<img src="large.jpg"/>
+			<div class="footer">
+				SHARE
+			</div>
+		</section>
+	</div>
+
+	<div class="span-s3">
+		<section class="card z-depth5">
+			<img src="large.jpg"/>
+			<div class="content">
+				This is some information about the photo.
+			</div>
+			<div class="footer">
+				SHARE
+			</div>
+		</section>
+	</div>
+
+	<div class="span-s3">
+		<section class="card z-depth3">
+			<img src="large.jpg"/>
+			<div class="content">
+				This is some information about the photo.
+			</div>
+		</section>
+	</div>
+</div>
+
+
+		</div>
+	</div>
+
+	<footer class="row">
+		<div class="span-s12 text-center">
+			Copyright &copy; 2013 - 2016 <a href="http://fusioncss.com/">fusionCSS</a>. All rights reserved.
+		</div>
+	</footer>
+
+</div>
+
+</div>
+
+<nav id="slideInMenu">
+	<ul>
+		<li class="logo">
+			<a href="http://fusioncss.com/"><img src="logo.png" alt="fusionCSS" /></a>
+		</li>
+		<li ><a href="index.html">Getting Started</a></li>
+		<li ><a href="typography.html">Typography</a></li>
+		<li ><a href="colors.html">Colors</a></li>
+		<li ><a href="grid.html">Grid</a></li>
+		<li ><a href="visibility.html">Visibility</a></li>
+		<li ><a href="navigation.html">Navigation</a></li>
+		<li ><a href="tables.html">Tables</a></li>
+		<li ><a href="alerts.html">Alerts</a></li>
+		<li ><a href="forms.html">Forms</a></li>
+		<li ><a href="images.html">Images</a></li>
+		<li ><a href="buttons.html">Buttons</a></li>
+		<li ><a href="shadows.html">Shadows</a></li>
+		<li ><a href="chips.html">Chips</a></li>
+		<li  class="active"><a href="cards.html">Cards</a></li>
+		<li ><a href="appbar.html">Appbar</a></li>
+		<li ><a href="misc.html">Miscellaneous</a></li>
+	</ul>
+
+	<ul>
+		<li ><a href="fam.html">Floating Action Menu</a></li>
+		<li ><a href="tabs.html">Tabs</a></li>
+		<li ><a href="toast.html">Toast</a></li>
+	</ul>
+</nav>
+
+<div id="scrollToTop" class="hide">Top</div>
+
+</body>
+</html>

@@ -2,319 +2,350 @@
 // Limit resize in firefox, options are none, vertical, horizontal or both
 textarea {
 	resize: vertical;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 }
 
-// Limit the max width of a form and have it center & base style
 form {
 	margin: 0 auto;
-}
-form:after, from dl { .clear; }
 
-form fieldset {
-	border: 1px solid @formBorderColor;
-	margin: 15px 0;
-	padding: 10px 12px;
-	.border-radius(@radius);
-	.background-clip(padding-box);
-	min-width: 0; // stop auto resize on Chrome
-/*	display:table-column; // stop auto resize on Firefox
-	display: block\9; // undo the above on IE */
+	&:after {
+		.clear;
+	}
+
+	fieldset {
+		border: 1px solid @colorDivider;
+		margin: 1rem 0;
+		padding: 1rem;
+		border-radius: @radius;
+		min-width: 0; // stop auto resize on Chrome
+	}
+
+	legend {
+		padding: 0 .5rem;
+		border: 1px solid @colorDivider;
+		border-radius: @radius;
+	}
+
+	// Labels & validation
+	label {
+		display: block;
+		position: relative;
+		font-weight: 500;
+		font-size: 1rem;
+		color: @formTextDesc;
+		top: 0;
+		.transition();
+
+		em {
+			font-size: .85rem;
+			font-style: normal;
+			color: fadeout(@formValidatorReq, 13%);
+		}
+
+		&.validationError span:first-child {
+			display: none;
+		}
+
+		&.focused {
+			color: @colorPrimary;
+		}
+	}
+
+	.description {
+		padding: .25rem 0 0 0;
+		font-size: .85rem;
+		color: @formTextDesc;
+	}
+
+	.validation {
+		color: @formValidatorFailed;
+		display: none;
+
+		strong {
+			font-weight: normal;
+			display: block;
+		}
+	}
+
+	.ok,
+	.failed,
+	.ajax {
+		display: block;
+	}
+
+	// Form elements
+	input[disabled] {
+		cursor: not-allowed;
+		opacity: .5;
+	}
+
+	input[type="text"],
+	input[type="number"],
+	input[type="email"],
+	input[type="url"],
+	input[type="password"],
+	input[type="search"],
+	select,
+	textarea {
+		outline: none;
+		font-family: inherit;
+		font-size: 1rem;
+		width: 100%;
+		padding: .5rem .25rem;
+		border: 1px solid @colorDivider;
+		background-color: transparent;
+		.transition();
+
+		&:focus {
+			border: 1px solid @colorPrimary;
+		}
+
+		&.validationError {
+			border-color: @formValidatorFailed;
+		}
+	}
+
+	dt {
+		position: relative;
+	}
+
+	input[type="file"] {
+		font-size: 1rem;
+		width: auto;
+	}
+
+	// Radio group
+	.radiogroup {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			padding: .25rem 0;
+			margin: 0;
+		}
+
+		input {
+			margin-right: .5rem;
+		}
+
+		label {
+			color: @colorText;
+			font-size: 1rem;
+		}
+	}
+
+	// Checklist
+	.checklist {
+		padding: .25rem;
+		margin: 0;
+		list-style: none;
+		overflow: auto;
+		border: 1px solid @colorDivider;
+		border-radius: @radius;
+
+		li {
+			padding: .25rem;
+			margin: 0;
+			background-color: transparent;
+			.transition();
+
+			&.selected {
+				background-color: @checklistHoeverBg;
+			}
+
+			&:hover {
+				background-color: @checklistHoeverBg;
+			}
+
+			label {
+				display: block;
+				font-weight: normal;
+				color: @colorText;
+				font-size: 1rem;
+				cursor: pointer;
+			}
+		}
+
+		input {
+			margin-right: .25rem;
+		}
+	}
+
+	// Stacked Layout
+	dd {
+		padding: 0 0 .3rem 0;
+		margin-bottom: .75rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
 }
 
-form legend {
-	padding: 0 5px;
-	border: 1px solid @formBorderColor;
-	.border-radius(@radius);
-	.background-clip(padding-box);
+// Give form input fields an application style
+.appFormStyle {
+	form {
+		input[type="text"],
+		input[type="number"],
+		input[type="email"],
+		input[type="url"],
+		input[type="password"],
+		input[type="search"],
+		select,
+		textarea {
+			padding: .5rem 0;
+			border: none;
+			border-bottom: 2px solid @colorDivider;
+
+			&:focus {
+				border: none;
+				border-bottom: 2px solid @colorPrimary;
+			}
+
+			&.validationError {
+				border: none;
+				border-bottom: 2px solid @formValidatorFailed;
+			}
+		}
+	}
 }
 
-// Labels & validation
-form label {
-	display: block;
-	padding-top: 6px;
-	position: relative;
-}
+.floatingLabels {
+	label {
+		&.floatUp {
+			color: @formTextDesc;
+			position: absolute;
+			top: .25rem;
+			left: .25rem;
+			font-size: .75rem;
+		}
 
-form label em {
-	font-style: normal;
-	font-size: 85%;
-	color: @formValidatorReq;
-}
+		&.floatDown {
+			color: @formFloatLabel;
+			position: absolute;
+			top: 1rem;
+			left: .25rem;
+			cursor: text;
+		}
+	}
 
-form .description {
-	padding: .3em 0;
-	font-size: 85%;
-}
+	form {
+		input[type="text"],
+		input[type="number"],
+		input[type="email"],
+		input[type="url"],
+		input[type="password"],
+		input[type="search"] {
+			padding: 1.5rem .25rem .5rem .25rem;
+		}
+	}
 
-form .validation {
-	z-index: 9999;
-	color: @formValidatorColor;
-	background-color: @formValidatorBg;
-	font-size: 95%;
-	position: absolute;
-	bottom: -.5em;
-	left: 40%;
-	text-align: left;
-	display: none;
-	.border-radius(@radius);
-	.background-clip(padding-box);
-	.box-shadow(0, 3px, 10px, @formValidatorShadow);
-	padding: .45em 0 4px 0;
-}
-.hform form .validation,
-form.hform .validation {
-	width: 200%;
-	left: 108%;
-	bottom: 1.4em;
-}
+	&.appFormStyle,
+	.appFormStyle {
+		label {
+			&.floatUp,
+			&.floatDown {
+				left: 0;
+			}
+		}
 
-form .validation strong {
-	font-weight: normal;
-	padding: 0 8px;
-	display: block;
-}
-
-form .ok,
-form .failed,
-form .ajax {
-	display: block;
-}
-
-// Form elements
-form input[disabled] { cursor: not-allowed; }
-
-form input[type="text"],
-form input[type="number"],
-form input[type="email"],
-form input[type="url"],
-form input[type="password"],
-form input[type="search"],
-form select,
-form textarea {
-	outline: none;
-	font-family: inherit;
-	font-size: 100%;
-	width: 100%;
-	*width: 95%;
-	padding: .3em .6em;
-	border: 1px solid @formBorderColor;
-	background-color: @formElementBGColor;
-	.border-radius(@radius);
-	.background-clip(padding-box);
-	.transition();
-}
-
-form input[type="text"]:focus,
-form input[type="number"]:focus,
-form input[type="email"]:focus,
-form input[type="url"]:focus,
-form input[type="password"]:focus,
-form input[type="search"]:focus,
-form select:focus,
-form textarea:focus {
-	border: 1px solid @formFocusBdrColor;
-	.box-shadow(0, 0, 5px, @formFocusColor);
-}
-
-form input[type="file"] {
-	font-size: 100%;
-	width: auto;
+		input[type="text"],
+		input[type="number"],
+		input[type="email"],
+		input[type="url"],
+		input[type="password"],
+		input[type="search"] {
+			padding: 1.5rem 0 .5rem 0;
+		}
+	}
 }
 
 // Submit buttons
 form input[type="submit"],
-form button { font-size: 100%; }
-
-.uploadButton,
-.button,
-form input[type="submit"],
-form button {
-	margin-top: 8px;
-	cursor: pointer;
-	padding: .3em .6em;
-	border: none;
-	color: @formSubmitColor;
-	background-color: @formSubmitBg;
-	.border-radius(@radius);
-	.background-clip(padding-box);
-	.transition();
-}
-.button { padding: .2em .6em; white-space: nowrap; }
-
-.button:hover,
-form input[type="submit"]:hover,
-form button:hover {
-	color: @formSubmitColor;
-	background-color: @formSubmitBgHover;
-}
-
-.button.delete,
-.button.warning,
-form input.warning[type="submit"],
-form input.delete[type="submit"],
-form button.warning,
-form button.delete {
-	color: @formSubmitColor;
-	background-color: @formSubmitBgWarn;
-}
-
-.button.delete:hover,
-.button.warning:hover,
-form input.warning[type="submit"]:hover,
-form input.delete[type="submit"]:hover,
-form button.warning:hover,
-form button.delete:hover {
-	color: @formSubmitColor;
-	background-color: @formSubmitBgWarnHover;
-}
-
-.uploadButton {
-	margin-top: 0;
-	padding: .2em .6em;
-	position: relative;
-	overflow: hidden;
-	display: inline-block;
-	*display: inline;
-	background-color: @uploadBg;
-}
-.uploadButton:hover {
-	color: @formSubmitColor;
-	background-color: @uploadBgHover;
-}
-
-.uploadButton input[type="file"] {
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 0;
-	padding: 0;
-	font-size: 40px;
-	cursor: pointer;
-	filter: alpha(opacity=0);
-	-moz-opacity: 0;
-	opacity: 0;
-}
-
-// Radio group
-form .radiogroup {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-form .radiogroup li {
-	padding: 4px 0;
-	margin: 0;
-}
-
-form .radiogroup input {
-	margin-right: .5em;
-}
-
-// Checklist
-form .checklist {
-	padding: 4px;
-	margin: 0;
-	list-style: none;
-	overflow: auto;
-	border: 1px solid @formBorderColor;
-	.border-radius(@radius);
-	.background-clip(padding-box);
-}
-
-form .checklist li {
-	padding: 4px;
-	margin: 0;
-	background-color: transparent;
-	.transition();
-}
-
-form .checklist li.selected {
-	background-color: @checklistSelected;
-}
-
-form .checklist li:hover {
-	background-color: @checklistHoverColor;
-}
-
-form .checklist li label {
-	display: block;
-	font-weight: normal;
-}
-
-form .checklist input {
-	margin-right: .25em;
-}
-
-// Stacked Layout
-form dd {
-	padding: .3em 0;
-}
+form button, button { font-size: 1rem; }
 
 // Horizontal Layout
-.hform form dt,
-form.hform dt {
-	float: left;
-	clear: both;
-	width: 28%;
-	margin-right: 2%;
-}
-.hform form dt label,
-form.hform dt label {
-	text-align: right;
-}
-.hform form dd,
-form.hform dd {
-	float: right;
-	width: 70%;
-}
+.hform form,
+form.hform {
+	dt {
+		float: left;
+		clear: both;
+		width: 28%;
+		margin-right: 2%;
 
-.hform form .radiogroup li:first-child,
-form.hform .radiogroup li:first-child { padding-top: 0; }
+		label {
+			text-align: right;
+			padding: .4rem 0 .5rem 0;
+			color: @colorText;
+		}
+	}
+	dd {
+		float: right;
+		width: 70%;
+	}
+	.radiogroup {
+		li:first-child {
+			padding-top: 0;
+		}
+	}
+	input[type="text"],
+	input[type="number"],
+	input[type="email"],
+	input[type="url"],
+	input[type="password"],
+	input[type="search"] {
+		padding: .5rem .25rem !important;
+	}
+}
 
 // Submit button list layout
-form #submit-list {
-	clear: both;
+form {
+	#submit-list {
+		clear: both;
+
+		dt {
+			display: none;
+		}
+		dd {
+			float: none;
+			width: auto;
+			display: inline;
+			padding-left: 2px;
+			padding-right: 2px;
+		}
+	}
 }
 
-.hform #submit-list {
-	float: right;
-	width: 70%;
-}
-
-form #submit-list dt {
-	display: none;
-}
-
-form #submit-list dd {
-	float: none;
-	width: auto;
-	display: inline;
-	padding-left: 2px;
-	padding-right: 2px;
+.hform {
+	#submit-list {
+		float: right;
+		width: 70%;
+	}
 }
 
 @media (max-width: (@breakpoint-s - 1)) {
 
-	.hform form dt,
-	form.hform dt,
-	.hform form dd,
-	form.hform dd,
 	.hform #submit-list {
 		float: none;
 		width: 100%;
 	}
-	.hform form dt label,
-	form.hform dt label {
-		text-align: left;
-	}
-	.hform form .validation,
-	form.hform .validation {
-		width: auto;
-		left: 40%;
-		bottom: -.5em;
+	.hform form,
+	form.hform {
+		dt, dd {
+			float: none;
+			width: 100%;
+		}
+
+		dt label {
+			text-align: left;
+			font-size: .85rem;
+			color: @formTextDesc;
+		}
+
+		.validation {
+			width: auto;
+			left: 40%;
+			bottom: -.5rem;
+		}
 	}
 }

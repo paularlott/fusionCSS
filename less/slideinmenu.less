@@ -5,57 +5,71 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, .5);
+	background-color: @black-alpha-26;
 	cursor: pointer;
-	z-index: 99998;
+	z-index: 9010;
+
+	&.slideInMenuShow {
+		display: block;
+	}
 }
+
 #slideInMenu {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 0;
+	max-width: 16rem;
 	height: 100%;
-	overflow: auto;
+	overflow-y: auto;
 	background-color: @slideInBg;
-	z-index: 99999;
+	z-index: 9020;
+	display: block;
 	.transition();
-}
+	opacity: 0;
+	padding-bottom: 1.5rem;
 
-#slideInMenuOverlay.slideInMenuShow {
-	display: block;
-}
-#slideInMenu.slideInMenuShow {
-	display: block;
-	width: 80%;
-	.box-shadow(0, 0, 10px, #000000);
-}
+	&.slideInMenuShow {
+		opacity: 1;
+		width: 80%;
+		box-shadow: 3px 0 6px rgba(0,0,0,0.16), 3px 0 6px rgba(0,0,0,0.23);
+	}
 
-#slideInMenu {
-	ul {
-		margin: 0;
-		padding: 0;
-	}
-	ul + ul,
-	ul ul {
-		border-top: 1px solid @slideInSep;
-	}
-	li {
-		padding: 0;
-		border-bottom: 1px solid @slideInSep;
-	}
-	li:last-child {
-		border-bottom: 0;
-	}
 	a {
 		color: @slideInLink;
-		padding: 1em 1em;
+		padding: .75rem 1rem;
 		display: block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-decoration: none;
+
+		&:hover {
+			background-color: @slideInLinkHoverBg;
+		}
 	}
-	a:hover {
-		color: @slideInLinkHover;
-		background-color: @slideInLinkHoverBg;
+
+	ul {
+		margin: 0;
+		padding: 1rem 0 0 0;
+
+		& + ul {
+			margin-top: .5rem;
+			padding-top: .5rem;
+			border-top: 1px solid @colorDivider;
+		}
 	}
-	li li a {
-		padding-left: 2em;
+
+	li {
+		padding: 0;
+
+		li a {
+			padding-left: 2rem;
+		}
 	}
+}
+
+body.disableScroll {
+	height: 100%;
+	overflow: hidden;
 }

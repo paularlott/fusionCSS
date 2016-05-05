@@ -1,104 +1,30 @@
 // fusionCSS Mixins
 
-.box-sizing(@type) {
-	-webkit-box-sizing: @type;
-	-moz-box-sizing: @type;
-	box-sizing: @type;
-}
-
-.background-clip(@arg) {
-	-moz-background-clip: @arg;
-	-webkit-background-clip: @arg;
-	background-clip: @arg;
-}
-
-.border-radius(@radius) {
-	-moz-border-radius: @radius;
-	-webkit-border-radius: @radius;
-	border-radius: @radius;
-}
-.border-radius(@topleft, @topright, @bottomright, @bottomleft) {
-	-moz-border-radius: @topleft @topright @bottomright @bottomleft;
-	-webkit-border-radius: @topleft @topright @bottomright @bottomleft;
-	border-radius: @topleft @topright @bottomright @bottomleft;
-}
-
-.box-shadow(@xoffset, @yoffset, @blur, @color) {
-	-webkit-box-shadow: @xoffset @yoffset @blur @color;
-	-moz-box-shadow: @xoffset @yoffset @blur @color;
-	box-shadow: @xoffset @yoffset @blur @color;
-}
-
-.box-shadow(@xoffset, @yoffset, @blur, @spread, @color) {
-	-webkit-box-shadow: @xoffset @yoffset @blur @spread @color;
-	-moz-box-shadow: @xoffset @yoffset @blur @spread @color;
-	box-shadow: @xoffset @yoffset @blur @spread @color;
-}
-
-.inner-shadow(@xoffset, @yoffset, @blur, @color) {
-	-webkit-box-shadow: inset @xoffset @yoffset @blur @color;
-	-moz-box-shadow: inset @xoffset @yoffset @blur @color;
-	box-shadow: inset @xoffset @yoffset @blur @color;
-}
-
-.inner-shadow(@xoffset, @yoffset, @blur, @spread, @color) {
-	-webkit-box-shadow: inset @xoffset @yoffset @blur @spread @color;
-	-moz-box-shadow: inset xoffset @yoffset @blur @spread @color;
-	box-shadow: inset @xoffset @yoffset @blur @spread @color;
-}
-
-.transition(@prop: all, @time: 250ms, @ease: linear) {
-	-webkit-transition: @prop @time @ease;
-	-moz-transition: @prop @time @ease;
-	-o-transition: @prop @time @ease;
+.transition(@prop: all, @time: 150ms, @ease: linear) {
 	transition: @prop @time @ease;
 }
 
 .transform(@rotation: 0deg, @scale: 1, @skew: 0deg, @translatex: 0, @translatey: 0) {
-	-webkit-transform: rotate(@rotation) scale(@scale) skew(@skew) translate(@translatex, @translatey);
-	-moz-transform: rotate(@rotation) scale(@scale) skew(@skew) translate(@translatex, @translatey);
-	-o-transform: rotate(@rotation) scale(@scale) skew(@skew) translate(@translatex, @translatey);
-	-ms-transform: rotate(@rotation) scale(@scale) skew(@skew) translate(@translatex, @translatey);
 	transform: rotate(@rotation) scale(@scale) skew(@skew) translate(@translatex, @translatey);
 }
 
 .rotate(@rotation) {
-	-webkit-transform: rotate(@rotation);
-	-moz-transform: rotate(@rotation);
-	-o-transform: rotate(@rotation);
-	-ms-transform: rotate(@rotation);
 	transform: rotate(@rotation);
 }
 
 .scale(@scale) {
-	-webkit-transform: scale(@scale);
-	-moz-transform: scale(@scale);
-	-o-transform: scale(@scale);
-	-ms-transform: scale(@scale);
 	transform: scale(@scale);
 }
 
 .skew(@skew, @skew2: 0) {
-	-webkit-transform: skew(@skew, @skew2);
-	-moz-transform: skew(@skew, @skew2);
-	-o-transform: skew(@skew, @skew2);
-	-ms-transform: skew(@skew, @skew2);
 	transform: skew(@skew, @skew2);
 }
 
 .translate(@translatex, @translatey) {
-	-webkit-transform: translate(@translatex, @translatey);
-	-moz-transform: translate(@translatex, @translatey);
-	-o-transform: translate(@translatex, @translatey);
-	-ms-transform: translate(@translatex, @translatey);
 	transform: translate(@translatex, @translatey);
 }
 
 .tint(@direction, @start, @end) {
-	background-image: -webkit-linear-gradient(@direction, @start, @end);
-	background-image: -moz-linear-gradient(@direction, @start, @end);
-	background-image: -o-linear-gradient(@direction, @start, @end);
-	background-image: -ms-linear-gradient(@direction, @start, @end);
 	background-image: linear-gradient(@direction, @start, @end);
 }
 
@@ -108,20 +34,14 @@
 }
 
 .transform-origin(@x:center, @y:center) {
-	-webkit-transform-origin: @x @y;
-	-moz-transform-origin: @x @y;
-	-ms-transform-origin: @x @y;
-	-o-transform-origin: @x @y;
 	transform-origin: @x @y;
 }
 
-.opacity(@opacity: 0.5) {
-	-moz-opacity: @opacity;
-	-webkit-opacity: @opacity;
-	opacity: @opacity;
-	@o: @opacity * 100;
-	-ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{o})";
-	filter: ~"alpha(opacity=@{o})";
+.user-select(@select: none) {
+	-webkit-user-select: @select;
+	-moz-user-select: @select;
+	-ms-user-select: @select;
+	user-select: @select;
 }
 
 .font-size-ems(@sizepx, @basesizepx: 16px) {

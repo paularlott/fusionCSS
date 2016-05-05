@@ -6,7 +6,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  *
  * @package fusionCSS
- * @copyright Copyright (c) 2013 - 2014 fusionCSS. All rights reserved.
+ * @copyright Copyright (c) 2013 - 2016 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
  */
 
@@ -14,137 +14,429 @@
 if(!window.fusionLib)
 	window.$fl = window.fusionLib = jQuery;
 
-$fl(document).ready(function() {
+(function() {
+	/**
+	 * The ID of the toast timer
+	 */
+	var toastTimer = 0,
+		toastClass = '',
+		toastHasHTML = false;
 
-	// Find all menus and build collapsed version
-	$fl('.collapseMenu').each(function(idx) {
-		var optionsList = '<option value="" selected="selected">Menu...</option>',
-			menu = $fl(this),
-			collapsed,
-			cssDone = false;
+	fusionLib.fn.extend({
+		/**
+		 * Enable tab functionality.
+		 *
+		 * @param string activeTab The optional name of the active tab.
+		 */
+		tabs: function(activeTab) {
+			var widgetName = this[0].id,
+				tabActive,
+				aTab,
+				tabs = {};
 
-		menu.find('a').each(function() {
-			var e = $fl(this),
-				depth = 0,
-				indent = '',
-				p = e.parent();
+			if(this.attr('data-tabs-enabled') != '1') {
+				this.attr('data-tabs-enabled', '1');
 
-			// Find depth of element
-			while(p[0] != null) {
-				if(p[0].nodeName.toLowerCase() == 'ul' && depth++)
-					indent += ' - ';
-				p = p.parent();
+				// Check for active tab
+				if((aTab = this.attr('data-tabs-active')) != null) {
+					tabActive = aTab;
+				}
+
+				this.find('.tabs li').each(function () {
+					var el = $fl(this),
+							tabName,
+							panel;
+
+					// If direct child
+					if (el.parent().parent()[0].id == widgetName) {
+
+						if ((tabName = el.attr('data-tabpanel')) == null)
+							tabName = el.find('a').attr('href').replace(/^.*#/, '');
+						panel = $fl('#' + tabName);
+
+						if (tabActive == undefined || (activeTab != undefined && activeTab == tabName))
+							tabActive = tabName;
+
+						// Hide panel
+						if (tabName != tabActive)
+							panel.addClass('tabhidepanel').attr('aria-expanded', false);
+
+						el.parent().attr('aria-selected', false);
+						tabs[tabName] = [el, panel];
+
+						// Add click handler to tabs
+						el.bind('click', function (evt) {
+							tabs[tabActive][1].addClass('tabhidepanel').attr('aria-expanded', false);
+							tabs[tabName][1].removeClass('tabhidepanel').attr('aria-expanded', true);
+							tabs[tabActive][0].removeClass('active').parent().attr('aria-selected', false);
+							tabs[tabName][0].addClass('active').parent().attr('aria-selected', true);
+							tabActive = tabName;
+							evt.preventDefault();
+							evt.stopPropagation();
+							return false;
+						})
+					}
+				});
+
+				// Set the active tab
+				if (tabActive != undefined) {
+					tabs[tabActive][0].addClass('active').parent().attr('aria-selected', true);
+					tabs[tabActive][1].removeClass('tabhidepanel').attr('aria-expanded', true);
+				}
+
+				// Look to see if in a form
+				var n = this[0];
+				while (n) {
+					if (n.tagName == 'FORM') {
+						function selectTabWithErrors() {
+							for (var m in tabs) {
+								if (tabs[m][1].find('.validation').hasClass('failed')) {
+									tabs[m][0].trigger('click');
+									break;
+								}
+							}
+						}
+
+						// Capture validation failures
+						$fl(n).bind('formValidationFailed', selectTabWithErrors).addClass('tabwidgetcontainer');
+						selectTabWithErrors();
+						break;
+					}
+					n = n.parentNode;
+				}
 			}
 
-			optionsList += '<option value="' + e.attr('href') + '">' + indent + e.text() + '</option>';
-		});
+			return this;
+		},
 
-		menu.after('<select id="collapsedMenu' + idx + '">' + optionsList + '</select>');
-		collapsed = $fl('#collapsedMenu' + idx);
+		/**
+		 * Display a message in the toast popup.
+		 *
+		 * @param string type The toast type, success, warning, error, primary, accent
+		 * @param string msg The message to display in the toast popup.
+		 * @param string actionLabel The label to show on the action e.g. dismiss.
+		 * @param function callback The function to call if the action is clicked.
+		 * @param bool withTimeout true to auto dismiss the popup.
+		 */
+		toastShow: function(type, msg, actionLabel, callback, withTimeout) {
+			var delay = 0;
 
-		if(menu.hasClass('hidden-t')) {
-			collapsed.addClass('visible-t');
-			cssDone = true;
-		}
-
-		if(menu.hasClass('hidden-s')) {
-			collapsed.addClass('visible-s');
-			cssDone = true;
-		}
-
-		if(menu.hasClass('hidden-phone')) {
-			collapsed.addClass('visible-phone');
-			cssDone = true;
-		}
-
-		if(menu.hasClass('hidden-m') || menu.hasClass('hidden-desktop')) {
-			collapsed.addClass('visible-m');
-			cssDone = true;
-		}
-
-		if(menu.hasClass('hidden-l')) {
-			collapsed.addClass('visible-l');
-			cssDone = true;
-		}
-
-		if(!cssDone) {
-			menu.addClass('hidden-t').addClass('hidden-s');
-			collapsed.addClass('visible-t').addClass('visible-s');
-		}
-
-		collapsed.bind('change', function() {
-			window.location = $fl(this).val();
-		});
-	});
-
-	// Find all upload buttons and set to copy file name to display
-	$fl('.uploadButton input').bind('change', function(e) {
-		$fl(this).parent().find('span').html($fl(this).val().split(/(\\|\/)/g).pop());
-	});
-
-	// Setup responsive tables
-	$fl("table.responsive").each(function(i, e) {
-		$fl(e).wrap('<div class="responsiveTableWrapper" />');
-		$fl(e).wrap('<div class="responsiveTableWrapperInner" />');
-	});
-
-	// Build the slide in menu if required
-	if($fl('#viewSlideInMenu').length) {
-		// Add markup to body
-		$fl('body')
-			.append('<div id="slideInMenuOverlay"></div>')
-			.append('<div id="slideInMenu" role="menu"></div>');
-		$fl('#slideInMenu').attr('aria-hidden', true);
-
-		// Copy menu HTML to slide in
-		$fl('ul.slideInMenu').each(function(idx) {
-			if($fl(this).hasClass('slideInMenuRootOnly')) {
-				$fl('#slideInMenuOverlay')
-					.html('<ul>' + $fl(this).html() + '</ul>')
-					.find('li ul').remove();
-				$fl('#slideInMenu').append($fl('#slideInMenuOverlay').html());
+			// Add the toast container to the page
+			if(!toastHasHTML) {
+				$fl('body').append('<div id="toast" role="alert" aria-hidden="true"></div>');
+				toastHasHTML = true;
 			}
-			else
-				$fl('#slideInMenu').append('<ul>' + $fl(this).html() + '</ul>');
-		});
 
-		// Capture menu hide, click off menu
-		$fl('#slideInMenuOverlay')
-			.html('')
-			.bind('click', function(e) {
-			$fl('#slideInMenuOverlay').removeClass('slideInMenuShow');
-			$fl('#slideInMenu')
-				.removeClass('slideInMenuShow')
+			toastClass = type;
+
+			if(actionLabel) {
+				msg = '<a href="#">' + actionLabel + '</a>' + msg
+			}
+
+			if (toastTimer) {
+				clearTimeout(toastTimer);
+				toastTimer = 0;
+				delay = 300;
+			}
+			else if($fl('#toast').hasClass('exposed'))
+				delay = 300;
+
+			$fl('#toast')
+				.removeClass('exposed')
+				.removeClass('success')
+				.removeClass('error')
+				.removeClass('warning')
+				.removeClass('accent')
+				.removeClass('primary')
 				.attr('aria-hidden', true);
+
+			setTimeout(function () {
+				$fl('#toast')
+					.html(msg)
+					.addClass('exposed')
+					.addClass(type)
+					.attr('aria-hidden', false);
+
+				// Action toast
+				if(actionLabel) {
+					$fl('#toast a').bind('click', function(e) {
+						if (toastTimer) {
+							clearTimeout(toastTimer);
+							toastTimer = 0;
+						}
+						$fl('#toast').removeClass('exposed').attr('aria-hidden', true);
+
+						if(callback) {
+							callback();
+						}
+
+						e.preventDefault();
+					});
+				}
+
+				// Timeout toast
+				if((!actionLabel && withTimeout !== false) || withTimeout === true) {
+					toastTimer = setTimeout(function () {
+						$fl('#toast')
+								.removeClass('exposed')
+								.removeClass(type)
+								.attr('aria-hidden', true);
+						toastTimer = 0;
+					}, 5000);
+				}
+			}, delay);
+
+			return this;
+		},
+
+		/**
+		 * Hide any visible toast messages.
+		 */
+		toastHide: function() {
+			if (toastTimer) {
+				clearTimeout(toastTimer);
+				toastTimer = 0;
+			}
+
+			$fl('#toast')
+				.removeClass('exposed')
+				.removeClass(toastClass)
+				.attr('aria-hidden', true);
+		}
+	});
+
+	fusionLib.toastShow = fusionLib.fn.toastShow;
+	fusionLib.toastHide = fusionLib.fn.toastHide;
+
+	$fl(document).ready(function() {
+
+		// Enable tabs
+		$fl('.tabwidget').each(function() {
+			$fl(this).tabs();
 		});
 
-		// Capture menu expose
-		$fl('#viewSlideInMenu').bind('click', function(e) {
-			$fl('#slideInMenuOverlay').addClass('slideInMenuShow');
-			$fl('#slideInMenu')
-				.addClass('slideInMenuShow')
-				.attr('aria-hidden', false);
+		/**
+		 * Find all upload buttons and set to copy file name to display
+		 */
+		$fl('.uploadButton input').bind('change', function(e) {
+			$fl(this).parent().find('span').html($fl(this).val().split(/(\\|\/)/g).pop());
 		});
-	}
 
-	// Add scroll to top
-	var toTop = $fl('#scrollToTop');
-	if(toTop.length) {
-		function scrollToTop() {
-			var e = $fl(window);
-			if(e.scrollTop() > 0) {
-				e.scrollTop(Math.max(0, e.scrollTop() - Math.max(10, e.scrollTop() / 20)));
-				window.setTimeout(scrollToTop, 10);
+		/**
+		 * Setup responsive tables
+		 */
+		$fl("table.responsive").each(function(i, e) {
+			$fl(e).wrap('<div class="responsiveTableWrapper" />');
+			$fl(e).wrap('<div class="responsiveTableWrapperInner" />');
+		});
+
+		/**
+		 * Build the slide in menu if required
+		 */
+		if($fl('#viewSlideInMenu').length) {
+			// Add markup to body
+			$fl('body').append('<div id="slideInMenuOverlay"></div>');
+
+			// Build the slidein menu if not already defined
+			if(!$fl('#slideInMenu').length) {
+				$fl('body').append('<div id="slideInMenu" role="menu"></div>');
+
+				// Copy menu HTML to slide in
+				$fl('.slideInMenu').each(function (idx) {
+					var o = '', e = '';
+
+					if(this.nodeName.toLowerCase() == 'ul') {
+						o = '<ul>';
+						e = '</ul>';
+					}
+
+					if ($fl(this).hasClass('slideInMenuRootOnly')) {
+						$fl('#slideInMenuOverlay')
+								.html(o + $fl(this).html() + e)
+								.find('li ul').remove();
+						$fl('#slideInMenu').append($fl('#slideInMenuOverlay').html());
+					}
+					else
+						$fl('#slideInMenu').append(o + $fl(this).html() + e);
+				});
+			}
+
+			$fl('#slideInMenu').attr('aria-hidden', true);
+
+			// Capture menu hide, click off menu
+			$fl('#slideInMenuOverlay')
+					.html('')
+					.bind('click', function(e) {
+						$fl('#slideInMenu')
+								.removeClass('slideInMenuShow')
+								.attr('aria-hidden', true);
+						$fl('#slideInMenuOverlay').removeClass('slideInMenuShow');
+						$fl('body').removeClass('disableScroll');
+					});
+
+			// Capture menu expose
+			$fl('#viewSlideInMenu').bind('click', function(e) {
+				$fl('body').addClass('disableScroll');
+				$fl('#slideInMenuOverlay').addClass('slideInMenuShow');
+				$fl('#slideInMenu')
+						.addClass('slideInMenuShow')
+						.attr('aria-hidden', false);
+			});
+		}
+
+		/**
+		 * Add scroll to top
+		 */
+		var toTop = $fl('#scrollToTop');
+		if(toTop.length) {
+			function scrollToTop() {
+				var e = $fl(window);
+				if(e.scrollTop() > 0) {
+					e.scrollTop(Math.max(0, e.scrollTop() - Math.max(10, e.scrollTop() / 20)));
+					window.setTimeout(scrollToTop, 10);
+				}
+			}
+
+			toTop.bind('click', scrollToTop);
+
+			$fl(window).bind('scroll', function() {
+				if($fl(this).scrollTop() > (toTop.attr('data-showat') != null ? toTop.attr('data-showat') : 600))
+					toTop.removeClass('hide');
+				else
+					toTop.addClass('hide');
+			});
+		}
+
+		/**
+		 * Label styling
+		 */
+		function styleLabel() {
+			var el = $fl(this),
+					l = $fl('#' + el.attr('id') + '-label');
+
+			el.bind('focus', function() {
+				l.addClass('focused');
+			}).bind('blur', function() {
+				l.removeClass('focused');
+			});
+		}
+
+		/**
+		 * Floating labels
+		 */
+		function floatLabels() {
+			var f = $fl(this);
+			if(!f.hasClass('hform')) {
+
+				// Attach floating labels to appropriate input fields
+				f.find('input').each(function() {
+					var el = $fl(this),
+						t = el.attr('type');
+
+					if(!el.hasClass('hasFloatingLabel') && t != 'checkbox' && t != 'submit' && t != 'file') {
+						var l = $fl('#' + el.attr('id') + '-label');
+						if(l.length) {
+							el.addClass('hasFloatingLabel');
+							el.bind('focus', function () {
+								l.removeClass('floatDown').addClass('floatUp');
+								l.addClass('focused');
+							}).bind('blur', function () {
+								l.removeClass('focused');
+								if (el.val())
+									l.removeClass('floatDown').addClass('floatUp');
+								else
+									l.addClass('floatDown').removeClass('floatUp');
+							}).bind('change', function () {
+								l.removeClass('focused');
+								if (el.val())
+									l.removeClass('floatDown').addClass('floatUp');
+								else
+									l.addClass('floatDown').removeClass('floatUp');
+							});
+							el.attr('placeholder', '').trigger('blur');
+						}
+					}
+				});
+
+				f.find('textarea').each(styleLabel);
+				f.find('select').each(styleLabel);
 			}
 		}
 
-		toTop.bind('click', scrollToTop);
+		$fl('.floatingLabels form').each(floatLabels);
+		$fl('form.floatingLabels').each(floatLabels);
+		setTimeout(function() {
+			$fl(document.activeElement).trigger('focus');
+		}, 100);
 
-		$fl(window).bind('scroll', function() {
-			if($fl(this).scrollTop() > (toTop.attr('data-showat') != null ? toTop.attr('data-showat') : 600))
-				toTop.removeClass('hide');
+		// Replace val function so that it triggers a change event on update
+		var fnVal = fusionLib.fn.val;
+		fusionLib.fn.val = function(value) {
+			if (typeof value == 'undefined') {
+				return fnVal.call(this);
+			}
+
+			var l = $fl('#' + $fl(this[0]).attr('id') + '-label');
+			if(value.length)
+				l.removeClass('floatDown');
 			else
-				toTop.addClass('hide');
+				l.addClass('floatDown');
+			return fnVal.call(this, value);
+		};
+
+		// Replace focus function so that it updates the styles on the element
+		var fnFocus = fusionLib.fn.focus;
+		fusionLib.fn.focus = function() {
+			fnFocus.call(this);
+
+			var l = $fl('#' + $fl(this[0]).attr('id') + '-label');
+			l.removeClass('floatDown');
+			l.addClass('focused');
+			return this;
+		};
+
+		// Floating action menu
+		var hasFAMs = false;
+		$fl('.fam').each(function() {
+			var fam = $fl(this),
+				menu = fam.find('ul');
+
+			// Mark as hidden
+			menu.attr('aria-hidden', menu.hasClass('exposed') ? false : true);
+
+			// Attach click handler to menu button
+			fam.find('a').first().bind('click', function(e) {
+				if(menu.hasClass('exposed')) {
+					menu.removeClass('exposed').attr('aria-hidden', true);
+				}
+				else {
+					// Close any open
+					$fl('.fam ul').removeClass('exposed').attr('aria-hidden', true);
+
+					menu.addClass('exposed').attr('aria-hidden', false);
+				}
+				e.preventDefault();
+			}).attr('data-fam-menu', 1);
+
+			hasFAMs = true;
 		});
-	}
-});
+
+		// Close FAMs on click off menu
+		if(hasFAMs) {
+			$fl(document).bind('click', function (e) {
+				var el = $fl(e.target);
+
+				if(e.target.nodeName == 'HTML' || (
+						!el.attr('data-fam-menu') &&
+						!el.hasClass('leave-open') &&
+						!el.parent().attr('data-fam-menu') &&
+						!el.parent().hasClass('leave-open')
+					)
+				) {
+					$fl('.fam ul').removeClass('exposed').attr('aria-hidden', true);
+				}
+			});
+		}
+
+	});
+})();

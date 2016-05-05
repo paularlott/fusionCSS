@@ -1,0 +1,73 @@
+<h1>Toast</h1>
+
+<p>To use the toast popup functionality the fusionCSS.js library needs to be included.</p>
+
+<section class="card accent">
+	<div class="content">
+		<div class="button primary" id="testToast">Toast With Timeout</div>
+		<div class="button accent" id="testToast2">Toast With Click to Hide</div>
+		<div class="button accent" id="testToast3">Toast With Click &amp; Timeout</div>
+
+		<pre><code class="language-markup">&lt;div class="button primary" id="testToast">Toast With Timeout&lt;/div>
+&lt;div class="button accent" id="testToast2">Toast With Click to Hide&lt;/div>
+&lt;div class="button accent" id="testToast3">Toast With Click &amp; Timeout&lt;/div></code></pre>
+
+		<pre><code class="language-javascript">$('#testToast').bind('click', function (e) {
+	$.toastShow('', 'This massage will be dismissed automatically<br>' + (new Date()));
+	e.preventDefault();
+});
+
+$('#testToast2').bind('click', function (e) {
+	$.toastShow('success', 'Click dismiss to remove this message<br>' + (new Date()), 'Dismiss', function () {
+		alert('Dismiss was clicked');
+	});
+	e.preventDefault();
+});
+
+$('#testToast3').bind('click', function (e) {
+	$.toastShow('success', 'Click dismiss or wait to remove this message<br>' + (new Date()), 'Dismiss', null, true);
+	e.preventDefault();
+});</code></pre>
+
+		<p><strong>Parameters</strong></p>
+		<pre><code class="language-javascript">$.toastShow(
+	The state to show 'success', 'error', 'warning', 'primary', 'accent' or '' for the default,
+	The message to show,
+	Optional action label,
+	Optional function to call when the action is clicked,
+	Optional bool to force with/without dismiss on timeout
+);</code></pre>
+	</div>
+</section>
+
+<section class="card accent">
+	<div class="content">
+		<div class="button primary toastTest" data-type="success">Success</div>
+		<div class="button primary toastTest" data-type="error">Error</div>
+		<div class="button primary toastTest" data-type="warning">Warning</div>
+		<div class="button primary toastTest" data-type="primary">Primary</div>
+		<div class="button primary toastTest" data-type="accent">Accent</div>
+		<div class="button primary toastTest" data-type="">Default</div>
+	</div>
+</section>
+
+<script type="text/javascript">
+	$('#testToast').bind('click', function (e) {
+		$.toastShow('', 'This massage will be dismissed automatically<br>' + (new Date()));
+		e.preventDefault();
+	});
+	$('#testToast2').bind('click', function (e) {
+		$.toastShow('success', 'Click dismiss to remove this message<br>' + (new Date()), 'Dismiss', function () {
+			alert('Dismiss was clicked');
+		});
+		e.preventDefault();
+	});
+	$('#testToast3').bind('click', function (e) {
+		$.toastShow('success', 'Click dismiss or wait to remove this message<br>' + (new Date()), 'Dismiss', null, true);
+		e.preventDefault();
+	});
+	$('.toastTest').bind('click', function (e) {
+		$.toastShow($(e.target).attr('data-type'), 'Click dismiss to remove this message<br>' + (new Date()), 'Dismiss');
+		e.preventDefault();
+	});
+</script>

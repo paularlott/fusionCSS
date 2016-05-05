@@ -1,123 +1,45 @@
 
 // Horizontal navigation
-.hnav:after {
-	.clear;
-}
-
-.hnav, .vnav,
-.hnav ul, .vnav ul {
+.hnav, .vnav {
+	background-color: @mnuColorBg;
 	list-style: none;
 	margin: 0;
+	.user-select();
+
+	&:after {
+		.clearfix;
+	}
+	li {
+		a {
+			padding: .5rem 1rem;
+			display: block;
+			color: @mnuColorText;
+			text-decoration: none;
+
+			&:hover {
+				background-color: lighten(@mnuColorBg, 5%);
+			}
+		}
+	}
+
+	.active a {
+		background-color: lighten(@mnuColorBg, 5%);
+	}
+
+	&.pill {
+		background-color: transparent;
+		a {
+			border-radius: @radius;
+			background-color: @mnuColorBg;
+		}
+		li {
+			margin-right: .5rem;
+		}
+	}
 }
 
-.hnav li {
-	float: left;
-}
-.hnav.pill li {
-	margin-right: .5em;
-}
-.pill a {
-	.border-radius(@radius);
-}
-
-.hnav a, .vnav a {
-	padding: .15em .65em;
-	display: block;
-	text-decoration: none;
-	.transition();
-}
-
-.vnav .active a, .hnav a {
-	color: @navColor;
-	background-color: @navBg;
-}
-.vnav .active a:hover, .hnav a:hover {
-	color: @navColor;
-	background-color: @navBgHover;
-}
-.hnav .active a {
-	background-color: @navBgActive;
-}
-
-.vnav {
-	background-color: @vnavBg;
-	.border-radius(@radius);
-}
-.vnav a {
-	color: @vnavColor;
-}
-.vnav a:hover {
-	background-color: @vnavBgHover;
-}
-
-// Collapsed Nav
-[id*="collapsedMenu"] {
-	font-size: 100%;
-	width: 50%;
-	margin: .5em auto;
-	padding: .3em .6em;
-	border: 1px solid @formBorderColor;
-	.border-radius(@radius);
-	.background-clip(padding-box);
-	.transition();
-}
-
-// Breadcrumbs
-.breadcrumbwidget:after {
-	.clear;
-}
-.breadcrumbwidget {
-	list-style: none;
-	margin: 0;
-}
-.breadcrumbwidget li {
-	display: block;
-	float: left;
-	margin-right: .25em;
-}
-.breadcrumbwidget a {
-	text-decoration: none;
-}
-.breadcrumbwidget li + li:before {
-	content: " >";
-	font-weight: bold;
-	margin-right: .25em;
-}
-.breadcrumbwidget.path li + li:before {
-	content: " /";
-}
-.breadcrumbwidget.section li + li:before {
-	content: " |";
-}
-
-// Pagination
-.paginationwidget {
-	margin: 0;
-	list-style: none;
-	text-align: center;
-}
-.paginationwidget li {
-	display: inline;
-}
-.paginationwidget li span,
-.paginationwidget a {
-	text-decoration: none;
-	padding: 0 .5em;
-	.border-radius(@radius);
-}
-.paginationwidget li + li:before {
-	content: " ";
-	margin-right: .125em;
-}
-
-.paginationwidget li span {
-	color: @navColor;
-	background-color: @navBg;
-}
-.paginationwidget a {
-	color: @pagColor;
-}
-.paginationwidget a:hover {
-	color: @navColor;
-	background-color: @pagBg;
+.hnav {
+	li {
+		float: left;
+	}
 }

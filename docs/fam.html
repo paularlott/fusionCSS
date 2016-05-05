@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/prism.css" rel="stylesheet" />
+	<link id="pagestyle" href="../css/fusioncss.blue.pink.css" rel="stylesheet">
+	<link href="css/docs.css" rel="stylesheet">
+	<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/src/fusionCSS.js"></script>
+	<script type="text/javascript" src="js/docs.js"></script>
+	<script src="js/prism.js"></script>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+<nav class="appbar fixed">
+	<ul class="pull-left">
+		<li>
+			<div id="viewSlideInMenu"><i class="fa fa-bars"></i><span class="sr-only">MENU</span></div>
+		</li>
+		<li id="style-select">
+			Style
+			<ul class="hide" id="cssoption"></ul>
+		</li>
+	</ul>
+	<ul class="pull-right">
+		<li><a href="https://github.com/paularlott/fusionCSS"><i class="fa fa-github"></i><span class="sr-only">GitHub</span></a></li>
+		<li><a href="htt://fusioncss.com/"><i class="fa fa-home"></i><span class="sr-only">fusioncss.com</span></a></li>
+	</ul>
+</nav>
+
+<div class="container">
+
+	<div class="row">
+		<div class="span-t12">
+
+
+<h1>Floating Action Menu</h1>
+
+<p>To use the tabs functionality the fusionCSS.js library needs to be included.</p>
+
+<h2>Horizontal Menu (Right)</h2>
+<div class="card">
+	<div class="content">
+
+		<div class="fam">
+			<a class="button floating accent">
+				<i class="material-icons">add</i>
+			</a>
+			<ul>
+				<li><a class="button floating accent mini"><i class="material-icons">mail</i></a></li>
+				<li><a class="button floating accent mini"><i class="material-icons">inbox</i></a></li>
+				<li><a class="button floating accent mini"><i class="material-icons">attach_file</i></a></li>
+				<li><a class="button floating accent mini"><i class="material-icons">add_a_photo</i></a></li>
+			</ul>
+		</div>
+
+		<pre><code class="language-markup">&lt;div class="fam">
+	&lt;a class="button floating accent">
+		&lt;i class="material-icons">add&lt;/i>
+	&lt;/a>
+	&lt;ul>
+		&lt;li>&lt;a class="button floating accent mini">&lt;i class="material-icons">mail&lt;/i>&lt;/a>&lt;/li>
+		&lt;li>&lt;a class="button floating accent mini">&lt;i class="material-icons">inbox&lt;/i>&lt;/a>&lt;/li>
+		&lt;li>&lt;a class="button floating accent mini">&lt;i class="material-icons">attach_file&lt;/i>&lt;/a>&lt;/li>
+		&lt;li>&lt;a class="button floating accent mini">&lt;i class="material-icons">add_a_photo&lt;/i>&lt;/a>&lt;/li>
+	&lt;/ul>
+&lt;/div></code></pre>
+
+	</div>
+</div>
+
+<h2>Horizontal Menu (Left)</h2>
+<div class="card">
+	<div class="content">
+
+		<div class="text-right">
+			<div class="fam left">
+				<a class="button floating accent">
+					<i class="material-icons">add</i>
+				</a>
+				<ul>
+					<li><a class="button floating accent mini"><i class="material-icons">mail</i></a></li>
+					<li><a class="button floating accent mini"><i class="material-icons">inbox</i></a></li>
+					<li><a class="button floating accent mini"><i class="material-icons">attach_file</i></a></li>
+					<li><a class="button floating accent mini"><i class="material-icons">add_a_photo</i></a></li>
+				</ul>
+			</div>
+		</div>
+
+		<pre><code class="language-markup">&lt;div class="fam left">
+	&lt;a class="button floating accent">
+		&lt;i class="material-icons">add&lt;/i>
+	&lt;/a>
+	&lt;ul>
+		&lt;li>&lt;a class="button floating accent mini">&lt;i class="material-icons">mail&lt;/i>&lt;/a>&lt;/li>
+		&lt;li>&lt;a class="button floating accent mini">&lt;i class="material-icons">inbox&lt;/i>&lt;/a>&lt;/li>
+		&lt;li>&lt;a class="button floating accent mini">&lt;i class="material-icons">attach_file&lt;/i>&lt;/a>&lt;/li>
+		&lt;li>&lt;a class="button floating accent mini">&lt;i class="material-icons">add_a_photo&lt;/i>&lt;/a>&lt;/li>
+	&lt;/ul>
+&lt;/div></code></pre>
+
+	</div>
+</div>
+
+<h2>Vertical Menu (Down)</h2>
+<div class="card">
+	<div class="content">
+
+		<div class="fam vertical">
+			<a class="button floating primary">
+				<i class="material-icons">add</i>
+			</a>
+			<ul>
+				<li><a class="button floating primary mini"><i class="material-icons">mail</i></a></li>
+				<li><a class="button floating primary mini"><i class="material-icons">inbox</i></a></li>
+				<li><a class="button floating primary mini"><i class="material-icons">attach_file</i></a></li>
+				<li><a class="button floating primary mini"><i class="material-icons">add_a_photo</i></a></li>
+			</ul>
+		</div>
+
+		<pre><code class="language-markup">&lt;div class="fam vertical">
+	&lt;a class="button floating primary">
+		&lt;i class="material-icons">add&lt;/i>
+	&lt;/a>
+	&lt;ul>
+		&lt;li>&lt;a class="button floating primary mini">&lt;i class="material-icons">mail&lt;/i>&lt;/a>&lt;/li>
+		&lt;li>&lt;a class="button floating primary mini">&lt;i class="material-icons">inbox&lt;/i>&lt;/a>&lt;/li>
+		&lt;li>&lt;a class="button floating primary mini">&lt;i class="material-icons">attach_file&lt;/i>&lt;/a>&lt;/li>
+		&lt;li>&lt;a class="button floating primary mini">&lt;i class="material-icons">add_a_photo&lt;/i>&lt;/a>&lt;/li>
+	&lt;/ul>
+&lt;/div></code></pre>
+
+	</div>
+</div>
+
+<h2>Vertical Menu (Up)</h2>
+<div class="card">
+	<div class="content">
+
+		<div class="fam vertical up">
+			<a class="button floating primary">
+				<i class="material-icons">add</i>
+			</a>
+			<ul>
+				<li><a class="button floating primary mini"><i class="material-icons">mail</i></a></li>
+				<li><a class="button floating primary mini"><i class="material-icons">inbox</i></a></li>
+				<li><a class="button floating primary mini"><i class="material-icons">attach_file</i></a></li>
+				<li><a class="button floating primary mini"><i class="material-icons">add_a_photo</i></a></li>
+			</ul>
+		</div>
+
+		<pre><code class="language-markup">&lt;div class="fam vertical">
+			&lt;a class="button floating primary">
+			&lt;i class="material-icons">add&lt;/i>
+			&lt;/a>
+			&lt;ul>
+			&lt;li>&lt;a class="button floating primary mini">&lt;i class="material-icons">mail&lt;/i>&lt;/a>&lt;/li>
+			&lt;li>&lt;a class="button floating primary mini">&lt;i class="material-icons">inbox&lt;/i>&lt;/a>&lt;/li>
+			&lt;li>&lt;a class="button floating primary mini">&lt;i class="material-icons">attach_file&lt;/i>&lt;/a>&lt;/li>
+			&lt;li>&lt;a class="button floating primary mini">&lt;i class="material-icons">add_a_photo&lt;/i>&lt;/a>&lt;/li>
+			&lt;/ul>
+			&lt;/div></code></pre>
+
+	</div>
+</div>
+
+<h2>Open On Load</h2>
+<p>The following example opens on load and the first two menu items are marked with the class "leave-open" so that when clicked they don't cause the menu to close.</p>
+<div class="card">
+	<div class="content">
+
+		<div class="fam">
+			<a class="button floating accent">
+				<i class="material-icons">add</i>
+			</a>
+			<ul class="exposed">
+				<li><a class="button floating accent mini leave-open"><i class="material-icons">mail</i></a></li>
+				<li><a class="button floating accent mini leave-open"><i class="material-icons">inbox</i></a></li>
+				<li><a class="button floating accent mini"><i class="material-icons">attach_file</i></a></li>
+				<li><a class="button floating accent mini"><i class="material-icons">add_a_photo</i></a></li>
+			</ul>
+		</div>
+
+		<pre><code class="language-markup">&lt;div class="fam">
+	&lt;a class="button floating accent">
+			&lt;i class="material-icons">add&lt;/i>
+	&lt;/a>
+	&lt;ul class="exposed">
+		&lt;li>&lt;a class="button floating accent mini leave-open">&lt;i class="material-icons">mail&lt;/i>&lt;/a>&lt;/li>
+		&lt;li>&lt;a class="button floating accent mini leave-open">&lt;i class="material-icons">inbox&lt;/i>&lt;/a>&lt;/li>
+		&lt;li>&lt;a class="button floating accent mini">&lt;i class="material-icons">attach_file&lt;/i>&lt;/a>&lt;/li>
+		&lt;li>&lt;a class="button floating accent mini">&lt;i class="material-icons">add_a_photo&lt;/i>&lt;/a>&lt;/li>
+	&lt;/ul>
+&lt;/div></code></pre>
+
+	</div>
+</div>
+
+
+		</div>
+	</div>
+
+	<footer class="row">
+		<div class="span-s12 text-center">
+			Copyright &copy; 2013 - 2016 <a href="http://fusioncss.com/">fusionCSS</a>. All rights reserved.
+		</div>
+	</footer>
+
+</div>
+
+</div>
+
+<nav id="slideInMenu">
+	<ul>
+		<li class="logo">
+			<a href="http://fusioncss.com/"><img src="logo.png" alt="fusionCSS" /></a>
+		</li>
+		<li ><a href="index.html">Getting Started</a></li>
+		<li ><a href="typography.html">Typography</a></li>
+		<li ><a href="colors.html">Colors</a></li>
+		<li ><a href="grid.html">Grid</a></li>
+		<li ><a href="visibility.html">Visibility</a></li>
+		<li ><a href="navigation.html">Navigation</a></li>
+		<li ><a href="tables.html">Tables</a></li>
+		<li ><a href="alerts.html">Alerts</a></li>
+		<li ><a href="forms.html">Forms</a></li>
+		<li ><a href="images.html">Images</a></li>
+		<li ><a href="buttons.html">Buttons</a></li>
+		<li ><a href="shadows.html">Shadows</a></li>
+		<li ><a href="chips.html">Chips</a></li>
+		<li ><a href="cards.html">Cards</a></li>
+		<li ><a href="appbar.html">Appbar</a></li>
+		<li ><a href="misc.html">Miscellaneous</a></li>
+	</ul>
+
+	<ul>
+		<li  class="active"><a href="fam.html">Floating Action Menu</a></li>
+		<li ><a href="tabs.html">Tabs</a></li>
+		<li ><a href="toast.html">Toast</a></li>
+	</ul>
+</nav>
+
+<div id="scrollToTop" class="hide">Top</div>
+
+</body>
+</html>

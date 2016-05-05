@@ -1,0 +1,61 @@
+.fam {
+	position: relative;
+	display: inline-block;
+	z-index: 9000;
+	.user-select();
+
+
+	ul {
+		position: absolute;
+		top: .35rem;
+		left: 4rem;
+		list-style: none;
+		margin-left: 0;
+		margin-bottom: 0;
+		width: 23.5rem;
+		opacity: 0;
+		visibility: hidden;
+		.transition(all, 250ms);
+
+		&.exposed {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	li {
+		display: inline-block;
+		margin-right: .5rem;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	&.left {
+		ul {
+			left: inherit;
+			right: 4rem;
+			text-align: right;
+		}
+	}
+
+	&.vertical {
+		ul {
+			top: 4rem;
+			left: .5rem;
+			width: 2.5rem;
+		}
+
+		li {
+			margin-right: 0;
+		}
+
+		&.up {
+			ul {
+				top: inherit;
+				bottom: 4rem;
+			}
+		}
+	}
+}
