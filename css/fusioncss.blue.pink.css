@@ -1432,12 +1432,18 @@ form dd:last-child {
   left: .25rem;
   font-size: .75rem;
 }
+.floatingLabels label.floatUp.focused {
+  color: #2196F3;
+}
 .floatingLabels label.floatDown {
   color: rgba(0, 0, 0, 0.54);
   position: absolute;
   top: 1rem;
   left: .25rem;
   cursor: text;
+}
+.floatingLabels label.floatDown.focused {
+  color: #2196F3;
 }
 .floatingLabels form input[type="text"],
 .floatingLabels form input[type="number"],
