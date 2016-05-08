@@ -378,9 +378,9 @@ if(!window.fusionLib)
 
 			var l = $fl('#' + $fl(this[0]).attr('id') + '-label');
 			if(value.length)
-				l.removeClass('floatDown');
+				l.removeClass('floatDown').addClass('floatUp');
 			else
-				l.addClass('floatDown');
+				l.addClass('floatDown').removeClass('floatUp');
 			return fnVal.call(this, value);
 		};
 
@@ -390,7 +390,7 @@ if(!window.fusionLib)
 			fnFocus.call(this);
 
 			var l = $fl('#' + $fl(this[0]).attr('id') + '-label');
-			l.removeClass('floatDown');
+			l.removeClass('floatDown').addClass('floatUp');
 			l.addClass('focused');
 			return this;
 		};
