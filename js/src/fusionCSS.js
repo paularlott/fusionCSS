@@ -312,13 +312,16 @@ if(!window.fusionLib)
 		 */
 		function styleLabel() {
 			var el = $fl(this),
-					l = $fl('#' + el.attr('id') + '-label');
+				l = $fl('#' + el.attr('id') + '-label'),
+				t = el.attr('type');
 
-			el.bind('focus', function() {
-				l.addClass('focused');
-			}).bind('blur', function() {
-				l.removeClass('focused');
-			});
+			if(t != 'checkbox' && t != 'submit' && t != 'file') {
+				el.bind('focus', function () {
+					l.addClass('focused');
+				}).bind('blur', function () {
+					l.removeClass('focused');
+				});
+			}
 		}
 
 		/**
@@ -339,9 +342,7 @@ if(!window.fusionLib)
 							el.addClass('hasFloatingLabel');
 							el.bind('focus', function () {
 								l.removeClass('floatDown').addClass('floatUp');
-								l.addClass('focused');
 							}).bind('blur', function () {
-								l.removeClass('focused');
 								if (el.val())
 									l.removeClass('floatDown').addClass('floatUp');
 								else
@@ -357,14 +358,19 @@ if(!window.fusionLib)
 						}
 					}
 				});
-
-				f.find('textarea').each(styleLabel);
-				f.find('select').each(styleLabel);
 			}
 		}
 
 		$fl('.floatingLabels form').each(floatLabels);
 		$fl('form.floatingLabels').each(floatLabels);
+		$fl('form').each(function() {
+			var f = $fl(this);
+			if(!f.hasClass('hform')) {
+				f.find('input').each(styleLabel);
+				f.find('textarea').each(styleLabel);
+				f.find('select').each(styleLabel);
+			}
+		});
 		setTimeout(function() {
 			$fl(document.activeElement).trigger('focus');
 		}, 100);
