@@ -44,8 +44,8 @@ if(!window.fusionLib)
 
 				this.find('.tabs li').each(function () {
 					var el = $fl(this),
-							tabName,
-							panel;
+						tabName,
+						panel;
 
 					// If direct child
 					if (el.parent().parent()[0].id == widgetName) {
@@ -178,9 +178,9 @@ if(!window.fusionLib)
 				if((!actionLabel && withTimeout !== false) || withTimeout === true) {
 					toastTimer = setTimeout(function () {
 						$fl('#toast')
-								.removeClass('exposed')
-								.removeClass(type)
-								.attr('aria-hidden', true);
+							.removeClass('exposed')
+							.removeClass(type)
+							.attr('aria-hidden', true);
 						toastTimer = 0;
 					}, 5000);
 				}
@@ -252,8 +252,8 @@ if(!window.fusionLib)
 
 					if ($fl(this).hasClass('slideInMenuRootOnly')) {
 						$fl('#slideInMenuOverlay')
-								.html(o + $fl(this).html() + e)
-								.find('li ul').remove();
+							.html(o + $fl(this).html() + e)
+							.find('li ul').remove();
 						$fl('#slideInMenu').append($fl('#slideInMenuOverlay').html());
 					}
 					else
@@ -265,22 +265,22 @@ if(!window.fusionLib)
 
 			// Capture menu hide, click off menu
 			$fl('#slideInMenuOverlay')
-					.html('')
-					.bind('click', function(e) {
-						$fl('#slideInMenu')
-								.removeClass('slideInMenuShow')
-								.attr('aria-hidden', true);
-						$fl('#slideInMenuOverlay').removeClass('slideInMenuShow');
-						$fl('body').removeClass('disableScroll');
-					});
+				.html('')
+				.bind('click', function(e) {
+					$fl('#slideInMenu')
+						.removeClass('slideInMenuShow')
+						.attr('aria-hidden', true);
+					$fl('#slideInMenuOverlay').removeClass('slideInMenuShow');
+					$fl('body').removeClass('disableScroll');
+				});
 
 			// Capture menu expose
 			$fl('#viewSlideInMenu').bind('click', function(e) {
 				$fl('body').addClass('disableScroll');
 				$fl('#slideInMenuOverlay').addClass('slideInMenuShow');
 				$fl('#slideInMenu')
-						.addClass('slideInMenuShow')
-						.attr('aria-hidden', false);
+					.addClass('slideInMenuShow')
+					.attr('aria-hidden', false);
 			});
 		}
 
@@ -382,11 +382,15 @@ if(!window.fusionLib)
 				return fnVal.call(this);
 			}
 
-			var l = $fl('#' + $fl(this[0]).attr('id') + '-label');
-			if(value.length)
-				l.removeClass('floatDown').addClass('floatUp');
-			else
-				l.addClass('floatDown').removeClass('floatUp');
+			var e = $fl(this[0]),
+				l = $fl('#' + e.attr('id') + '-label');
+
+			if(e.attr('type') != 'checkbox') {
+				if (value.length)
+					l.removeClass('floatDown').addClass('floatUp');
+				else
+					l.addClass('floatDown').removeClass('floatUp');
+			}
 			return fnVal.call(this, value);
 		};
 
@@ -395,9 +399,13 @@ if(!window.fusionLib)
 		fusionLib.fn.focus = function() {
 			fnFocus.call(this);
 
-			var l = $fl('#' + $fl(this[0]).attr('id') + '-label');
-			l.removeClass('floatDown').addClass('floatUp');
-			l.addClass('focused');
+			var e = $fl(this[0]),
+				l = $fl('#' + e.attr('id') + '-label');
+
+			if(e.attr('type') != 'checkbox') {
+				l.removeClass('floatDown').addClass('floatUp');
+				l.addClass('focused');
+			}
 			return this;
 		};
 
