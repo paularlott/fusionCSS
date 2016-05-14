@@ -1308,6 +1308,7 @@ form textarea {
   width: 100%;
   padding: .5rem .25rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.87);
   background-color: transparent;
   transition: all 150ms linear;
 }
