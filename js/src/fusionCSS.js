@@ -402,7 +402,7 @@ if(!window.fusionLib)
 			var e = $fl(this[0]),
 				l = $fl('#' + e.attr('id') + '-label');
 
-			if(e.attr('type') != 'checkbox') {
+			if(e.hasClass('hasFloatingLabel') && e.attr('type') != 'checkbox') {
 				l.removeClass('floatDown').addClass('floatUp');
 				l.addClass('focused');
 			}
