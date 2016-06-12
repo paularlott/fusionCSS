@@ -354,7 +354,11 @@ if(!window.fusionLib)
 								else
 									l.addClass('floatDown').removeClass('floatUp');
 							});
-							el.attr('placeholder', '').trigger('blur');
+
+							if(!el.hasClass('keepPlaceholder'))
+								el.attr('placeholder', '')
+
+							el.trigger('blur');
 						}
 					}
 				});
