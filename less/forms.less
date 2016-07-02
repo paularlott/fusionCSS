@@ -247,6 +247,51 @@ form {
 		input[type="search"] {
 			padding: 1.5rem .25rem .5rem .25rem;
 		}
+
+		.selectControl {
+			position: relative;
+			z-index: 1;
+			margin-bottom: 1rem;
+
+			&:after {
+				content: "\f078"; // Fontawesome chevron down
+				color: @colorPrimary;
+				display: block;
+				font: normal normal normal 14px/1 FontAwesome;
+				text-rendering: auto;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				position: absolute;
+				width: 16px;
+				height: 16px;
+				text-align: center;
+				font-size: 16px;
+				line-height: 1;
+				top: 50%;
+				margin-top: -8px;
+				right: 1rem;
+				z-index: 2;
+			}
+
+			select {
+				padding: 1.5rem .25rem .5rem .25rem;
+				margin: 0;
+				outline: none;
+				line-height: 1;
+				border-radius: 0;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				position: relative;
+				z-index: 4;
+				cursor: pointer;
+
+				// Hide focus on Firefox
+				&:-moz-focusring {
+					color: transparent;
+					text-shadow: 0 0 0 #000;
+				}
+			}
+		}
 	}
 
 	&.appFormStyle,
@@ -263,7 +308,8 @@ form {
 		input[type="email"],
 		input[type="url"],
 		input[type="password"],
-		input[type="search"] {
+		input[type="search"],
+		.selectControl select {
 			padding: 1.5rem 0 .5rem 0;
 		}
 	}
@@ -302,7 +348,8 @@ form.hform {
 	input[type="email"],
 	input[type="url"],
 	input[type="password"],
-	input[type="search"] {
+	input[type="search"],
+	.selectControl select {
 		padding: .5rem .25rem !important;
 	}
 }

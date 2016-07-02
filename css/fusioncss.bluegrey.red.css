@@ -1454,6 +1454,46 @@ form dd:last-child {
 .floatingLabels form input[type="search"] {
   padding: 1.5rem .25rem .5rem .25rem;
 }
+.floatingLabels form .selectControl {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+}
+.floatingLabels form .selectControl:after {
+  content: "\f078";
+  color: #607D8B;
+  display: block;
+  font: normal normal normal 14px/1 FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1;
+  top: 50%;
+  margin-top: -8px;
+  right: 1rem;
+  z-index: 2;
+}
+.floatingLabels form .selectControl select {
+  padding: 1.5rem .25rem .5rem .25rem;
+  margin: 0;
+  outline: none;
+  line-height: 1;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  z-index: 4;
+  cursor: pointer;
+}
+.floatingLabels form .selectControl select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
 .floatingLabels.appFormStyle label.floatUp,
 .floatingLabels .appFormStyle label.floatUp,
 .floatingLabels.appFormStyle label.floatDown,
@@ -1471,7 +1511,9 @@ form dd:last-child {
 .floatingLabels.appFormStyle input[type="password"],
 .floatingLabels .appFormStyle input[type="password"],
 .floatingLabels.appFormStyle input[type="search"],
-.floatingLabels .appFormStyle input[type="search"] {
+.floatingLabels .appFormStyle input[type="search"],
+.floatingLabels.appFormStyle .selectControl select,
+.floatingLabels .appFormStyle .selectControl select {
   padding: 1.5rem 0 .5rem 0;
 }
 form input[type="submit"],
@@ -1512,7 +1554,9 @@ form.hform input[type="url"],
 .hform form input[type="password"],
 form.hform input[type="password"],
 .hform form input[type="search"],
-form.hform input[type="search"] {
+form.hform input[type="search"],
+.hform form .selectControl select,
+form.hform .selectControl select {
   padding: .5rem .25rem !important;
 }
 form #submit-list {
