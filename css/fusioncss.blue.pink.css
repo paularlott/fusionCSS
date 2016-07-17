@@ -1493,6 +1493,9 @@ form dd:last-child {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
+.floatingLabels form .selectControl select:disabled {
+  cursor: not-allowed;
+}
 .floatingLabels.appFormStyle label.floatUp,
 .floatingLabels .appFormStyle label.floatUp,
 .floatingLabels.appFormStyle label.floatDown,
