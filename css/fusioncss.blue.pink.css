@@ -1457,7 +1457,6 @@ form dd:last-child {
 .floatingLabels form .selectControl {
   position: relative;
   z-index: 1;
-  margin-bottom: 1rem;
 }
 .floatingLabels form .selectControl:after {
   content: "\f078";
