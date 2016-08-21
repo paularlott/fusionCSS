@@ -1446,6 +1446,7 @@ form dd:last-child {
 .floatingLabels label.floatDown.focused {
   color: #607D8B;
 }
+.floatingLabels form textarea.hasFloatingLabel,
 .floatingLabels form input[type="text"],
 .floatingLabels form input[type="number"],
 .floatingLabels form input[type="email"],
@@ -1495,11 +1496,19 @@ form dd:last-child {
 .floatingLabels form .selectControl select:disabled {
   cursor: not-allowed;
 }
+.floatingLabels .floatTextarea.floatDown {
+  top: .25rem;
+}
 .floatingLabels.appFormStyle label.floatUp,
 .floatingLabels .appFormStyle label.floatUp,
 .floatingLabels.appFormStyle label.floatDown,
 .floatingLabels .appFormStyle label.floatDown {
   left: 0;
+}
+.floatingLabels.appFormStyle textarea.hasFloatingLabel,
+.floatingLabels .appFormStyle textarea.hasFloatingLabel {
+  padding-left: 0;
+  padding-right: 0;
 }
 .floatingLabels.appFormStyle input[type="text"],
 .floatingLabels .appFormStyle input[type="text"],

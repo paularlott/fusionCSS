@@ -331,9 +331,13 @@ if(!window.fusionLib)
 			var el = $fl(this),
 				t = el.attr('type');
 
-			if(!el.hasClass('hasFloatingLabel') && t != 'checkbox' && t != 'submit' && t != 'file') {
+			if(el.attr('data-floating-label') != 'disabled' && !el.hasClass('hasFloatingLabel') && t != 'checkbox' && t != 'submit' && t != 'file') {
 				var l = $fl('#' + el.attr('id') + '-label');
 				if(l.length) {
+					if(el.is('textarea')) {
+						l.addClass('floatTextarea');
+					}
+
 					el.addClass('hasFloatingLabel');
 					el.bind('focus', function () {
 						l.removeClass('floatDown').addClass('floatUp');
@@ -363,6 +367,7 @@ if(!window.fusionLib)
 
 				// Attach floating labels to appropriate input fields
 				f.find('input').each(setupFloatingLabels);
+				f.find('textarea').each(setupFloatingLabels);
 				f.find('.selectControl select').each(setupFloatingLabels);
 			}
 		}

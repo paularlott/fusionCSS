@@ -239,6 +239,7 @@ form {
 	}
 
 	form {
+		textarea.hasFloatingLabel,
 		input[type="text"],
 		input[type="number"],
 		input[type="email"],
@@ -296,6 +297,10 @@ form {
 		}
 	}
 
+	.floatTextarea.floatDown {
+		top: .25rem;
+	}
+
 	&.appFormStyle,
 	.appFormStyle {
 		label {
@@ -305,6 +310,10 @@ form {
 			}
 		}
 
+		textarea.hasFloatingLabel {
+			padding-left: 0;
+			padding-right: 0;
+		}
 		input[type="text"],
 		input[type="number"],
 		input[type="email"],
