@@ -386,40 +386,6 @@ if(!window.fusionLib)
 			$fl(document.activeElement).trigger('focus');
 		}, 100);
 
-		// Replace val function so that it triggers a change event on update
-		var fnVal = fusionLib.fn.val;
-		fusionLib.fn.val = function(value) {
-			if (typeof value == 'undefined') {
-				return fnVal.call(this);
-			}
-
-			var e = $fl(this[0]),
-				l = $fl('#' + e.attr('id') + '-label');
-
-			if(e.attr('type') != 'checkbox') {
-				if (value.length)
-					l.removeClass('floatDown').addClass('floatUp');
-				else
-					l.addClass('floatDown').removeClass('floatUp');
-			}
-			return fnVal.call(this, value);
-		};
-
-		// Replace focus function so that it updates the styles on the element
-		var fnFocus = fusionLib.fn.focus;
-		fusionLib.fn.focus = function() {
-			fnFocus.call(this);
-
-			var e = $fl(this[0]),
-				l = $fl('#' + e.attr('id') + '-label');
-
-			if(e.hasClass('hasFloatingLabel') && e.attr('type') != 'checkbox') {
-				l.removeClass('floatDown').addClass('floatUp');
-				l.addClass('focused');
-			}
-			return this;
-		};
-
 		// Floating action menu
 		var hasFAMs = false;
 		$fl('.fam').each(function() {
@@ -464,4 +430,39 @@ if(!window.fusionLib)
 		}
 
 	});
+
+	// Replace val function so that it triggers a change event on update
+	var fnVal = fusionLib.fn.val;
+	fusionLib.fn.val = function(value) {
+		if (typeof value == 'undefined') {
+			return fnVal.call(this);
+		}
+
+		var e = $fl(this[0]),
+			l = $fl('#' + e.attr('id') + '-label');
+
+		if(e.attr('type') != 'checkbox') {
+			if (typeof value != 'string' || value.length)
+				l.removeClass('floatDown').addClass('floatUp');
+			else
+				l.addClass('floatDown').removeClass('floatUp');
+		}
+		return fnVal.call(this, value);
+	};
+
+	// Replace focus function so that it updates the styles on the element
+	var fnFocus = fusionLib.fn.focus;
+	fusionLib.fn.focus = function() {
+		fnFocus.call(this);
+
+		var e = $fl(this[0]),
+			l = $fl('#' + e.attr('id') + '-label');
+
+		if(e.hasClass('hasFloatingLabel') && e.attr('type') != 'checkbox') {
+			l.removeClass('floatDown').addClass('floatUp');
+			l.addClass('focused');
+		}
+		return this;
+	};
+
 })();
