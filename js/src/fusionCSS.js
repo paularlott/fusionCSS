@@ -71,6 +71,10 @@ if(!window.fusionLib)
 							tabs[tabActive][0].removeClass('active').parent().attr('aria-selected', false);
 							tabs[tabName][0].addClass('active').parent().attr('aria-selected', true);
 							tabActive = tabName;
+
+							// Trigger an event for the click.
+							el.trigger('fcss:tabclick');
+
 							evt.preventDefault();
 							evt.stopPropagation();
 							return false;
