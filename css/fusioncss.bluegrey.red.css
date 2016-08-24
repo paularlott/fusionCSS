@@ -2048,7 +2048,9 @@ body.disableScroll {
   visibility: hidden;
 }
 .tabpanels .tabhidepanel {
-  display: none;
+  visibility: hidden;
+  overflow: hidden;
+  height: 0;
 }
 @media (min-width: 768px) {
   .tabwidget.vtabs {
