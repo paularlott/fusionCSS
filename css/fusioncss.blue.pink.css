@@ -1311,6 +1311,8 @@ form textarea {
   color: rgba(0, 0, 0, 0.87);
   background-color: transparent;
   transition: all 150ms linear;
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 form input[type="text"]:focus,
 form input[type="number"]:focus,
