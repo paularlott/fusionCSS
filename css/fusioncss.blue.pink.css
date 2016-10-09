@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2013 - 2016 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
- * @version 3.0.0
+ * @version 3.0.5
  */
 * {
   margin: 0;
@@ -1311,6 +1311,8 @@ form textarea {
   color: rgba(0, 0, 0, 0.87);
   background-color: transparent;
   transition: all 150ms linear;
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 form input[type="text"]:focus,
 form input[type="number"]:focus,
@@ -1446,6 +1448,7 @@ form dd:last-child {
 .floatingLabels label.floatDown.focused {
   color: #2196F3;
 }
+.floatingLabels form textarea.hasFloatingLabel,
 .floatingLabels form input[type="text"],
 .floatingLabels form input[type="number"],
 .floatingLabels form input[type="email"],
@@ -1454,11 +1457,60 @@ form dd:last-child {
 .floatingLabels form input[type="search"] {
   padding: 1.5rem .25rem .5rem .25rem;
 }
+.floatingLabels form .selectControl {
+  position: relative;
+  z-index: 1;
+}
+.floatingLabels form .selectControl:after {
+  content: "\f078";
+  color: #2196F3;
+  display: block;
+  font: normal normal normal 14px/1 FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1;
+  top: 50%;
+  margin-top: -8px;
+  right: 1rem;
+  z-index: 2;
+}
+.floatingLabels form .selectControl select {
+  padding: 1.5rem .25rem .5rem .25rem;
+  margin: 0;
+  outline: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  z-index: 4;
+  cursor: pointer;
+}
+.floatingLabels form .selectControl select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+.floatingLabels form .selectControl select:disabled {
+  cursor: not-allowed;
+}
+.floatingLabels .floatTextarea.floatDown {
+  top: .25rem;
+}
 .floatingLabels.appFormStyle label.floatUp,
 .floatingLabels .appFormStyle label.floatUp,
 .floatingLabels.appFormStyle label.floatDown,
 .floatingLabels .appFormStyle label.floatDown {
   left: 0;
+}
+.floatingLabels.appFormStyle textarea.hasFloatingLabel,
+.floatingLabels .appFormStyle textarea.hasFloatingLabel {
+  padding-left: 0;
+  padding-right: 0;
 }
 .floatingLabels.appFormStyle input[type="text"],
 .floatingLabels .appFormStyle input[type="text"],
@@ -1471,7 +1523,9 @@ form dd:last-child {
 .floatingLabels.appFormStyle input[type="password"],
 .floatingLabels .appFormStyle input[type="password"],
 .floatingLabels.appFormStyle input[type="search"],
-.floatingLabels .appFormStyle input[type="search"] {
+.floatingLabels .appFormStyle input[type="search"],
+.floatingLabels.appFormStyle .selectControl select,
+.floatingLabels .appFormStyle .selectControl select {
   padding: 1.5rem 0 .5rem 0;
 }
 form input[type="submit"],
@@ -1512,7 +1566,9 @@ form.hform input[type="url"],
 .hform form input[type="password"],
 form.hform input[type="password"],
 .hform form input[type="search"],
-form.hform input[type="search"] {
+form.hform input[type="search"],
+.hform form .selectControl select,
+form.hform .selectControl select {
   padding: .5rem .25rem !important;
 }
 form #submit-list {
@@ -1994,7 +2050,9 @@ body.disableScroll {
   visibility: hidden;
 }
 .tabpanels .tabhidepanel {
-  display: none;
+  visibility: hidden;
+  overflow: hidden;
+  height: 0;
 }
 @media (min-width: 768px) {
   .tabwidget.vtabs {

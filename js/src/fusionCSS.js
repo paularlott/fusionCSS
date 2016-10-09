@@ -71,6 +71,10 @@ if(!window.fusionLib)
 							tabs[tabActive][0].removeClass('active').parent().attr('aria-selected', false);
 							tabs[tabName][0].addClass('active').parent().attr('aria-selected', true);
 							tabActive = tabName;
+
+							// Trigger an event for the click.
+							el.trigger('fcss:tabclick');
+
 							evt.preventDefault();
 							evt.stopPropagation();
 							return false;
@@ -325,6 +329,40 @@ if(!window.fusionLib)
 		}
 
 		/**
+		 * Worker function to setup floating labels
+		 */
+		function setupFloatingLabels() {
+			var el = $fl(this),
+				t = el.attr('type');
+
+			if(el.attr('data-floating-label') != 'disabled' && !el.hasClass('hasFloatingLabel') && t != 'checkbox' && t != 'submit' && t != 'file') {
+				var l = $fl('#' + el.attr('id') + '-label');
+				if(l.length) {
+					if(el.is('textarea')) {
+						l.addClass('floatTextarea');
+					}
+
+					el.addClass('hasFloatingLabel');
+					el.bind('focus', function () {
+						l.removeClass('floatDown').addClass('floatUp');
+					}).bind('blur', function () {
+						if (el.is('select') || el.val())
+							l.removeClass('floatDown').addClass('floatUp');
+						else
+							l.addClass('floatDown').removeClass('floatUp');
+					}).bind('change', function () {
+						l.removeClass('focused');
+						if (el.is('select') || el.val())
+							l.removeClass('floatDown').addClass('floatUp');
+						else
+							l.addClass('floatDown').removeClass('floatUp');
+					});
+					el.attr('placeholder', '').trigger('blur');
+				}
+			}
+		}
+
+		/**
 		 * Floating labels
 		 */
 		function floatLabels() {
@@ -332,36 +370,9 @@ if(!window.fusionLib)
 			if(!f.hasClass('hform')) {
 
 				// Attach floating labels to appropriate input fields
-				f.find('input').each(function() {
-					var el = $fl(this),
-						t = el.attr('type');
-
-					if(!el.hasClass('hasFloatingLabel') && t != 'checkbox' && t != 'submit' && t != 'file') {
-						var l = $fl('#' + el.attr('id') + '-label');
-						if(l.length) {
-							el.addClass('hasFloatingLabel');
-							el.bind('focus', function () {
-								l.removeClass('floatDown').addClass('floatUp');
-							}).bind('blur', function () {
-								if (el.val())
-									l.removeClass('floatDown').addClass('floatUp');
-								else
-									l.addClass('floatDown').removeClass('floatUp');
-							}).bind('change', function () {
-								l.removeClass('focused');
-								if (el.val())
-									l.removeClass('floatDown').addClass('floatUp');
-								else
-									l.addClass('floatDown').removeClass('floatUp');
-							});
-
-							if(!el.hasClass('keepPlaceholder'))
-								el.attr('placeholder', '')
-
-							el.trigger('blur');
-						}
-					}
-				});
+				f.find('input').each(setupFloatingLabels);
+				f.find('textarea').each(setupFloatingLabels);
+				f.find('.selectControl select').each(setupFloatingLabels);
 			}
 		}
 
@@ -378,40 +389,6 @@ if(!window.fusionLib)
 		setTimeout(function() {
 			$fl(document.activeElement).trigger('focus');
 		}, 100);
-
-		// Replace val function so that it triggers a change event on update
-		var fnVal = fusionLib.fn.val;
-		fusionLib.fn.val = function(value) {
-			if (typeof value == 'undefined') {
-				return fnVal.call(this);
-			}
-
-			var e = $fl(this[0]),
-				l = $fl('#' + e.attr('id') + '-label');
-
-			if(e.attr('type') != 'checkbox') {
-				if (value.length)
-					l.removeClass('floatDown').addClass('floatUp');
-				else
-					l.addClass('floatDown').removeClass('floatUp');
-			}
-			return fnVal.call(this, value);
-		};
-
-		// Replace focus function so that it updates the styles on the element
-		var fnFocus = fusionLib.fn.focus;
-		fusionLib.fn.focus = function() {
-			fnFocus.call(this);
-
-			var e = $fl(this[0]),
-				l = $fl('#' + e.attr('id') + '-label');
-
-			if(e.hasClass('hasFloatingLabel') && e.attr('type') != 'checkbox') {
-				l.removeClass('floatDown').addClass('floatUp');
-				l.addClass('focused');
-			}
-			return this;
-		};
 
 		// Floating action menu
 		var hasFAMs = false;
@@ -457,4 +434,39 @@ if(!window.fusionLib)
 		}
 
 	});
+
+	// Replace val function so that it triggers a change event on update
+	var fnVal = fusionLib.fn.val;
+	fusionLib.fn.val = function(value) {
+		if (typeof value == 'undefined') {
+			return fnVal.call(this);
+		}
+
+		var e = $fl(this[0]),
+			l = $fl('#' + e.attr('id') + '-label');
+
+		if(e.attr('type') != 'checkbox') {
+			if (typeof value != 'string' || value.length)
+				l.removeClass('floatDown').addClass('floatUp');
+			else
+				l.addClass('floatDown').removeClass('floatUp');
+		}
+		return fnVal.call(this, value);
+	};
+
+	// Replace focus function so that it updates the styles on the element
+	var fnFocus = fusionLib.fn.focus;
+	fusionLib.fn.focus = function() {
+		fnFocus.call(this);
+
+		var e = $fl(this[0]),
+			l = $fl('#' + e.attr('id') + '-label');
+
+		if(e.hasClass('hasFloatingLabel') && e.attr('type') != 'checkbox') {
+			l.removeClass('floatDown').addClass('floatUp');
+			l.addClass('focused');
+		}
+		return this;
+	};
+
 })();
