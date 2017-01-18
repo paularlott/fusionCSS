@@ -346,18 +346,20 @@ if(!window.fusionLib)
 					el.bind('focus', function () {
 						l.removeClass('floatDown').addClass('floatUp');
 					}).bind('blur', function () {
-						if (el.is('select') || el.val())
+						if (el.is('select') || el.val() || el.hasClass('keepPlaceholder'))
 							l.removeClass('floatDown').addClass('floatUp');
 						else
 							l.addClass('floatDown').removeClass('floatUp');
 					}).bind('change', function () {
 						l.removeClass('focused');
-						if (el.is('select') || el.val())
+						if (el.is('select') || el.val() || el.hasClass('keepPlaceholder'))
 							l.removeClass('floatDown').addClass('floatUp');
 						else
 							l.addClass('floatDown').removeClass('floatUp');
 					});
-					el.attr('placeholder', '').trigger('blur');
+					if(!el.hasClass('keepPlaceholder'))
+						el.attr('placeholder', '');
+					el.trigger('blur');
 				}
 			}
 		}
