@@ -223,7 +223,7 @@
 
 <h2>Variable Column Widths</h2>
 <p>The column widths can be changed to match the device width, e.g. on a small device a 2 column layout may be chosen which adjusts to 4 column on a large device.</p>
-<p>fusionCSS has a 10px gutter on column spans, this can be removed with the no-gutter, no-left-gutter and no-right-gutter classes, this is useful for having span contents butt up against each other.</p>
+<p>fusionCSS has a .75rem gutter on column spans, this can be removed with the no-gutter, no-left-gutter and no-right-gutter classes, this is useful for having span contents butt up against each other.</p>
 
 <div class="card">
 	<div class="content">
@@ -251,13 +251,40 @@
 	</div>
 </div>
 
+<h2>Gutters</h2>
+<p>The gutters can be enabled or disabled depending on the width.</p>
+
+<div class="card">
+	<div class="content">
+
+		<div class="row example">
+			<div class="span-s6 no-right-gutter-s gutter-m">
+				<img src="large.jpg" alt="test" />
+			</div>
+			<div class="span-s6 no-left-gutter-s gutter-m">
+				<img src="large.jpg" alt="test" />
+			</div>
+		</div>
+
+		<pre><code class="language-markup">&lt;div class="row">
+	&lt;div class="span-s6 no-right-gutter-s gutter-m">
+		&lt;img src="large.jpg" alt="test" />
+	&lt;/div>
+	&lt;div class="span-s6 no-right-gutter-s gutter-m">
+		&lt;img src="large.jpg" alt="test" />
+	&lt;/div>
+&lt;/div></code></pre>
+
+	</div>
+</div>
+
 
 		</div>
 	</div>
 
 	<footer class="row">
 		<div class="span-s12 text-center">
-			Copyright &copy; 2013 - 2016 <a href="http://fusioncss.com/">fusionCSS</a>. All rights reserved.
+			Copyright &copy; 2013 - 2017 <a href="http://fusioncss.com/">fusionCSS</a>. All rights reserved.
 		</div>
 	</footer>
 

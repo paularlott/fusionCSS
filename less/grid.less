@@ -39,6 +39,29 @@
 			position: relative;
 		}
 
+		[class^="@{colName}"] {
+			&.left-gutter@{spanName} {
+				padding-left: @colGutter / 2;
+			}
+			&.no-left-gutter@{spanName} {
+				padding-left: 0;
+			}
+			&.right-gutter@{spanName} {
+				padding-right: @colGutter / 2;
+			}
+			&.no-right-gutter@{spanName} {
+				padding-right: 0;
+			}
+			&.gutter@{spanName} {
+				padding-left: @colGutter / 2;
+				padding-right: @colGutter / 2;
+			}
+			&.no-gutter@{spanName} {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+
 		.makeCols(@name, @span) when (@span > 0) {
 			.@{colName}@{name}@{span} {
 				width: @colWidth + (@colWidth * (@span - 1));
@@ -70,6 +93,7 @@
 			display: -webkit-flex;
 			display: -ms-flexbox;
 			display: flex;
+			width: 100%;
 		}
 	}
 
