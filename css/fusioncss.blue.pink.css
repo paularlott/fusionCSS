@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2013 - 2016 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
- * @version 3.0.6
+ * @version 3.0.7
  */
 * {
   margin: 0;
@@ -164,6 +164,26 @@ blockquote cite {
 .row [class*="span-t-"] {
   position: relative;
 }
+.row [class^="span"].left-gutter-t {
+  padding-left: 0.75rem;
+}
+.row [class^="span"].no-left-gutter-t {
+  padding-left: 0;
+}
+.row [class^="span"].right-gutter-t {
+  padding-right: 0.75rem;
+}
+.row [class^="span"].no-right-gutter-t {
+  padding-right: 0;
+}
+.row [class^="span"].gutter-t {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.row [class^="span"].no-gutter-t {
+  padding-left: 0;
+  padding-right: 0;
+}
 .row .span-t-push0 {
   left: inherit;
 }
@@ -319,6 +339,7 @@ blockquote cite {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
 }
 @media (min-width: 768px) {
   .row [class*="span-s"] {
@@ -326,6 +347,26 @@ blockquote cite {
   }
   .row [class*="span-s-"] {
     position: relative;
+  }
+  .row [class^="span"].left-gutter-s {
+    padding-left: 0.75rem;
+  }
+  .row [class^="span"].no-left-gutter-s {
+    padding-left: 0;
+  }
+  .row [class^="span"].right-gutter-s {
+    padding-right: 0.75rem;
+  }
+  .row [class^="span"].no-right-gutter-s {
+    padding-right: 0;
+  }
+  .row [class^="span"].gutter-s {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .row [class^="span"].no-gutter-s {
+    padding-left: 0;
+    padding-right: 0;
   }
   .row .span-s-push0 {
     left: inherit;
@@ -482,6 +523,7 @@ blockquote cite {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    width: 100%;
   }
 }
 @media (min-width: 992px) {
@@ -490,6 +532,26 @@ blockquote cite {
   }
   .row [class*="span-m-"] {
     position: relative;
+  }
+  .row [class^="span"].left-gutter-m {
+    padding-left: 0.75rem;
+  }
+  .row [class^="span"].no-left-gutter-m {
+    padding-left: 0;
+  }
+  .row [class^="span"].right-gutter-m {
+    padding-right: 0.75rem;
+  }
+  .row [class^="span"].no-right-gutter-m {
+    padding-right: 0;
+  }
+  .row [class^="span"].gutter-m {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .row [class^="span"].no-gutter-m {
+    padding-left: 0;
+    padding-right: 0;
   }
   .row .span-m-push0 {
     left: inherit;
@@ -646,6 +708,7 @@ blockquote cite {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    width: 100%;
   }
 }
 @media (min-width: 1200px) {
@@ -654,6 +717,26 @@ blockquote cite {
   }
   .row [class*="span-l-"] {
     position: relative;
+  }
+  .row [class^="span"].left-gutter-l {
+    padding-left: 0.75rem;
+  }
+  .row [class^="span"].no-left-gutter-l {
+    padding-left: 0;
+  }
+  .row [class^="span"].right-gutter-l {
+    padding-right: 0.75rem;
+  }
+  .row [class^="span"].no-right-gutter-l {
+    padding-right: 0;
+  }
+  .row [class^="span"].gutter-l {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .row [class^="span"].no-gutter-l {
+    padding-left: 0;
+    padding-right: 0;
   }
   .row .span-l-push0 {
     left: inherit;
@@ -810,6 +893,7 @@ blockquote cite {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    width: 100%;
   }
 }
 .sr-only {
