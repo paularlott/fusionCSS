@@ -1,20 +1,18 @@
 /**
- * JavaScript helpers for fusionCSS, works with jQuery of fusionLib.
+ * JavaScript helpers for fusionCSS, works with jQuery or fusionLib.
  *
  * THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
  * WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  *
  * @package fusionCSS
- * @copyright Copyright (c) 2013 - 2016 fusionCSS. All rights reserved.
+ * @copyright Copyright (c) 2013 - 2017 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
  */
 
-// jQuery or fusionLib
-if(!window.fusionLib)
-	window.$fl = window.fusionLib = jQuery;
-
 (function() {
+	var extend = window.jQuery || window.fusionLib;
+
 	/**
 	 * The ID of the toast timer
 	 */
@@ -22,7 +20,7 @@ if(!window.fusionLib)
 		toastClass = '',
 		toastHasHTML = false;
 
-	fusionLib.fn.extend({
+	extend.fn.extend({
 		/**
 		 * Enable tab functionality.
 		 *
@@ -43,7 +41,7 @@ if(!window.fusionLib)
 				}
 
 				this.find('.tabs li').each(function () {
-					var el = $fl(this),
+					var el = extend(this),
 						tabName,
 						panel;
 
@@ -52,7 +50,7 @@ if(!window.fusionLib)
 
 						if ((tabName = el.attr('data-tabpanel')) == null)
 							tabName = el.find('a').attr('href').replace(/^.*#/, '');
-						panel = $fl('#' + tabName);
+						panel = extend('#' + tabName);
 
 						if (tabActive == undefined || (activeTab != undefined && activeTab == tabName))
 							tabActive = tabName;
@@ -65,7 +63,7 @@ if(!window.fusionLib)
 						tabs[tabName] = [el, panel];
 
 						// Add click handler to tabs
-						el.bind('click', function (evt) {
+						el.on('click', function (evt) {
 							tabs[tabActive][1].addClass('tabhidepanel').attr('aria-expanded', false);
 							tabs[tabName][1].removeClass('tabhidepanel').attr('aria-expanded', true);
 							tabs[tabActive][0].removeClass('active').parent().attr('aria-selected', false);
@@ -102,7 +100,7 @@ if(!window.fusionLib)
 						}
 
 						// Capture validation failures
-						$fl(n).bind('formValidationFailed', selectTabWithErrors).addClass('tabwidgetcontainer');
+						extend(n).on('formValidationFailed', selectTabWithErrors).addClass('tabwidgetcontainer');
 						selectTabWithErrors();
 						break;
 					}
@@ -127,7 +125,7 @@ if(!window.fusionLib)
 
 			// Add the toast container to the page
 			if(!toastHasHTML) {
-				$fl('body').append('<div id="toast" role="alert" aria-hidden="true"></div>');
+				extend('body').append('<div id="toast" role="alert" aria-hidden="true"></div>');
 				toastHasHTML = true;
 			}
 
@@ -142,10 +140,10 @@ if(!window.fusionLib)
 				toastTimer = 0;
 				delay = 300;
 			}
-			else if($fl('#toast').hasClass('exposed'))
+			else if(extend('#toast').hasClass('exposed'))
 				delay = 300;
 
-			$fl('#toast')
+			extend('#toast')
 				.removeClass('exposed')
 				.removeClass('success')
 				.removeClass('error')
@@ -155,7 +153,7 @@ if(!window.fusionLib)
 				.attr('aria-hidden', true);
 
 			setTimeout(function () {
-				$fl('#toast')
+				extend('#toast')
 					.html(msg)
 					.addClass('exposed')
 					.addClass(type)
@@ -163,12 +161,12 @@ if(!window.fusionLib)
 
 				// Action toast
 				if(actionLabel) {
-					$fl('#toast a').bind('click', function(e) {
+					extend('#toast a').on('click', function(e) {
 						if (toastTimer) {
 							clearTimeout(toastTimer);
 							toastTimer = 0;
 						}
-						$fl('#toast').removeClass('exposed').attr('aria-hidden', true);
+						extend('#toast').removeClass('exposed').attr('aria-hidden', true);
 
 						if(callback) {
 							callback();
@@ -181,7 +179,7 @@ if(!window.fusionLib)
 				// Timeout toast
 				if((!actionLabel && withTimeout !== false) || withTimeout === true) {
 					toastTimer = setTimeout(function () {
-						$fl('#toast')
+						extend('#toast')
 							.removeClass('exposed')
 							.removeClass(type)
 							.attr('aria-hidden', true);
@@ -202,51 +200,51 @@ if(!window.fusionLib)
 				toastTimer = 0;
 			}
 
-			$fl('#toast')
+			extend('#toast')
 				.removeClass('exposed')
 				.removeClass(toastClass)
 				.attr('aria-hidden', true);
 		}
 	});
 
-	fusionLib.toastShow = fusionLib.fn.toastShow;
-	fusionLib.toastHide = fusionLib.fn.toastHide;
+	extend.toastShow = extend.fn.toastShow;
+	extend.toastHide = extend.fn.toastHide;
 
-	$fl(document).ready(function() {
+	extend(document).ready(function() {
 
 		// Enable tabs
-		$fl('.tabwidget').each(function() {
-			$fl(this).tabs();
+		extend('.tabwidget').each(function() {
+			extend(this).tabs();
 		});
 
 		/**
 		 * Find all upload buttons and set to copy file name to display
 		 */
-		$fl('.uploadButton input').bind('change', function(e) {
-			$fl(this).parent().find('span').html($fl(this).val().split(/(\\|\/)/g).pop());
+		extend('.uploadButton input').on('change', function(e) {
+			extend(this).parent().find('span').html(extend(this).val().split(/(\\|\/)/g).pop());
 		});
 
 		/**
 		 * Setup responsive tables
 		 */
-		$fl("table.responsive").each(function(i, e) {
-			$fl(e).wrap('<div class="responsiveTableWrapper" />');
-			$fl(e).wrap('<div class="responsiveTableWrapperInner" />');
+		extend("table.responsive").each(function(i, e) {
+			extend(e).wrap('<div class="responsiveTableWrapper" />');
+			extend(e).wrap('<div class="responsiveTableWrapperInner" />');
 		});
 
 		/**
 		 * Build the slide in menu if required
 		 */
-		if($fl('#viewSlideInMenu').length) {
+		if(extend('#viewSlideInMenu').length) {
 			// Add markup to body
-			$fl('body').append('<div id="slideInMenuOverlay"></div>');
+			extend('body').append('<div id="slideInMenuOverlay"></div>');
 
 			// Build the slidein menu if not already defined
-			if(!$fl('#slideInMenu').length) {
-				$fl('body').append('<div id="slideInMenu" role="menu"></div>');
+			if(!extend('#slideInMenu').length) {
+				extend('body').append('<div id="slideInMenu" role="menu"></div>');
 
 				// Copy menu HTML to slide in
-				$fl('.slideInMenu').each(function (idx) {
+				extend('.slideInMenu').each(function (idx) {
 					var o = '', e = '';
 
 					if(this.nodeName.toLowerCase() == 'ul') {
@@ -254,35 +252,35 @@ if(!window.fusionLib)
 						e = '</ul>';
 					}
 
-					if ($fl(this).hasClass('slideInMenuRootOnly')) {
-						$fl('#slideInMenuOverlay')
-							.html(o + $fl(this).html() + e)
+					if (extend(this).hasClass('slideInMenuRootOnly')) {
+						extend('#slideInMenuOverlay')
+							.html(o + extend(this).html() + e)
 							.find('li ul').remove();
-						$fl('#slideInMenu').append($fl('#slideInMenuOverlay').html());
+						extend('#slideInMenu').append(extend('#slideInMenuOverlay').html());
 					}
 					else
-						$fl('#slideInMenu').append(o + $fl(this).html() + e);
+						extend('#slideInMenu').append(o + extend(this).html() + e);
 				});
 			}
 
-			$fl('#slideInMenu').attr('aria-hidden', true);
+			extend('#slideInMenu').attr('aria-hidden', true);
 
 			// Capture menu hide, click off menu
-			$fl('#slideInMenuOverlay')
+			extend('#slideInMenuOverlay')
 				.html('')
-				.bind('click', function(e) {
-					$fl('#slideInMenu')
+				.on('click', function(e) {
+					extend('#slideInMenu')
 						.removeClass('slideInMenuShow')
 						.attr('aria-hidden', true);
-					$fl('#slideInMenuOverlay').removeClass('slideInMenuShow');
-					$fl('body').removeClass('disableScroll');
+					extend('#slideInMenuOverlay').removeClass('slideInMenuShow');
+					extend('body').removeClass('disableScroll');
 				});
 
 			// Capture menu expose
-			$fl('#viewSlideInMenu').bind('click', function(e) {
-				$fl('body').addClass('disableScroll');
-				$fl('#slideInMenuOverlay').addClass('slideInMenuShow');
-				$fl('#slideInMenu')
+			extend('#viewSlideInMenu').on('click', function(e) {
+				extend('body').addClass('disableScroll');
+				extend('#slideInMenuOverlay').addClass('slideInMenuShow');
+				extend('#slideInMenu')
 					.addClass('slideInMenuShow')
 					.attr('aria-hidden', false);
 			});
@@ -291,20 +289,20 @@ if(!window.fusionLib)
 		/**
 		 * Add scroll to top
 		 */
-		var toTop = $fl('#scrollToTop');
+		var toTop = extend('#scrollToTop');
 		if(toTop.length) {
 			function scrollToTop() {
-				var e = $fl(window);
+				var e = extend(window);
 				if(e.scrollTop() > 0) {
 					e.scrollTop(Math.max(0, e.scrollTop() - Math.max(10, e.scrollTop() / 20)));
 					window.setTimeout(scrollToTop, 10);
 				}
 			}
 
-			toTop.bind('click', scrollToTop);
+			toTop.on('click', scrollToTop);
 
-			$fl(window).bind('scroll', function() {
-				if($fl(this).scrollTop() > (toTop.attr('data-showat') != null ? toTop.attr('data-showat') : 600))
+			extend(window).on('scroll', function() {
+				if(extend(this).scrollTop() > (toTop.attr('data-showat') != null ? toTop.attr('data-showat') : 600))
 					toTop.removeClass('hide');
 				else
 					toTop.addClass('hide');
@@ -315,14 +313,14 @@ if(!window.fusionLib)
 		 * Label styling
 		 */
 		function styleLabel() {
-			var el = $fl(this),
-				l = $fl('#' + el.attr('id') + '-label'),
+			var el = extend(this),
+				l = extend('#' + el.attr('id') + '-label'),
 				t = el.attr('type');
 
 			if(t != 'checkbox' && t != 'submit' && t != 'file') {
-				el.bind('focus', function () {
+				el.on('focus', function () {
 					l.addClass('focused');
-				}).bind('blur', function () {
+				}).on('blur', function () {
 					l.removeClass('focused');
 				});
 			}
@@ -332,25 +330,25 @@ if(!window.fusionLib)
 		 * Worker function to setup floating labels
 		 */
 		function setupFloatingLabels() {
-			var el = $fl(this),
+			var el = extend(this),
 				t = el.attr('type');
 
 			if(el.attr('data-floating-label') != 'disabled' && !el.hasClass('hasFloatingLabel') && t != 'checkbox' && t != 'submit' && t != 'file') {
-				var l = $fl('#' + el.attr('id') + '-label');
+				var l = extend('#' + el.attr('id') + '-label');
 				if(l.length) {
 					if(el.is('textarea')) {
 						l.addClass('floatTextarea');
 					}
 
 					el.addClass('hasFloatingLabel');
-					el.bind('focus', function () {
+					el.on('focus', function () {
 						l.removeClass('floatDown').addClass('floatUp');
-					}).bind('blur', function () {
+					}).on('blur', function () {
 						if (el.is('select') || el.val() || el.hasClass('keepPlaceholder'))
 							l.removeClass('floatDown').addClass('floatUp');
 						else
 							l.addClass('floatDown').removeClass('floatUp');
-					}).bind('change', function () {
+					}).on('change', function () {
 						l.removeClass('focused');
 						if (el.is('select') || el.val() || el.hasClass('keepPlaceholder'))
 							l.removeClass('floatDown').addClass('floatUp');
@@ -368,7 +366,7 @@ if(!window.fusionLib)
 		 * Floating labels
 		 */
 		function floatLabels() {
-			var f = $fl(this);
+			var f = extend(this);
 			if(!f.hasClass('hform')) {
 
 				// Attach floating labels to appropriate input fields
@@ -378,10 +376,10 @@ if(!window.fusionLib)
 			}
 		}
 
-		$fl('.floatingLabels form').each(floatLabels);
-		$fl('form.floatingLabels').each(floatLabels);
-		$fl('form').each(function() {
-			var f = $fl(this);
+		extend('.floatingLabels form').each(floatLabels);
+		extend('form.floatingLabels').each(floatLabels);
+		extend('form').each(function() {
+			var f = extend(this);
 			if(!f.hasClass('hform')) {
 				f.find('input').each(styleLabel);
 				f.find('textarea').each(styleLabel);
@@ -389,26 +387,26 @@ if(!window.fusionLib)
 			}
 		});
 		setTimeout(function() {
-			$fl(document.activeElement).trigger('focus');
+			extend(document.activeElement).trigger('focus');
 		}, 100);
 
 		// Floating action menu
 		var hasFAMs = false;
-		$fl('.fam').each(function() {
-			var fam = $fl(this),
+		extend('.fam').each(function() {
+			var fam = extend(this),
 				menu = fam.find('ul');
 
 			// Mark as hidden
 			menu.attr('aria-hidden', menu.hasClass('exposed') ? false : true);
 
 			// Attach click handler to menu button
-			fam.find('a').first().bind('click', function(e) {
+			fam.find('a').first().on('click', function(e) {
 				if(menu.hasClass('exposed')) {
 					menu.removeClass('exposed').attr('aria-hidden', true);
 				}
 				else {
 					// Close any open
-					$fl('.fam ul').removeClass('exposed').attr('aria-hidden', true);
+					extend('.fam ul').removeClass('exposed').attr('aria-hidden', true);
 
 					menu.addClass('exposed').attr('aria-hidden', false);
 				}
@@ -420,8 +418,8 @@ if(!window.fusionLib)
 
 		// Close FAMs on click off menu
 		if(hasFAMs) {
-			$fl(document).bind('click', function (e) {
-				var el = $fl(e.target);
+			extend(document).on('click', function (e) {
+				var el = extend(e.target);
 
 				if(e.target.nodeName == 'HTML' || (
 						!el.attr('data-fam-menu') &&
@@ -430,7 +428,7 @@ if(!window.fusionLib)
 						!el.parent().hasClass('leave-open')
 					)
 				) {
-					$fl('.fam ul').removeClass('exposed').attr('aria-hidden', true);
+					extend('.fam ul').removeClass('exposed').attr('aria-hidden', true);
 				}
 			});
 		}
@@ -438,14 +436,14 @@ if(!window.fusionLib)
 	});
 
 	// Replace val function so that it triggers a change event on update
-	var fnVal = fusionLib.fn.val;
-	fusionLib.fn.val = function(value) {
+	var fnVal = extend.fn.val;
+	extend.fn.val = function(value) {
 		if (typeof value == 'undefined') {
 			return fnVal.call(this);
 		}
 
-		var e = $fl(this[0]),
-			l = $fl('#' + e.attr('id') + '-label');
+		var e = extend(this[0]),
+			l = extend('#' + e.attr('id') + '-label');
 
 		if(e.attr('type') != 'checkbox') {
 			if (typeof value != 'string' || value.length)
@@ -457,12 +455,12 @@ if(!window.fusionLib)
 	};
 
 	// Replace focus function so that it updates the styles on the element
-	var fnFocus = fusionLib.fn.focus;
-	fusionLib.fn.focus = function() {
+	var fnFocus = extend.fn.focus;
+	extend.fn.focus = function() {
 		fnFocus.call(this);
 
-		var e = $fl(this[0]),
-			l = $fl('#' + e.attr('id') + '-label');
+		var e = extend(this[0]),
+			l = extend('#' + e.attr('id') + '-label');
 
 		if(e.hasClass('hasFloatingLabel') && e.attr('type') != 'checkbox') {
 			l.removeClass('floatDown').addClass('floatUp');

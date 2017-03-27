@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2013 - 2016 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
- * @version 3.0.7
+ * @version 3.0.8
  */
 * {
   margin: 0;
@@ -1473,10 +1473,6 @@ form .checklist li label {
 }
 form .checklist input {
   margin-right: .25rem;
-}
-form dd {
-  padding: 0 0 .3rem 0;
-  margin-bottom: .75rem;
 }
 form dd:last-child {
   margin-bottom: 0;
