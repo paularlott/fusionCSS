@@ -1,7 +1,3 @@
-// jQuery or fusionLib
-if(!window.$)
-	window.$ = window.jQuery = fusionLib;
-
 $(document).ready(function() {
 
 	var css = [

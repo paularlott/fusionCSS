@@ -20,13 +20,14 @@
 		toastClass = '',
 		toastHasHTML = false;
 
-	extend.fn.extend({
+	// If tabs functions not defined add them
+	if(!extend.fn.tabWidget) {
 		/**
 		 * Enable tab functionality.
 		 *
 		 * @param string activeTab The optional name of the active tab.
 		 */
-		tabs: function(activeTab) {
+		extend.fn.tabWidget = function(activeTab) {
 			var widgetName = this[0].id,
 				tabActive,
 				aTab,
@@ -40,30 +41,30 @@
 					tabActive = aTab;
 				}
 
-				this.find('.tabs li').each(function () {
-					var el = extend(this),
+				this.find('.tabs li').each(function() {
+					var el = $(this),
 						tabName,
 						panel;
 
 					// If direct child
-					if (el.parent().parent()[0].id == widgetName) {
+					if(el.parent().parent()[0].id == widgetName) {
 
-						if ((tabName = el.attr('data-tabpanel')) == null)
+						if((tabName = el.attr('data-tabpanel')) == null)
 							tabName = el.find('a').attr('href').replace(/^.*#/, '');
-						panel = extend('#' + tabName);
+						panel = $('#' + tabName);
 
-						if (tabActive == undefined || (activeTab != undefined && activeTab == tabName))
+						if(tabActive == undefined || (activeTab != undefined && activeTab == tabName))
 							tabActive = tabName;
 
 						// Hide panel
-						if (tabName != tabActive)
+						if(tabName != tabActive)
 							panel.addClass('tabhidepanel').attr('aria-expanded', false);
 
 						el.parent().attr('aria-selected', false);
 						tabs[tabName] = [el, panel];
 
 						// Add click handler to tabs
-						el.on('click', function (evt) {
+						el.on('click', function(evt) {
 							tabs[tabActive][1].addClass('tabhidepanel').attr('aria-expanded', false);
 							tabs[tabName][1].removeClass('tabhidepanel').attr('aria-expanded', true);
 							tabs[tabActive][0].removeClass('active').parent().attr('aria-selected', false);
@@ -81,26 +82,30 @@
 				});
 
 				// Set the active tab
-				if (tabActive != undefined) {
+				if(tabActive != undefined) {
 					tabs[tabActive][0].addClass('active').parent().attr('aria-selected', true);
 					tabs[tabActive][1].removeClass('tabhidepanel').attr('aria-expanded', true);
 				}
 
 				// Look to see if in a form
 				var n = this[0];
-				while (n) {
-					if (n.tagName == 'FORM') {
+				while(n) {
+					if(n.tagName == 'FORM') {
 						function selectTabWithErrors() {
-							for (var m in tabs) {
-								if (tabs[m][1].find('.validation').hasClass('failed')) {
+							for(var m in tabs) {
+								if(tabs[m][1].find('.validation').hasClass('failed')) {
 									tabs[m][0].trigger('click');
+									var e = $('label.validationError').first().attr('for');
+									setTimeout(function() {
+										$('#' + e).focus();
+									}, 100);
 									break;
 								}
 							}
 						}
 
 						// Capture validation failures
-						extend(n).on('formValidationFailed', selectTabWithErrors).addClass('tabwidgetcontainer');
+						$(n).on('formValidationFailed', selectTabWithErrors).addClass('tabwidgetcontainer');
 						selectTabWithErrors();
 						break;
 					}
@@ -109,8 +114,10 @@
 			}
 
 			return this;
-		},
+		}
+	}
 
+	extend.fn.extend({
 		/**
 		 * Display a message in the toast popup.
 		 *
@@ -125,7 +132,7 @@
 
 			// Add the toast container to the page
 			if(!toastHasHTML) {
-				extend('body').append('<div id="toast" role="alert" aria-hidden="true"></div>');
+				$('body').append('<div id="toast" role="alert" aria-hidden="true"></div>');
 				toastHasHTML = true;
 			}
 
@@ -140,10 +147,10 @@
 				toastTimer = 0;
 				delay = 300;
 			}
-			else if(extend('#toast').hasClass('exposed'))
+			else if($('#toast').hasClass('exposed'))
 				delay = 300;
 
-			extend('#toast')
+			$('#toast')
 				.removeClass('exposed')
 				.removeClass('success')
 				.removeClass('error')
@@ -153,7 +160,7 @@
 				.attr('aria-hidden', true);
 
 			setTimeout(function () {
-				extend('#toast')
+				$('#toast')
 					.html(msg)
 					.addClass('exposed')
 					.addClass(type)
@@ -161,12 +168,12 @@
 
 				// Action toast
 				if(actionLabel) {
-					extend('#toast a').on('click', function(e) {
+					$('#toast a').on('click', function(e) {
 						if (toastTimer) {
 							clearTimeout(toastTimer);
 							toastTimer = 0;
 						}
-						extend('#toast').removeClass('exposed').attr('aria-hidden', true);
+						$('#toast').removeClass('exposed').attr('aria-hidden', true);
 
 						if(callback) {
 							callback();
@@ -179,7 +186,7 @@
 				// Timeout toast
 				if((!actionLabel && withTimeout !== false) || withTimeout === true) {
 					toastTimer = setTimeout(function () {
-						extend('#toast')
+						$('#toast')
 							.removeClass('exposed')
 							.removeClass(type)
 							.attr('aria-hidden', true);
@@ -200,7 +207,7 @@
 				toastTimer = 0;
 			}
 
-			extend('#toast')
+			$('#toast')
 				.removeClass('exposed')
 				.removeClass(toastClass)
 				.attr('aria-hidden', true);
@@ -210,41 +217,41 @@
 	extend.toastShow = extend.fn.toastShow;
 	extend.toastHide = extend.fn.toastHide;
 
-	extend(document).ready(function() {
+	$(document).ready(function() {
 
 		// Enable tabs
-		extend('.tabwidget').each(function() {
-			extend(this).tabs();
+		$('.tabwidget').each(function() {
+			$(this).tabWidget();
 		});
 
 		/**
 		 * Find all upload buttons and set to copy file name to display
 		 */
-		extend('.uploadButton input').on('change', function(e) {
-			extend(this).parent().find('span').html(extend(this).val().split(/(\\|\/)/g).pop());
+		$('.uploadButton input').on('change', function(e) {
+			$(this).parent().find('span').html($(this).val().split(/(\\|\/)/g).pop());
 		});
 
 		/**
 		 * Setup responsive tables
 		 */
-		extend("table.responsive").each(function(i, e) {
-			extend(e).wrap('<div class="responsiveTableWrapper" />');
-			extend(e).wrap('<div class="responsiveTableWrapperInner" />');
+		$("table.responsive").each(function(i, e) {
+			$(e).wrap('<div class="responsiveTableWrapper" />');
+			$(e).wrap('<div class="responsiveTableWrapperInner" />');
 		});
 
 		/**
 		 * Build the slide in menu if required
 		 */
-		if(extend('#viewSlideInMenu').length) {
+		if($('#viewSlideInMenu').length) {
 			// Add markup to body
-			extend('body').append('<div id="slideInMenuOverlay"></div>');
+			$('body').append('<div id="slideInMenuOverlay"></div>');
 
 			// Build the slidein menu if not already defined
-			if(!extend('#slideInMenu').length) {
-				extend('body').append('<div id="slideInMenu" role="menu"></div>');
+			if(!$('#slideInMenu').length) {
+				$('body').append('<div id="slideInMenu" role="menu"></div>');
 
 				// Copy menu HTML to slide in
-				extend('.slideInMenu').each(function (idx) {
+				$('.slideInMenu').each(function (idx) {
 					var o = '', e = '';
 
 					if(this.nodeName.toLowerCase() == 'ul') {
@@ -252,35 +259,35 @@
 						e = '</ul>';
 					}
 
-					if (extend(this).hasClass('slideInMenuRootOnly')) {
-						extend('#slideInMenuOverlay')
-							.html(o + extend(this).html() + e)
+					if ($(this).hasClass('slideInMenuRootOnly')) {
+						$('#slideInMenuOverlay')
+							.html(o + $(this).html() + e)
 							.find('li ul').remove();
-						extend('#slideInMenu').append(extend('#slideInMenuOverlay').html());
+						$('#slideInMenu').append($('#slideInMenuOverlay').html());
 					}
 					else
-						extend('#slideInMenu').append(o + extend(this).html() + e);
+						$('#slideInMenu').append(o + $(this).html() + e);
 				});
 			}
 
-			extend('#slideInMenu').attr('aria-hidden', true);
+			$('#slideInMenu').attr('aria-hidden', true);
 
 			// Capture menu hide, click off menu
-			extend('#slideInMenuOverlay')
+			$('#slideInMenuOverlay')
 				.html('')
 				.on('click', function(e) {
-					extend('#slideInMenu')
+					$('#slideInMenu')
 						.removeClass('slideInMenuShow')
 						.attr('aria-hidden', true);
-					extend('#slideInMenuOverlay').removeClass('slideInMenuShow');
-					extend('body').removeClass('disableScroll');
+					$('#slideInMenuOverlay').removeClass('slideInMenuShow');
+					$('body').removeClass('disableScroll');
 				});
 
 			// Capture menu expose
-			extend('#viewSlideInMenu').on('click', function(e) {
-				extend('body').addClass('disableScroll');
-				extend('#slideInMenuOverlay').addClass('slideInMenuShow');
-				extend('#slideInMenu')
+			$('#viewSlideInMenu').on('click', function(e) {
+				$('body').addClass('disableScroll');
+				$('#slideInMenuOverlay').addClass('slideInMenuShow');
+				$('#slideInMenu')
 					.addClass('slideInMenuShow')
 					.attr('aria-hidden', false);
 			});
@@ -289,10 +296,10 @@
 		/**
 		 * Add scroll to top
 		 */
-		var toTop = extend('#scrollToTop');
+		var toTop = $('#scrollToTop');
 		if(toTop.length) {
 			function scrollToTop() {
-				var e = extend(window);
+				var e = $(window);
 				if(e.scrollTop() > 0) {
 					e.scrollTop(Math.max(0, e.scrollTop() - Math.max(10, e.scrollTop() / 20)));
 					window.setTimeout(scrollToTop, 10);
@@ -301,8 +308,8 @@
 
 			toTop.on('click', scrollToTop);
 
-			extend(window).on('scroll', function() {
-				if(extend(this).scrollTop() > (toTop.attr('data-showat') != null ? toTop.attr('data-showat') : 600))
+			$(window).on('scroll', function() {
+				if($(this).scrollTop() > (toTop.attr('data-showat') != null ? toTop.attr('data-showat') : 600))
 					toTop.removeClass('hide');
 				else
 					toTop.addClass('hide');
@@ -313,8 +320,8 @@
 		 * Label styling
 		 */
 		function styleLabel() {
-			var el = extend(this),
-				l = extend('#' + el.attr('id') + '-label'),
+			var el = $(this),
+				l = $('#' + el.attr('id') + '-label'),
 				t = el.attr('type');
 
 			if(t != 'checkbox' && t != 'submit' && t != 'file') {
@@ -330,11 +337,11 @@
 		 * Worker function to setup floating labels
 		 */
 		function setupFloatingLabels() {
-			var el = extend(this),
+			var el = $(this),
 				t = el.attr('type');
 
 			if(el.attr('data-floating-label') != 'disabled' && !el.hasClass('hasFloatingLabel') && t != 'checkbox' && t != 'submit' && t != 'file') {
-				var l = extend('#' + el.attr('id') + '-label');
+				var l = $('#' + el.attr('id') + '-label');
 				if(l.length) {
 					if(el.is('textarea')) {
 						l.addClass('floatTextarea');
@@ -366,7 +373,7 @@
 		 * Floating labels
 		 */
 		function floatLabels() {
-			var f = extend(this);
+			var f = $(this);
 			if(!f.hasClass('hform')) {
 
 				// Attach floating labels to appropriate input fields
@@ -376,10 +383,10 @@
 			}
 		}
 
-		extend('.floatingLabels form').each(floatLabels);
-		extend('form.floatingLabels').each(floatLabels);
-		extend('form').each(function() {
-			var f = extend(this);
+		$('.floatingLabels form').each(floatLabels);
+		$('form.floatingLabels').each(floatLabels);
+		$('form').each(function() {
+			var f = $(this);
 			if(!f.hasClass('hform')) {
 				f.find('input').each(styleLabel);
 				f.find('textarea').each(styleLabel);
@@ -387,13 +394,13 @@
 			}
 		});
 		setTimeout(function() {
-			extend(document.activeElement).trigger('focus');
+			$(document.activeElement).trigger('focus');
 		}, 100);
 
 		// Floating action menu
 		var hasFAMs = false;
-		extend('.fam').each(function() {
-			var fam = extend(this),
+		$('.fam').each(function() {
+			var fam = $(this),
 				menu = fam.find('ul');
 
 			// Mark as hidden
@@ -406,7 +413,7 @@
 				}
 				else {
 					// Close any open
-					extend('.fam ul').removeClass('exposed').attr('aria-hidden', true);
+					$('.fam ul').removeClass('exposed').attr('aria-hidden', true);
 
 					menu.addClass('exposed').attr('aria-hidden', false);
 				}
@@ -418,8 +425,8 @@
 
 		// Close FAMs on click off menu
 		if(hasFAMs) {
-			extend(document).on('click', function (e) {
-				var el = extend(e.target);
+			$(document).on('click', function (e) {
+				var el = $(e.target);
 
 				if(e.target.nodeName == 'HTML' || (
 						!el.attr('data-fam-menu') &&
@@ -428,7 +435,7 @@
 						!el.parent().hasClass('leave-open')
 					)
 				) {
-					extend('.fam ul').removeClass('exposed').attr('aria-hidden', true);
+					$('.fam ul').removeClass('exposed').attr('aria-hidden', true);
 				}
 			});
 		}
