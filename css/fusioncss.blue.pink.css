@@ -60,6 +60,9 @@ p {
 .text-justify {
   text-align: justify;
 }
+.text-nowrap {
+  white-space: nowrap;
+}
 .pull-left {
   float: left !important;
 }
@@ -1249,11 +1252,23 @@ div.responsiveTableWrapperInner {
 .hide,
 .visible-t,
 .visible-phone,
+.visible-t-block,
+.visible-t-inline,
+.visible-t-inline-block,
 .visible-s,
 .visible-tablet,
+.visible-s-block,
+.visible-s-inline,
+.visible-s-inline-block,
 .visible-m,
 .visible-desktop,
-.visible-l {
+.visible-m-block,
+.visible-m-inline,
+.visible-m-inline-block,
+.visible-l,
+.visible-l-block,
+.visible-l-inline,
+.visible-l-inline-block {
   display: none !important;
 }
 @media (max-width: 767px) {
@@ -1265,6 +1280,15 @@ div.responsiveTableWrapperInner {
   .hidden-phone {
     display: none !important;
   }
+  .visible-t-block {
+    display: block !important;
+  }
+  .visible-t-inline {
+    display: inline !important;
+  }
+  .visible-t-inline-block {
+    display: inline-block !important;
+  }
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .visible-s,
@@ -1274,6 +1298,15 @@ div.responsiveTableWrapperInner {
   .hidden-s,
   .hidden-tablet {
     display: none !important;
+  }
+  .visible-s-block {
+    display: block !important;
+  }
+  .visible-s-inline {
+    display: inline !important;
+  }
+  .visible-s-inline-block {
+    display: inline-block !important;
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -1285,6 +1318,15 @@ div.responsiveTableWrapperInner {
   .hidden-desktop {
     display: none !important;
   }
+  .visible-m-block {
+    display: block !important;
+  }
+  .visible-m-inline {
+    display: inline !important;
+  }
+  .visible-m-inline-block {
+    display: inline-block !important;
+  }
 }
 @media (min-width: 1200px) {
   .visible-l,
@@ -1294,6 +1336,15 @@ div.responsiveTableWrapperInner {
   .hidden-l,
   .hidden-desktop {
     display: none !important;
+  }
+  .visible-l-block {
+    display: block !important;
+  }
+  .visible-l-inline {
+    display: inline !important;
+  }
+  .visible-l-inline-block {
+    display: inline-block !important;
   }
 }
 .card {

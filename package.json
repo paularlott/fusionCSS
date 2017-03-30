@@ -4,15 +4,15 @@
   "description": "Responsive CSS framework",
   "dependencies": {},
   "devDependencies": {
-    "del": "^2.0.2",
-    "gulp": "^3.8.10",
-    "gulp-concat": "^2.6.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-concat": "^2.6.1",
     "gulp-insert": "^0.5.0",
-    "gulp-less": "^3.0.5",
-    "gulp-clean-css": "^3.0.0",
+    "gulp-less": "^3.3.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.1.2",
-    "panini": "^1.1.0"
+    "panini": "^1.4.0"
   },
   "repository": {
     "type": "git",
