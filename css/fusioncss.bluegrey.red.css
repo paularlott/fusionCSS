@@ -1582,7 +1582,6 @@ form dd:last-child {
 .floatingLabels label.floatDown.focused {
   color: #607D8B;
 }
-.floatingLabels form textarea.hasFloatingLabel,
 .floatingLabels form input[type="text"],
 .floatingLabels form input[type="number"],
 .floatingLabels form input[type="email"],
@@ -1590,6 +1589,10 @@ form dd:last-child {
 .floatingLabels form input[type="password"],
 .floatingLabels form input[type="search"] {
   padding: 1.5rem .25rem .5rem .25rem;
+}
+.floatingLabels form textarea.hasFloatingLabel {
+  margin-top: .5rem;
+  padding: .5rem .25rem .5rem .25rem;
 }
 .floatingLabels form .selectControl {
   position: relative;
@@ -1632,8 +1635,12 @@ form dd:last-child {
 .floatingLabels form .selectControl select:disabled {
   cursor: not-allowed;
 }
+.floatingLabels .floatTextarea.floatUp {
+  left: 0;
+  top: -0.75rem;
+}
 .floatingLabels .floatTextarea.floatDown {
-  top: .25rem;
+  top: .75rem;
 }
 .floatingLabels.appFormStyle label.floatUp,
 .floatingLabels .appFormStyle label.floatUp,
@@ -1764,6 +1771,7 @@ button,
   margin-bottom: .5rem;
   border-radius: 3px;
   text-decoration: none;
+  -webkit-appearance: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
