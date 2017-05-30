@@ -407,18 +407,20 @@
 			menu.attr('aria-hidden', menu.hasClass('exposed') ? false : true);
 
 			// Attach click handler to menu button
-			fam.find('a').first().on('click', function(e) {
-				if(menu.hasClass('exposed')) {
-					menu.removeClass('exposed').attr('aria-hidden', true);
-				}
-				else {
-					// Close any open
-					$('.fam ul').removeClass('exposed').attr('aria-hidden', true);
+			if(!fam.find('ul.alwaysOpen').length) {
+				fam.find('a').first().on('click', function(e) {
+					if(menu.hasClass('exposed')) {
+						menu.removeClass('exposed').attr('aria-hidden', true);
+					}
+					else {
+						// Close any open
+						$('.fam ul').removeClass('exposed').attr('aria-hidden', true);
 
-					menu.addClass('exposed').attr('aria-hidden', false);
-				}
-				e.preventDefault();
-			}).attr('data-fam-menu', 1);
+						menu.addClass('exposed').attr('aria-hidden', false);
+					}
+					e.preventDefault();
+				}).attr('data-fam-menu', 1);
+			}
 
 			hasFAMs = true;
 		});

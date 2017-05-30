@@ -2359,9 +2359,13 @@ body.disableScroll {
   visibility: hidden;
   transition: all 250ms linear;
 }
+.fam ul.alwaysOpen,
 .fam ul.exposed {
   opacity: 1;
   visibility: visible;
+}
+.fam ul.alwaysOpen {
+  position: static;
 }
 .fam li {
   display: inline-block;

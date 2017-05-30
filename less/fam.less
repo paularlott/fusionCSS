@@ -17,9 +17,13 @@
 		visibility: hidden;
 		.transition(all, 250ms);
 
+		&.alwaysOpen,
 		&.exposed {
 			opacity: 1;
 			visibility: visible;
+		}
+		&.alwaysOpen {
+			position: static;
 		}
 	}
 
