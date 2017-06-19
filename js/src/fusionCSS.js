@@ -455,7 +455,7 @@
 			l = extend('#' + e.attr('id') + '-label');
 
 		if(e.attr('type') != 'checkbox') {
-			if (typeof value != 'string' || value.length)
+			if (typeof value != 'string' || value.length || e.is('select'))
 				l.removeClass('floatDown').addClass('floatUp');
 			else
 				l.addClass('floatDown').removeClass('floatUp');
