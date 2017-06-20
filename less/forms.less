@@ -176,9 +176,6 @@ form {
 
 	// Stacked Layout
 	dd {
-		padding: 0 0 .3rem 0;
-		margin-bottom: .75rem;
-
 		&:last-child {
 			margin-bottom: 0;
 		}
@@ -241,7 +238,6 @@ form {
 	}
 
 	form {
-		textarea.hasFloatingLabel,
 		input[type="text"],
 		input[type="number"],
 		input[type="email"],
@@ -249,6 +245,11 @@ form {
 		input[type="password"],
 		input[type="search"] {
 			padding: 1.5rem .25rem .5rem .25rem;
+		}
+
+		textarea.hasFloatingLabel {
+			margin-top: .5rem;
+			padding: .5rem .25rem .5rem .25rem;
 		}
 
 		.selectControl {
@@ -299,8 +300,14 @@ form {
 		}
 	}
 
-	.floatTextarea.floatDown {
-		top: .25rem;
+	.floatTextarea {
+		&.floatUp {
+			left: 0;
+			top: -.75rem;
+		}
+		&.floatDown {
+			top: .75rem;
+		}
 	}
 
 	&.appFormStyle,

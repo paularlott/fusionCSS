@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2013 - 2016 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
- * @version 3.0.7
+ * @version 3.0.8
  */
 * {
   margin: 0;
@@ -59,6 +59,9 @@ p {
 }
 .text-justify {
   text-align: justify;
+}
+.text-nowrap {
+  white-space: nowrap;
 }
 .pull-left {
   float: left !important;
@@ -131,7 +134,7 @@ blockquote cite {
   clear: both;
 }
 .row:after {
-  content: ".";
+  content: " ";
   display: block;
   height: 0;
   line-height: 0;
@@ -910,7 +913,7 @@ blockquote cite {
 }
 .clear,
 .clearfix {
-  content: ".";
+  content: " ";
   display: block;
   height: 0;
   line-height: 0;
@@ -927,7 +930,6 @@ img {
 .flex-video {
   position: relative;
   padding-bottom: 56.25%;
-  padding-top: 30px;
   height: 0;
   overflow: hidden;
 }
@@ -1165,7 +1167,7 @@ div.responsiveTableWrapperInner {
 }
 .hnav:after,
 .vnav:after {
-  content: ".";
+  content: " ";
   display: block;
   height: 0;
   line-height: 0;
@@ -1249,11 +1251,23 @@ div.responsiveTableWrapperInner {
 .hide,
 .visible-t,
 .visible-phone,
+.visible-t-block,
+.visible-t-inline,
+.visible-t-inline-block,
 .visible-s,
 .visible-tablet,
+.visible-s-block,
+.visible-s-inline,
+.visible-s-inline-block,
 .visible-m,
 .visible-desktop,
-.visible-l {
+.visible-m-block,
+.visible-m-inline,
+.visible-m-inline-block,
+.visible-l,
+.visible-l-block,
+.visible-l-inline,
+.visible-l-inline-block {
   display: none !important;
 }
 @media (max-width: 767px) {
@@ -1265,6 +1279,15 @@ div.responsiveTableWrapperInner {
   .hidden-phone {
     display: none !important;
   }
+  .visible-t-block {
+    display: block !important;
+  }
+  .visible-t-inline {
+    display: inline !important;
+  }
+  .visible-t-inline-block {
+    display: inline-block !important;
+  }
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .visible-s,
@@ -1274,6 +1297,15 @@ div.responsiveTableWrapperInner {
   .hidden-s,
   .hidden-tablet {
     display: none !important;
+  }
+  .visible-s-block {
+    display: block !important;
+  }
+  .visible-s-inline {
+    display: inline !important;
+  }
+  .visible-s-inline-block {
+    display: inline-block !important;
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -1285,6 +1317,15 @@ div.responsiveTableWrapperInner {
   .hidden-desktop {
     display: none !important;
   }
+  .visible-m-block {
+    display: block !important;
+  }
+  .visible-m-inline {
+    display: inline !important;
+  }
+  .visible-m-inline-block {
+    display: inline-block !important;
+  }
 }
 @media (min-width: 1200px) {
   .visible-l,
@@ -1294,6 +1335,15 @@ div.responsiveTableWrapperInner {
   .hidden-l,
   .hidden-desktop {
     display: none !important;
+  }
+  .visible-l-block {
+    display: block !important;
+  }
+  .visible-l-inline {
+    display: inline !important;
+  }
+  .visible-l-inline-block {
+    display: inline-block !important;
   }
 }
 .card {
@@ -1320,7 +1370,7 @@ form {
   margin: 0 auto;
 }
 form:after {
-  content: ".";
+  content: " ";
   display: block;
   height: 0;
   line-height: 0;
@@ -1474,10 +1524,6 @@ form .checklist li label {
 form .checklist input {
   margin-right: .25rem;
 }
-form dd {
-  padding: 0 0 .3rem 0;
-  margin-bottom: .75rem;
-}
 form dd:last-child {
   margin-bottom: 0;
 }
@@ -1535,7 +1581,6 @@ form dd:last-child {
 .floatingLabels label.floatDown.focused {
   color: #2196F3;
 }
-.floatingLabels form textarea.hasFloatingLabel,
 .floatingLabels form input[type="text"],
 .floatingLabels form input[type="number"],
 .floatingLabels form input[type="email"],
@@ -1543,6 +1588,10 @@ form dd:last-child {
 .floatingLabels form input[type="password"],
 .floatingLabels form input[type="search"] {
   padding: 1.5rem .25rem .5rem .25rem;
+}
+.floatingLabels form textarea.hasFloatingLabel {
+  margin-top: .5rem;
+  padding: .5rem .25rem .5rem .25rem;
 }
 .floatingLabels form .selectControl {
   position: relative;
@@ -1585,8 +1634,12 @@ form dd:last-child {
 .floatingLabels form .selectControl select:disabled {
   cursor: not-allowed;
 }
+.floatingLabels .floatTextarea.floatUp {
+  left: 0;
+  top: -0.75rem;
+}
 .floatingLabels .floatTextarea.floatDown {
-  top: .25rem;
+  top: .75rem;
 }
 .floatingLabels.appFormStyle label.floatUp,
 .floatingLabels .appFormStyle label.floatUp,
@@ -1717,6 +1770,7 @@ button,
   margin-bottom: .5rem;
   border-radius: 3px;
   text-decoration: none;
+  -webkit-appearance: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -2093,7 +2147,7 @@ body.disableScroll {
   user-select: none;
 }
 .tabs:after {
-  content: ".";
+  content: " ";
   display: block;
   height: 0;
   line-height: 0;
@@ -2129,7 +2183,7 @@ body.disableScroll {
   margin: 0 1rem;
 }
 .tabpanels > li:after {
-  content: ".";
+  content: " ";
   display: block;
   height: 0;
   line-height: 0;
@@ -2267,7 +2321,7 @@ body.disableScroll {
   margin-bottom: 1rem;
 }
 .appbar:after {
-  content: ".";
+  content: " ";
   display: block;
   height: 0;
   line-height: 0;
@@ -2305,9 +2359,13 @@ body.disableScroll {
   visibility: hidden;
   transition: all 250ms linear;
 }
+.fam ul.alwaysOpen,
 .fam ul.exposed {
   opacity: 1;
   visibility: visible;
+}
+.fam ul.alwaysOpen {
+  position: static;
 }
 .fam li {
   display: inline-block;

@@ -1,45 +1,90 @@
+// Trim trailing - from span names
+@visTinyName: replace(@tinyName, "-$", "");
+@visSmallName: replace(@smallName, "-$", "");
+@visMediumName: replace(@mediumName, "-$", "");
+@visLargeName: replace(@largeName, "-$", "");
 
 .show { display: inherit !important };
 
 .hide,
-.visible-t, .visible-phone,
-.visible-s, .visible-tablet,
-.visible-m, .visible-desktop,
-.visible-l {
+.visible@{visTinyName}, .visible-phone,
+.visible@{visTinyName}-block, .visible@{visTinyName}-inline, .visible@{visTinyName}-inline-block,
+.visible@{visSmallName}, .visible-tablet,
+.visible@{visSmallName}-block, .visible@{visSmallName}-inline, .visible@{visSmallName}-inline-block,
+.visible@{visMediumName}, .visible-desktop,
+.visible@{visMediumName}-block, .visible@{visMediumName}-inline, .visible@{visMediumName}-inline-block,
+.visible@{visLargeName},
+.visible@{visLargeName}-block, .visible@{visLargeName}-inline, .visible@{visLargeName}-inline-block {
 	display: none !important;
 }
 
 @media (max-width: (@breakpoint-s - 1)) {
-	.visible-t, .visible-phone {
+	.visible@{visTinyName}, .visible-phone {
 		display: inherit !important;
 	}
-	.hidden-t, .hidden-phone {
+	.hidden@{visTinyName}, .hidden-phone {
 		display: none !important;
+	}
+	.visible@{visTinyName}-block {
+		display: block !important;
+	}
+	.visible@{visTinyName}-inline {
+		display: inline !important;
+	}
+	.visible@{visTinyName}-inline-block {
+		display: inline-block !important;
 	}
 }
 
 @media (min-width: @breakpoint-s) and (max-width: (@breakpoint-m - 1)) {
-	.visible-s, .visible-tablet {
+	.visible@{visSmallName}, .visible-tablet {
 		display: inherit !important;
 	}
-	.hidden-s, .hidden-tablet {
+	.hidden@{visSmallName}, .hidden-tablet {
 		display: none !important;
+	}
+	.visible@{visSmallName}-block {
+		display: block !important;
+	}
+	.visible@{visSmallName}-inline {
+		display: inline !important;
+	}
+	.visible@{visSmallName}-inline-block {
+		display: inline-block !important;
 	}
 }
 
 @media (min-width: @breakpoint-m) and (max-width: (@breakpoint-l - 1)) {
-	.visible-m, .visible-desktop {
+	.visible@{visMediumName}, .visible-desktop {
 		display: inherit !important;
 	}
-	.hidden-m, .hidden-desktop {
+	.hidden@{visMediumName}, .hidden-desktop {
 		display: none !important;
+	}
+	.visible@{visMediumName}-block {
+		display: block !important;
+	}
+	.visible@{visMediumName}-inline {
+		display: inline !important;
+	}
+	.visible@{visMediumName}-inline-block {
+		display: inline-block !important;
 	}
 }
 @media (min-width: @breakpoint-l) {
-	.visible-l, .visible-desktop {
+	.visible@{visLargeName}, .visible-desktop {
 		display: inherit !important;
 	}
-	.hidden-l, .hidden-desktop {
+	.hidden@{visLargeName}, .hidden-desktop {
 		display: none !important;
+	}
+	.visible@{visLargeName}-block {
+		display: block !important;
+	}
+	.visible@{visLargeName}-inline {
+		display: inline !important;
+	}
+	.visible@{visLargeName}-inline-block {
+		display: inline-block !important;
 	}
 }

@@ -40,23 +40,26 @@
 		}
 
 		[class^="@{colName}"] {
-			&.left-gutter@{spanName} {
+			// Trim trailing - from span names
+			@spanNameClean: replace(@spanName, "-$", "");
+
+			&.left-gutter@{spanNameClean} {
 				padding-left: @colGutter / 2;
 			}
-			&.no-left-gutter@{spanName} {
+			&.no-left-gutter@{spanNameClean} {
 				padding-left: 0;
 			}
-			&.right-gutter@{spanName} {
+			&.right-gutter@{spanNameClean} {
 				padding-right: @colGutter / 2;
 			}
-			&.no-right-gutter@{spanName} {
+			&.no-right-gutter@{spanNameClean} {
 				padding-right: 0;
 			}
-			&.gutter@{spanName} {
+			&.gutter@{spanNameClean} {
 				padding-left: @colGutter / 2;
 				padding-right: @colGutter / 2;
 			}
-			&.no-gutter@{spanName} {
+			&.no-gutter@{spanNameClean} {
 				padding-left: 0;
 				padding-right: 0;
 			}
@@ -66,22 +69,34 @@
 			.@{colName}@{name}@{span} {
 				width: @colWidth + (@colWidth * (@span - 1));
 			}
-			.@{offsetName}@{name}@{span} {
-				margin-left: @colWidth * @span;
+
+			// If in bootstrap compatible mode
+			.makeOffset(@colName) when (@colName = col) {
+				.col@{name}@{offsetName}-@{span} {
+					margin-left: @colWidth * @span;
+				}
 			}
-			.@{colName}@{name}@{separator}push@{span} {
+			// Else in fusionCSS
+			.makeOffset(@colName) when not (@colName = col) {
+				.@{offsetName}@{name}@{span} {
+					margin-left: @colWidth * @span;
+				}
+			}
+			.makeOffset(@colName);
+
+			.@{colName}@{name}@{separator}@{pushName}@{span} {
 				left: @colWidth + (@colWidth * (@span - 1));
 			}
-			.@{colName}@{name}@{separator}pull@{span} {
+			.@{colName}@{name}@{separator}@{pullName}@{span} {
 				right: @colWidth + (@colWidth * (@span - 1));
 			}
 			.makeCols(@name, @span - 1);
 		}
 
-		.@{colName}@{spanName}@{separator}push0 {
+		.@{colName}@{spanName}@{separator}@{pushName}0 {
 			left: inherit;
 		}
-		.@{colName}@{spanName}@{separator}pull0 {
+		.@{colName}@{spanName}@{separator}@{pullName}0 {
 			right: inherit;
 		}
 
