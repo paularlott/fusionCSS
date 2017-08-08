@@ -2066,6 +2066,7 @@ button.floating.mini i,
 #slideInMenu ul {
   margin: 0;
   padding: 1rem 0 0 0;
+  list-style: none;
 }
 #slideInMenu ul + ul {
   margin-top: .5rem;
