@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2013 - 2017 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
- * @version 3.0.9
+ * @version 3.0.11
  */
 * {
   margin: 0;
@@ -976,14 +976,15 @@ table {
   border-collapse: collapse;
 }
 table th {
-  text-align: center;
   color: rgba(0, 0, 0, 0.54);
   font-weight: normal;
-  padding: .25rem .5rem;
   border-bottom: 2px solid rgba(0, 0, 0, 0.12);
 }
-table td {
+table td,
+table th {
+  text-align: left;
   padding: .25rem .5rem;
+  vertical-align: middle;
 }
 table.striped tr td {
   background-color: rgba(0, 0, 0, 0.05);
@@ -995,10 +996,22 @@ table.rowhover tr td {
   transition: all 150ms linear;
 }
 table.rowhover tr:hover td {
-  background-color: #EEEEEE;
+  background-color: #E0E0E0;
 }
 table.bordered td {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+table.centered td,
+table.centered th {
+  text-align: center;
+}
+table.valigntop td,
+table.valigntop th {
+  vertical-align: top;
+}
+table.valignbottom td,
+table.valignbottom th {
+  vertical-align: bottom;
 }
 table.responsive {
   margin: 0;
