@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2013 - 2017 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
- * @version 3.0.11
+ * @version 3.0.12
  */
 * {
   margin: 0;
@@ -1447,6 +1447,7 @@ form input[disabled] {
 form input[type="text"],
 form input[type="number"],
 form input[type="email"],
+form input[type="tel"],
 form input[type="url"],
 form input[type="password"],
 form input[type="search"],
@@ -1467,6 +1468,7 @@ form textarea {
 form input[type="text"]:focus,
 form input[type="number"]:focus,
 form input[type="email"]:focus,
+form input[type="tel"]:focus,
 form input[type="url"]:focus,
 form input[type="password"]:focus,
 form input[type="search"]:focus,
@@ -1477,6 +1479,7 @@ form textarea:focus {
 form input[type="text"].validationError,
 form input[type="number"].validationError,
 form input[type="email"].validationError,
+form input[type="tel"].validationError,
 form input[type="url"].validationError,
 form input[type="password"].validationError,
 form input[type="search"].validationError,
@@ -1543,6 +1546,7 @@ form dd:last-child {
 .appFormStyle form input[type="text"],
 .appFormStyle form input[type="number"],
 .appFormStyle form input[type="email"],
+.appFormStyle form input[type="tel"],
 .appFormStyle form input[type="url"],
 .appFormStyle form input[type="password"],
 .appFormStyle form input[type="search"],
@@ -1555,6 +1559,7 @@ form dd:last-child {
 .appFormStyle form input[type="text"]:focus,
 .appFormStyle form input[type="number"]:focus,
 .appFormStyle form input[type="email"]:focus,
+.appFormStyle form input[type="tel"]:focus,
 .appFormStyle form input[type="url"]:focus,
 .appFormStyle form input[type="password"]:focus,
 .appFormStyle form input[type="search"]:focus,
@@ -1566,6 +1571,7 @@ form dd:last-child {
 .appFormStyle form input[type="text"].validationError,
 .appFormStyle form input[type="number"].validationError,
 .appFormStyle form input[type="email"].validationError,
+.appFormStyle form input[type="tel"].validationError,
 .appFormStyle form input[type="url"].validationError,
 .appFormStyle form input[type="password"].validationError,
 .appFormStyle form input[type="search"].validationError,
@@ -1597,6 +1603,7 @@ form dd:last-child {
 .floatingLabels form input[type="text"],
 .floatingLabels form input[type="number"],
 .floatingLabels form input[type="email"],
+.floatingLabels form input[type="tel"],
 .floatingLabels form input[type="url"],
 .floatingLabels form input[type="password"],
 .floatingLabels form input[type="search"] {
@@ -1671,6 +1678,8 @@ form dd:last-child {
 .floatingLabels .appFormStyle input[type="number"],
 .floatingLabels.appFormStyle input[type="email"],
 .floatingLabels .appFormStyle input[type="email"],
+.floatingLabels.appFormStyle input[type="tel"],
+.floatingLabels .appFormStyle input[type="tel"],
 .floatingLabels.appFormStyle input[type="url"],
 .floatingLabels .appFormStyle input[type="url"],
 .floatingLabels.appFormStyle input[type="password"],
@@ -1714,6 +1723,8 @@ form.hform input[type="text"],
 form.hform input[type="number"],
 .hform form input[type="email"],
 form.hform input[type="email"],
+.hform form input[type="tel"],
+form.hform input[type="tel"],
 .hform form input[type="url"],
 form.hform input[type="url"],
 .hform form input[type="password"],
