@@ -454,7 +454,7 @@
 		var e = extend(this[0]),
 			l = extend('#' + e.attr('id') + '-label');
 
-		if(e.attr('type') != 'checkbox') {
+		if(e.hasClass('hasFloatingLabel') && e.attr('type') != 'checkbox') {
 			if (typeof value != 'string' || value.length || e.is('select'))
 				l.removeClass('floatDown').addClass('floatUp');
 			else
