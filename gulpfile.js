@@ -2,47 +2,44 @@ var gulp = require('gulp'),
 	plugins = require('gulp-load-plugins')();
 
 plugins.fs = require('fs');
+plugins.del = require('del');
 plugins.panini = require('panini');
 
 // Load the version information
-var version = plugins.fs.readFileSync('./less/version.less', 'utf8');
+var version = plugins.fs.readFileSync('./less/version.less', 'utf8'),
+	themeTaskList = [];
 
 /**
- * Compile the source less generating both normal and minified CSS
- *
- * @param string src The source to compile.
- * @param string dst The target file name.
- * @param string dstMin The target file name for the minified version.
- * @returns gulp
+ * Get a list of the available themes and create the tasks
  */
-function cssTask(src, dst, dstMin) {
-	return gulp.src(src)
-		.pipe(plugins.less())
-		.pipe(plugins.rename(dst))
-		.pipe(gulp.dest('./css/'))
+var themeList = plugins.fs.readdirSync('./less/themes/');
+themeList.forEach(function (theme) {
 
-		.pipe(plugins.cleanCss())
-		.pipe(plugins.insert.prepend(version))
-		.pipe(plugins.rename(dstMin))
-		.pipe(gulp.dest('./css/'));
-}
+	// Create the names for the CSS and minified CSS files
+	var cssfile = theme.toLowerCase().replace(/\.less$/, '.css'),
+		minfile = theme.toLowerCase().replace(/\.less$/, '.min.css');
 
-gulp.task('blue.pink', function() {
-	var theme = 'blue.pink';
-	return cssTask('./less/themes/fusionCSS.' + theme + '.less', 'fusioncss.' + theme + '.css', 'fusioncss.' + theme + '.min.css');
+	// Create the task
+	gulp.task(
+		theme,
+		function() {
+			return gulp.src('./less/themes/' + theme)
+				.pipe(plugins.less())
+				.pipe(plugins.rename(cssfile))
+				.pipe(gulp.dest('./css/'))
+
+				.pipe(plugins.cleanCss())
+				.pipe(plugins.insert.prepend(version))
+				.pipe(plugins.rename(minfile))
+				.pipe(gulp.dest('./css/'));
+		}
+	)
+	themeTaskList.push(theme);
 });
 
-gulp.task('bluegrey.red', function() {
-	var theme = 'bluegrey.red';
-	return cssTask('./less/themes/fusionCSS.' + theme + '.less', 'fusioncss.' + theme + '.css', 'fusioncss.' + theme + '.min.css');
-});
-
-// Build the material themes
-gulp.task('less', [
-	'blue.pink',
-	'bluegrey.red'
-]);
-
+/**
+ * Build JavaScript files
+ */
 gulp.task('js', function() {
 	return gulp.src([
 		'./js/src/fusionCSS.js'
@@ -53,14 +50,20 @@ gulp.task('js', function() {
 		.pipe(gulp.dest('./js/'));
 });
 
+/**
+ * Remove built files
+ */
 gulp.task('clean', function() {
-	return del([
+	return plugins.del([
 		'./css/*.css',
 		'./js/*.js',
 		'./docs/*.html'
 	]);
 });
 
+/**
+ * Build docs from doc sources
+ */
 gulp.task('docs', function() {
 	gulp.src('./docs_src/*.html')
 		.pipe(plugins.panini({
@@ -73,13 +76,18 @@ gulp.task('docs', function() {
 		.pipe(gulp.dest('docs'));
 });
 
+/**
+ * Watch files for changes
+ */
 gulp.task('watch', function() {
 	gulp.watch([
 		'./less/*.less',
 		'./less/themes/*.less'
-	], ['less']);
+	], themeTaskList);
 	gulp.watch('./js/src/*.js', ['js']);
 });
 
-gulp.task('default', ['less', 'js']);
-
+/**
+ * Default build task
+ */
+gulp.task('default', ['js'].concat(themeTaskList));
