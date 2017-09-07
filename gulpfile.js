@@ -1,14 +1,11 @@
 var gulp = require('gulp'),
-	fs = require('fs'),
-	version = fs.readFileSync('./less/version.less', 'utf8'),
-	less = require('gulp-less'),
-	cleanCSS = require('gulp-clean-css'),
-	rename = require('gulp-rename'),
-	insert = require('gulp-insert'),
-	uglify = require('gulp-uglify'),
-	concat = require('gulp-concat'),
-	del = require('del'),
-	panini = require('panini');
+	plugins = require('gulp-load-plugins')();
+
+plugins.fs = require('fs');
+plugins.panini = require('panini');
+
+// Load the version information
+var version = plugins.fs.readFileSync('./less/version.less', 'utf8');
 
 /**
  * Compile the source less generating both normal and minified CSS
@@ -20,15 +17,13 @@ var gulp = require('gulp'),
  */
 function cssTask(src, dst, dstMin) {
 	return gulp.src(src)
-		.pipe(less({
-			compress: false
-		}))
-		.pipe(rename(dst))
+		.pipe(plugins.less())
+		.pipe(plugins.rename(dst))
 		.pipe(gulp.dest('./css/'))
 
-		.pipe(cleanCSS())
-		.pipe(insert.prepend(version))
-		.pipe(rename(dstMin))
+		.pipe(plugins.cleanCss())
+		.pipe(plugins.insert.prepend(version))
+		.pipe(plugins.rename(dstMin))
 		.pipe(gulp.dest('./css/'));
 }
 
@@ -52,9 +47,9 @@ gulp.task('js', function() {
 	return gulp.src([
 		'./js/src/fusionCSS.js'
 	])
-		.pipe(concat('fusionCSS.js'))
-		.pipe(uglify())
-		.pipe(insert.prepend(version))
+		.pipe(plugins.concat('fusionCSS.js'))
+		.pipe(plugins.uglify())
+		.pipe(plugins.insert.prepend(version))
 		.pipe(gulp.dest('./js/'));
 });
 
@@ -68,7 +63,7 @@ gulp.task('clean', function() {
 
 gulp.task('docs', function() {
 	gulp.src('./docs_src/*.html')
-		.pipe(panini({
+		.pipe(plugins.panini({
 			root: './docs_src/',
 			layouts: './docs_src/layouts/',
 			partials: './docs_src/partials/',
