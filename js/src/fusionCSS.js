@@ -478,4 +478,153 @@
 		return this;
 	};
 
+	/**
+	 * Sticky elements
+	 */
+	var sticky = [],  // List of elements being watched
+		scrollers = [], // List of elements being watched for scroll
+		scrollTimer = null, // Timer for scroll de-bounce
+		resizeTimer = null; // Time for resize de-bounce
+	/**
+	 * Handle scrolling and de-bounce.
+	 */
+	function onScroll() {
+		if(scrollTimer === null) {
+			scrollTimer = setTimeout(function() {
+				scrollTimer = null;
+				updateElements();
+			}, 0);
+		}
+	}
+
+	/**
+	 * Catch resize events.
+	 */
+	function resizeUpdate() {
+		if(resizeTimer === null) {
+			resizeTimer = setTimeout(function() {
+				resizeTimer = null;
+
+				// Stop elements from being sticky
+				for(var i=0;i<sticky.length;i++) {
+					sticky[i].element.removeClass('sticky');
+				}
+
+				// Recalculate heights
+				extend('.stickyWrapper').each(function() {
+					var wrap = $(this),
+						h = 0;
+
+					wrap.children().each(function() { h += $(this).height(); });
+					wrap.css('height', h + 'px');
+				});
+
+				// Make elements sticky
+				updateElements();
+			});
+		}
+	}
+
+	/**
+	 * Process the list of sticky elements and update them.
+	 */
+	function updateElements() {
+		for(var i=0;i<sticky.length; i++) {
+			var scrollPx = sticky[i].context.scrollTop(),
+				scrollPercent = (scrollPx / sticky[i].context.height()) * 100,
+				width = sticky[i].context.width();
+
+			// Test if element should be sticky
+			if((
+					(sticky[i].minWidth === null || width >= sticky[i].minWidth)
+					&& (sticky[i].maxWidth === null || width <= sticky[i].maxWidth)
+				) && (
+					(sticky[i].offsetType == '%'  && scrollPercent >= sticky[i].offsetVal)
+					|| (sticky[i].offsetType == 'px' && scrollPx >= sticky[i].offsetVal)
+				)
+			) {
+				if(!sticky[i].element.hasClass('sticky')) {
+					sticky[i].element.addClass('sticky');
+					sticky[i].element.trigger('stick');
+				}
+			}
+			else {
+				if(sticky[i].element.hasClass('sticky')) {
+					sticky[i].element.removeClass('sticky');
+					sticky[i].element.trigger('unstick');
+				}
+			}
+		}
+	}
+
+	extend.fn.extend({
+
+		/**
+		 * Make an element sticky.
+		 *
+		 * @param mpa opts { context: The parent context, offset: pixel or percentage offset }
+		 */
+		makeSticky: function(opts) {
+			opts = opts ? opts : {};
+
+			return this.each(function() {
+				var el = extend(this),
+					h = el.height(),
+					i,
+					offset = opts.offset ? opts.offset : 0;
+
+				// Wrap the element
+				el.wrap('<div class="stickyWrapper" style="height: ' + h + 'px"></div>');
+
+				// If context given and scroll events not attached
+				if(opts.context) {
+					for (i = 0; i < scrollers.length; i++) {
+						if (opts.context.get(0) === scrollers[i].get(0)) {
+							i = -1;
+							break;
+						}
+					}
+
+					if (i != -1) {
+						scrollers.push(opts.context);
+						opts.context.on('scroll', onScroll).on('resize', resizeUpdate);
+					}
+				}
+
+				// Store the element and options
+				sticky.push({
+					element: el,
+					context: opts.context ? opts.context : extend(window),
+					offsetType: typeof offset === 'string' && offset.match(/%$/) ? '%' : 'px',
+					offsetVal: parseInt(offset),
+					minWidth: opts.minWidth ? parseInt(opts.minWidth) : null,
+					maxWidth: opts.maxWidth ? parseInt(opts.maxWidth) : null
+				});
+			});
+		},
+
+		/**
+		 * Set the offset to make an element sticky at.
+		 *
+		 * @param soffset Pixel or percentage offset.
+		 */
+		setStickyOffset: function(offset) {
+			return this.each(function() {
+				for(var i=0;i<sticky.length;i++) {
+					if(sticky[i].element.get(0) === this) {
+						sticky[i].offsetType = typeof offset === 'string' && offset.match(/%$/) ? '%' : 'px';
+						sticky[i].offsetVal = parseInt(offset);
+						break;
+					}
+				}
+			});
+		}
+	});
+
+	// Attach events to window
+	scrollers.push(extend(window));
+	extend(window)
+		.on('scroll', onScroll)
+		.on('resize', resizeUpdate);
+
 })();
