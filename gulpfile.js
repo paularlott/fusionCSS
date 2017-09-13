@@ -51,11 +51,44 @@ gulp.task('js', function() {
 });
 
 /**
+ * Build a single less file with everything but variables
+ */
+gulp.task('single_less', function() {
+	return gulp.src([
+		'./less/mixins.less',
+		'./less/typography.less',
+		'./less/grid.less',
+		'./less/utilities.less',
+		'./less/colors.less',
+		'./less/tables.less',
+		'./less/pagination.less',
+		'./less/breadcrumb.less',
+		'./less/navigation.less',
+		'./less/alerts.less',
+		'./less/visibility.less',
+		'./less/cards.less',
+		'./less/forms.less',
+		'./less/buttons.less',
+		'./less/slideinmenu.less',
+		'./less/toast.less',
+		'./less/tabs.less',
+		'./less/chips.less',
+		'./less/appbar.less',
+		'./less/fam.less',
+		'./less/shadow.less'
+	])
+		.pipe(plugins.concat('fusionCSS.less'))
+		.pipe(plugins.insert.prepend(version))
+		.pipe(gulp.dest('./css/'));
+});
+
+/**
  * Remove built files
  */
 gulp.task('clean', function() {
 	return plugins.del([
 		'./css/*.css',
+		'./css/*.less',
 		'./js/*.js',
 		'./docs/*.html'
 	]);
@@ -84,10 +117,10 @@ gulp.task('watch', function() {
 		'./less/*.less',
 		'./less/themes/*.less'
 	], themeTaskList);
-	gulp.watch('./js/src/*.js', ['js']);
+	gulp.watch('./js/src/*.js', ['js', 'single_less']);
 });
 
 /**
  * Default build task
  */
-gulp.task('default', ['js'].concat(themeTaskList));
+gulp.task('default', ['js', 'single_less'].concat(themeTaskList));
