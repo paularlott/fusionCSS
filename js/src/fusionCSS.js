@@ -455,7 +455,7 @@
 			l = extend('#' + e.attr('id') + '-label');
 
 		if(e.hasClass('hasFloatingLabel') && e.attr('type') != 'checkbox') {
-			if (typeof value != 'string' || value.length || e.is('select'))
+			if (typeof value != 'string' || value.length || e.is('select') || document.activeElement == this[0])
 				l.removeClass('floatDown').addClass('floatUp');
 			else
 				l.addClass('floatDown').removeClass('floatUp');
@@ -507,7 +507,7 @@
 
 				// Stop elements from being sticky
 				for(var i=0;i<sticky.length;i++) {
-					sticky[i].element.removeClass('sticky');
+					sticky[i].element.removeClass('sticky').parent().css('height', 'auto');
 				}
 
 				// Recalculate heights
@@ -516,7 +516,7 @@
 						h = 0;
 
 					wrap.children().each(function() { h += $(this).height(); });
-					wrap.css('height', h + 'px');
+					wrap.attr('data-height', h + 'px');
 				});
 
 				// Make elements sticky
@@ -544,13 +544,13 @@
 				)
 			) {
 				if(!sticky[i].element.hasClass('sticky')) {
-					sticky[i].element.addClass('sticky');
+					sticky[i].element.addClass('sticky').parent().css('height', sticky[i].element.parent().attr('data-height'));
 					sticky[i].element.trigger('stick');
 				}
 			}
 			else {
 				if(sticky[i].element.hasClass('sticky')) {
-					sticky[i].element.removeClass('sticky');
+					sticky[i].element.removeClass('sticky').parent().css('height', 'auto');
 					sticky[i].element.trigger('unstick');
 				}
 			}
@@ -574,7 +574,7 @@
 					offset = opts.offset ? opts.offset : 0;
 
 				// Wrap the element
-				el.wrap('<div class="stickyWrapper" style="height: ' + h + 'px"></div>');
+				el.wrap('<div class="stickyWrapper" data-height="' + h + 'px"></div>');
 
 				// If context given and scroll events not attached
 				if(opts.context) {
