@@ -515,7 +515,11 @@
 					var wrap = $(this),
 						h = 0;
 
-					wrap.children().each(function() { h += $(this).height(); });
+					wrap.children().each(function() {
+						h += $(this).height()
+							+ parseInt($(this).css('padding-top'))
+							+ parseInt($(this).css('padding-bottom'));
+					});
 					wrap.attr('data-height', h + 'px');
 				});
 
@@ -569,7 +573,9 @@
 
 			return this.each(function() {
 				var el = extend(this),
-					h = el.height(),
+					h = el.height()
+						+ parseInt(el.css('padding-top'))
+						+ parseInt(el.css('padding-bottom')),
 					i,
 					offset = opts.offset ? opts.offset : 0;
 
@@ -600,6 +606,8 @@
 					minWidth: opts.minWidth ? parseInt(opts.minWidth) : null,
 					maxWidth: opts.maxWidth ? parseInt(opts.maxWidth) : null
 				});
+
+				updateElements();
 			});
 		},
 

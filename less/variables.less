@@ -31,6 +31,24 @@
 @separator:             ~'-';
 
 //////////////////////////////////////////////////////////////////////
+// Define names for columns and sizes
+//////////////////////////////////////////////////////////////////////
+
+// Use bootstrap button names
+//@btnName:           .btn;
+//@btnPrefix:         ~'.btn-';
+//@btnOutline:        ~'.btn-outline';
+//@btnOutlinePrefix:  ~'-';
+
+@btnName:           .button;
+@btnPrefix:         ~'.';
+@btnOutline:        ~'.outline';
+@btnOutlinePrefix:  ~'.';
+
+// true to define additional buttons styles, secondary, success, warning & info
+@btnAdditional:     false;
+
+//////////////////////////////////////////////////////////////////////
 // Define breakpoints
 //////////////////////////////////////////////////////////////////////
 @breakpoint-s:          768px;
@@ -71,6 +89,8 @@
 @btnColorDangerText:    @white;
 @btnColorDanger:        @red-500;
 @btnColorFlatBg:        @grey-200;
+@btnColorSecondaryFg:   @white;
+@btnColorSecondaryBg:   @grey-500;
 @btnHoverLighten:       5%;
 @btnDisabled:           .6;
 @formValidatorReq:      @red-500;

@@ -1778,8 +1778,7 @@ form #submit-list dd {
   }
 }
 .uploadButton,
-form input[type="submit"],
-form button,
+input[type="submit"],
 button,
 .button {
   color: rgba(0, 0, 0, 0.87);
@@ -1802,15 +1801,13 @@ button,
   transition: all 150ms linear;
 }
 .uploadButton.full-width,
-form input[type="submit"].full-width,
-form button.full-width,
+input[type="submit"].full-width,
 button.full-width,
 .button.full-width {
   width: 100%;
 }
 .uploadButton:hover,
-form input[type="submit"]:hover,
-form button:hover,
+input[type="submit"]:hover,
 button:hover,
 .button:hover {
   text-decoration: none;
@@ -1818,13 +1815,11 @@ button:hover,
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 .uploadButton.disabled,
-form input[type="submit"].disabled,
-form button.disabled,
+input[type="submit"].disabled,
 button.disabled,
 .button.disabled,
 .uploadButton:disabled,
-form input[type="submit"]:disabled,
-form button:disabled,
+input[type="submit"]:disabled,
 button:disabled,
 .button:disabled {
   box-shadow: none;
@@ -1832,164 +1827,249 @@ button:disabled,
   opacity: 0.6;
 }
 .uploadButton.primary,
-form input[type="submit"].primary,
-form button.primary,
+input[type="submit"].primary,
 button.primary,
 .button.primary {
   color: #ffffff;
   background-color: #2196F3;
 }
 .uploadButton.primary:hover,
-form input[type="submit"].primary:hover,
-form button.primary:hover,
+input[type="submit"].primary:hover,
 button.primary:hover,
 .button.primary:hover {
   background-color: #39a1f4;
 }
 .uploadButton.primary.disabled,
-form input[type="submit"].primary.disabled,
-form button.primary.disabled,
+input[type="submit"].primary.disabled,
 button.primary.disabled,
 .button.primary.disabled,
 .uploadButton.primary:disabled,
-form input[type="submit"].primary:disabled,
-form button.primary:disabled,
+input[type="submit"].primary:disabled,
 button.primary:disabled,
 .button.primary:disabled {
   background-color: #2196F3;
 }
 .uploadButton.accent,
-form input[type="submit"].accent,
-form button.accent,
+input[type="submit"].accent,
 button.accent,
 .button.accent {
   color: #ffffff;
   background-color: #FF4081;
 }
 .uploadButton.accent:hover,
-form input[type="submit"].accent:hover,
-form button.accent:hover,
+input[type="submit"].accent:hover,
 button.accent:hover,
 .button.accent:hover {
   background-color: #ff5a92;
 }
 .uploadButton.accent.disabled,
-form input[type="submit"].accent.disabled,
-form button.accent.disabled,
+input[type="submit"].accent.disabled,
 button.accent.disabled,
 .button.accent.disabled,
 .uploadButton.accent:disabled,
-form input[type="submit"].accent:disabled,
-form button.accent:disabled,
+input[type="submit"].accent:disabled,
 button.accent:disabled,
 .button.accent:disabled {
   background-color: #FF4081;
 }
+.uploadButton.alert,
+input[type="submit"].alert,
+button.alert,
+.button.alert,
 .uploadButton.danger,
-form input[type="submit"].danger,
-form button.danger,
+input[type="submit"].danger,
 button.danger,
 .button.danger {
   color: #ffffff;
   background-color: #F44336;
 }
+.uploadButton.alert:hover,
+input[type="submit"].alert:hover,
+button.alert:hover,
+.button.alert:hover,
 .uploadButton.danger:hover,
-form input[type="submit"].danger:hover,
-form button.danger:hover,
+input[type="submit"].danger:hover,
 button.danger:hover,
 .button.danger:hover {
   background-color: #f55a4e;
 }
+.uploadButton.alert.disabled,
+input[type="submit"].alert.disabled,
+button.alert.disabled,
+.button.alert.disabled,
 .uploadButton.danger.disabled,
-form input[type="submit"].danger.disabled,
-form button.danger.disabled,
+input[type="submit"].danger.disabled,
 button.danger.disabled,
 .button.danger.disabled,
+.uploadButton.alert:disabled,
+input[type="submit"].alert:disabled,
+button.alert:disabled,
+.button.alert:disabled,
 .uploadButton.danger:disabled,
-form input[type="submit"].danger:disabled,
-form button.danger:disabled,
+input[type="submit"].danger:disabled,
 button.danger:disabled,
 .button.danger:disabled {
   background-color: #F44336;
 }
+.uploadButton.outline,
+input[type="submit"].outline,
+button.outline,
+.button.outline,
 .uploadButton.flat,
-form input[type="submit"].flat,
-form button.flat,
+input[type="submit"].flat,
 button.flat,
 .button.flat {
   color: rgba(0, 0, 0, 0.87);
   background-color: transparent;
 }
+.uploadButton.outline:hover,
+input[type="submit"].outline:hover,
+button.outline:hover,
+.button.outline:hover,
 .uploadButton.flat:hover,
-form input[type="submit"].flat:hover,
-form button.flat:hover,
+input[type="submit"].flat:hover,
 button.flat:hover,
 .button.flat:hover {
   background-color: #EEEEEE;
   box-shadow: none;
 }
+.uploadButton.outline.disabled,
+input[type="submit"].outline.disabled,
+button.outline.disabled,
+.button.outline.disabled,
 .uploadButton.flat.disabled,
-form input[type="submit"].flat.disabled,
-form button.flat.disabled,
+input[type="submit"].flat.disabled,
 button.flat.disabled,
 .button.flat.disabled,
+.uploadButton.outline:disabled,
+input[type="submit"].outline:disabled,
+button.outline:disabled,
+.button.outline:disabled,
 .uploadButton.flat:disabled,
-form input[type="submit"].flat:disabled,
-form button.flat:disabled,
+input[type="submit"].flat:disabled,
 button.flat:disabled,
 .button.flat:disabled {
   background-color: transparent;
 }
+.uploadButton.outline.primary,
+input[type="submit"].outline.primary,
+button.outline.primary,
+.button.outline.primary,
 .uploadButton.flat.primary,
-form input[type="submit"].flat.primary,
-form button.flat.primary,
+input[type="submit"].flat.primary,
 button.flat.primary,
 .button.flat.primary {
   color: #2196F3;
 }
+.uploadButton.outline.accent,
+input[type="submit"].outline.accent,
+button.outline.accent,
+.button.outline.accent,
 .uploadButton.flat.accent,
-form input[type="submit"].flat.accent,
-form button.flat.accent,
+input[type="submit"].flat.accent,
 button.flat.accent,
 .button.flat.accent {
   color: #FF4081;
 }
+.uploadButton.outline.alert,
+input[type="submit"].outline.alert,
+button.outline.alert,
+.button.outline.alert,
+.uploadButton.flat.alert,
+input[type="submit"].flat.alert,
+button.flat.alert,
+.button.flat.alert,
+.uploadButton.outline.danger,
+input[type="submit"].outline.danger,
+button.outline.danger,
+.button.outline.danger,
 .uploadButton.flat.danger,
-form input[type="submit"].flat.danger,
-form button.flat.danger,
+input[type="submit"].flat.danger,
 button.flat.danger,
 .button.flat.danger {
   color: #F44336;
 }
+.uploadButton.outline,
+input[type="submit"].outline,
+button.outline,
+.button.outline {
+  border: 1px solid rgba(0, 0, 0, 0.87);
+}
+.uploadButton.outline:hover,
+input[type="submit"].outline:hover,
+button.outline:hover,
+.button.outline:hover {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.87);
+}
+.uploadButton.outline.primary,
+input[type="submit"].outline.primary,
+button.outline.primary,
+.button.outline.primary {
+  border-color: #2196F3;
+}
+.uploadButton.outline.primary:hover,
+input[type="submit"].outline.primary:hover,
+button.outline.primary:hover,
+.button.outline.primary:hover {
+  background-color: #2196F3;
+}
+.uploadButton.outline.accent,
+input[type="submit"].outline.accent,
+button.outline.accent,
+.button.outline.accent {
+  border-color: #FF4081;
+}
+.uploadButton.outline.accent:hover,
+input[type="submit"].outline.accent:hover,
+button.outline.accent:hover,
+.button.outline.accent:hover {
+  background-color: #FF4081;
+}
+.uploadButton.outline.alert,
+input[type="submit"].outline.alert,
+button.outline.alert,
+.button.outline.alert,
+.uploadButton.outline.danger,
+input[type="submit"].outline.danger,
+button.outline.danger,
+.button.outline.danger {
+  border-color: #F44336;
+}
+.uploadButton.outline.alert:hover,
+input[type="submit"].outline.alert:hover,
+button.outline.alert:hover,
+.button.outline.alert:hover,
+.uploadButton.outline.danger:hover,
+input[type="submit"].outline.danger:hover,
+button.outline.danger:hover,
+.button.outline.danger:hover {
+  background-color: #F44336;
+}
 .uploadButton.raised,
-form input[type="submit"].raised,
-form button.raised,
+input[type="submit"].raised,
 button.raised,
 .button.raised {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 .uploadButton.raised:hover,
-form input[type="submit"].raised:hover,
-form button.raised:hover,
+input[type="submit"].raised:hover,
 button.raised:hover,
 .button.raised:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 .uploadButton.raised.disabled,
-form input[type="submit"].raised.disabled,
-form button.raised.disabled,
+input[type="submit"].raised.disabled,
 button.raised.disabled,
 .button.raised.disabled,
 .uploadButton.raised:disabled,
-form input[type="submit"].raised:disabled,
-form button.raised:disabled,
+input[type="submit"].raised:disabled,
 button.raised:disabled,
 .button.raised:disabled {
   box-shadow: none;
 }
 .uploadButton.floating,
-form input[type="submit"].floating,
-form button.floating,
+input[type="submit"].floating,
 button.floating,
 .button.floating {
   display: inline-block;
@@ -2003,15 +2083,13 @@ button.floating,
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 .uploadButton.floating i,
-form input[type="submit"].floating i,
-form button.floating i,
+input[type="submit"].floating i,
 button.floating i,
 .button.floating i {
   line-height: 3.5rem;
 }
 .uploadButton.floating.mini,
-form input[type="submit"].floating.mini,
-form button.floating.mini,
+input[type="submit"].floating.mini,
 button.floating.mini,
 .button.floating.mini {
   font-size: 1rem;
@@ -2020,8 +2098,7 @@ button.floating.mini,
   line-height: 2.5rem;
 }
 .uploadButton.floating.mini i,
-form input[type="submit"].floating.mini i,
-form button.floating.mini i,
+input[type="submit"].floating.mini i,
 button.floating.mini i,
 .button.floating.mini i {
   line-height: 2.5rem;

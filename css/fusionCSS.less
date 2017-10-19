@@ -1569,10 +1569,9 @@ form {
 
 
 .uploadButton,
-form input[type="submit"],
-form button,
+input[type="submit"],
 button,
-.button {
+@{btnName} {
 	// Normal buttons
 	color: @btnColorDefaultText;
 	background-color: @btnColorDefault;
@@ -1607,7 +1606,7 @@ button,
 		opacity: @btnDisabled;
 	}
 
-	&.primary {
+	&@{btnPrefix}primary {
 		color: @colorPrimaryText;
 		background-color: @colorPrimary;
 		&:hover {
@@ -1619,7 +1618,7 @@ button,
 		}
 	}
 
-	&.accent {
+	&@{btnPrefix}accent {
 		color: @colorAccentText;
 		background-color: @colorAccent;
 		&:hover {
@@ -1631,7 +1630,8 @@ button,
 		}
 	}
 
-	&.danger {
+	&@{btnPrefix}alert,
+	&@{btnPrefix}danger {
 		color: @btnColorDangerText;
 		background-color: @btnColorDanger;
 		&:hover {
@@ -1643,7 +1643,60 @@ button,
 		}
 	}
 
+	.extraButtons(@allButtons) when (@allButtons = true) {
+
+		&@{btnPrefix}secondary {
+			color: @btnColorSecondaryFg;
+			background-color: @btnColorSecondaryBg;
+			&:hover {
+				background-color: lighten(@btnColorSecondaryBg, @btnHoverLighten);
+			}
+			&.disabled,
+			&:disabled {
+				background-color: @btnColorSecondaryBg;
+			}
+		}
+
+		&@{btnPrefix}success {
+			color: @alertColorSuccessFg;
+			background-color: @alertColorSuccessBg;
+			&:hover {
+				background-color: lighten(@alertColorSuccessBg, @btnHoverLighten);
+			}
+			&.disabled,
+			&:disabled {
+				background-color: @alertColorSuccessBg;
+			}
+		}
+
+		&@{btnPrefix}warning {
+			color: @alertColorWarningFg;
+			background-color: @alertColorWarningBg;
+			&:hover {
+				background-color: lighten(@alertColorWarningBg, @btnHoverLighten);
+			}
+			&.disabled,
+			&:disabled {
+				background-color: @alertColorWarningBg;
+			}
+		}
+
+		&@{btnPrefix}info {
+			color: @alertColorInfoFg;
+			background-color: @alertColorInfoBg;
+			&:hover {
+				background-color: lighten(@alertColorInfoBg, @btnHoverLighten);
+			}
+			&.disabled,
+			&:disabled {
+				background-color: @alertColorInfoBg;
+			}
+		}
+	}
+	.extraButtons(@btnAdditional);
+
 	// Flat buttons
+	&@{btnOutline},
 	&.flat {
 		color: @btnColorDefaultText;
 		background-color: transparent;
@@ -1665,9 +1718,82 @@ button,
 			color: @colorAccent;
 		}
 
+		&.alert,
 		&.danger {
 			color: @btnColorDanger;
 		}
+
+		.extraButtons(@allButtons) when (@allButtons = true) {
+			&.secondary {
+				color: @btnColorSecondaryBg;
+			}
+			&.success {
+				color: @alertColorSuccessBg;
+			}
+			&.warning {
+				color: @alertColorWarningBg;
+			}
+			&.info {
+				color: @alertColorInfoBg;
+			}
+		}
+		.extraButtons(@btnAdditional);
+	}
+
+	// Outline buttons
+	&@{btnOutline} {
+		border: 1px solid @btnColorDefaultText;
+		&:hover {
+			color: @white;
+			background-color: @btnColorDefaultText;
+		}
+		&@{btnOutlinePrefix}primary {
+			border-color: @colorPrimary;
+			&:hover {
+				background-color: @colorPrimary;
+			}
+		}
+		&@{btnOutlinePrefix}accent {
+			border-color: @colorAccent;
+			&:hover {
+				background-color: @colorAccent;
+			}
+		}
+		&@{btnOutlinePrefix}alert, &@{btnOutlinePrefix}danger {
+			border-color: @btnColorDanger;
+			&:hover {
+				background-color: @btnColorDanger;
+			}
+		}
+
+		.extraButtons(@allButtons) when (@allButtons = true) {
+
+			&@{btnOutlinePrefix}secondary {
+				border-color: @btnColorSecondaryBg;
+				&:hover {
+					background-color: @btnColorSecondaryBg;
+				}
+			}
+			&@{btnOutlinePrefix}success {
+				border-color: @alertColorSuccessBg;
+				&:hover {
+					background-color: @alertColorSuccessBg;
+				}
+			}
+			&@{btnOutlinePrefix}warning {
+				border-color: @alertColorWarningBg;
+				&:hover {
+					background-color: @alertColorWarningBg;
+				}
+			}
+			&@{btnOutlinePrefix}info {
+				border-color: @alertColorInfoBg;
+				&:hover {
+					background-color: @alertColorInfoBg;
+				}
+			}
+		}
+		.extraButtons(@btnAdditional);
 	}
 
 	// Raised buttons
