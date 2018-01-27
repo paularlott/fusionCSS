@@ -313,6 +313,10 @@ blockquote {
 	@media (min-width: @breakpoint-l) {
 		.makeRow(@largeName);
 	}
+
+	@media (min-width: @breakpoint-x) {
+		.makeRow(@extraLargeName);
+	}
 }
 
 // Screen Reader only, see http://webaim.org/techniques/css/invisiblecontent/
@@ -1242,6 +1246,10 @@ form {
 		&.validationError {
 			border-color: @formValidatorFailed;
 		}
+	}
+
+	option {
+		color: @colorText;
 	}
 
 	dt {
