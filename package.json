@@ -6,14 +6,14 @@
   "devDependencies": {
     "del": "^2.2.2",
     "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.8.0",
+    "gulp-clean-css": "^3.9.2",
     "gulp-concat": "^2.6.1",
     "gulp-insert": "^0.5.0",
-    "gulp-less": "^3.3.2",
+    "gulp-less": "^3.4.0",
+    "gulp-load-plugins": "^1.5.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^3.0.0",
-    "gulp-load-plugins": "^1.5.0",
-    "panini": "^1.5.1"
+    "panini": "^1.6.0"
   },
   "repository": {
     "type": "git",
