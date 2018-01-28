@@ -51,6 +51,19 @@ gulp.task('js', function() {
 });
 
 /**
+ * Build JavaScript track element files
+ */
+gulp.task('jstrackelem', function() {
+	return gulp.src([
+		'./js/src/fusionCSSTrackElem.js'
+	])
+		.pipe(plugins.concat('fusionCSSTrackElem.js'))
+		.pipe(plugins.uglify())
+		.pipe(plugins.insert.prepend(version))
+		.pipe(gulp.dest('./js/'));
+});
+
+/**
  * Build a single less file with everything but variables
  */
 gulp.task('single_less', function() {
@@ -117,10 +130,10 @@ gulp.task('watch', function() {
 		'./less/*.less',
 		'./less/themes/*.less'
 	], themeTaskList);
-	gulp.watch('./js/src/*.js', ['js', 'single_less']);
+	gulp.watch('./js/src/*.js', ['js', 'jstrackelem', 'single_less']);
 });
 
 /**
  * Default build task
  */
-gulp.task('default', ['js', 'single_less'].concat(themeTaskList));
+gulp.task('default', ['js', 'jstrackelem', 'single_less'].concat(themeTaskList));

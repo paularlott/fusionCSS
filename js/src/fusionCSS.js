@@ -6,7 +6,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  *
  * @package fusionCSS
- * @copyright Copyright (c) 2013 - 2017 fusionCSS. All rights reserved.
+ * @copyright Copyright (c) 2013 - 2018 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
  */
 
@@ -350,24 +350,81 @@
 					el.addClass('hasFloatingLabel');
 					el.on('focus', function () {
 						l.removeClass('floatDown').addClass('floatUp');
+
+						if(el.attr('data-placeholder') != undefined)
+							el.attr('placeholder', el.attr('data-placeholder'));
 					}).on('blur', function () {
-						if (el.is('select') || el.val() || el.hasClass('keepPlaceholder'))
+						if (el.is('select') || el.val() || el.hasClass('keepPlaceholder') || el.attr('data-keep-placeholder'))
 							l.removeClass('floatDown').addClass('floatUp');
 						else
 							l.addClass('floatDown').removeClass('floatUp');
+
+						if(el.attr('data-placeholder') != undefined)
+							el.attr('placeholder', '');
 					}).on('change', function () {
 						l.removeClass('focused');
-						if (el.is('select') || el.val() || el.hasClass('keepPlaceholder'))
+						if (el.is('select') || el.val() || el.hasClass('keepPlaceholder') || el.attr('data-keep-placeholder'))
 							l.removeClass('floatDown').addClass('floatUp');
 						else
 							l.addClass('floatDown').removeClass('floatUp');
 					});
-					if(!el.hasClass('keepPlaceholder'))
-						el.attr('placeholder', '');
+
+					if(!el.hasClass('keepPlaceholder') && !el.attr('data-keep-placeholder')) {
+						if(el.attr('placeholder') != undefined) {
+							if(el.closest('.placeholderOnFocus').length)
+								el.attr('data-placeholder', el.attr('placeholder'));
+							el.attr('placeholder', '');
+						}
+					}
 					el.trigger('blur');
 				}
 			}
 		}
+
+		// Replace val function so that it triggers a change event on update
+		var fnVal = extend.fn.val;
+		extend.fn.val = function(value) {
+			if (typeof value == 'undefined') {
+				return fnVal.call(this);
+			}
+
+			var e = extend(this[0]),
+				l = extend('#' + e.attr('id') + '-label');
+
+			if(e.hasClass('hasFloatingLabel') && e.attr('type') != 'checkbox') {
+				if (typeof value != 'string' || value.length || e.is('select') || document.activeElement == this[0]) {
+					l.removeClass('floatDown').addClass('floatUp');
+
+					if (e.attr('data-placeholder') != undefined)
+						e.attr('placeholder', e.attr('data-placeholder'));
+				}
+				else {
+					l.addClass('floatDown').removeClass('floatUp');
+
+					if(e.attr('data-placeholder') != undefined)
+						e.attr('placeholder', '');
+				}
+			}
+			return fnVal.call(this, value);
+		};
+
+		// Replace focus function so that it updates the styles on the element
+		var fnFocus = extend.fn.focus;
+		extend.fn.focus = function() {
+			fnFocus.call(this);
+
+			var e = extend(this[0]),
+				l = extend('#' + e.attr('id') + '-label');
+
+			if(e.hasClass('hasFloatingLabel') && e.attr('type') != 'checkbox') {
+				l.removeClass('floatDown').addClass('floatUp');
+				l.addClass('focused');
+
+				if(e.attr('data-placeholder') != undefined)
+					e.attr('placeholder', e.attr('data-placeholder'));
+			}
+			return this;
+		};
 
 		/**
 		 * Floating labels
@@ -397,7 +454,10 @@
 			$(document.activeElement).trigger('focus');
 		}, 100);
 
-		// Floating action menu
+
+		/**
+		 * Floating action menu
+		 */
 		var hasFAMs = false;
 		$('.fam').each(function() {
 			var fam = $(this),
@@ -443,196 +503,5 @@
 		}
 
 	});
-
-	// Replace val function so that it triggers a change event on update
-	var fnVal = extend.fn.val;
-	extend.fn.val = function(value) {
-		if (typeof value == 'undefined') {
-			return fnVal.call(this);
-		}
-
-		var e = extend(this[0]),
-			l = extend('#' + e.attr('id') + '-label');
-
-		if(e.hasClass('hasFloatingLabel') && e.attr('type') != 'checkbox') {
-			if (typeof value != 'string' || value.length || e.is('select') || document.activeElement == this[0])
-				l.removeClass('floatDown').addClass('floatUp');
-			else
-				l.addClass('floatDown').removeClass('floatUp');
-		}
-		return fnVal.call(this, value);
-	};
-
-	// Replace focus function so that it updates the styles on the element
-	var fnFocus = extend.fn.focus;
-	extend.fn.focus = function() {
-		fnFocus.call(this);
-
-		var e = extend(this[0]),
-			l = extend('#' + e.attr('id') + '-label');
-
-		if(e.hasClass('hasFloatingLabel') && e.attr('type') != 'checkbox') {
-			l.removeClass('floatDown').addClass('floatUp');
-			l.addClass('focused');
-		}
-		return this;
-	};
-
-	/**
-	 * Sticky elements
-	 */
-	var sticky = [],  // List of elements being watched
-		scrollers = [], // List of elements being watched for scroll
-		scrollTimer = null, // Timer for scroll de-bounce
-		resizeTimer = null; // Time for resize de-bounce
-	/**
-	 * Handle scrolling and de-bounce.
-	 */
-	function onScroll() {
-		if(scrollTimer === null) {
-			scrollTimer = setTimeout(function() {
-				scrollTimer = null;
-				updateElements();
-			}, 0);
-		}
-	}
-
-	/**
-	 * Catch resize events.
-	 */
-	function resizeUpdate() {
-		if(resizeTimer === null) {
-			resizeTimer = setTimeout(function() {
-				resizeTimer = null;
-
-				// Stop elements from being sticky
-				for(var i=0;i<sticky.length;i++) {
-					sticky[i].element.removeClass('sticky').parent().css('height', 'auto');
-				}
-
-				// Recalculate heights
-				extend('.stickyWrapper').each(function() {
-					var wrap = $(this),
-						h = 0;
-
-					wrap.children().each(function() {
-						h += $(this).height()
-							+ parseInt($(this).css('padding-top'))
-							+ parseInt($(this).css('padding-bottom'));
-					});
-					wrap.attr('data-height', h + 'px');
-				});
-
-				// Make elements sticky
-				updateElements();
-			});
-		}
-	}
-
-	/**
-	 * Process the list of sticky elements and update them.
-	 */
-	function updateElements() {
-		for(var i=0;i<sticky.length; i++) {
-			var scrollPx = sticky[i].context.scrollTop(),
-				scrollPercent = (scrollPx / sticky[i].context.height()) * 100,
-				width = sticky[i].context.width();
-
-			// Test if element should be sticky
-			if((
-					(sticky[i].minWidth === null || width >= sticky[i].minWidth)
-					&& (sticky[i].maxWidth === null || width <= sticky[i].maxWidth)
-				) && (
-					(sticky[i].offsetType == '%'  && scrollPercent >= sticky[i].offsetVal)
-					|| (sticky[i].offsetType == 'px' && scrollPx >= sticky[i].offsetVal)
-				)
-			) {
-				if(!sticky[i].element.hasClass('sticky')) {
-					sticky[i].element.addClass('sticky').parent().css('height', sticky[i].element.parent().attr('data-height'));
-					sticky[i].element.trigger('stick');
-				}
-			}
-			else {
-				if(sticky[i].element.hasClass('sticky')) {
-					sticky[i].element.removeClass('sticky').parent().css('height', 'auto');
-					sticky[i].element.trigger('unstick');
-				}
-			}
-		}
-	}
-
-	extend.fn.extend({
-
-		/**
-		 * Make an element sticky.
-		 *
-		 * @param mpa opts { context: The parent context, offset: pixel or percentage offset }
-		 */
-		makeSticky: function(opts) {
-			opts = opts ? opts : {};
-
-			return this.each(function() {
-				var el = extend(this),
-					h = el.height()
-						+ parseInt(el.css('padding-top'))
-						+ parseInt(el.css('padding-bottom')),
-					i,
-					offset = opts.offset ? opts.offset : 0;
-
-				// Wrap the element
-				el.wrap('<div class="stickyWrapper" data-height="' + h + 'px"></div>');
-
-				// If context given and scroll events not attached
-				if(opts.context) {
-					for (i = 0; i < scrollers.length; i++) {
-						if (opts.context.get(0) === scrollers[i].get(0)) {
-							i = -1;
-							break;
-						}
-					}
-
-					if (i != -1) {
-						scrollers.push(opts.context);
-						opts.context.on('scroll', onScroll).on('resize', resizeUpdate);
-					}
-				}
-
-				// Store the element and options
-				sticky.push({
-					element: el,
-					context: opts.context ? opts.context : extend(window),
-					offsetType: typeof offset === 'string' && offset.match(/%$/) ? '%' : 'px',
-					offsetVal: parseInt(offset),
-					minWidth: opts.minWidth ? parseInt(opts.minWidth) : null,
-					maxWidth: opts.maxWidth ? parseInt(opts.maxWidth) : null
-				});
-
-				updateElements();
-			});
-		},
-
-		/**
-		 * Set the offset to make an element sticky at.
-		 *
-		 * @param soffset Pixel or percentage offset.
-		 */
-		setStickyOffset: function(offset) {
-			return this.each(function() {
-				for(var i=0;i<sticky.length;i++) {
-					if(sticky[i].element.get(0) === this) {
-						sticky[i].offsetType = typeof offset === 'string' && offset.match(/%$/) ? '%' : 'px';
-						sticky[i].offsetVal = parseInt(offset);
-						break;
-					}
-				}
-			});
-		}
-	});
-
-	// Attach events to window
-	scrollers.push(extend(window));
-	extend(window)
-		.on('scroll', onScroll)
-		.on('resize', resizeUpdate);
 
 })();

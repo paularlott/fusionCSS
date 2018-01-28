@@ -1,0 +1,161 @@
+<div class="floatingLabels">
+	<h1>Forms</h1>
+
+	<h2>Horizontal Form</h2>
+
+	<div class="card">
+		<div class="content">
+			<form id="cartaddform" class="hform" action="#stay" method="post"
+			      enctype="application/x-www-form-urlencoded"
+			      accept-charset="utf-8">
+
+				<fieldset id="freship-group">
+					<legend>Shipping</legend>
+					<dl id="freship-list">
+						<dt><label id="shipping-label" for="shipping" aria-atomic="true" aria-live="polite">Free
+							Shipping On
+							<span class="validation " id="shipping-validation"><strong>&nbsp;</strong></span></label>
+						</dt>
+						<dd id="shipping-container">
+							<ol id="shipping" class="checklist" title="Free Shipping On">
+								<li><label><input name="shipping[]" type="checkbox" value="2."
+								                  aria-labelledby="shipping-label"> Free</label></li>
+								<li><label><input name="shipping[]" type="checkbox" value="1."
+								                  aria-labelledby="shipping-label"> Standard</label></li>
+							</ol>
+						</dd>
+						<dt></dt>
+						<dd id="shipinfo-container">
+							<div class="alert info">
+								<strong>Information</strong><br>The shipping methods that will become free if the order
+								meets the general restrictions for the coupon.
+							</div>
+						</dd>
+					</dl>
+				</fieldset>
+
+				<dl id="cartaddform-list">
+					<dt><label id="cartattrib1-label" for="cartattrib1" aria-atomic="true"
+					           aria-live="polite">Color <span
+						class="validation " id="cartattrib1-validation"><strong>&nbsp;</strong></span></label></dt>
+					<dd id="cartattrib1-container">
+						<ol id="cartattrib1" class="radiogroup" title="Color">
+							<li><label><input name="cartattrib1" type="radio" value="2"
+							                  aria-labelledby="cartattrib1-label">Red</label>
+							</li>
+							<li><label><input name="cartattrib1" type="radio" value="3" checked="checked"
+							                  aria-labelledby="cartattrib1-label">Green</label></li>
+							<li><label><input name="cartattrib1" type="radio" value="4"
+							                  aria-labelledby="cartattrib1-label">Blue</label>
+							</li>
+						</ol>
+					</dd>
+					<dt></dt>
+					<dd id="active-container"><label id="active-label" aria-atomic="true" aria-live="polite"><input
+						name="active" id="active" type="checkbox" value="1" checked="checked"
+						aria-labelledby="active-label"> Coupon Active <span class="validation "
+					                                                        id="active-validation"><strong>
+							&nbsp;</strong></span></label>
+					</dd>
+					<dt><label id="code-label" for="code" aria-atomic="true" aria-live="polite">Coupon Code <em>(Required)</em>
+						<span class="validation hide" id="code-validation"><strong>&nbsp;</strong></span></label>
+					</dt>
+					<dd id="code-container"><input type="text" id="code" name="code" value="111-222-333-444"
+					                               aria-labelledby="code-label" aria-required="true">
+					</dd>
+					<dt><label id="desc-label" for="desc" aria-atomic="true" aria-live="polite">Description <em>(Required)</em>
+						<span class="validation " id="desc-validation"><strong>&nbsp;</strong></span></label></dt>
+					<dd id="desc-container"><input type="text" id="desc" disabled="disabled" name="desc"
+					                               value="EXAMPLE"
+					                               aria-labelledby="desc-label" aria-required="true">
+						<div class="description" id="desc-desc">Disabled input</div>
+					</dd>
+					<dt><label id="desc2-label" for="desc2" aria-atomic="true" aria-live="polite">Description <em>(Required)</em>
+						<span class="validation " id="desc2-validation"><strong>&nbsp;</strong></span></label></dt>
+					<dd id="desc2-container"><input type="text" id="desc2" name="desc2"
+					                               placeholder="example text"
+					                               aria-labelledby="desc2-label" aria-required="true">
+						<div class="description" id="desc2-desc">Input something here</div>
+					</dd>
+					<dt><label id="cartqty-label" for="cartqty" aria-atomic="true" aria-live="polite">Quantity <span
+						class="validation " id="cartqty-validation"><strong>&nbsp;</strong></span></label></dt>
+					<dd id="cartqty-container"><input type="number" id="cartqty" name="cartqty" value="1" min="1"
+					                                  aria-labelledby="cartqty-label" aria-describedby="cartqty-desc"
+					                                  max="">##
+						<div class="description" id="cartqty-desc"></div>
+					</dd>
+					<dt><label id="email-label" for="email" aria-atomic="true" aria-live="polite"
+					           class="validationError"><span>Email Address <em>(Required)</em></span> <span
+						class="validation failed" id="email-validation"><strong>Email Address must be a valid working
+						email
+						address.</strong></span></label></dt>
+					<dd id="email-container"><input type="text" id="email" name="email" value="example@example.com"
+					                                aria-labelledby="email-label" aria-required="true"
+					                                class="validationError">
+					</dd>
+					<dt></dt>
+					<dd id="email2-container">
+						<input type="text" id="email2" name="email2" placeholder="repeat your email address" aria-required="true">
+					</dd>
+					<dt><label id="email3-label" for="email3" aria-atomic="true" aria-live="polite">Secondary Email <span
+						class="validation " id="email3-validation"><strong>&nbsp;</strong></span></label></dt>
+					<dd id="email3-container">
+						<input type="text" id="email3" name="email3" placeholder="example2@example.com" aria-required="true">
+					</dd>
+					<dt><label id="message-label" for="message" aria-atomic="true" aria-live="polite">Your Message <em>(Required)</em>
+						<span class="validation " id="message-validation"><strong>&nbsp;</strong></span></label></dt>
+					<dd id="message-container"><textarea id="message" name="message" cols="30" rows="10"
+					                                     placeholder="e.g. the description of your problem"
+					                                     aria-labelledby="message-label"
+					                                     aria-required="true"></textarea>
+					</dd>
+					<dt id="template-lblcontainer"><label id="template-label" for="template" aria-atomic="true"
+					                                      aria-live="polite" class="floatUp"><span>Template</span> <span
+						class="validation hide" id="template-validation"><strong>&nbsp;</strong></span></label></dt>
+					<dd id="template-container">
+						<div class="selectControl templateSelectControl"><select id="template"
+						                                                         aria-labelledby="template-label"
+						                                                         name="template"
+						                                                         class="hasFloatingLabel"
+						                                                         placeholder="">
+							<option value="layout" selected="selected">layout [default]</option>
+							<option value="layout2">layout2</option>
+							<option value="blank">blank</option>
+							<option value="default">default</option>
+						</select></div>
+					</dd>
+					<dt><label id="imgfile-label" for="imgfile" aria-atomic="true" aria-live="polite">New Image
+						File <span
+							class="validation " id="imgfile-validation"><strong>&nbsp;</strong></span></label></dt>
+					<dd id="imgfile-container"><input type="file" id="imgfile" name="imgfile"
+					                                  aria-labelledby="imgfile-label">
+					</dd>
+					<dt><label id="upld2-label" for="code" aria-atomic="true" aria-live="polite">Styled Upload <em>(Required)</em>
+						<span class="validation hide" id="upld2-validation"><strong>&nbsp;</strong></span></label>
+					</dt>
+					<dd id="upld2-container">
+						<div class="uploadButton primary">
+							<span aria-live="polite">Choose File</span>
+							<input type="file" id="upld2" name="upld2" aria-labelledby="upld2-label"
+							       aria-required="true">
+						</div>
+					</dd>
+					<dt></dt>
+					<dd id="cartadd-container"><input type="submit" id="cartadd" name="cartadd" value="Add to Cart"
+					                                  class="primary">
+					</dd>
+					<dt></dt>
+					<dd>
+
+						<p><a href="#stay" class="button">Button</a> <a href="#stay" class="button danger">Delete</a> <a
+							href="#stay"
+							class="button accent">Warning</a>
+						</p>
+
+					</dd>
+				</dl>
+			</form>
+		</div>
+	</div>
+
+</div>
