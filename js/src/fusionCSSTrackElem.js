@@ -27,10 +27,12 @@
 		if(lastScroll >= tracked[idx].top && tracked[idx].before) {
 			tracked[idx].before = false;
 			tracked[idx].handler.call(tracked[idx].element, direction);
+			tracked[idx].element.trigger('pointReached', [direction]);
 		}
 		else if(lastScroll <= tracked[idx].top && !tracked[idx].before) {
 			tracked[idx].before = true;
 			tracked[idx].handler.call(tracked[idx].element, direction);
+			tracked[idx].element.trigger('pointReached', [direction]);
 		}
 	}
 
@@ -121,7 +123,7 @@
 	 */
 	.on('resize', function() {
 		// Recalculate offsets and see if points changed
-		for(var i=0;i<tracked[i].length;i++) {
+		for(var i=0;i<tracked.length;i++) {
 			var oldTop = tracked[i].top,
 				offsetType = typeof tracked[i].offset === 'string' && tracked[i].offset.match(/%$/) ? '%' : 'px',
 				top = tracked[i].element.offset().top + (offsetType == '%'
@@ -181,6 +183,7 @@
 								this.parent().height(this.outerHeight(true));
 								this.addClass(opts.stuckClass);
 								opts.handler.call(this, 'stuck');
+								this.trigger('stuck');
 							}
 						}
 						else {
@@ -194,6 +197,7 @@
 								this.parent().height('');
 								this.removeClass(opts.stuckClass);
 								opts.handler.call(this, 'unstuck');
+								this.trigger('unstuck');
 							}
 						}
 					},
@@ -213,8 +217,8 @@
 			return this.each(function() {
 				for(var i=0;i<stickyList.length;i++) {
 					if(stickyList[i].get(0) === this) {
-						sticky[i].get(0)._stickyOpts.offset = offset;
-						sticky[i].trackPointSetOffset(offset);
+						stickyList[i].get(0)._stickyOpts.offset = offset;
+						stickyList[i].trackPointSetOffset(offset);
 						break;
 					}
 				}
@@ -238,6 +242,7 @@
 				stickyList[i].parent().height('');
 				stickyList[i].removeClass(opts.stuckClass);
 				opts.handler.call(stickyList[i], 'unstuck');
+				stickyList[i].trigger('unstuck');
 			}
 			// Find the stickable elements and see if can stick
 			else if(opts.canStick && !opts.stuck && (opts.minWidth == null || w >= opts.minWidth) && (opts.maxWidth == null || w <= opts.maxWidth)) {
@@ -246,6 +251,7 @@
 				stickyList[i].parent().height(stickyList[i].outerHeight(true));
 				stickyList[i].addClass(opts.stuckClass);
 				opts.handler.call(stickyList[i], 'stuck');
+				stickyList[i].trigger('stuck');
 			}
 		}
 	});
