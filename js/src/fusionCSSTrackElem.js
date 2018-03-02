@@ -13,8 +13,7 @@
 (function() {
 	var extend = window.jQuery || window.fusionLib,
 		tracked = [],
-		lastScroll = extend(window).scrollTop(),
-		stickyList = [];
+		lastScroll = extend(window).scrollTop();
 
 	/**
 	 * Test if point reached and trigger handler.
@@ -79,12 +78,10 @@
 			var offsetType = typeof offset === 'string' && offset.match(/%$/) ? '%' : 'px';
 
 			return this.each(function() {
-				var el = extend(this);
-
 				for(var i=0;i<tracked.length;i++) {
 					if(this === tracked[i].element.get(0)) {
 						var oldTop = tracked[i].top,
-							top = tracked[i].element.offset().top + (offsetType == '%'
+							top = tracked[i].element.parent().offset().top + (offsetType == '%'
 									? ((parseInt(offset) / 100) * extend(window).height())
 									: parseInt(offset)
 							);
@@ -121,22 +118,23 @@
 	/**
 	 * Track resize events.
 	 */
-	.on('resize', function() {
-		// Recalculate offsets and see if points changed
-		for(var i=0;i<tracked.length;i++) {
-			var oldTop = tracked[i].top,
-				offsetType = typeof tracked[i].offset === 'string' && tracked[i].offset.match(/%$/) ? '%' : 'px',
-				top = tracked[i].element.offset().top + (offsetType == '%'
-						? ((parseInt(tracked[i].offset) / 100) * extend(window).height())
-						: parseInt(tracked[i].offset)
-				);
-			tracked[i].top = top;
+		.on('resize', function() {
 
-			if(oldTop != tracked[i].top) {
-				testTrigger(i, tracked[i].top > oldTop ? 'up' : 'down');
+			for(var i=0;i<tracked.length;i++) {
+				var oldTop = tracked[i].top,
+					offsetType = typeof tracked[i].offset === 'string' && tracked[i].offset.match(/%$/) ? '%' : 'px',
+					top = tracked[i].element.parent().offset().top + (offsetType == '%'
+							? ((parseInt(tracked[i].offset) / 100) * extend(window).height())
+							: parseInt(tracked[i].offset)
+					);
+
+				tracked[i].top = top;
+
+				if(oldTop != top) {
+					testTrigger(i, tracked[i].top > oldTop ? 'up' : 'down');
+				}
 			}
-		}
-	});
+		});
 
 
 	/**
@@ -203,8 +201,6 @@
 					},
 					offset: opts.offset
 				});
-
-				stickyList.push(el)
 			});
 		},
 
@@ -215,44 +211,9 @@
 		 */
 		stickyOnScrollOffset: function(offset) {
 			return this.each(function() {
-				for(var i=0;i<stickyList.length;i++) {
-					if(stickyList[i].get(0) === this) {
-						stickyList[i].get(0)._stickyOpts.offset = offset;
-						stickyList[i].trackPointSetOffset(offset);
-						break;
-					}
-				}
+				this._stickyOpts.offset = offset;
+				$(this).trackPointSetOffset(offset);
 			});
-		}
-	});
-
-	/**
-	 * Catch resize events and stick / unstick elements now failing width restrictions.
-	 */
-	extend(window).on('resize', function() {
-		var w = extend(window).width();
-
-		for(var i=0;i<stickyList.length;i++) {
-			var opts = stickyList[i].get(0)._stickyOpts;
-
-			// Find the stuck elements and see if it can stay stuck
-			if(opts.stuck && ((opts.minWidth != null && w < opts.minWidth) || (opts.maxWidth != null && w > opts.maxWidth))) {
-				// Unstick element
-				opts.stuck = false;
-				stickyList[i].parent().height('');
-				stickyList[i].removeClass(opts.stuckClass);
-				opts.handler.call(stickyList[i], 'unstuck');
-				stickyList[i].trigger('unstuck');
-			}
-			// Find the stickable elements and see if can stick
-			else if(opts.canStick && !opts.stuck && (opts.minWidth == null || w >= opts.minWidth) && (opts.maxWidth == null || w <= opts.maxWidth)) {
-				// Stick the element
-				opts.stuck = true;
-				stickyList[i].parent().height(stickyList[i].outerHeight(true));
-				stickyList[i].addClass(opts.stuckClass);
-				opts.handler.call(stickyList[i], 'stuck');
-				stickyList[i].trigger('stuck');
-			}
 		}
 	});
 
