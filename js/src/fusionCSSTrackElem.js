@@ -13,7 +13,8 @@
 (function() {
 	var extend = window.jQuery || window.fusionLib,
 		tracked = [],
-		lastScroll = extend(window).scrollTop();
+		lastScroll = extend(window).scrollTop(),
+		stickyList = [];
 
 	/**
 	 * Test if point reached and trigger handler.
@@ -62,6 +63,9 @@
 					};
 
 				tracked.push(d);
+
+				// Wrap the element
+				el.wrap('<div class="trackPointWrapper"></div>');
 
 				// If point already reached then flag it
 				if(lastScroll >= d.top)
@@ -156,14 +160,10 @@
 			opts.maxWidth = opts.maxWidth ? opts.maxWidth : null;
 			opts.offset = opts.offset ? opts.offset : 0;
 			opts.stuck = false;
-			opts.canStick = false;
 
 			return this.each(function() {
 				var el = extend(this);
 				el.get(0)._stickyOpts = Object.assign({}, opts);
-
-				// Wrap the element
-				el.wrap('<div class="stickyWrapper"></div>');
 
 				// Add handler to the element
 				el.trackPoint({
@@ -171,7 +171,6 @@
 						var opts = this.get(0)._stickyOpts;
 
 						if(direction == 'down') {
-							opts.canStick = true;
 
 							// Check width restrictions
 							var w = $(window).width();
@@ -185,7 +184,6 @@
 							}
 						}
 						else {
-							opts.canStick = false;
 
 							// Check width restrictions
 							var w = $(window).width();
@@ -201,6 +199,12 @@
 					},
 					offset: opts.offset
 				});
+
+				// Mark the wrapper class
+				el.parent().addClass('stickyWrapper');
+
+				// Remember the element
+				stickyList.push(el);
 			});
 		},
 
@@ -214,6 +218,20 @@
 				this._stickyOpts.offset = offset;
 				$(this).trackPointSetOffset(offset);
 			});
+		}
+	});
+
+	/**
+	 * On resize update heights of stuck elements.
+	 */
+	extend(window).on('resize', function () {
+		for(var i=0;i<stickyList.length;i++) {
+			var opts = stickyList[i].get(0)._stickyOpts;
+
+			if(opts.stuck) {
+				var el = stickyList[i];
+				el.parent().height(el.outerHeight(true));
+			}
 		}
 	});
 
