@@ -1842,6 +1842,9 @@ form dd:last-child {
 .floatingLabels form .selectControl select:disabled {
   cursor: not-allowed;
 }
+.floatingLabels form .selectControl select::-ms-expand {
+  display: none;
+}
 .floatingLabels .floatTextarea.floatUp {
   left: 0;
   top: -0.75rem;

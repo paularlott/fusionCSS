@@ -163,7 +163,7 @@
 
 			return this.each(function() {
 				var el = extend(this);
-				el.get(0)._stickyOpts = Object.assign({}, opts);
+				el.get(0)._stickyOpts = opts;
 
 				// Add handler to the element
 				el.trackPoint({
