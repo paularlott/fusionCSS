@@ -111,7 +111,7 @@ gulp.task('clean', function() {
  * Build docs from doc sources
  */
 gulp.task('docs', function() {
-	gulp.src('./docs_src/*.html')
+	return gulp.src('./docs_src/*.html')
 		.pipe(plugins.panini({
 			root: './docs_src/',
 			layouts: './docs_src/layouts/',
@@ -129,11 +129,11 @@ gulp.task('watch', function() {
 	gulp.watch([
 		'./less/*.less',
 		'./less/themes/*.less'
-	], themeTaskList);
-	gulp.watch('./js/src/*.js', ['js', 'jstrackelem', 'single_less']);
+	], gulp.parallel(themeTaskList));
+	gulp.watch('./js/src/*.js', gulp.parallel(['js', 'jstrackelem', 'single_less']));
 });
 
 /**
  * Default build task
  */
-gulp.task('default', ['js', 'jstrackelem', 'single_less'].concat(themeTaskList));
+gulp.task('default', gulp.parallel(['js', 'jstrackelem', 'single_less'].concat(themeTaskList)));
