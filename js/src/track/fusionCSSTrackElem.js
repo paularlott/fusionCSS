@@ -11,9 +11,8 @@
  */
 
 (function() {
-	var extend = window.jQuery || window.fusionLib,
-		tracked = [],
-		lastScroll = extend(window).scrollTop(),
+	var tracked = [],
+		lastScroll = $(window).scrollTop(),
 		stickyList = [];
 
 	/**
@@ -36,7 +35,7 @@
 		}
 	}
 
-	extend.fn.extend({
+	$.fn.extend({
 
 		/**
 		 * Add tracking to a point.
@@ -50,11 +49,11 @@
 				offsetType = typeof offset === 'string' && offset.match(/%$/) ? '%' : 'px';
 
 			return this.each(function() {
-				var el = extend(this),
+				var el = $(this),
 					d = {
 						element: el,
 						top: el.offset().top + (offsetType == '%'
-								? ((parseInt(offset) / 100) * extend(window).height())
+								? ((parseInt(offset) / 100) * $(window).height())
 								: parseInt(offset)
 						),
 						before: true,
@@ -86,7 +85,7 @@
 					if(this === tracked[i].element.get(0)) {
 						var oldTop = tracked[i].top,
 							top = tracked[i].element.parent().offset().top + (offsetType == '%'
-									? ((parseInt(offset) / 100) * extend(window).height())
+									? ((parseInt(offset) / 100) * $(window).height())
 									: parseInt(offset)
 							);
 						tracked[i].offset = offset;
@@ -106,8 +105,8 @@
 	/**
 	 * Tack the scrolling.
 	 */
-	extend(window).on('scroll', function () {
-		var top = extend(window).scrollTop(),
+	$(window).on('scroll', function () {
+		var top = $(window).scrollTop(),
 			direction = top > lastScroll ? 'down' : 'up';
 
 		if(top != lastScroll) {
@@ -128,7 +127,7 @@
 				var oldTop = tracked[i].top,
 					offsetType = typeof tracked[i].offset === 'string' && tracked[i].offset.match(/%$/) ? '%' : 'px',
 					top = tracked[i].element.parent().offset().top + (offsetType == '%'
-							? ((parseInt(tracked[i].offset) / 100) * extend(window).height())
+							? ((parseInt(tracked[i].offset) / 100) * $(window).height())
 							: parseInt(tracked[i].offset)
 					);
 
@@ -144,7 +143,7 @@
 	/**
 	 * Implement sticky elements
 	 */
-	extend.fn.extend({
+	$.fn.extend({
 
 		/**
 		 * Configure element to stick on scroll.
@@ -162,7 +161,7 @@
 			opts.stuck = false;
 
 			return this.each(function() {
-				var el = extend(this);
+				var el = $(this);
 				el.get(0)._stickyOpts = opts;
 
 				// Add handler to the element
@@ -224,7 +223,7 @@
 	/**
 	 * On resize update heights of stuck elements.
 	 */
-	extend(window).on('resize', function () {
+	$(window).on('resize', function () {
 		for(var i=0;i<stickyList.length;i++) {
 			var opts = stickyList[i].get(0)._stickyOpts;
 

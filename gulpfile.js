@@ -42,7 +42,7 @@ themeList.forEach(function (theme) {
  */
 gulp.task('js', function() {
 	return gulp.src([
-		'./js/src/fusionCSS.js'
+		'./js/src/core/*.js'
 	])
 		.pipe(plugins.concat('fusionCSS.js'))
 		.pipe(plugins.uglify())
@@ -55,7 +55,7 @@ gulp.task('js', function() {
  */
 gulp.task('jstrackelem', function() {
 	return gulp.src([
-		'./js/src/fusionCSSTrackElem.js'
+		'./js/src/track/*.js'
 	])
 		.pipe(plugins.concat('fusionCSSTrackElem.js'))
 		.pipe(plugins.uglify())
@@ -68,27 +68,11 @@ gulp.task('jstrackelem', function() {
  */
 gulp.task('single_less', function() {
 	return gulp.src([
-		'./less/mixins.less',
-		'./less/typography.less',
-		'./less/grid.less',
-		'./less/utilities.less',
-		'./less/colors.less',
-		'./less/tables.less',
-		'./less/pagination.less',
-		'./less/breadcrumb.less',
-		'./less/navigation.less',
-		'./less/alerts.less',
-		'./less/visibility.less',
-		'./less/cards.less',
-		'./less/forms.less',
-		'./less/buttons.less',
-		'./less/slideinmenu.less',
-		'./less/toast.less',
-		'./less/tabs.less',
-		'./less/chips.less',
-		'./less/appbar.less',
-		'./less/fam.less',
-		'./less/shadow.less'
+		'./less/*.less',
+		'!./less/grid1.less',
+		'!./less/fusionCSS.less',
+		'!./less/variables.less',
+		'!./less/version.less'
 	])
 		.pipe(plugins.concat('fusionCSS.less'))
 		.pipe(plugins.insert.prepend(version))
@@ -125,13 +109,15 @@ gulp.task('docs', function() {
 /**
  * Watch files for changes
  */
-gulp.task('watch', function() {
+gulp.task('fusionCSSWatch', function() {
 	gulp.watch([
 		'./less/*.less',
 		'./less/themes/*.less'
-	], gulp.parallel(themeTaskList));
-	gulp.watch('./js/src/*.js', gulp.parallel(['js', 'jstrackelem', 'single_less']));
+	], gulp.parallel(themeTaskList.concat(['single_less'])));
+	gulp.watch('./js/src/core/*.js', gulp.parallel(['js']));
+	gulp.watch('./js/src/track/*.js', gulp.parallel(['jstrackelem']));
 });
+gulp.task('watch', gulp.parallel(['js', 'jstrackelem', 'single_less'].concat(themeTaskList).concat('fusionCSSWatch')));
 
 /**
  * Default build task

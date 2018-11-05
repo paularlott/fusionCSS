@@ -185,6 +185,33 @@ form {
 			margin-bottom: 0;
 		}
 	}
+
+	.selectControl {
+		position: relative;
+		z-index: 1;
+		cursor: pointer;
+
+		select {
+			cursor: pointer;
+			z-index: 4;
+			position: relative;
+		}
+
+		&:after {
+			content: ' ';
+			display: block;
+			z-index: 2;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: .5rem .5rem 0 .5rem;
+			border-color: @colorPrimary transparent transparent transparent;
+			position: absolute;
+			top: 50%;
+			right: 1rem;
+			transform: translateY(-50%);
+		}
+	}
 }
 
 // Give form input fields an application style
@@ -218,6 +245,8 @@ form {
 
 .floatingLabels {
 	label {
+		.user-select();
+
 		&.floatUp {
 			color: @formTextDesc;
 			position: absolute;
@@ -260,29 +289,6 @@ form {
 		}
 
 		.selectControl {
-			position: relative;
-			z-index: 1;
-
-			&:after {
-				content: "\f078"; // Fontawesome chevron down
-				color: @colorPrimary;
-				display: block;
-				font: normal normal normal 14px/1 FontAwesome;
-				text-rendering: auto;
-				-webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale;
-				position: absolute;
-				width: 16px;
-				height: 16px;
-				text-align: center;
-				font-size: 16px;
-				line-height: 1;
-				top: 50%;
-				margin-top: -8px;
-				right: 1rem;
-				z-index: 2;
-			}
-
 			select {
 				padding: 1.5rem .25rem .5rem .25rem;
 				margin: 0;
@@ -290,9 +296,6 @@ form {
 				border-radius: 0;
 				-webkit-appearance: none;
 				-moz-appearance: none;
-				position: relative;
-				z-index: 4;
-				cursor: pointer;
 
 				// Hide focus on Firefox
 				&:-moz-focusring {
@@ -343,6 +346,12 @@ form {
 		input[type="search"],
 		.selectControl select {
 			padding: 1.5rem 0 .5rem 0;
+		}
+
+		.selectControl {
+			&:after {
+				transform: none;
+			}
 		}
 	}
 }
