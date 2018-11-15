@@ -1,6 +1,6 @@
 <a href="http://fusioncss.com/"><img src="http://fusioncss.com/assets/public_files/images/logo.png" alt="fusionCSS" /></a>
 
-fusionCSS V3.1.0
+fusionCSS V3.1.1
 ====
 
 [http://fusioncss.com](http://fusioncss.com)
