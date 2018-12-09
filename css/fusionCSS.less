@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2013 - 2018 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
- * @version 3.1.1
+ * @version 3.1.2
  */
 .alert {
 	text-align: left;
@@ -1566,6 +1566,7 @@ form {
 }
 
 .user-select(@select: none) {
+	-webkit-touch-callout: @select;
 	-webkit-user-select: @select;
 	-moz-user-select: @select;
 	-ms-user-select: @select;

@@ -64,6 +64,19 @@ gulp.task('jstrackelem', function() {
 });
 
 /**
+ * Build JavaScript drag ordering
+ */
+gulp.task('jsdragorder', function() {
+	return gulp.src([
+		'./js/src/dragorder/*.js'
+	])
+		.pipe(plugins.concat('fusionCSSDragOrder.js'))
+		.pipe(plugins.uglify())
+		.pipe(plugins.insert.prepend(version))
+		.pipe(gulp.dest('./js/'));
+});
+
+/**
  * Build a single less file with everything but variables
  */
 gulp.task('single_less', function() {
@@ -116,10 +129,11 @@ gulp.task('fusionCSSWatch', function() {
 	], gulp.parallel(themeTaskList.concat(['single_less'])));
 	gulp.watch('./js/src/core/*.js', gulp.parallel(['js']));
 	gulp.watch('./js/src/track/*.js', gulp.parallel(['jstrackelem']));
+	gulp.watch('./js/src/dragorder/*.js', gulp.parallel(['jsdragorder']));
 });
 gulp.task('watch', gulp.parallel(['js', 'jstrackelem', 'single_less'].concat(themeTaskList).concat('fusionCSSWatch')));
 
 /**
  * Default build task
  */
-gulp.task('default', gulp.parallel(['js', 'jstrackelem', 'single_less'].concat(themeTaskList)));
+gulp.task('default', gulp.parallel(['js', 'jstrackelem', 'jsdragorder', 'single_less'].concat(themeTaskList)));

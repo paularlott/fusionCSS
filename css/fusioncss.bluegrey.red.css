@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2013 - 2018 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
- * @version 3.1.1
+ * @version 3.1.2
  */
 * {
   margin: 0;
@@ -1218,6 +1218,7 @@ div.responsiveTableWrapperInner {
   margin: 0 auto;
   list-style: none;
   text-align: center;
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1248,6 +1249,7 @@ div.responsiveTableWrapperInner {
 .breadcrumbwidget {
   list-style: none;
   margin: .5rem 0;
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1358,6 +1360,7 @@ div.responsiveTableWrapperInner {
   background-color: #607D8B;
   list-style: none;
   margin: 0;
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1793,6 +1796,7 @@ form .selectControl:after {
   border-bottom: 2px solid #F44336;
 }
 .floatingLabels label {
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1993,6 +1997,7 @@ button,
   border-radius: 3px;
   text-decoration: none;
   -webkit-appearance: none;
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -2442,6 +2447,7 @@ body.disableScroll {
   list-style: none;
   margin: 0 0 .5rem 0;
   padding: 0;
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -2637,6 +2643,7 @@ body.disableScroll {
   font-size: 1.3rem;
   padding: .5rem 1rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -2677,6 +2684,7 @@ body.disableScroll {
   position: relative;
   display: inline-block;
   z-index: 9000;
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

@@ -52,10 +52,9 @@
 				var el = $(this),
 					d = {
 						element: el,
-						top: el.offset().top + (offsetType == '%'
+						top: offsetType == '%'
 								? ((parseInt(offset) / 100) * $(window).height())
-								: parseInt(offset)
-						),
+								: parseInt(offset),
 						before: true,
 						offset: offset,
 						handler: handler
