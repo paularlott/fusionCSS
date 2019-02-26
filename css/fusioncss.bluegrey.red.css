@@ -1,7 +1,7 @@
 /**
- * Copyright (c) 2013 - 2018 fusionCSS. All rights reserved.
+ * Copyright (c) 2013 - 2019 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
- * @version 3.1.2
+ * @version 3.1.3
  */
 * {
   margin: 0;
@@ -1715,11 +1715,21 @@ form .checklist li {
   background-color: transparent;
   transition: all 150ms linear;
 }
+form .checklist li.default {
+  background-color: #FFF9C4;
+}
 form .checklist li.selected {
   background-color: #EEEEEE;
 }
+form .checklist li.default.selected {
+  background-color: #FFF59D;
+}
 form .checklist li:hover {
-  background-color: #EEEEEE;
+  background-color: #E0E0E0;
+}
+form .checklist li:hover.default,
+form .checklist li:hover.default.selected {
+  background-color: #FFF176;
 }
 form .checklist li label {
   display: block;

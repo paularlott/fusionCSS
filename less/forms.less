@@ -157,12 +157,25 @@ form {
 			background-color: transparent;
 			.transition();
 
+			&.default {
+				background-color: @checklistDefaultBg;
+			}
+
 			&.selected {
-				background-color: @checklistHoeverBg;
+				background-color: @checklistSelectedBg;
+			}
+
+			&.default.selected {
+				background-color: @checklistSelDefaultBg;
 			}
 
 			&:hover {
-				background-color: @checklistHoeverBg;
+				background-color: @checklistHoverBg;
+
+				&.default,
+				&.default.selected {
+					background-color: @checkListSelDefHoverBg;
+				}
 			}
 
 			label {

@@ -6,7 +6,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  *
  * @package fusionCSS
- * @copyright Copyright (c) 2018 fusionCSS. All rights reserved.
+ * @copyright Copyright (c) 2018 - 2019 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
  */
 
@@ -84,7 +84,8 @@
 						el = target.closest('.' + opts.dragItemClass),
 						cOffset = dragContainer.offset();
 
-					if(el.length) {
+					// If have and element then start the drag as long as it's not a link or it's a link and not a touch event
+					if((e.type === 'mousedown' || !target.closest('a').length) && el.length) {
 						if (e.touches && e.touches.length) {
 							dragX = e.touches[0].pageX;
 							dragY = e.touches[0].pageY;
