@@ -82,7 +82,6 @@ gulp.task('jsdragorder', function() {
 gulp.task('single_less', function() {
 	return gulp.src([
 		'./less/*.less',
-		'!./less/grid1.less',
 		'!./less/fusionCSS.less',
 		'!./less/variables.less',
 		'!./less/version.less'

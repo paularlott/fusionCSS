@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2013 - 2019 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
- * @version 3.1.3
+ * @version 3.2.0
  */
 .alert {
 	text-align: left;
@@ -217,8 +217,7 @@
 
 .uploadButton,
 input[type="submit"],
-button,
-@{btnName} {
+button {
 	// Normal buttons
 	color: @btnColorDefaultText;
 	background-color: @btnColorDefault;
@@ -252,197 +251,239 @@ button,
 		cursor: default;
 		opacity: @btnDisabled;
 	}
+}
 
-	&@{btnPrefix}primary {
-		color: @colorPrimaryText;
-		background-color: @colorPrimary;
-		&:hover {
-			background-color: lighten(@colorPrimary, @btnHoverLighten);
-		}
-		&.disabled,
-		&:disabled {
+.makeButtonStyles(@styleEnabled, @btnPrefix, @btnOutline, @btnOutlinePrefix) when (@styleEnabled = true) {
+	.uploadButton,
+	input[type="submit"],
+	button {
+		&@{btnPrefix}primary {
+			color: @colorPrimaryText;
 			background-color: @colorPrimary;
-		}
-	}
 
-	&@{btnPrefix}accent {
-		color: @colorAccentText;
-		background-color: @colorAccent;
-		&:hover {
-			background-color: lighten(@colorAccent, @btnHoverLighten);
-		}
-		&.disabled,
-		&:disabled {
-			background-color: @colorAccent;
-		}
-	}
-
-	&@{btnPrefix}alert,
-	&@{btnPrefix}danger {
-		color: @btnColorDangerText;
-		background-color: @btnColorDanger;
-		&:hover {
-			background-color: lighten(@btnColorDanger, @btnHoverLighten);
-		}
-		&.disabled,
-		&:disabled {
-			background-color: @btnColorDanger;
-		}
-	}
-
-	.extraButtons(@allButtons) when (@allButtons = true) {
-
-		&@{btnPrefix}secondary {
-			color: @btnColorSecondaryFg;
-			background-color: @btnColorSecondaryBg;
 			&:hover {
-				background-color: lighten(@btnColorSecondaryBg, @btnHoverLighten);
+				background-color: lighten(@colorPrimary, @btnHoverLighten);
 			}
+
 			&.disabled,
 			&:disabled {
-				background-color: @btnColorSecondaryBg;
-			}
-		}
-
-		&@{btnPrefix}success {
-			color: @alertColorSuccessFg;
-			background-color: @alertColorSuccessBg;
-			&:hover {
-				background-color: lighten(@alertColorSuccessBg, @btnHoverLighten);
-			}
-			&.disabled,
-			&:disabled {
-				background-color: @alertColorSuccessBg;
-			}
-		}
-
-		&@{btnPrefix}warning {
-			color: @alertColorWarningFg;
-			background-color: @alertColorWarningBg;
-			&:hover {
-				background-color: lighten(@alertColorWarningBg, @btnHoverLighten);
-			}
-			&.disabled,
-			&:disabled {
-				background-color: @alertColorWarningBg;
-			}
-		}
-
-		&@{btnPrefix}info {
-			color: @alertColorInfoFg;
-			background-color: @alertColorInfoBg;
-			&:hover {
-				background-color: lighten(@alertColorInfoBg, @btnHoverLighten);
-			}
-			&.disabled,
-			&:disabled {
-				background-color: @alertColorInfoBg;
-			}
-		}
-	}
-	.extraButtons(@btnAdditional);
-
-	// Flat buttons
-	&@{btnOutline},
-	&.flat {
-		color: @btnColorDefaultText;
-		background-color: transparent;
-
-		&:hover {
-			background-color: @btnColorFlatBg;
-			.z-depth0();
-		}
-		&.disabled,
-		&:disabled {
-			background-color: transparent;
-		}
-
-		&.primary {
-			color: @colorPrimary;
-		}
-
-		&.accent {
-			color: @colorAccent;
-		}
-
-		&.alert,
-		&.danger {
-			color: @btnColorDanger;
-		}
-
-		.extraButtons(@allButtons) when (@allButtons = true) {
-			&.secondary {
-				color: @btnColorSecondaryBg;
-			}
-			&.success {
-				color: @alertColorSuccessBg;
-			}
-			&.warning {
-				color: @alertColorWarningBg;
-			}
-			&.info {
-				color: @alertColorInfoBg;
-			}
-		}
-		.extraButtons(@btnAdditional);
-	}
-
-	// Outline buttons
-	&@{btnOutline} {
-		border: 1px solid @btnColorDefaultText;
-		&:hover {
-			color: @white;
-			background-color: @btnColorDefaultText;
-		}
-		&@{btnOutlinePrefix}primary {
-			border-color: @colorPrimary;
-			&:hover {
 				background-color: @colorPrimary;
 			}
 		}
-		&@{btnOutlinePrefix}accent {
-			border-color: @colorAccent;
+
+		&@{btnPrefix}accent {
+			color: @colorAccentText;
+			background-color: @colorAccent;
+
 			&:hover {
+				background-color: lighten(@colorAccent, @btnHoverLighten);
+			}
+
+			&.disabled,
+			&:disabled {
 				background-color: @colorAccent;
 			}
 		}
-		&@{btnOutlinePrefix}alert, &@{btnOutlinePrefix}danger {
-			border-color: @btnColorDanger;
+
+		&@{btnPrefix}alert,
+		&@{btnPrefix}danger {
+			color: @btnColorDangerText;
+			background-color: @btnColorDanger;
+
 			&:hover {
+				background-color: lighten(@btnColorDanger, @btnHoverLighten);
+			}
+
+			&.disabled,
+			&:disabled {
 				background-color: @btnColorDanger;
 			}
 		}
 
 		.extraButtons(@allButtons) when (@allButtons = true) {
 
-			&@{btnOutlinePrefix}secondary {
-				border-color: @btnColorSecondaryBg;
+			&@{btnPrefix}secondary {
+				color: @btnColorSecondaryFg;
+				background-color: @btnColorSecondaryBg;
+
 				&:hover {
+					background-color: lighten(@btnColorSecondaryBg, @btnHoverLighten);
+				}
+
+				&.disabled,
+				&:disabled {
 					background-color: @btnColorSecondaryBg;
 				}
 			}
-			&@{btnOutlinePrefix}success {
-				border-color: @alertColorSuccessBg;
+
+			&@{btnPrefix}success {
+				color: @alertColorSuccessFg;
+				background-color: @alertColorSuccessBg;
+
 				&:hover {
+					background-color: lighten(@alertColorSuccessBg, @btnHoverLighten);
+				}
+
+				&.disabled,
+				&:disabled {
 					background-color: @alertColorSuccessBg;
 				}
 			}
-			&@{btnOutlinePrefix}warning {
-				border-color: @alertColorWarningBg;
+
+			&@{btnPrefix}warning {
+				color: @alertColorWarningFg;
+				background-color: @alertColorWarningBg;
+
 				&:hover {
+					background-color: lighten(@alertColorWarningBg, @btnHoverLighten);
+				}
+
+				&.disabled,
+				&:disabled {
 					background-color: @alertColorWarningBg;
 				}
 			}
-			&@{btnOutlinePrefix}info {
-				border-color: @alertColorInfoBg;
+
+			&@{btnPrefix}info {
+				color: @alertColorInfoFg;
+				background-color: @alertColorInfoBg;
+
 				&:hover {
+					background-color: lighten(@alertColorInfoBg, @btnHoverLighten);
+				}
+
+				&.disabled,
+				&:disabled {
 					background-color: @alertColorInfoBg;
 				}
 			}
 		}
 		.extraButtons(@btnAdditional);
-	}
 
+		// Flat buttons
+		&@{btnOutline},
+		&.flat {
+			color: @btnColorDefaultText;
+			background-color: transparent;
+
+			&:hover {
+				background-color: @btnColorFlatBg;
+				.z-depth0();
+			}
+
+			&.disabled,
+			&:disabled {
+				background-color: transparent;
+			}
+
+			&.primary {
+				color: @colorPrimary;
+			}
+
+			&.accent {
+				color: @colorAccent;
+			}
+
+			&.alert,
+			&.danger {
+				color: @btnColorDanger;
+			}
+
+			.extraButtons(@allButtons) when (@allButtons = true) {
+				&.secondary {
+					color: @btnColorSecondaryBg;
+				}
+				&.success {
+					color: @alertColorSuccessBg;
+				}
+				&.warning {
+					color: @alertColorWarningBg;
+				}
+				&.info {
+					color: @alertColorInfoBg;
+				}
+			}
+			.extraButtons(@btnAdditional);
+		}
+
+		// Outline buttons
+		&@{btnOutline} {
+			border: 1px solid @btnColorDefaultText;
+
+			&:hover {
+				color: @white;
+				background-color: @btnColorDefaultText;
+			}
+
+			&@{btnOutlinePrefix}primary {
+				border-color: @colorPrimary;
+
+				&:hover {
+					background-color: @colorPrimary;
+				}
+			}
+
+			&@{btnOutlinePrefix}accent {
+				border-color: @colorAccent;
+
+				&:hover {
+					background-color: @colorAccent;
+				}
+			}
+
+			&@{btnOutlinePrefix}alert, &@{btnOutlinePrefix}danger {
+				border-color: @btnColorDanger;
+
+				&:hover {
+					background-color: @btnColorDanger;
+				}
+			}
+
+			.extraButtons(@allButtons) when (@allButtons = true) {
+
+				&@{btnOutlinePrefix}secondary {
+					border-color: @btnColorSecondaryBg;
+
+					&:hover {
+						background-color: @btnColorSecondaryBg;
+					}
+				}
+				&@{btnOutlinePrefix}success {
+					border-color: @alertColorSuccessBg;
+
+					&:hover {
+						background-color: @alertColorSuccessBg;
+					}
+				}
+				&@{btnOutlinePrefix}warning {
+					border-color: @alertColorWarningBg;
+
+					&:hover {
+						background-color: @alertColorWarningBg;
+					}
+				}
+				&@{btnOutlinePrefix}info {
+					border-color: @alertColorInfoBg;
+
+					&:hover {
+						background-color: @alertColorInfoBg;
+					}
+				}
+			}
+			.extraButtons(@btnAdditional);
+		}
+	}
+}
+
+// Make fusionCSS style buttons
+.makeButtonStyles(@fusionCSSBtnStyle, ~'.', ~'.outline', ~'.');
+
+// Make Bootstrap 3 style buttons
+.makeButtonStyles(@bootstrap3BtnStyle, ~'.btn-', ~'.btn-outline', ~'-');
+
+.uploadButton,
+input[type="submit"],
+button {
 	// Raised buttons
 	&.raised {
 		.z-depth1();
@@ -483,6 +524,19 @@ button,
 		}
 	}
 }
+
+// Extend the button with fusionCSS button names
+.extendButtons(@styleEnable, @btnName) when (@styleEnable = true) {
+	@{btnName} {
+		&:extend(button all);
+	}
+}
+
+// Build fusionCSS button styles
+.extendButtons(@fusionCSSBtnStyle, ~'.button');
+
+// Build Bootstrap 3 button styles
+.extendButtons(@bootstrap3BtnStyle, ~'.btn');
 
 .uploadButton {
 	position: relative;
@@ -1418,125 +1472,138 @@ form {
 		margin-right: -@colGutter / 2;
 	}
 
-	[class^="@{colName}"] {
-		display: block;
-		min-height: 1px;
-		padding-left: @colGutter / 2;
-		padding-right: @colGutter / 2;
-
-		&.no-left-gutter {
-			padding-left: 0;
-		}
-		&.no-right-gutter {
-			padding-right: 0;
-		}
-		&.no-gutter {
-			padding-left: 0;
-			padding-right: 0;
-		}
-	}
-
-	// Build a row of columns
-	.makeRow(@spanName) {
-		@colWidth: percentage((100 / @numColumns) / 100);
-
-		[class*="@{colName}@{spanName}"] {
-			float: left;
-		}
-		[class*="@{colName}@{spanName}@{separator}"] {
-			position: relative;
-		}
+	.makeGrid(@gridEnabled, @colName, @offsetName, @pushName, @pullName, @tinyName, @smallName, @mediumName, @largeName, @extraLargeName) when (@gridEnabled = true) {
 
 		[class^="@{colName}"] {
+			display: block;
+			min-height: 1px;
+			padding-left: @colGutter / 2;
+			padding-right: @colGutter / 2;
+
+			&.no-left-gutter {
+				padding-left: 0;
+			}
+
+			&.no-right-gutter {
+				padding-right: 0;
+			}
+
+			&.no-gutter {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+
+		// Build a row of columns
+		.makeRow(@spanName) {
 			// Trim trailing - from span names
 			@spanNameClean: replace(@spanName, "-$", "");
+			@colWidth: percentage((100 / @numColumns) / 100);
 
-			&.left-gutter@{spanNameClean} {
-				padding-left: @colGutter / 2;
-			}
-			&.no-left-gutter@{spanNameClean} {
-				padding-left: 0;
-			}
-			&.right-gutter@{spanNameClean} {
-				padding-right: @colGutter / 2;
-			}
-			&.no-right-gutter@{spanNameClean} {
-				padding-right: 0;
-			}
-			&.gutter@{spanNameClean} {
-				padding-left: @colGutter / 2;
-				padding-right: @colGutter / 2;
-			}
-			&.no-gutter@{spanNameClean} {
-				padding-left: 0;
-				padding-right: 0;
-			}
-		}
-
-		.makeCols(@name, @span) when (@span > 0) {
-			.@{colName}@{name}@{span} {
-				width: @colWidth + (@colWidth * (@span - 1));
+			[class*="@{colName}@{spanName}"] {
+				float: left;
+				position: relative;
 			}
 
-			// If in bootstrap compatible mode
-			.makeOffset(@colName) when (@colName = col) {
-				.col@{name}@{offsetName}-@{span} {
-					margin-left: @colWidth * @span;
+			[class^="@{colName}"] {
+				&.left-gutter-@{spanNameClean} {
+					padding-left: @colGutter / 2;
+				}
+
+				&.no-left-gutter-@{spanNameClean} {
+					padding-left: 0;
+				}
+
+				&.right-gutter-@{spanNameClean} {
+					padding-right: @colGutter / 2;
+				}
+
+				&.no-right-gutter-@{spanNameClean} {
+					padding-right: 0;
+				}
+
+				&.gutter-@{spanNameClean} {
+					padding-left: @colGutter / 2;
+					padding-right: @colGutter / 2;
+				}
+
+				&.no-gutter-@{spanNameClean} {
+					padding-left: 0;
+					padding-right: 0;
 				}
 			}
-			// Else in fusionCSS
-			.makeOffset(@colName) when not (@colName = col) {
-				.@{offsetName}@{name}@{span} {
-					margin-left: @colWidth * @span;
+
+			.makeCols(@name, @span) when (@span > 0) {
+				.@{colName}@{name}@{span} {
+					width: @colWidth + (@colWidth * (@span - 1));
 				}
+
+				// If in bootstrap compatible mode
+				.makeOffset(@colName) when (@colName = col-) {
+					.@{colName}@{name}@{offsetName}@{span} {
+						margin-left: @colWidth * @span;
+					}
+				}
+				// Else in fusionCSS
+				.makeOffset(@colName) when not (@colName = col-) {
+					.@{offsetName}@{name}@{span} {
+						margin-left: @colWidth * @span;
+					}
+				}
+				.makeOffset(@colName);
+
+				.@{colName}@{name}@{pushName}@{span} {
+					left: @colWidth + (@colWidth * (@span - 1));
+				}
+				.@{colName}@{name}@{pullName}@{span} {
+					right: @colWidth + (@colWidth * (@span - 1));
+				}
+				.makeCols(@name, @span - 1);
 			}
-			.makeOffset(@colName);
 
-			.@{colName}@{name}@{separator}@{pushName}@{span} {
-				left: @colWidth + (@colWidth * (@span - 1));
+			.@{colName}@{spanName}@{pushName}0 {
+				left: inherit;
 			}
-			.@{colName}@{name}@{separator}@{pullName}@{span} {
-				right: @colWidth + (@colWidth * (@span - 1));
+			.@{colName}@{spanName}@{pullName}0 {
+				right: inherit;
 			}
-			.makeCols(@name, @span - 1);
+
+			.makeCols(@spanName, @numColumns);
+
+			// Make columns equal height needs IE10+
+			&.@{colName}@{spanNameClean}-equal-height {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+				width: 100%;
+			}
 		}
 
-		.@{colName}@{spanName}@{separator}@{pushName}0 {
-			left: inherit;
+		.makeRow(@tinyName);
+
+		@media (min-width: @breakpoint-s) {
+			.makeRow(@smallName);
 		}
-		.@{colName}@{spanName}@{separator}@{pullName}0 {
-			right: inherit;
+
+		@media (min-width: @breakpoint-m) {
+			.makeRow(@mediumName);
 		}
 
-		.makeCols(@spanName, @numColumns);
+		@media (min-width: @breakpoint-l) {
+			.makeRow(@largeName);
+		}
 
-		// Make columns equal height needs IE10+
-		&.@{colName}@{spanName}@{separator}equal-height {
-			display: -webkit-box;
-			display: -webkit-flex;
-			display: -ms-flexbox;
-			display: flex;
-			width: 100%;
+		@media (min-width: @breakpoint-x) {
+			.makeRow(@extraLargeName);
 		}
 	}
 
-	.makeRow(@tinyName);
+	// Build the grid for fusionCSS
+	.makeGrid(@fusionCSSStyle, span-, offset-, -push, -pull, t, s, m, l, x);
 
-	@media (min-width: @breakpoint-s) {
-		.makeRow(@smallName);
-	}
-
-	@media (min-width: @breakpoint-m) {
-		.makeRow(@mediumName);
-	}
-
-	@media (min-width: @breakpoint-l) {
-		.makeRow(@largeName);
-	}
-
-	@media (min-width: @breakpoint-x) {
-		.makeRow(@extraLargeName);
-	}
+	// Build the grid for Bootstap 3
+	.makeGrid(@bootstrap3Style, col-, offset-, push-, pull-, xs-, sm-, md-, lg-, xl-);
 }
 
 // fusionCSS Mixins
@@ -2266,93 +2333,134 @@ img {
 	background-color: @colorAccent;
 }
 
-// Trim trailing - from span names
-@visTinyName: replace(@tinyName, "-$", "");
-@visSmallName: replace(@smallName, "-$", "");
-@visMediumName: replace(@mediumName, "-$", "");
-@visLargeName: replace(@largeName, "-$", "");
-
 .show { display: inherit !important };
+.hide { display: none !important; };
 
-.hide,
-.visible@{visTinyName}, .visible-phone,
-.visible@{visTinyName}-block, .visible@{visTinyName}-inline, .visible@{visTinyName}-inline-block,
-.visible@{visSmallName}, .visible-tablet,
-.visible@{visSmallName}-block, .visible@{visSmallName}-inline, .visible@{visSmallName}-inline-block,
-.visible@{visMediumName}, .visible-desktop,
-.visible@{visMediumName}-block, .visible@{visMediumName}-inline, .visible@{visMediumName}-inline-block,
-.visible@{visLargeName},
-.visible@{visLargeName}-block, .visible@{visLargeName}-inline, .visible@{visLargeName}-inline-block {
-	display: none !important;
-}
-
-@media (max-width: (@breakpoint-s - 1)) {
-	.visible@{visTinyName}, .visible-phone {
-		display: inherit !important;
-	}
-	.hidden@{visTinyName}, .hidden-phone {
+.makeVisibility(@gridEnabled, @visTinyName, @visSmallName, @visMediumName, @visLargeName, @visXLargeName) when (@gridEnabled = true) {
+	.visible-@{visTinyName}, .visible-phone,
+	.visible-@{visTinyName}-block, .visible-@{visTinyName}-inline, .visible-@{visTinyName}-inline-block,
+	.visible-@{visSmallName}, .visible-tablet,
+	.visible-@{visSmallName}-block, .visible-@{visSmallName}-inline, .visible-@{visSmallName}-inline-block,
+	.visible-@{visMediumName}, .visible-desktop,
+	.visible-@{visMediumName}-block, .visible-@{visMediumName}-inline, .visible-@{visMediumName}-inline-block,
+	.visible-@{visLargeName},
+	.visible-@{visLargeName}-block, .visible-@{visLargeName}-inline, .visible-@{visLargeName}-inline-block,
+	.visible-@{visXLargeName},
+	.visible-@{visXLargeName}-block, .visible-@{visXLargeName}-inline, .visible-@{visXLargeName}-inline-block {
 		display: none !important;
 	}
-	.visible@{visTinyName}-block {
-		display: block !important;
+
+	@media (max-width: (@breakpoint-s - 1)) {
+		.visible-@{visTinyName}, .visible-phone {
+			display: inherit !important;
+		}
+
+		.hidden-@{visTinyName}, .hidden-phone {
+			display: none !important;
+		}
+
+		.visible-@{visTinyName}-block {
+			display: block !important;
+		}
+
+		.visible-@{visTinyName}-inline {
+			display: inline !important;
+		}
+
+		.visible-@{visTinyName}-inline-block {
+			display: inline-block !important;
+		}
 	}
-	.visible@{visTinyName}-inline {
-		display: inline !important;
+
+	@media (min-width: @breakpoint-s) and (max-width: (@breakpoint-m - 1)) {
+		.visible-@{visSmallName}, .visible-tablet {
+			display: inherit !important;
+		}
+
+		.hidden-@{visSmallName}, .hidden-tablet {
+			display: none !important;
+		}
+
+		.visible-@{visSmallName}-block {
+			display: block !important;
+		}
+
+		.visible-@{visSmallName}-inline {
+			display: inline !important;
+		}
+
+		.visible-@{visSmallName}-inline-block {
+			display: inline-block !important;
+		}
 	}
-	.visible@{visTinyName}-inline-block {
-		display: inline-block !important;
+
+	@media (min-width: @breakpoint-m) and (max-width: (@breakpoint-l - 1)) {
+		.visible-@{visMediumName}, .visible-desktop {
+			display: inherit !important;
+		}
+
+		.hidden-@{visMediumName}, .hidden-desktop {
+			display: none !important;
+		}
+
+		.visible-@{visMediumName}-block {
+			display: block !important;
+		}
+
+		.visible-@{visMediumName}-inline {
+			display: inline !important;
+		}
+
+		.visible-@{visMediumName}-inline-block {
+			display: inline-block !important;
+		}
+	}
+	@media (min-width: @breakpoint-l) {
+		.visible-@{visLargeName}, .visible-desktop {
+			display: inherit !important;
+		}
+
+		.hidden-@{visLargeName}, .hidden-desktop {
+			display: none !important;
+		}
+
+		.visible-@{visLargeName}-block {
+			display: block !important;
+		}
+
+		.visible-@{visLargeName}-inline {
+			display: inline !important;
+		}
+
+		.visible-@{visLargeName}-inline-block {
+			display: inline-block !important;
+		}
+	}
+	@media (min-width: @breakpoint-x) {
+		.visible-@{visXLargeName}, .visible-desktop {
+			display: inherit !important;
+		}
+
+		.hidden-@{visXLargeName}, .hidden-desktop {
+			display: none !important;
+		}
+
+		.visible-@{visXLargeName}-block {
+			display: block !important;
+		}
+
+		.visible-@{visXLargeName}-inline {
+			display: inline !important;
+		}
+
+		.visible-@{visXLargeName}-inline-block {
+			display: inline-block !important;
+		}
 	}
 }
 
-@media (min-width: @breakpoint-s) and (max-width: (@breakpoint-m - 1)) {
-	.visible@{visSmallName}, .visible-tablet {
-		display: inherit !important;
-	}
-	.hidden@{visSmallName}, .hidden-tablet {
-		display: none !important;
-	}
-	.visible@{visSmallName}-block {
-		display: block !important;
-	}
-	.visible@{visSmallName}-inline {
-		display: inline !important;
-	}
-	.visible@{visSmallName}-inline-block {
-		display: inline-block !important;
-	}
-}
+// Build the visibility for fusionCSS
+.makeVisibility(@fusionCSSStyle, t, s, m, l, x);
 
-@media (min-width: @breakpoint-m) and (max-width: (@breakpoint-l - 1)) {
-	.visible@{visMediumName}, .visible-desktop {
-		display: inherit !important;
-	}
-	.hidden@{visMediumName}, .hidden-desktop {
-		display: none !important;
-	}
-	.visible@{visMediumName}-block {
-		display: block !important;
-	}
-	.visible@{visMediumName}-inline {
-		display: inline !important;
-	}
-	.visible@{visMediumName}-inline-block {
-		display: inline-block !important;
-	}
-}
-@media (min-width: @breakpoint-l) {
-	.visible@{visLargeName}, .visible-desktop {
-		display: inherit !important;
-	}
-	.hidden@{visLargeName}, .hidden-desktop {
-		display: none !important;
-	}
-	.visible@{visLargeName}-block {
-		display: block !important;
-	}
-	.visible@{visLargeName}-inline {
-		display: inline !important;
-	}
-	.visible@{visLargeName}-inline-block {
-		display: inline-block !important;
-	}
-}
+// Build the visibility for Bootstrap 3
+.makeVisibility(@bootstrap3Style, xs, sm, md, lg, xl);

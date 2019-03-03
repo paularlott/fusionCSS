@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2013 - 2019 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
- * @version 3.1.3
+ * @version 3.2.0
  */
 * {
   margin: 0;
@@ -145,45 +145,43 @@ blockquote cite {
   margin-left: -0.75rem;
   margin-right: -0.75rem;
 }
-.row [class^="span"] {
+.row [class^="span-"] {
   display: block;
   min-height: 1px;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
-.row [class^="span"].no-left-gutter {
+.row [class^="span-"].no-left-gutter {
   padding-left: 0;
 }
-.row [class^="span"].no-right-gutter {
+.row [class^="span-"].no-right-gutter {
   padding-right: 0;
 }
-.row [class^="span"].no-gutter {
+.row [class^="span-"].no-gutter {
   padding-left: 0;
   padding-right: 0;
 }
 .row [class*="span-t"] {
   float: left;
-}
-.row [class*="span-t-"] {
   position: relative;
 }
-.row [class^="span"].left-gutter-t {
+.row [class^="span-"].left-gutter-t {
   padding-left: 0.75rem;
 }
-.row [class^="span"].no-left-gutter-t {
+.row [class^="span-"].no-left-gutter-t {
   padding-left: 0;
 }
-.row [class^="span"].right-gutter-t {
+.row [class^="span-"].right-gutter-t {
   padding-right: 0.75rem;
 }
-.row [class^="span"].no-right-gutter-t {
+.row [class^="span-"].no-right-gutter-t {
   padding-right: 0;
 }
-.row [class^="span"].gutter-t {
+.row [class^="span-"].gutter-t {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
-.row [class^="span"].no-gutter-t {
+.row [class^="span-"].no-gutter-t {
   padding-left: 0;
   padding-right: 0;
 }
@@ -347,27 +345,25 @@ blockquote cite {
 @media (min-width: 768px) {
   .row [class*="span-s"] {
     float: left;
-  }
-  .row [class*="span-s-"] {
     position: relative;
   }
-  .row [class^="span"].left-gutter-s {
+  .row [class^="span-"].left-gutter-s {
     padding-left: 0.75rem;
   }
-  .row [class^="span"].no-left-gutter-s {
+  .row [class^="span-"].no-left-gutter-s {
     padding-left: 0;
   }
-  .row [class^="span"].right-gutter-s {
+  .row [class^="span-"].right-gutter-s {
     padding-right: 0.75rem;
   }
-  .row [class^="span"].no-right-gutter-s {
+  .row [class^="span-"].no-right-gutter-s {
     padding-right: 0;
   }
-  .row [class^="span"].gutter-s {
+  .row [class^="span-"].gutter-s {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
   }
-  .row [class^="span"].no-gutter-s {
+  .row [class^="span-"].no-gutter-s {
     padding-left: 0;
     padding-right: 0;
   }
@@ -532,27 +528,25 @@ blockquote cite {
 @media (min-width: 992px) {
   .row [class*="span-m"] {
     float: left;
-  }
-  .row [class*="span-m-"] {
     position: relative;
   }
-  .row [class^="span"].left-gutter-m {
+  .row [class^="span-"].left-gutter-m {
     padding-left: 0.75rem;
   }
-  .row [class^="span"].no-left-gutter-m {
+  .row [class^="span-"].no-left-gutter-m {
     padding-left: 0;
   }
-  .row [class^="span"].right-gutter-m {
+  .row [class^="span-"].right-gutter-m {
     padding-right: 0.75rem;
   }
-  .row [class^="span"].no-right-gutter-m {
+  .row [class^="span-"].no-right-gutter-m {
     padding-right: 0;
   }
-  .row [class^="span"].gutter-m {
+  .row [class^="span-"].gutter-m {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
   }
-  .row [class^="span"].no-gutter-m {
+  .row [class^="span-"].no-gutter-m {
     padding-left: 0;
     padding-right: 0;
   }
@@ -717,27 +711,25 @@ blockquote cite {
 @media (min-width: 1200px) {
   .row [class*="span-l"] {
     float: left;
-  }
-  .row [class*="span-l-"] {
     position: relative;
   }
-  .row [class^="span"].left-gutter-l {
+  .row [class^="span-"].left-gutter-l {
     padding-left: 0.75rem;
   }
-  .row [class^="span"].no-left-gutter-l {
+  .row [class^="span-"].no-left-gutter-l {
     padding-left: 0;
   }
-  .row [class^="span"].right-gutter-l {
+  .row [class^="span-"].right-gutter-l {
     padding-right: 0.75rem;
   }
-  .row [class^="span"].no-right-gutter-l {
+  .row [class^="span-"].no-right-gutter-l {
     padding-right: 0;
   }
-  .row [class^="span"].gutter-l {
+  .row [class^="span-"].gutter-l {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
   }
-  .row [class^="span"].no-gutter-l {
+  .row [class^="span-"].no-gutter-l {
     padding-left: 0;
     padding-right: 0;
   }
@@ -902,27 +894,25 @@ blockquote cite {
 @media (min-width: 1600px) {
   .row [class*="span-x"] {
     float: left;
-  }
-  .row [class*="span-x-"] {
     position: relative;
   }
-  .row [class^="span"].left-gutter-x {
+  .row [class^="span-"].left-gutter-x {
     padding-left: 0.75rem;
   }
-  .row [class^="span"].no-left-gutter-x {
+  .row [class^="span-"].no-left-gutter-x {
     padding-left: 0;
   }
-  .row [class^="span"].right-gutter-x {
+  .row [class^="span-"].right-gutter-x {
     padding-right: 0.75rem;
   }
-  .row [class^="span"].no-right-gutter-x {
+  .row [class^="span-"].no-right-gutter-x {
     padding-right: 0;
   }
-  .row [class^="span"].gutter-x {
+  .row [class^="span-"].gutter-x {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
   }
-  .row [class^="span"].no-gutter-x {
+  .row [class^="span-"].no-gutter-x {
     padding-left: 0;
     padding-right: 0;
   }
@@ -1449,7 +1439,9 @@ div.responsiveTableWrapperInner {
 .show {
   display: inherit !important;
 }
-.hide,
+.hide {
+  display: none !important;
+}
 .visible-t,
 .visible-phone,
 .visible-t-block,
@@ -1468,7 +1460,11 @@ div.responsiveTableWrapperInner {
 .visible-l,
 .visible-l-block,
 .visible-l-inline,
-.visible-l-inline-block {
+.visible-l-inline-block,
+.visible-x,
+.visible-x-block,
+.visible-x-inline,
+.visible-x-inline-block {
   display: none !important;
 }
 @media (max-width: 767px) {
@@ -1544,6 +1540,25 @@ div.responsiveTableWrapperInner {
     display: inline !important;
   }
   .visible-l-inline-block {
+    display: inline-block !important;
+  }
+}
+@media (min-width: 1600px) {
+  .visible-x,
+  .visible-desktop {
+    display: inherit !important;
+  }
+  .hidden-x,
+  .hidden-desktop {
+    display: none !important;
+  }
+  .visible-x-block {
+    display: block !important;
+  }
+  .visible-x-inline {
+    display: inline !important;
+  }
+  .visible-x-inline-block {
     display: inline-block !important;
   }
 }
@@ -1905,7 +1920,9 @@ form .selectControl:after {
 }
 form input[type="submit"],
 form button,
-button {
+button,
+form .button,
+.button {
   font-size: 1rem;
 }
 .hform form dt,
@@ -2031,10 +2048,10 @@ button:hover,
 .uploadButton.disabled,
 input[type="submit"].disabled,
 button.disabled,
-.button.disabled,
 .uploadButton:disabled,
 input[type="submit"]:disabled,
 button:disabled,
+.button.disabled,
 .button:disabled {
   box-shadow: none;
   cursor: default;
@@ -2056,10 +2073,10 @@ button.primary:hover,
 .uploadButton.primary.disabled,
 input[type="submit"].primary.disabled,
 button.primary.disabled,
-.button.primary.disabled,
 .uploadButton.primary:disabled,
 input[type="submit"].primary:disabled,
 button.primary:disabled,
+.button.primary.disabled,
 .button.primary:disabled {
   background-color: #607D8B;
 }
@@ -2079,20 +2096,20 @@ button.accent:hover,
 .uploadButton.accent.disabled,
 input[type="submit"].accent.disabled,
 button.accent.disabled,
-.button.accent.disabled,
 .uploadButton.accent:disabled,
 input[type="submit"].accent:disabled,
 button.accent:disabled,
+.button.accent.disabled,
 .button.accent:disabled {
   background-color: #FF5252;
 }
 .uploadButton.alert,
 input[type="submit"].alert,
 button.alert,
-.button.alert,
 .uploadButton.danger,
 input[type="submit"].danger,
 button.danger,
+.button.alert,
 .button.danger {
   color: #ffffff;
   background-color: #F44336;
@@ -2100,38 +2117,38 @@ button.danger,
 .uploadButton.alert:hover,
 input[type="submit"].alert:hover,
 button.alert:hover,
-.button.alert:hover,
 .uploadButton.danger:hover,
 input[type="submit"].danger:hover,
 button.danger:hover,
+.button.alert:hover,
 .button.danger:hover {
   background-color: #f55a4e;
 }
 .uploadButton.alert.disabled,
 input[type="submit"].alert.disabled,
 button.alert.disabled,
-.button.alert.disabled,
 .uploadButton.danger.disabled,
 input[type="submit"].danger.disabled,
 button.danger.disabled,
-.button.danger.disabled,
 .uploadButton.alert:disabled,
 input[type="submit"].alert:disabled,
 button.alert:disabled,
-.button.alert:disabled,
 .uploadButton.danger:disabled,
 input[type="submit"].danger:disabled,
 button.danger:disabled,
+.button.alert.disabled,
+.button.danger.disabled,
+.button.alert:disabled,
 .button.danger:disabled {
   background-color: #F44336;
 }
 .uploadButton.outline,
 input[type="submit"].outline,
 button.outline,
-.button.outline,
 .uploadButton.flat,
 input[type="submit"].flat,
 button.flat,
+.button.outline,
 .button.flat {
   color: rgba(0, 0, 0, 0.87);
   background-color: transparent;
@@ -2139,10 +2156,10 @@ button.flat,
 .uploadButton.outline:hover,
 input[type="submit"].outline:hover,
 button.outline:hover,
-.button.outline:hover,
 .uploadButton.flat:hover,
 input[type="submit"].flat:hover,
 button.flat:hover,
+.button.outline:hover,
 .button.flat:hover {
   background-color: #EEEEEE;
   box-shadow: none;
@@ -2150,56 +2167,56 @@ button.flat:hover,
 .uploadButton.outline.disabled,
 input[type="submit"].outline.disabled,
 button.outline.disabled,
-.button.outline.disabled,
 .uploadButton.flat.disabled,
 input[type="submit"].flat.disabled,
 button.flat.disabled,
-.button.flat.disabled,
 .uploadButton.outline:disabled,
 input[type="submit"].outline:disabled,
 button.outline:disabled,
-.button.outline:disabled,
 .uploadButton.flat:disabled,
 input[type="submit"].flat:disabled,
 button.flat:disabled,
+.button.outline.disabled,
+.button.flat.disabled,
+.button.outline:disabled,
 .button.flat:disabled {
   background-color: transparent;
 }
 .uploadButton.outline.primary,
 input[type="submit"].outline.primary,
 button.outline.primary,
-.button.outline.primary,
 .uploadButton.flat.primary,
 input[type="submit"].flat.primary,
 button.flat.primary,
+.button.outline.primary,
 .button.flat.primary {
   color: #607D8B;
 }
 .uploadButton.outline.accent,
 input[type="submit"].outline.accent,
 button.outline.accent,
-.button.outline.accent,
 .uploadButton.flat.accent,
 input[type="submit"].flat.accent,
 button.flat.accent,
+.button.outline.accent,
 .button.flat.accent {
   color: #FF5252;
 }
 .uploadButton.outline.alert,
 input[type="submit"].outline.alert,
 button.outline.alert,
-.button.outline.alert,
 .uploadButton.flat.alert,
 input[type="submit"].flat.alert,
 button.flat.alert,
-.button.flat.alert,
 .uploadButton.outline.danger,
 input[type="submit"].outline.danger,
 button.outline.danger,
-.button.outline.danger,
 .uploadButton.flat.danger,
 input[type="submit"].flat.danger,
 button.flat.danger,
+.button.outline.alert,
+.button.flat.alert,
+.button.outline.danger,
 .button.flat.danger {
   color: #F44336;
 }
@@ -2243,20 +2260,20 @@ button.outline.accent:hover,
 .uploadButton.outline.alert,
 input[type="submit"].outline.alert,
 button.outline.alert,
-.button.outline.alert,
 .uploadButton.outline.danger,
 input[type="submit"].outline.danger,
 button.outline.danger,
+.button.outline.alert,
 .button.outline.danger {
   border-color: #F44336;
 }
 .uploadButton.outline.alert:hover,
 input[type="submit"].outline.alert:hover,
 button.outline.alert:hover,
-.button.outline.alert:hover,
 .uploadButton.outline.danger:hover,
 input[type="submit"].outline.danger:hover,
 button.outline.danger:hover,
+.button.outline.alert:hover,
 .button.outline.danger:hover {
   background-color: #F44336;
 }
@@ -2275,10 +2292,10 @@ button.raised:hover,
 .uploadButton.raised.disabled,
 input[type="submit"].raised.disabled,
 button.raised.disabled,
-.button.raised.disabled,
 .uploadButton.raised:disabled,
 input[type="submit"].raised:disabled,
 button.raised:disabled,
+.button.raised.disabled,
 .button.raised:disabled {
   box-shadow: none;
 }
