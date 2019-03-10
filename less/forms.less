@@ -8,7 +8,7 @@ form {
 	margin: 0 auto;
 
 	&:after {
-		.clear;
+		&:extend(.clear);
 	}
 
 	fieldset {
@@ -51,6 +51,7 @@ form {
 	}
 
 	.description {
+		clear: both;
 		padding: .25rem 0 0 0;
 		font-size: .85rem;
 		color: @formTextDesc;

@@ -48,6 +48,15 @@ p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
+pre {
+  font-size: 1rem;
+  white-space: pre-wrap;
+}
+hr {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.26);
+  margin: 1rem 0;
+}
 .text-left {
   text-align: left;
 }
@@ -132,14 +141,6 @@ blockquote cite {
 }
 .row {
   clear: both;
-}
-.row:after {
-  content: " ";
-  display: block;
-  height: 0;
-  line-height: 0;
-  clear: both;
-  visibility: hidden;
 }
 .row .row {
   margin-left: -0.75rem;
@@ -1087,7 +1088,13 @@ blockquote cite {
   width: device-width;
 }
 .clear,
-.clearfix {
+.row:after,
+.hnav:after,
+.vnav:after,
+form:after,
+.tabs:after,
+.tabpanels > li:after,
+.appbar:after {
   content: " ";
   display: block;
   height: 0;
@@ -1102,14 +1109,26 @@ img {
   -ms-interpolation-mode: bicubic;
   vertical-align: middle;
 }
+.embed-responsive,
 .flex-video {
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
 }
+.embed-responsive.responsive-16by9,
+.flex-video.responsive-16by9 {
+  padding-bottom: 56.25%;
+}
+.embed-responsive.responsive-4by3,
+.flex-video.responsive-4by3 {
+  padding-bottom: 75%;
+}
+.embed-responsive iframe,
 .flex-video iframe,
+.embed-responsive object,
 .flex-video object,
+.embed-responsive embed,
 .flex-video embed {
   position: absolute;
   top: 0;
@@ -1356,15 +1375,6 @@ div.responsiveTableWrapperInner {
   -ms-user-select: none;
   user-select: none;
 }
-.hnav:after,
-.vnav:after {
-  content: " ";
-  display: block;
-  height: 0;
-  line-height: 0;
-  clear: both;
-  visibility: hidden;
-}
 .hnav li a,
 .vnav li a {
   padding: .5rem 1rem;
@@ -1585,14 +1595,6 @@ textarea {
 form {
   margin: 0 auto;
 }
-form:after {
-  content: " ";
-  display: block;
-  height: 0;
-  line-height: 0;
-  clear: both;
-  visibility: hidden;
-}
 form fieldset {
   border: 1px solid rgba(0, 0, 0, 0.12);
   margin: 1rem 0;
@@ -1626,6 +1628,7 @@ form label.focused {
   color: #2196F3;
 }
 form .description {
+  clear: both;
   padding: .25rem 0 0 0;
   font-size: .85rem;
   color: rgba(0, 0, 0, 0.54);
@@ -2480,14 +2483,6 @@ body.disableScroll {
   -ms-user-select: none;
   user-select: none;
 }
-.tabs:after {
-  content: " ";
-  display: block;
-  height: 0;
-  line-height: 0;
-  clear: both;
-  visibility: hidden;
-}
 .tabs > li {
   float: left;
   display: block;
@@ -2549,14 +2544,6 @@ body.disableScroll {
 }
 .tabpanels > li {
   margin: 0 1rem;
-}
-.tabpanels > li:after {
-  content: " ";
-  display: block;
-  height: 0;
-  line-height: 0;
-  clear: both;
-  visibility: hidden;
 }
 .tabpanels .tabhidepanel {
   visibility: hidden;
@@ -2688,14 +2675,6 @@ body.disableScroll {
 .appbar a:hover {
   color: #ffffff;
   margin-bottom: 1rem;
-}
-.appbar:after {
-  content: " ";
-  display: block;
-  height: 0;
-  line-height: 0;
-  clear: both;
-  visibility: hidden;
 }
 .appbar ul {
   margin: 0;

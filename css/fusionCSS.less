@@ -78,7 +78,7 @@
 	}
 
 	&:after {
-		.clearfix();
+		&:extend(.clear);
 	}
 
 	ul {
@@ -1007,7 +1007,7 @@ form {
 	margin: 0 auto;
 
 	&:after {
-		.clear;
+		&:extend(.clear);
 	}
 
 	fieldset {
@@ -1050,6 +1050,7 @@ form {
 	}
 
 	.description {
+		clear: both;
 		padding: .25rem 0 0 0;
 		font-size: .85rem;
 		color: @formTextDesc;
@@ -1464,7 +1465,7 @@ form {
 	clear: both;
 
 	&:after {
-		.clear
+		&:extend(.clear);
 	}
 
 	.row {
@@ -1666,7 +1667,7 @@ form {
 	.user-select();
 
 	&:after {
-		.clearfix;
+		&:extend(.clear);
 	}
 	li {
 		a {
@@ -1932,7 +1933,7 @@ div.responsiveTableWrapperInner {
 	.user-select();
 
 	&:after {
-		.clearfix();
+		&:extend(.clear);
 	}
 
 	> li {
@@ -2007,7 +2008,7 @@ div.responsiveTableWrapperInner {
 		margin: 0 1rem;
 
 		&:after {
-			.clearfix();
+			&:extend(.clear);
 		}
 	}
 
@@ -2164,6 +2165,17 @@ p {
 	margin-bottom: 1rem;
 }
 
+pre {
+	font-size: 1rem;
+	white-space: pre-wrap;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid @black-alpha-26;
+	margin: 1rem 0;
+}
+
 // Alignment
 .text-left {
 	text-align: left;
@@ -2268,7 +2280,7 @@ blockquote {
 }
 
 // Clear floats
-.clear, .clearfix {
+.clear {
 	content: " ";
 	display: block;
 	height: 0;
@@ -2287,11 +2299,15 @@ img {
 }
 
 // Responsive videos
+.embed-responsive,
 .flex-video {
 	position: relative;
 	padding-bottom: 56.25%;
 	height: 0;
 	overflow: hidden;
+
+	&.responsive-16by9 { padding-bottom: 56.25%; }
+	&.responsive-4by3 { padding-bottom: 75%; }
 
 	iframe,
 	object,

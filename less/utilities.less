@@ -15,7 +15,7 @@
 }
 
 // Clear floats
-.clear, .clearfix {
+.clear {
 	content: " ";
 	display: block;
 	height: 0;
@@ -34,11 +34,15 @@ img {
 }
 
 // Responsive videos
+.embed-responsive,
 .flex-video {
 	position: relative;
 	padding-bottom: 56.25%;
 	height: 0;
 	overflow: hidden;
+
+	&.responsive-16by9 { padding-bottom: 56.25%; }
+	&.responsive-4by3 { padding-bottom: 75%; }
 
 	iframe,
 	object,
