@@ -84,8 +84,8 @@
 						el = target.closest('.' + opts.dragItemClass),
 						cOffset = dragContainer.offset();
 
-					// If have and element then start the drag as long as it's not a link or it's a link and not a touch event
-					if((e.type === 'mousedown' || !target.closest('a').length) && el.length) {
+					// If have and element then start the drag as long as it's not a link
+					if(!target.closest('a').length && el.length) {
 						if (e.touches && e.touches.length) {
 							dragX = e.touches[0].pageX;
 							dragY = e.touches[0].pageY;
