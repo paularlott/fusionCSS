@@ -1978,8 +1978,12 @@ form #submit-list dd {
   float: none;
   width: auto;
   display: inline;
-  padding-left: 2px;
-  padding-right: 2px;
+}
+form #submit-list dd input,
+form #submit-list dd button,
+form #submit-list dd .button {
+  margin-left: 2px;
+  margin-right: 2px;
 }
 .hform #submit-list {
   float: right;
