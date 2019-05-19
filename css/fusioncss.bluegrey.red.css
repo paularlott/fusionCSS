@@ -1163,6 +1163,11 @@ img {
 .accent-bg {
   background-color: #FF5252;
 }
+.block-center {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
 table {
   margin: 1rem 0;
   width: 100%;
@@ -1693,6 +1698,9 @@ form select.validationError,
 form textarea.validationError {
   border-color: #F44336;
 }
+form .selectControl select {
+  padding-right: 2.5rem;
+}
 form option {
   color: rgba(0, 0, 0, 0.87);
 }
@@ -1864,7 +1872,7 @@ form .selectControl:after {
   padding: .5rem .25rem .5rem .25rem;
 }
 .floatingLabels form .selectControl select {
-  padding: 1.5rem .25rem .5rem .25rem;
+  padding: 1.5rem 2.5rem .5rem .25rem;
   margin: 0;
   outline: none;
   border-radius: 0;
@@ -1917,6 +1925,10 @@ form .selectControl:after {
 .floatingLabels .appFormStyle .selectControl select {
   padding: 1.5rem 0 .5rem 0;
 }
+.floatingLabels.appFormStyle .selectControl select,
+.floatingLabels .appFormStyle .selectControl select {
+  padding-right: 2.5rem;
+}
 .floatingLabels.appFormStyle .selectControl:after,
 .floatingLabels .appFormStyle .selectControl:after {
   transform: none;
@@ -1967,6 +1979,10 @@ form.hform input[type="search"],
 .hform form .selectControl select,
 form.hform .selectControl select {
   padding: .5rem .25rem !important;
+}
+.hform form .selectControl select,
+form.hform .selectControl select {
+  padding-right: 2.5rem !important;
 }
 form #submit-list {
   clear: both;
