@@ -1490,7 +1490,7 @@ form {
 
 	.makeGrid(@gridEnabled, @colName, @offsetName, @pushName, @pullName, @tinyName, @smallName, @mediumName, @largeName, @extraLargeName) when (@gridEnabled = true) {
 
-		[class^="@{colName}"] {
+		[class*="@{colName}"] {
 			display: block;
 			min-height: 1px;
 			padding-left: @colGutter / 2;
@@ -1521,7 +1521,7 @@ form {
 				position: relative;
 			}
 
-			[class^="@{colName}"] {
+			[class*="@{colName}"] {
 				&.left-gutter-@{spanNameClean} {
 					padding-left: @colGutter / 2;
 				}
