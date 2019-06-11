@@ -1,0 +1,34 @@
+<h1>Tag Input</h1>
+
+<p>To use tag input functionality the fusionCSS.js and fusionCSSTagInput.js libraries needs to be included.</p>
+
+<section class="card accent">
+	<div class="content">
+
+		<script type="text/javascript" src="../js/fusionCSSTagInput.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#tagsInput1').enableTagInput();
+				$('#tagsInput2').enableTagInput({
+					tagHTML: '<div class="chip tag"><b class="primary">T</b><span class="tagValue">{value}</span><i class="tagDelete">x</i></div>'
+				});
+			});
+		</script>
+		<form>
+			<p><label>Tag Input with Defaults:</label>
+				<input id="tagsInput1" data-delimiter="," data-placeholder="Add Tags" type="text" value="foo,bar" /></p>
+
+			<p><label>Tag Input with Custom Chip:</label>
+				<input id="tagsInput2" data-delimiter="." data-placeholder="Add More Tags" type="text" value="" /></p>
+		</form>
+
+		<pre><code class="language-markup">&lt;input id="tagsInput1" data-delimiter="," data-placeholder="Add Tags" type="text" value="foo,bar" />
+&lt;input id="tagsInput2" data-delimiter="." data-placeholder="Add More Tags" type="text" value="" /></code></pre>
+
+		<pre><code class="language-javascript">$('#tagsInput1').enableTagInput();
+$('#tagsInput2').enableTagInput({
+	tagHTML: '&lt;div class="chip tag">&lt;b class="primary">T&lt;/b>&lt;span class="tagValue">{value}&lt;/span>&lt;i class="tagDelete">x&lt;/i>&lt;/div>'
+});</code></pre>
+
+	</div>
+</section>

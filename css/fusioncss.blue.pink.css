@@ -2601,9 +2601,11 @@ body.disableScroll {
     padding-top: 0;
   }
 }
-.chips {
+.chips,
+.chipContainer {
   list-style: none;
   margin-left: 0;
+  font-size: 0;
 }
 .chips li,
 .chip {
@@ -2614,7 +2616,8 @@ body.disableScroll {
   padding: 0 .75rem;
   white-space: nowrap;
   margin-bottom: .5rem;
-  margin-right: .5rem;
+  margin-right: .25rem;
+  font-size: 1rem;
 }
 .chips li:last-child,
 .chip:last-child {
@@ -2777,4 +2780,27 @@ body.disableScroll {
 }
 .z-depth5 {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+.tagInputWidget {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: .5rem .5rem 0 .5rem;
+  width: 100%;
+  overflow-y: auto;
+}
+.tagInputWidget input.tagInput {
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 2rem;
+  padding: 0 .75rem 1px .75rem;
+  margin-bottom: .5rem;
+  margin-right: .5rem;
+  border: none;
+  border-radius: 2rem;
+  outline: none;
+  width: 10rem;
+  background-color: transparent;
+}
+.tagInputWidget input.tagInput.invalidTag {
+  background-color: #FFCDD2;
+  color: #B71C1C;
 }

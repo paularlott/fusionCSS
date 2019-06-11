@@ -39,60 +39,40 @@
 	<div class="row">
 		<div class="span-t12">
 
+<h1>Tag Input</h1>
 
-<h1>Images</h1>
+<p>To use tag input functionality the fusionCSS.js and fusionCSSTagInput.js libraries needs to be included.</p>
 
-<div class="card">
+<section class="card accent">
 	<div class="content">
 
-		<div class="row example hidden-t">
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-		</div>
-		<div class="row example">
-			<div class="span-s4"><img src="large.jpg" /></div>
-			<div class="span-s4"><img src="small.jpg" /></div>
-			<div class="span-s4">4</div>
-		</div>
-		<div class="row example span-s-equal-height">
-			<div class="span-s4"><img src="large.jpg" /></div>
-			<div class="span-s4"><img src="small.jpg" /></div>
-			<div class="span-s4">4</div>
-		</div>
-		<div class="row example">
-			<div class="span-s6"><img src="large.jpg" /></div>
-			<div class="span-s6"><img src="small.jpg" /></div>
-		</div>
-		<div class="row example">
-			<div class="span-s12"><img src="large.jpg" /></div>
-		</div>
-		<div class="row example hidden-t">
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-			<div class="span-s1">1</div>
-		</div>
+		<script type="text/javascript" src="../js/fusionCSSTagInput.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#tagsInput1').enableTagInput();
+				$('#tagsInput2').enableTagInput({
+					tagHTML: '<div class="chip tag"><b class="primary">T</b><span class="tagValue">{value}</span><i class="tagDelete">x</i></div>'
+				});
+			});
+		</script>
+		<form>
+			<p><label>Tag Input with Defaults:</label>
+				<input id="tagsInput1" data-delimiter="," data-placeholder="Add Tags" type="text" value="foo,bar" /></p>
+
+			<p><label>Tag Input with Custom Chip:</label>
+				<input id="tagsInput2" data-delimiter="." data-placeholder="Add More Tags" type="text" value="" /></p>
+		</form>
+
+		<pre><code class="language-markup">&lt;input id="tagsInput1" data-delimiter="," data-placeholder="Add Tags" type="text" value="foo,bar" />
+&lt;input id="tagsInput2" data-delimiter="." data-placeholder="Add More Tags" type="text" value="" /></code></pre>
+
+		<pre><code class="language-javascript">$('#tagsInput1').enableTagInput();
+$('#tagsInput2').enableTagInput({
+	tagHTML: '&lt;div class="chip tag">&lt;b class="primary">T&lt;/b>&lt;span class="tagValue">{value}&lt;/span>&lt;i class="tagDelete">x&lt;/i>&lt;/div>'
+});</code></pre>
 
 	</div>
-</div>
+</section>
 
 
 		</div>
@@ -122,7 +102,7 @@
 		<li ><a href="tables.html">Tables</a></li>
 		<li ><a href="alerts.html">Alerts</a></li>
 		<li ><a href="forms.html">Forms</a></li>
-		<li  class="active"><a href="images.html">Images</a></li>
+		<li ><a href="images.html">Images</a></li>
 		<li ><a href="buttons.html">Buttons</a></li>
 		<li ><a href="shadows.html">Shadows</a></li>
 		<li ><a href="chips.html">Chips</a></li>
@@ -135,7 +115,7 @@
 		<li ><a href="fam.html">Floating Action Menu</a></li>
 		<li ><a href="tabs.html">Tabs</a></li>
 		<li ><a href="toast.html">Toast</a></li>
-		<li ><a href="tags.html">Tag Input</a></li>
+		<li  class="active"><a href="tags.html">Tag Input</a></li>
 	</ul>
 </nav>
 
