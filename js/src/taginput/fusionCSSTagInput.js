@@ -13,6 +13,13 @@
 (function() {
 
 	/**
+	 * Element used for copy functions.
+	 *
+	 * @type {element}
+	 */
+	var copyElement = null;
+
+	/**
 	 * Encode HTML entities.
 	 * @param {string} string to escape.
 	 * @return {string}
@@ -65,34 +72,45 @@
 		// Remove white space and check we have data
 		value = value.trim();
 		if(value.length) {
-			var tagList = input.val().split(input.attr('data-delimiter'))
+
+			// Split the input in case it's a paste of many tags
+			var sourceTags = value.split(input.attr('data-delimiter')),
+				tagList = input.val().split(input.attr('data-delimiter')),
 				tagInput = $('#' + input.attr('id') + '_tagInput');
 
 			if (tagList[0] == '')
 				tagList = new Array();
 
-			// If tag exists then flag it
-			if (tagExists(input, value)) {
-				tagInput.addClass('invalidTag');
-			}
-			// Process the new tag
-			else {
-				tagInput
-					.removeClass('invalidTag')
-					.val('');
+			// Process all tags in the input
+			for(var i=0;i<sourceTags.length;i++) {
+				value = sourceTags[i];
 
-				// Add the tag HTML
-				$(settings.tagHTML.replace(/\{value\}/g, htmlEntities(value)))
-					.insertBefore(tagInput);
+				// If tag exists then flag it
+				if (tagExists(input, value)) {
 
-				if (focus)
-					tagInput.focus();
-				else
-					tagInput.blur();
+					// Only flag error for a single tag
+					if (sourceTags.length === 0)
+						tagInput.addClass('invalidTag');
+				}
+				// Process the new tag
+				else {
+					tagInput
+						.removeClass('invalidTag')
+						.val('');
 
-				// Update the field value with the new tag
-				tagList.push(value);
-				input.val(tagList.join(input.attr('data-delimiter')));
+					// Add the tag HTML
+					$(settings.tagHTML.replace(/\{value\}/g, htmlEntities(value)))
+						.insertBefore(tagInput);
+
+					if (focus)
+						tagInput.focus();
+					else
+						tagInput.blur();
+
+					// Update the field value with the new tag
+					tagList.push(value);
+					input.val(tagList.join(input.attr('data-delimiter')));
+				}
 			}
 		}
 	}
@@ -210,6 +228,35 @@
 								$this.closest('.tagInputWidget').find('.tag').last().find('.tagValue').text()
 							);
 							$this.focus();
+						}
+						// Else if copy
+						else if((event.ctrlKey || event.metaKey) && event.key === 'c') {
+
+							// If input field empty then we copy the tags
+							if($this.val().length === 0) {
+								event.preventDefault();
+
+								// Create the element to perform the copy if not already created
+								if(!copyElement) {
+									copyElement = $('<textarea style="position:absolute; left:-9999px; top:0">');
+									$('body').append(copyElement);
+								}
+
+								// Copy the tags back to the input & select it
+								copyElement
+									.val($el.val())
+									.focus()
+									.get(0).setSelectionRange(0, copyElement.val().length);
+
+								// Copy
+								try {
+									document.execCommand('copy');
+								} catch (e) {
+								}
+
+								// Focus the input field again
+								$this.focus();
+							}
 						}
 					});
 			});

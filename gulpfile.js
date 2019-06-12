@@ -144,7 +144,19 @@ gulp.task('fusionCSSWatch', function() {
 	gulp.watch('./js/src/dragorder/*.js', gulp.parallel(['jsdragorder']));
 	gulp.watch('./js/src/taginput/*.js', gulp.parallel(['jstaginputwidget']));
 });
-gulp.task('watch', gulp.parallel(['js', 'jstrackelem', 'single_less'].concat(themeTaskList).concat('fusionCSSWatch')));
+gulp.task(
+	'watch',
+	gulp.parallel(
+		[
+			'js',
+			'jstrackelem',
+			'jsdragorder',
+			'jstaginputwidget',
+			'single_less'
+		].concat(themeTaskList).concat('fusionCSSWatch')
+	)
+);
+
 
 /**
  * Default build task
