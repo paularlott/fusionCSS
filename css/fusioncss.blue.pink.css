@@ -336,13 +336,6 @@ blockquote cite {
 .row .span-t-pull1 {
   right: 8.33333333%;
 }
-.row.span-t-equal-height {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-}
 @media (min-width: 768px) {
   .row [class*="span-s"] {
     float: left;
@@ -517,13 +510,6 @@ blockquote cite {
   }
   .row .span-s-pull1 {
     right: 8.33333333%;
-  }
-  .row.span-s-equal-height {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
   }
 }
 @media (min-width: 992px) {
@@ -701,13 +687,6 @@ blockquote cite {
   .row .span-m-pull1 {
     right: 8.33333333%;
   }
-  .row.span-m-equal-height {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-  }
 }
 @media (min-width: 1200px) {
   .row [class*="span-l"] {
@@ -884,13 +863,6 @@ blockquote cite {
   .row .span-l-pull1 {
     right: 8.33333333%;
   }
-  .row.span-l-equal-height {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-  }
 }
 @media (min-width: 1600px) {
   .row [class*="span-x"] {
@@ -1066,13 +1038,6 @@ blockquote cite {
   }
   .row .span-x-pull1 {
     right: 8.33333333%;
-  }
-  .row.span-x-equal-height {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
   }
 }
 .sr-only {
