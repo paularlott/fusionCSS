@@ -246,7 +246,7 @@
 								copyElement
 									.val($el.val())
 									.focus()
-									.get(0).setSelectionRange(0, copyElement.val().length);
+									[0].setSelectionRange(0, copyElement.val().length);
 
 								// Copy
 								try {
