@@ -80,16 +80,19 @@
 
 	> li {
 		margin: 0 1rem;
+		visibility: hidden;
+		overflow: hidden;
+		height: 0;
 
 		&:after {
 			&:extend(.clear);
 		}
 	}
 
-	.tabhidepanel {
-		visibility: hidden;
-		overflow: hidden;
-		height: 0;
+	.tabshowpanel {
+		visibility: visible;
+		overflow: initial;
+		height: auto;
 	}
 }
 

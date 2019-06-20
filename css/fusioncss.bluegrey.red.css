@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2013 - 2019 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
- * @version 3.2.0
+ * @version 3.2.1
  */
 * {
   margin: 0;
@@ -2529,11 +2529,14 @@ body.disableScroll {
 }
 .tabpanels > li {
   margin: 0 1rem;
-}
-.tabpanels .tabhidepanel {
   visibility: hidden;
   overflow: hidden;
   height: 0;
+}
+.tabpanels .tabshowpanel {
+  visibility: visible;
+  overflow: initial;
+  height: auto;
 }
 @media (min-width: 768px) {
   .tabwidget.vtabs {

@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2013 - 2019 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
- * @version 3.2.0
+ * @version 3.2.1
  */
 .alert {
 	text-align: left;
@@ -2014,16 +2014,19 @@ div.responsiveTableWrapperInner {
 
 	> li {
 		margin: 0 1rem;
+		visibility: hidden;
+		overflow: hidden;
+		height: 0;
 
 		&:after {
 			&:extend(.clear);
 		}
 	}
 
-	.tabhidepanel {
-		visibility: hidden;
-		overflow: hidden;
-		height: 0;
+	.tabshowpanel {
+		visibility: visible;
+		overflow: initial;
+		height: auto;
 	}
 }
 

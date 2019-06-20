@@ -6,7 +6,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  *
  * @package fusionCSS
- * @copyright Copyright (c) 2013 - 2018 fusionCSS. All rights reserved.
+ * @copyright Copyright (c) 2013 - 2019 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
  */
 
@@ -138,8 +138,10 @@ $.fn.tabWidget = function (activeTab) {
 				// Hide panel
 				if (tabName !== tabActive)
 					panel.addClass('tabhidepanel').attr('aria-expanded', false);
+				else
+					panel.addClass('tabshowpanel').attr('aria-expanded', true);
 
-				el.parent().attr('aria-selected', false);
+				el.attr('aria-selected', false);
 				tabs[tabName] = [el, panel];
 				el.attr('data-tab-name', tabName);
 			}
@@ -151,10 +153,10 @@ $.fn.tabWidget = function (activeTab) {
 				tabName = el.attr('data-tab-name');
 
 			if (tabName) {
-				tabs[tabActive][1].addClass('tabhidepanel').attr('aria-expanded', false);
-				tabs[tabName][1].removeClass('tabhidepanel').attr('aria-expanded', true);
-				tabs[tabActive][0].removeClass('active').parent().attr('aria-selected', false);
-				tabs[tabName][0].addClass('active').parent().attr('aria-selected', true);
+				tabs[tabActive][1].addClass('tabhidepanel').removeClass('tabshowpanel').attr('aria-expanded', false);
+				tabs[tabName][1].removeClass('tabhidepanel').addClass('tabshowpanel').attr('aria-expanded', true);
+				tabs[tabActive][0].removeClass('active').attr('aria-selected', false);
+				tabs[tabName][0].addClass('active').attr('aria-selected', true);
 				tabActive = tabName;
 
 				// Close the menu if any
@@ -171,8 +173,8 @@ $.fn.tabWidget = function (activeTab) {
 
 		// Set the active tab
 		if (tabActive !== undefined) {
-			tabs[tabActive][0].addClass('active').parent().attr('aria-selected', true);
-			tabs[tabActive][1].removeClass('tabhidepanel').attr('aria-expanded', true);
+			tabs[tabActive][0].addClass('active').attr('aria-selected', true);
+			tabs[tabActive][1].removeClass('tabhidepanel').addClass('tabshowpanel').attr('aria-expanded', true);
 		}
 
 		// Look to see if in a form
