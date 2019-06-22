@@ -999,6 +999,163 @@ button {
 		}
 	}
 }
+.makeFlexGrid(@flexGridEnabled, @rowName) when (@flexGridEnabled = true) {
+	.@{rowName} {
+		clear: both;
+		display: flex;
+		flex-wrap: wrap;
+
+		.@{rowName} {
+			margin-left: -@colGutter / 2;
+			margin-right: -@colGutter / 2;
+		}
+
+		.makeGrid(@gridEnabled, @colName, @offsetName, @orderName, @tinyName, @smallName, @mediumName, @largeName, @extraLargeName) when (@gridEnabled = true) {
+
+			[class*="@{colName}"] {
+				display: block;
+				min-height: 1px;
+				padding-left: @colGutter / 2;
+				padding-right: @colGutter / 2;
+				width: 100%;
+				float: none;
+				position: static;
+
+				&.no-left-gutter {
+					padding-left: 0;
+				}
+
+				&.no-right-gutter {
+					padding-right: 0;
+				}
+
+				&.no-gutter {
+					padding-left: 0;
+					padding-right: 0;
+				}
+			}
+
+			// Build a row of columns
+			.makeRow(@spanName) {
+				// Trim trailing - from span names
+				@spanNameClean: replace(@spanName, "-$", "");
+				@colWidth: percentage((100 / @numColumns) / 100);
+
+				&.flex-@{spanNameClean}-row-reverse {
+					flex-direction: row-reverse;
+				}
+				&.flex-@{spanNameClean}-column {
+					flex-direction: column;
+				}
+				&.flex-@{spanNameClean}-column-reverse {
+					flex-direction: column-reverse;
+				}
+				&.justify-content-@{spanNameClean}-center {
+					justify-content: center;
+				}
+				&.justify-content-@{spanNameClean}-start {
+					justify-content: flex-start;
+				}
+				&.justify-content-@{spanNameClean}-end {
+					justify-content: flex-end;
+				}
+				&.justify-content-@{spanNameClean}-around {
+					justify-content: space-around;
+				}
+				&.justify-content-@{spanNameClean}-between {
+					justify-content: space-between;
+				}
+
+				[class*="@{colName}"] {
+					&.left-gutter-@{spanNameClean} {
+						padding-left: @colGutter / 2;
+					}
+
+					&.no-left-gutter-@{spanNameClean} {
+						padding-left: 0;
+					}
+
+					&.right-gutter-@{spanNameClean} {
+						padding-right: @colGutter / 2;
+					}
+
+					&.no-right-gutter-@{spanNameClean} {
+						padding-right: 0;
+					}
+
+					&.gutter-@{spanNameClean} {
+						padding-left: @colGutter / 2;
+						padding-right: @colGutter / 2;
+					}
+
+					&.no-gutter-@{spanNameClean} {
+						padding-left: 0;
+						padding-right: 0;
+					}
+				}
+
+				.makeCols(@name, @span) when (@span > 0) {
+					.@{colName}@{name}@{span} {
+						width: @colWidth + (@colWidth * (@span - 1));
+					}
+
+					// If in bootstrap compatible mode
+					.makeOffset(@colName) when (@colName = col-) {
+						.@{colName}@{name}@{offsetName}@{span} {
+							margin-left: @colWidth * @span;
+						}
+
+						.@{colName}@{name}@{orderName}@{span} {
+							order: @span;
+						}
+					}
+					// Else in fusionCSS
+					.makeOffset(@colName) when not (@colName = col-) {
+						.@{offsetName}@{name}@{span} {
+							margin-left: @colWidth * @span;
+						}
+
+						.@{orderName}@{name}@{span} {
+							order: @span;
+						}
+					}
+					.makeOffset(@colName);
+
+					.makeCols(@name, @span - 1);
+				}
+
+				.makeCols(@spanName, @numColumns);
+			}
+
+			.makeRow(@tinyName);
+
+			@media (min-width: @breakpoint-s) {
+				.makeRow(@smallName);
+			}
+
+			@media (min-width: @breakpoint-m) {
+				.makeRow(@mediumName);
+			}
+
+			@media (min-width: @breakpoint-l) {
+				.makeRow(@largeName);
+			}
+
+			@media (min-width: @breakpoint-x) {
+				.makeRow(@extraLargeName);
+			}
+		}
+
+		// Build the grid for fusionCSS
+		.makeGrid(@fusionCSSStyle, span-, offset-, order-, t, s, m, l, x);
+
+		// Build the grid for Bootstap 3
+		.makeGrid(@bootstrap3Style, col-, offset-, order-, xs-, sm-, md-, lg-, xl-);
+	}
+}
+
+.makeFlexGrid(@withFlexGrid, @flexRowName);
+
 
 // Limit resize in firefox, options are none, vertical, horizontal or both
 textarea {
@@ -1478,142 +1635,146 @@ form {
 	}
 }
 
-.row {
-	clear: both;
+.makeFloatGrid(@floatGridEnabled, @rowName) when (@floatGridEnabled = true) {
+	.@{rowName} {
+		clear: both;
 
-	&:after {
-		&:extend(.clear);
-	}
-
-	.row {
-		margin-left: -@colGutter / 2;
-		margin-right: -@colGutter / 2;
-	}
-
-	.makeGrid(@gridEnabled, @colName, @offsetName, @pushName, @pullName, @tinyName, @smallName, @mediumName, @largeName, @extraLargeName) when (@gridEnabled = true) {
-
-		[class*="@{colName}"] {
-			display: block;
-			min-height: 1px;
-			padding-left: @colGutter / 2;
-			padding-right: @colGutter / 2;
-
-			&.no-left-gutter {
-				padding-left: 0;
-			}
-
-			&.no-right-gutter {
-				padding-right: 0;
-			}
-
-			&.no-gutter {
-				padding-left: 0;
-				padding-right: 0;
-			}
+		&:after {
+			&:extend(.clear);
 		}
 
-		// Build a row of columns
-		.makeRow(@spanName) {
-			// Trim trailing - from span names
-			@spanNameClean: replace(@spanName, "-$", "");
-			@colWidth: percentage((100 / @numColumns) / 100);
+		.@{rowName} {
+			margin-left: -@colGutter / 2;
+			margin-right: -@colGutter / 2;
+		}
 
-			[class*="@{colName}@{spanName}"] {
-				float: left;
-				position: relative;
-			}
+		.makeGrid(@gridEnabled, @colName, @offsetName, @pushName, @pullName, @tinyName, @smallName, @mediumName, @largeName, @extraLargeName) when (@gridEnabled = true) {
 
 			[class*="@{colName}"] {
-				&.left-gutter-@{spanNameClean} {
-					padding-left: @colGutter / 2;
-				}
+				display: block;
+				min-height: 1px;
+				padding-left: @colGutter / 2;
+				padding-right: @colGutter / 2;
 
-				&.no-left-gutter-@{spanNameClean} {
+				&.no-left-gutter {
 					padding-left: 0;
 				}
 
-				&.right-gutter-@{spanNameClean} {
-					padding-right: @colGutter / 2;
-				}
-
-				&.no-right-gutter-@{spanNameClean} {
+				&.no-right-gutter {
 					padding-right: 0;
 				}
 
-				&.gutter-@{spanNameClean} {
-					padding-left: @colGutter / 2;
-					padding-right: @colGutter / 2;
-				}
-
-				&.no-gutter-@{spanNameClean} {
+				&.no-gutter {
 					padding-left: 0;
 					padding-right: 0;
 				}
 			}
 
-			.makeCols(@name, @span) when (@span > 0) {
-				.@{colName}@{name}@{span} {
-					width: @colWidth + (@colWidth * (@span - 1));
+			// Build a row of columns
+			.makeRow(@spanName) {
+				// Trim trailing - from span names
+				@spanNameClean: replace(@spanName, "-$", "");
+				@colWidth: percentage((100 / @numColumns) / 100);
+
+				[class*="@{colName}@{spanName}"] {
+					float: left;
+					position: relative;
 				}
 
-				// If in bootstrap compatible mode
-				.makeOffset(@colName) when (@colName = col-) {
-					.@{colName}@{name}@{offsetName}@{span} {
-						margin-left: @colWidth * @span;
+				[class*="@{colName}"] {
+					&.left-gutter-@{spanNameClean} {
+						padding-left: @colGutter / 2;
+					}
+
+					&.no-left-gutter-@{spanNameClean} {
+						padding-left: 0;
+					}
+
+					&.right-gutter-@{spanNameClean} {
+						padding-right: @colGutter / 2;
+					}
+
+					&.no-right-gutter-@{spanNameClean} {
+						padding-right: 0;
+					}
+
+					&.gutter-@{spanNameClean} {
+						padding-left: @colGutter / 2;
+						padding-right: @colGutter / 2;
+					}
+
+					&.no-gutter-@{spanNameClean} {
+						padding-left: 0;
+						padding-right: 0;
 					}
 				}
-				// Else in fusionCSS
-				.makeOffset(@colName) when not (@colName = col-) {
-					.@{offsetName}@{name}@{span} {
-						margin-left: @colWidth * @span;
+
+				.makeCols(@name, @span) when (@span > 0) {
+					.@{colName}@{name}@{span} {
+						width: @colWidth + (@colWidth * (@span - 1));
 					}
-				}
-				.makeOffset(@colName);
 
-				.@{colName}@{name}@{pushName}@{span} {
-					left: @colWidth + (@colWidth * (@span - 1));
+					// If in bootstrap compatible mode
+					.makeOffset(@colName) when (@colName = col-) {
+						.@{colName}@{name}@{offsetName}@{span} {
+							margin-left: @colWidth * @span;
+						}
+					}
+					// Else in fusionCSS
+					.makeOffset(@colName) when not (@colName = col-) {
+						.@{offsetName}@{name}@{span} {
+							margin-left: @colWidth * @span;
+						}
+					}
+					.makeOffset(@colName);
+
+					.@{colName}@{name}@{pushName}@{span} {
+						left: @colWidth + (@colWidth * (@span - 1));
+					}
+					.@{colName}@{name}@{pullName}@{span} {
+						right: @colWidth + (@colWidth * (@span - 1));
+					}
+					.makeCols(@name, @span - 1);
 				}
-				.@{colName}@{name}@{pullName}@{span} {
-					right: @colWidth + (@colWidth * (@span - 1));
+
+				.@{colName}@{spanName}@{pushName}0 {
+					left: inherit;
 				}
-				.makeCols(@name, @span - 1);
+				.@{colName}@{spanName}@{pullName}0 {
+					right: inherit;
+				}
+
+				.makeCols(@spanName, @numColumns);
 			}
 
-			.@{colName}@{spanName}@{pushName}0 {
-				left: inherit;
+			.makeRow(@tinyName);
+
+			@media (min-width: @breakpoint-s) {
+				.makeRow(@smallName);
 			}
-			.@{colName}@{spanName}@{pullName}0 {
-				right: inherit;
+
+			@media (min-width: @breakpoint-m) {
+				.makeRow(@mediumName);
 			}
 
-			.makeCols(@spanName, @numColumns);
+			@media (min-width: @breakpoint-l) {
+				.makeRow(@largeName);
+			}
+
+			@media (min-width: @breakpoint-x) {
+				.makeRow(@extraLargeName);
+			}
 		}
 
-		.makeRow(@tinyName);
+		// Build the grid for fusionCSS
+		.makeGrid(@fusionCSSStyle, span-, offset-, -push, -pull, t, s, m, l, x);
 
-		@media (min-width: @breakpoint-s) {
-			.makeRow(@smallName);
-		}
-
-		@media (min-width: @breakpoint-m) {
-			.makeRow(@mediumName);
-		}
-
-		@media (min-width: @breakpoint-l) {
-			.makeRow(@largeName);
-		}
-
-		@media (min-width: @breakpoint-x) {
-			.makeRow(@extraLargeName);
-		}
+		// Build the grid for Bootstap 3
+		.makeGrid(@bootstrap3Style, col-, offset-, push-, pull-, xs-, sm-, md-, lg-, xl-);
 	}
-
-	// Build the grid for fusionCSS
-	.makeGrid(@fusionCSSStyle, span-, offset-, -push, -pull, t, s, m, l, x);
-
-	// Build the grid for Bootstap 3
-	.makeGrid(@bootstrap3Style, col-, offset-, push-, pull-, xs-, sm-, md-, lg-, xl-);
 }
+
+.makeFloatGrid(@withFloatGrid, row);
 
 // fusionCSS Mixins
 
@@ -2027,6 +2188,9 @@ div.responsiveTableWrapperInner {
 		visibility: visible;
 		overflow: initial;
 		height: auto;
+	}
+	.tabhidepanel {
+		display: none;
 	}
 }
 

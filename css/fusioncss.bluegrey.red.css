@@ -22,7 +22,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   margin-bottom: 1rem;
   font-weight: 500;
 }
@@ -122,21 +122,21 @@ dd {
 }
 blockquote {
   border-left: 6px solid #FF5252;
-  padding: .25rem 0 .25rem 1rem;
+  padding: 0.25rem 0 0.25rem 1rem;
   margin: 1rem 0;
 }
 blockquote p:last-child {
   margin-bottom: 0;
 }
 blockquote cite:before {
-  font-size: .85rem;
+  font-size: 0.85rem;
   content: '\2014';
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   color: rgba(0, 0, 0, 0.54);
 }
 blockquote cite {
   display: block;
-  font-size: .85rem;
+  font-size: 0.85rem;
   color: rgba(0, 0, 0, 0.54);
 }
 .row {
@@ -1147,7 +1147,7 @@ table th {
 table td,
 table th {
   text-align: left;
-  padding: .25rem .5rem;
+  padding: 0.25rem 0.5rem;
   vertical-align: middle;
 }
 table.striped tr td {
@@ -1205,7 +1205,7 @@ div.responsiveTableWrapperInner {
 }
 .paginationwidget li {
   display: inline-block;
-  margin-right: .2rem;
+  margin-right: 0.2rem;
 }
 .paginationwidget li:last-child {
   margin-right: 0;
@@ -1214,7 +1214,7 @@ div.responsiveTableWrapperInner {
 .paginationwidget li a {
   display: inline-block;
   text-decoration: none;
-  padding: .2rem .75rem;
+  padding: 0.2rem 0.75rem;
   color: rgba(0, 0, 0, 0.87);
   border-radius: 3px;
 }
@@ -1227,7 +1227,7 @@ div.responsiveTableWrapperInner {
 }
 .breadcrumbwidget {
   list-style: none;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1236,7 +1236,7 @@ div.responsiveTableWrapperInner {
 }
 .breadcrumbwidget li {
   display: inline-block;
-  margin-right: .25rem;
+  margin-right: 0.25rem;
   color: rgba(0, 0, 0, 0.87);
 }
 .breadcrumbwidget li:last-child {
@@ -1246,7 +1246,7 @@ div.responsiveTableWrapperInner {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.87);
   border: 1px solid transparent;
-  padding: .25rem;
+  padding: 0.25rem;
 }
 .breadcrumbwidget a:hover {
   color: rgba(0, 0, 0, 0.87);
@@ -1256,7 +1256,7 @@ div.responsiveTableWrapperInner {
 .breadcrumbwidget li + li:before {
   content: " >";
   font-weight: bold;
-  margin-right: .25rem;
+  margin-right: 0.25rem;
 }
 .breadcrumbwidget.path li + li:before {
   content: " /";
@@ -1347,7 +1347,7 @@ div.responsiveTableWrapperInner {
 }
 .hnav li a,
 .vnav li a {
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   display: block;
   color: #ffffff;
   text-decoration: none;
@@ -1371,14 +1371,14 @@ div.responsiveTableWrapperInner {
 }
 .hnav.pill li,
 .vnav.pill li {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 .hnav li {
   float: left;
 }
 .alert {
   text-align: left;
-  padding: .5rem;
+  padding: 0.5rem;
   overflow: hidden;
   margin: 1rem 0;
 }
@@ -1549,14 +1549,14 @@ div.responsiveTableWrapperInner {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 .card .header {
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 .card .content {
   padding: 1rem;
 }
 .card .footer {
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 textarea {
@@ -1573,7 +1573,7 @@ form fieldset {
   min-width: 0;
 }
 form legend {
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 3px;
 }
@@ -1587,7 +1587,7 @@ form label {
   transition: all 150ms linear;
 }
 form label em {
-  font-size: .85rem;
+  font-size: 0.85rem;
   font-style: normal;
   color: rgba(244, 67, 54, 0.87);
 }
@@ -1599,8 +1599,8 @@ form label.focused {
 }
 form .description {
   clear: both;
-  padding: .25rem 0 0 0;
-  font-size: .85rem;
+  padding: 0.25rem 0 0 0;
+  font-size: 0.85rem;
   color: rgba(0, 0, 0, 0.54);
 }
 form .validation {
@@ -1618,7 +1618,7 @@ form .ajax {
 }
 form input[disabled] {
   cursor: not-allowed;
-  opacity: .5;
+  opacity: 0.5;
 }
 form input[type="text"],
 form input[type="number"],
@@ -1633,7 +1633,7 @@ form textarea {
   font-family: inherit;
   font-size: 1rem;
   width: 100%;
-  padding: .5rem .25rem;
+  padding: 0.5rem 0.25rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.87);
   background-color: transparent;
@@ -1682,18 +1682,18 @@ form .radiogroup {
   list-style: none;
 }
 form .radiogroup li {
-  padding: .25rem 0;
+  padding: 0.25rem 0;
   margin: 0;
 }
 form .radiogroup input {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 form .radiogroup label {
   color: rgba(0, 0, 0, 0.87);
   font-size: 1rem;
 }
 form .checklist {
-  padding: .25rem;
+  padding: 0.25rem;
   margin: 0;
   list-style: none;
   overflow: auto;
@@ -1701,7 +1701,7 @@ form .checklist {
   border-radius: 3px;
 }
 form .checklist li {
-  padding: .25rem;
+  padding: 0.25rem;
   margin: 0;
   background-color: transparent;
   transition: all 150ms linear;
@@ -1730,7 +1730,7 @@ form .checklist li label {
   cursor: pointer;
 }
 form .checklist input {
-  margin-right: .25rem;
+  margin-right: 0.25rem;
 }
 form dd:last-child {
   margin-bottom: 0;
@@ -1752,7 +1752,7 @@ form .selectControl:after {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: .5rem .5rem 0 .5rem;
+  border-width: 0.5rem 0.5rem 0 0.5rem;
   border-color: #607D8B transparent transparent transparent;
   position: absolute;
   top: 50%;
@@ -1768,7 +1768,7 @@ form .selectControl:after {
 .appFormStyle form input[type="search"],
 .appFormStyle form select,
 .appFormStyle form textarea {
-  padding: .5rem 0;
+  padding: 0.5rem 0;
   border: none;
   border-bottom: 2px solid rgba(0, 0, 0, 0.12);
 }
@@ -1806,9 +1806,9 @@ form .selectControl:after {
 .floatingLabels label.floatUp {
   color: rgba(0, 0, 0, 0.54);
   position: absolute;
-  top: .25rem;
-  left: .25rem;
-  font-size: .75rem;
+  top: 0.25rem;
+  left: 0.25rem;
+  font-size: 0.75rem;
 }
 .floatingLabels label.floatUp.focused {
   color: #607D8B;
@@ -1817,7 +1817,7 @@ form .selectControl:after {
   color: rgba(0, 0, 0, 0.54);
   position: absolute;
   top: 1rem;
-  left: .25rem;
+  left: 0.25rem;
   cursor: text;
 }
 .floatingLabels label.floatDown.focused {
@@ -1830,14 +1830,14 @@ form .selectControl:after {
 .floatingLabels form input[type="url"],
 .floatingLabels form input[type="password"],
 .floatingLabels form input[type="search"] {
-  padding: 1.5rem .25rem .5rem .25rem;
+  padding: 1.5rem 0.25rem 0.5rem 0.25rem;
 }
 .floatingLabels form textarea.hasFloatingLabel {
-  margin-top: .5rem;
-  padding: .5rem .25rem .5rem .25rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.25rem 0.5rem 0.25rem;
 }
 .floatingLabels form .selectControl select {
-  padding: 1.5rem 2.5rem .5rem .25rem;
+  padding: 1.5rem 2.5rem 0.5rem 0.25rem;
   margin: 0;
   outline: none;
   border-radius: 0;
@@ -1859,7 +1859,7 @@ form .selectControl:after {
   top: -0.75rem;
 }
 .floatingLabels .floatTextarea.floatDown {
-  top: .75rem;
+  top: 0.75rem;
 }
 .floatingLabels.appFormStyle label.floatUp,
 .floatingLabels .appFormStyle label.floatUp,
@@ -1888,7 +1888,7 @@ form .selectControl:after {
 .floatingLabels .appFormStyle input[type="search"],
 .floatingLabels.appFormStyle .selectControl select,
 .floatingLabels .appFormStyle .selectControl select {
-  padding: 1.5rem 0 .5rem 0;
+  padding: 1.5rem 0 0.5rem 0;
 }
 .floatingLabels.appFormStyle .selectControl select,
 .floatingLabels .appFormStyle .selectControl select {
@@ -1915,7 +1915,7 @@ form.hform dt {
 .hform form dt label,
 form.hform dt label {
   text-align: right;
-  padding: .4rem 0 .5rem 0;
+  padding: 0.4rem 0 0.5rem 0;
   color: rgba(0, 0, 0, 0.87);
 }
 .hform form dd,
@@ -1943,7 +1943,7 @@ form.hform input[type="password"],
 form.hform input[type="search"],
 .hform form .selectControl select,
 form.hform .selectControl select {
-  padding: .5rem .25rem !important;
+  padding: 0.5rem 0.25rem !important;
 }
 .hform form .selectControl select,
 form.hform .selectControl select {
@@ -1985,7 +1985,7 @@ form #submit-list dd .button {
   .hform form dt label,
   form.hform dt label {
     text-align: left;
-    font-size: .85rem;
+    font-size: 0.85rem;
     color: rgba(0, 0, 0, 0.54);
   }
   .hform form .validation,
@@ -2003,12 +2003,12 @@ button,
   background-color: transparent;
   font-weight: 400;
   text-transform: uppercase;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   outline: none;
   border: none;
   display: inline-block;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   border-radius: 3px;
   text-decoration: none;
   -webkit-appearance: none;
@@ -2373,7 +2373,7 @@ button.floating.mini i,
 }
 #slideInMenu a {
   color: rgba(0, 0, 0, 0.87);
-  padding: .75rem 1rem;
+  padding: 0.75rem 1rem;
   display: block;
   white-space: nowrap;
   overflow: hidden;
@@ -2389,8 +2389,8 @@ button.floating.mini i,
   list-style: none;
 }
 #slideInMenu ul + ul {
-  margin-top: .5rem;
-  padding-top: .5rem;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 #slideInMenu li {
@@ -2411,7 +2411,7 @@ body.disableScroll {
   bottom: -100px;
   left: 50%;
   margin-left: -45%;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   text-align: left;
   width: 90%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -2460,7 +2460,7 @@ body.disableScroll {
 }
 .tabs {
   list-style: none;
-  margin: 0 0 .5rem 0;
+  margin: 0 0 0.5rem 0;
   padding: 0;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -2473,7 +2473,7 @@ body.disableScroll {
   display: block;
   cursor: pointer;
   outline: none;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   margin: 0 0 -0.5rem 0;
   border-bottom: 2px solid transparent;
   transition: all 250ms linear;
@@ -2496,7 +2496,7 @@ body.disableScroll {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: .5rem .5rem 0 .5rem;
+  border-width: 0.5rem 0.5rem 0 0.5rem;
   border-color: #607D8B transparent transparent transparent;
   position: absolute;
   top: 50%;
@@ -2516,7 +2516,7 @@ body.disableScroll {
 }
 .tabs > li.tabsMenu ul li {
   white-space: nowrap;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
 .tabs > li.tabsMenu ul li:hover {
   background-color: rgba(0, 0, 0, 0.12);
@@ -2537,6 +2537,9 @@ body.disableScroll {
   visibility: visible;
   overflow: initial;
   height: auto;
+}
+.tabpanels .tabhidepanel {
+  display: none;
 }
 @media (min-width: 768px) {
   .tabwidget.vtabs {
@@ -2581,10 +2584,10 @@ body.disableScroll {
   display: inline-block;
   border-radius: 2rem;
   line-height: 2rem;
-  padding: 0 .75rem;
+  padding: 0 0.75rem;
   white-space: nowrap;
-  margin-bottom: .5rem;
-  margin-right: .25rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.25rem;
   font-size: 1rem;
 }
 .chips li:last-child,
@@ -2602,7 +2605,7 @@ body.disableScroll {
   display: inline-block;
   text-align: center;
   font-style: normal;
-  margin-left: .25rem;
+  margin-left: 0.25rem;
   margin-right: -0.5rem;
   margin-top: -0.3rem;
   cursor: pointer;
@@ -2617,7 +2620,7 @@ body.disableScroll {
   width: 2rem;
   height: 2em;
   display: inline-block;
-  margin-right: .25rem;
+  margin-right: 0.25rem;
   margin-left: -0.75rem;
   max-width: inherit;
 }
@@ -2627,7 +2630,7 @@ body.disableScroll {
   width: 2rem;
   height: 2rem;
   display: inline-block;
-  margin-right: .25rem;
+  margin-right: 0.25rem;
   margin-left: -0.75rem;
   font-weight: normal;
   text-align: center;
@@ -2646,7 +2649,7 @@ body.disableScroll {
   color: #ffffff;
   background-color: #607D8B;
   font-size: 1.3rem;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -2672,7 +2675,7 @@ body.disableScroll {
 }
 .appbar li {
   display: inline-block;
-  margin-right: .75rem;
+  margin-right: 0.75rem;
 }
 .appbar li:last-child {
   margin-right: 0;
@@ -2689,7 +2692,7 @@ body.disableScroll {
 }
 .fam ul {
   position: absolute;
-  top: .35rem;
+  top: 0.35rem;
   left: 4rem;
   list-style: none;
   margin-left: 0;
@@ -2709,7 +2712,7 @@ body.disableScroll {
 }
 .fam li {
   display: inline-block;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 .fam li:last-child {
   margin-right: 0;
@@ -2721,7 +2724,7 @@ body.disableScroll {
 }
 .fam.vertical ul {
   top: 4rem;
-  left: .5rem;
+  left: 0.5rem;
   width: 2.5rem;
 }
 .fam.vertical li {
@@ -2751,7 +2754,7 @@ body.disableScroll {
 }
 .tagInputWidget {
   border: 1px solid rgba(0, 0, 0, 0.12);
-  padding: .5rem .5rem 0 .5rem;
+  padding: 0.5rem 0.5rem 0 0.5rem;
   width: 100%;
   overflow-y: auto;
 }
@@ -2759,9 +2762,9 @@ body.disableScroll {
   display: inline-block;
   font-size: 1rem;
   line-height: 2rem;
-  padding: 0 .75rem 1px .75rem;
-  margin-bottom: .5rem;
-  margin-right: .5rem;
+  padding: 0 0.75rem 1px 0.75rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
   border: none;
   border-radius: 2rem;
   outline: none;
