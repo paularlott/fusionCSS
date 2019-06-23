@@ -1010,6 +1010,10 @@ button {
 			margin-right: -@colGutter / 2;
 		}
 
+		&.flex-wrap-reverse {
+			flex-wrap: wrap-reverse;
+		}
+
 		.makeGrid(@gridEnabled, @colName, @offsetName, @orderName, @tinyName, @smallName, @mediumName, @largeName, @extraLargeName) when (@gridEnabled = true) {
 
 			[class*="@{colName}"] {
@@ -1041,6 +1045,9 @@ button {
 				@spanNameClean: replace(@spanName, "-$", "");
 				@colWidth: percentage((100 / @numColumns) / 100);
 
+				&.flex-@{spanNameClean}-row {
+					flex-direction: row;
+				}
 				&.flex-@{spanNameClean}-row-reverse {
 					flex-direction: row-reverse;
 				}
@@ -1050,6 +1057,7 @@ button {
 				&.flex-@{spanNameClean}-column-reverse {
 					flex-direction: column-reverse;
 				}
+
 				&.justify-content-@{spanNameClean}-center {
 					justify-content: center;
 				}
@@ -1064,6 +1072,25 @@ button {
 				}
 				&.justify-content-@{spanNameClean}-between {
 					justify-content: space-between;
+				}
+
+				&.align-items-@{spanNameClean}-start {
+					align-items: flex-start;
+				}
+				&.align-items-@{spanNameClean}-end {
+					align-items: flex-end;
+				}
+				&.align-items-@{spanNameClean}-center {
+					align-items: center;
+				}
+				&.align-items-@{spanNameClean}-stretch {
+					align-items: stretch;
+				}
+				&.align-items-@{spanNameClean}-baseline {
+					align-items: baseline;
+				}
+				&.align-items-@{spanNameClean}-stretch {
+					align-items: stretch;
 				}
 
 				[class*="@{colName}"] {

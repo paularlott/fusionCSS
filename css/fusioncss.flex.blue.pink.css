@@ -148,6 +148,9 @@ blockquote cite {
   margin-left: -0.75rem;
   margin-right: -0.75rem;
 }
+.row.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
 .row [class*="span-"] {
   display: block;
   min-height: 1px;
@@ -166,6 +169,9 @@ blockquote cite {
 .row [class*="span-"].no-gutter {
   padding-left: 0;
   padding-right: 0;
+}
+.row.flex-t-row {
+  flex-direction: row;
 }
 .row.flex-t-row-reverse {
   flex-direction: row-reverse;
@@ -190,6 +196,24 @@ blockquote cite {
 }
 .row.justify-content-t-between {
   justify-content: space-between;
+}
+.row.align-items-t-start {
+  align-items: flex-start;
+}
+.row.align-items-t-end {
+  align-items: flex-end;
+}
+.row.align-items-t-center {
+  align-items: center;
+}
+.row.align-items-t-stretch {
+  align-items: stretch;
+}
+.row.align-items-t-baseline {
+  align-items: baseline;
+}
+.row.align-items-t-stretch {
+  align-items: stretch;
 }
 .row [class*="span-"].left-gutter-t {
   padding-left: 0.75rem;
@@ -320,6 +344,9 @@ blockquote cite {
   order: 1;
 }
 @media (min-width: 768px) {
+  .row.flex-s-row {
+    flex-direction: row;
+  }
   .row.flex-s-row-reverse {
     flex-direction: row-reverse;
   }
@@ -343,6 +370,24 @@ blockquote cite {
   }
   .row.justify-content-s-between {
     justify-content: space-between;
+  }
+  .row.align-items-s-start {
+    align-items: flex-start;
+  }
+  .row.align-items-s-end {
+    align-items: flex-end;
+  }
+  .row.align-items-s-center {
+    align-items: center;
+  }
+  .row.align-items-s-stretch {
+    align-items: stretch;
+  }
+  .row.align-items-s-baseline {
+    align-items: baseline;
+  }
+  .row.align-items-s-stretch {
+    align-items: stretch;
   }
   .row [class*="span-"].left-gutter-s {
     padding-left: 0.75rem;
@@ -474,6 +519,9 @@ blockquote cite {
   }
 }
 @media (min-width: 992px) {
+  .row.flex-m-row {
+    flex-direction: row;
+  }
   .row.flex-m-row-reverse {
     flex-direction: row-reverse;
   }
@@ -497,6 +545,24 @@ blockquote cite {
   }
   .row.justify-content-m-between {
     justify-content: space-between;
+  }
+  .row.align-items-m-start {
+    align-items: flex-start;
+  }
+  .row.align-items-m-end {
+    align-items: flex-end;
+  }
+  .row.align-items-m-center {
+    align-items: center;
+  }
+  .row.align-items-m-stretch {
+    align-items: stretch;
+  }
+  .row.align-items-m-baseline {
+    align-items: baseline;
+  }
+  .row.align-items-m-stretch {
+    align-items: stretch;
   }
   .row [class*="span-"].left-gutter-m {
     padding-left: 0.75rem;
@@ -628,6 +694,9 @@ blockquote cite {
   }
 }
 @media (min-width: 1200px) {
+  .row.flex-l-row {
+    flex-direction: row;
+  }
   .row.flex-l-row-reverse {
     flex-direction: row-reverse;
   }
@@ -651,6 +720,24 @@ blockquote cite {
   }
   .row.justify-content-l-between {
     justify-content: space-between;
+  }
+  .row.align-items-l-start {
+    align-items: flex-start;
+  }
+  .row.align-items-l-end {
+    align-items: flex-end;
+  }
+  .row.align-items-l-center {
+    align-items: center;
+  }
+  .row.align-items-l-stretch {
+    align-items: stretch;
+  }
+  .row.align-items-l-baseline {
+    align-items: baseline;
+  }
+  .row.align-items-l-stretch {
+    align-items: stretch;
   }
   .row [class*="span-"].left-gutter-l {
     padding-left: 0.75rem;
@@ -782,6 +869,9 @@ blockquote cite {
   }
 }
 @media (min-width: 1600px) {
+  .row.flex-x-row {
+    flex-direction: row;
+  }
   .row.flex-x-row-reverse {
     flex-direction: row-reverse;
   }
@@ -805,6 +895,24 @@ blockquote cite {
   }
   .row.justify-content-x-between {
     justify-content: space-between;
+  }
+  .row.align-items-x-start {
+    align-items: flex-start;
+  }
+  .row.align-items-x-end {
+    align-items: flex-end;
+  }
+  .row.align-items-x-center {
+    align-items: center;
+  }
+  .row.align-items-x-stretch {
+    align-items: stretch;
+  }
+  .row.align-items-x-baseline {
+    align-items: baseline;
+  }
+  .row.align-items-x-stretch {
+    align-items: stretch;
   }
   .row [class*="span-"].left-gutter-x {
     padding-left: 0.75rem;

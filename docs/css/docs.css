@@ -29,6 +29,11 @@ body {
 	background-color: #90CAF9;
 }
 .example [class^="span"].result { background-color: #90CAF9; }
+.example.tall {
+	height: 5rem;
+	background-color: #eeeeee;
+	margin-bottom: 1rem;
+}
 
 .card > .content > .example {
 	margin-left: 0;

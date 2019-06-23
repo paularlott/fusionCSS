@@ -1049,6 +1049,9 @@ blockquote cite {
   margin-left: -0.75rem;
   margin-right: -0.75rem;
 }
+.flex-row.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
 .flex-row [class*="span-"] {
   display: block;
   min-height: 1px;
@@ -1067,6 +1070,9 @@ blockquote cite {
 .flex-row [class*="span-"].no-gutter {
   padding-left: 0;
   padding-right: 0;
+}
+.flex-row.flex-t-row {
+  flex-direction: row;
 }
 .flex-row.flex-t-row-reverse {
   flex-direction: row-reverse;
@@ -1091,6 +1097,24 @@ blockquote cite {
 }
 .flex-row.justify-content-t-between {
   justify-content: space-between;
+}
+.flex-row.align-items-t-start {
+  align-items: flex-start;
+}
+.flex-row.align-items-t-end {
+  align-items: flex-end;
+}
+.flex-row.align-items-t-center {
+  align-items: center;
+}
+.flex-row.align-items-t-stretch {
+  align-items: stretch;
+}
+.flex-row.align-items-t-baseline {
+  align-items: baseline;
+}
+.flex-row.align-items-t-stretch {
+  align-items: stretch;
 }
 .flex-row [class*="span-"].left-gutter-t {
   padding-left: 0.75rem;
@@ -1221,6 +1245,9 @@ blockquote cite {
   order: 1;
 }
 @media (min-width: 768px) {
+  .flex-row.flex-s-row {
+    flex-direction: row;
+  }
   .flex-row.flex-s-row-reverse {
     flex-direction: row-reverse;
   }
@@ -1244,6 +1271,24 @@ blockquote cite {
   }
   .flex-row.justify-content-s-between {
     justify-content: space-between;
+  }
+  .flex-row.align-items-s-start {
+    align-items: flex-start;
+  }
+  .flex-row.align-items-s-end {
+    align-items: flex-end;
+  }
+  .flex-row.align-items-s-center {
+    align-items: center;
+  }
+  .flex-row.align-items-s-stretch {
+    align-items: stretch;
+  }
+  .flex-row.align-items-s-baseline {
+    align-items: baseline;
+  }
+  .flex-row.align-items-s-stretch {
+    align-items: stretch;
   }
   .flex-row [class*="span-"].left-gutter-s {
     padding-left: 0.75rem;
@@ -1375,6 +1420,9 @@ blockquote cite {
   }
 }
 @media (min-width: 992px) {
+  .flex-row.flex-m-row {
+    flex-direction: row;
+  }
   .flex-row.flex-m-row-reverse {
     flex-direction: row-reverse;
   }
@@ -1398,6 +1446,24 @@ blockquote cite {
   }
   .flex-row.justify-content-m-between {
     justify-content: space-between;
+  }
+  .flex-row.align-items-m-start {
+    align-items: flex-start;
+  }
+  .flex-row.align-items-m-end {
+    align-items: flex-end;
+  }
+  .flex-row.align-items-m-center {
+    align-items: center;
+  }
+  .flex-row.align-items-m-stretch {
+    align-items: stretch;
+  }
+  .flex-row.align-items-m-baseline {
+    align-items: baseline;
+  }
+  .flex-row.align-items-m-stretch {
+    align-items: stretch;
   }
   .flex-row [class*="span-"].left-gutter-m {
     padding-left: 0.75rem;
@@ -1529,6 +1595,9 @@ blockquote cite {
   }
 }
 @media (min-width: 1200px) {
+  .flex-row.flex-l-row {
+    flex-direction: row;
+  }
   .flex-row.flex-l-row-reverse {
     flex-direction: row-reverse;
   }
@@ -1552,6 +1621,24 @@ blockquote cite {
   }
   .flex-row.justify-content-l-between {
     justify-content: space-between;
+  }
+  .flex-row.align-items-l-start {
+    align-items: flex-start;
+  }
+  .flex-row.align-items-l-end {
+    align-items: flex-end;
+  }
+  .flex-row.align-items-l-center {
+    align-items: center;
+  }
+  .flex-row.align-items-l-stretch {
+    align-items: stretch;
+  }
+  .flex-row.align-items-l-baseline {
+    align-items: baseline;
+  }
+  .flex-row.align-items-l-stretch {
+    align-items: stretch;
   }
   .flex-row [class*="span-"].left-gutter-l {
     padding-left: 0.75rem;
@@ -1683,6 +1770,9 @@ blockquote cite {
   }
 }
 @media (min-width: 1600px) {
+  .flex-row.flex-x-row {
+    flex-direction: row;
+  }
   .flex-row.flex-x-row-reverse {
     flex-direction: row-reverse;
   }
@@ -1706,6 +1796,24 @@ blockquote cite {
   }
   .flex-row.justify-content-x-between {
     justify-content: space-between;
+  }
+  .flex-row.align-items-x-start {
+    align-items: flex-start;
+  }
+  .flex-row.align-items-x-end {
+    align-items: flex-end;
+  }
+  .flex-row.align-items-x-center {
+    align-items: center;
+  }
+  .flex-row.align-items-x-stretch {
+    align-items: stretch;
+  }
+  .flex-row.align-items-x-baseline {
+    align-items: baseline;
+  }
+  .flex-row.align-items-x-stretch {
+    align-items: stretch;
   }
   .flex-row [class*="span-"].left-gutter-x {
     padding-left: 0.75rem;
