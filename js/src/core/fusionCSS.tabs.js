@@ -163,7 +163,10 @@ $.fn.tabWidget = function (activeTab) {
 				tabsContainer.find('.tabsMenu ul').hide();
 
 				// Trigger an event for the click.
-				el.trigger('fcss:tabclick');
+				tabsContainer.trigger(
+					'fcss:tabclick',
+					{ tabName: tabName }
+				);
 
 				evt.preventDefault();
 				evt.stopPropagation();
