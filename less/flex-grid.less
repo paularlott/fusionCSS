@@ -181,3 +181,12 @@
 }
 
 .makeFlexGrid(@withFlexGrid, @flexRowName);
+
+// If using float grid then we need to allow flex rows in rows or rows in flex rows
+.nestFlexInFloat(@flexGridEnabled, @floatGridEnabled, @rowName) when (@flexGridEnabled = true) and (@floatGridEnabled = true) {
+	.row .@{rowName},
+	.@{rowName} .row {
+		&:extend(.row .row);
+	}
+}
+.nestFlexInFloat(@withFlexGrid, @withFloatGrid, @flexRowName);

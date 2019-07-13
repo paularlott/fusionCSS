@@ -142,7 +142,9 @@ blockquote cite {
 .row {
   clear: both;
 }
-.row .row {
+.row .row,
+.row .flex-row,
+.flex-row .row {
   margin-left: -0.75rem;
   margin-right: -0.75rem;
 }
