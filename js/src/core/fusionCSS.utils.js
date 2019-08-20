@@ -6,7 +6,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  *
  * @package fusionCSS
- * @copyright Copyright (c) 2013 - 2018 fusionCSS. All rights reserved.
+ * @copyright Copyright (c) 2013 - 2019 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
  */
 
@@ -32,7 +32,7 @@ $(document).ready(function () {
 				toTop.removeClass('hide');
 			else
 				toTop.addClass('hide');
-		});
+		}).trigger('scroll');
 	}
 
 	/**

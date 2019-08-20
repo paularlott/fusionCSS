@@ -6,7 +6,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  *
  * @package fusionCSS
- * @copyright Copyright (c) 2018 fusionCSS. All rights reserved.
+ * @copyright Copyright (c) 2018 - 2019 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
  */
 
@@ -200,6 +200,9 @@
 			opts.offset = opts.offset ? opts.offset : 0;
 			opts.stuck = false;
 			opts.stoppedBy = opts.stoppedBy ? opts.stoppedBy : null;
+			opts.releasedBy = opts.releasedBy ? opts.releasedBy : null;
+			opts.releasedByEdge = opts.releasedByEdge ? opts.releasedByEdge : 'bottom';
+			opts.released = false;
 
 			return this.each(function() {
 				var el = $(this);
@@ -219,6 +222,13 @@
 							this.addClass(opts.stuckClass).css('top', trackData.offsetPixels + 'px');
 							opts.handler.call(this, 'stuck');
 							this.trigger('stuck');
+
+							// If have a release element recalculate the offsets
+							if(opts.releasedBy) {
+								opts.releasedBy.trackPointSetOffset(
+									-(opts.releasedByEdge === 'top' ? 0 : opts.releasedBy.outerHeight(false)) + (this.position().top + this.outerHeight(false))
+								);
+							}
 						}
 						else if(direction == 'up') {
 
@@ -245,10 +255,44 @@
 						if(this[0]._stickyOpts.stuck) {
 							this.parent().height(this.outerHeight(true));
 							this.addClass(opts.stuckClass).css('top', trackData.offsetPixels + 'px');
+
+							// If have a release element recalculate the offsets
+							if(opts.releasedBy) {
+								opts.releasedBy.trackPointSetOffset(
+									-(opts.releasedByEdge === 'top' ? 0 : opts.releasedBy.outerHeight(false)) + (this.position().top + this.outerHeight(false))
+								);
+							}
 						}
 					},
 					offset: _calcOffset(opts) //opts.offset
 				});
+
+				// If a lower element can bump the element to unstick then track
+				if(opts.releasedBy) {
+					opts.releasedBy.trackPoint({
+						handler: function(direction, trackData) {
+							var opts = el[0]._stickyOpts;
+							if(opts.stuck) {
+								if (direction == 'up') {
+									el.addClass(opts.stuckClass);
+									opts.released = false;
+								} else if (direction == 'down') {
+									el.removeClass(opts.stuckClass);
+									opts.released = true;
+								}
+							}
+						},
+						onBeforeResize: function() {
+							if(el[0]._stickyOpts.released && el[0]._stickyOpts.stuck)
+								el.add(opts.stuckClass);
+						},
+						onAfterResize: function(trackData) {
+							if(el[0]._stickyOpts.released && el[0]._stickyOpts.stuck)
+								el.removeClass(opts.stuckClass);
+						},
+						offset: -(opts.releasedByEdge === 'top' ? 0 : opts.releasedBy.outerHeight(false)) + (el.position().top + el.outerHeight(false))
+					});
+				}
 
 				// Mark the wrapper class
 				el.parent().addClass('stickyWrapper');
