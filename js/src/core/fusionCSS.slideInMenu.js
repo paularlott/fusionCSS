@@ -50,7 +50,7 @@ $(document).ready(function () {
 		$('body').on('click', function(e) {
 			var el = $(e.target);
 
-			if(!el.closest('#slideInMenu').length && !el.closest('#viewSlideInMenu').length) {
+			if(el.closest('#closeSlideInMenu').length || (!el.closest('#slideInMenu').length && !el.closest('#viewSlideInMenu').length)) {
 				$('#slideInMenu')
 					.removeClass('slideInMenuShow')
 					.attr('aria-hidden', true);
