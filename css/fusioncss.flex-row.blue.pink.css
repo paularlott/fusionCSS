@@ -1054,6 +1054,48 @@ blockquote cite {
 .flex-row.flex-wrap-reverse {
   flex-wrap: wrap-reverse;
 }
+.flex-row.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.flex-row.flex-column {
+  flex-direction: column;
+}
+.flex-row.flex-column-reverse {
+  flex-direction: column-reverse;
+}
+.flex-row.justify-content-center {
+  justify-content: center;
+}
+.flex-row.justify-content-start {
+  justify-content: flex-start;
+}
+.flex-row.justify-content-end {
+  justify-content: flex-end;
+}
+.flex-row.justify-content-around {
+  justify-content: space-around;
+}
+.flex-row.justify-content-between {
+  justify-content: space-between;
+}
+.flex-row.align-items-start {
+  align-items: flex-start;
+}
+.flex-row.align-items-end {
+  align-items: flex-end;
+}
+.flex-row.align-items-center {
+  align-items: center;
+}
+.flex-row.align-items-stretch {
+  align-items: stretch;
+}
+.flex-row.align-items-baseline {
+  align-items: baseline;
+}
+.flex-row.align-items-stretch {
+  align-items: stretch;
+}
 .flex-row [class*="span-"] {
   display: block;
   min-height: 1px;

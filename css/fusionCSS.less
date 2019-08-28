@@ -1013,6 +1013,50 @@ button {
 		&.flex-wrap-reverse {
 			flex-wrap: wrap-reverse;
 		}
+		&.flex-row-reverse {
+			flex-direction: row-reverse;
+		}
+		&.flex-column {
+			flex-direction: column;
+		}
+		&.flex-column-reverse {
+			flex-direction: column-reverse;
+		}
+
+		&.justify-content-center {
+			justify-content: center;
+		}
+		&.justify-content-start {
+			justify-content: flex-start;
+		}
+		&.justify-content-end {
+			justify-content: flex-end;
+		}
+		&.justify-content-around {
+			justify-content: space-around;
+		}
+		&.justify-content-between {
+			justify-content: space-between;
+		}
+
+		&.align-items-start {
+			align-items: flex-start;
+		}
+		&.align-items-end {
+			align-items: flex-end;
+		}
+		&.align-items-center {
+			align-items: center;
+		}
+		&.align-items-stretch {
+			align-items: stretch;
+		}
+		&.align-items-baseline {
+			align-items: baseline;
+		}
+		&.align-items-stretch {
+			align-items: stretch;
+		}
 
 		.makeGrid(@gridEnabled, @colName, @offsetName, @orderName, @tinyName, @smallName, @mediumName, @largeName, @extraLargeName) when (@gridEnabled = true) {
 

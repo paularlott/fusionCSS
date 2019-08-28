@@ -151,6 +151,48 @@ blockquote cite {
 .row.flex-wrap-reverse {
   flex-wrap: wrap-reverse;
 }
+.row.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.row.flex-column {
+  flex-direction: column;
+}
+.row.flex-column-reverse {
+  flex-direction: column-reverse;
+}
+.row.justify-content-center {
+  justify-content: center;
+}
+.row.justify-content-start {
+  justify-content: flex-start;
+}
+.row.justify-content-end {
+  justify-content: flex-end;
+}
+.row.justify-content-around {
+  justify-content: space-around;
+}
+.row.justify-content-between {
+  justify-content: space-between;
+}
+.row.align-items-start {
+  align-items: flex-start;
+}
+.row.align-items-end {
+  align-items: flex-end;
+}
+.row.align-items-center {
+  align-items: center;
+}
+.row.align-items-stretch {
+  align-items: stretch;
+}
+.row.align-items-baseline {
+  align-items: baseline;
+}
+.row.align-items-stretch {
+  align-items: stretch;
+}
 .row [class*="span-"] {
   display: block;
   min-height: 1px;
