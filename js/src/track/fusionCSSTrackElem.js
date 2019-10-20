@@ -195,8 +195,6 @@
 
 			opts.stuckClass = opts.stuckClass ? opts.stuckClass : 'stuck';
 			opts.handler = opts.handler ? opts.handler : function() {};
-			opts.minWidth = opts.minWidth ? opts.minWidth : null;
-			opts.maxWidth = opts.maxWidth ? opts.maxWidth : null;
 			opts.offset = opts.offset ? opts.offset : 0;
 			opts.stuck = false;
 			opts.stoppedBy = opts.stoppedBy ? opts.stoppedBy : null;
@@ -229,8 +227,7 @@
 									-(opts.releasedByEdge === 'top' ? 0 : opts.releasedBy.outerHeight(false)) + (this.position().top + this.outerHeight(false))
 								);
 							}
-						}
-						else if(direction == 'up') {
+						} else if(direction == 'up') {
 
 							// Unstick element
 							opts.stuck = false;
