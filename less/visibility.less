@@ -1,131 +1,134 @@
-.show { display: inherit !important };
+.show { display: initial !important };
 .hide { display: none !important; };
 
-.makeVisibility(@gridEnabled, @visTinyName, @visSmallName, @visMediumName, @visLargeName, @visXLargeName) when (@gridEnabled = true) {
-	.visible-@{visTinyName}, .visible-phone,
-	.visible-@{visTinyName}-block, .visible-@{visTinyName}-inline, .visible-@{visTinyName}-inline-block,
-	.visible-@{visSmallName}, .visible-tablet,
-	.visible-@{visSmallName}-block, .visible-@{visSmallName}-inline, .visible-@{visSmallName}-inline-block,
-	.visible-@{visMediumName}, .visible-desktop,
-	.visible-@{visMediumName}-block, .visible-@{visMediumName}-inline, .visible-@{visMediumName}-inline-block,
-	.visible-@{visLargeName},
-	.visible-@{visLargeName}-block, .visible-@{visLargeName}-inline, .visible-@{visLargeName}-inline-block,
-	.visible-@{visXLargeName},
-	.visible-@{visXLargeName}-block, .visible-@{visXLargeName}-inline, .visible-@{visXLargeName}-inline-block {
-		display: none !important;
-	}
-
-	@media (max-width: (@breakpoint-s - 1)) {
-		.visible-@{visTinyName}, .visible-phone {
-			display: inherit !important;
-		}
-
-		.hidden-@{visTinyName}, .hidden-phone {
+.makeVisibleHidden(@visibleHiddenEnabled) when (@visibleHiddenEnabled = true) {
+	.makeVisibility(@gridEnabled, @visTinyName, @visSmallName, @visMediumName, @visLargeName, @visXLargeName) when (@gridEnabled = true) {
+		.visible-@{visTinyName}, .visible-phone,
+		.visible-@{visTinyName}-block, .visible-@{visTinyName}-inline, .visible-@{visTinyName}-inline-block,
+		.visible-@{visSmallName}, .visible-tablet,
+		.visible-@{visSmallName}-block, .visible-@{visSmallName}-inline, .visible-@{visSmallName}-inline-block,
+		.visible-@{visMediumName}, .visible-desktop,
+		.visible-@{visMediumName}-block, .visible-@{visMediumName}-inline, .visible-@{visMediumName}-inline-block,
+		.visible-@{visLargeName},
+		.visible-@{visLargeName}-block, .visible-@{visLargeName}-inline, .visible-@{visLargeName}-inline-block,
+		.visible-@{visXLargeName},
+		.visible-@{visXLargeName}-block, .visible-@{visXLargeName}-inline, .visible-@{visXLargeName}-inline-block {
 			display: none !important;
 		}
 
-		.visible-@{visTinyName}-block {
-			display: block !important;
+		@media (max-width: (@breakpoint-s - 1)) {
+			.visible-@{visTinyName}, .visible-phone {
+				display: inherit !important;
+			}
+
+			.hidden-@{visTinyName}, .hidden-phone {
+				display: none !important;
+			}
+
+			.visible-@{visTinyName}-block {
+				display: block !important;
+			}
+
+			.visible-@{visTinyName}-inline {
+				display: inline !important;
+			}
+
+			.visible-@{visTinyName}-inline-block {
+				display: inline-block !important;
+			}
 		}
 
-		.visible-@{visTinyName}-inline {
-			display: inline !important;
+		@media (min-width: @breakpoint-s) and (max-width: (@breakpoint-m - 1)) {
+			.visible-@{visSmallName}, .visible-tablet {
+				display: inherit !important;
+			}
+
+			.hidden-@{visSmallName}, .hidden-tablet {
+				display: none !important;
+			}
+
+			.visible-@{visSmallName}-block {
+				display: block !important;
+			}
+
+			.visible-@{visSmallName}-inline {
+				display: inline !important;
+			}
+
+			.visible-@{visSmallName}-inline-block {
+				display: inline-block !important;
+			}
 		}
 
-		.visible-@{visTinyName}-inline-block {
-			display: inline-block !important;
+		@media (min-width: @breakpoint-m) and (max-width: (@breakpoint-l - 1)) {
+			.visible-@{visMediumName}, .visible-desktop {
+				display: inherit !important;
+			}
+
+			.hidden-@{visMediumName}, .hidden-desktop {
+				display: none !important;
+			}
+
+			.visible-@{visMediumName}-block {
+				display: block !important;
+			}
+
+			.visible-@{visMediumName}-inline {
+				display: inline !important;
+			}
+
+			.visible-@{visMediumName}-inline-block {
+				display: inline-block !important;
+			}
+		}
+		@media (min-width: @breakpoint-l) and (max-width: (@breakpoint-x - 1)) {
+			.visible-@{visLargeName}, .visible-desktop {
+				display: inherit !important;
+			}
+
+			.hidden-@{visLargeName}, .hidden-desktop {
+				display: none !important;
+			}
+
+			.visible-@{visLargeName}-block {
+				display: block !important;
+			}
+
+			.visible-@{visLargeName}-inline {
+				display: inline !important;
+			}
+
+			.visible-@{visLargeName}-inline-block {
+				display: inline-block !important;
+			}
+		}
+		@media (min-width: @breakpoint-x) {
+			.visible-@{visXLargeName}, .visible-desktop {
+				display: inherit !important;
+			}
+
+			.hidden-@{visXLargeName}, .hidden-desktop {
+				display: none !important;
+			}
+
+			.visible-@{visXLargeName}-block {
+				display: block !important;
+			}
+
+			.visible-@{visXLargeName}-inline {
+				display: inline !important;
+			}
+
+			.visible-@{visXLargeName}-inline-block {
+				display: inline-block !important;
+			}
 		}
 	}
 
-	@media (min-width: @breakpoint-s) and (max-width: (@breakpoint-m - 1)) {
-		.visible-@{visSmallName}, .visible-tablet {
-			display: inherit !important;
-		}
+	// Build the visibility for fusionCSS
+	.makeVisibility(@fusionCSSStyle, t, s, m, l, x);
 
-		.hidden-@{visSmallName}, .hidden-tablet {
-			display: none !important;
-		}
-
-		.visible-@{visSmallName}-block {
-			display: block !important;
-		}
-
-		.visible-@{visSmallName}-inline {
-			display: inline !important;
-		}
-
-		.visible-@{visSmallName}-inline-block {
-			display: inline-block !important;
-		}
-	}
-
-	@media (min-width: @breakpoint-m) and (max-width: (@breakpoint-l - 1)) {
-		.visible-@{visMediumName}, .visible-desktop {
-			display: inherit !important;
-		}
-
-		.hidden-@{visMediumName}, .hidden-desktop {
-			display: none !important;
-		}
-
-		.visible-@{visMediumName}-block {
-			display: block !important;
-		}
-
-		.visible-@{visMediumName}-inline {
-			display: inline !important;
-		}
-
-		.visible-@{visMediumName}-inline-block {
-			display: inline-block !important;
-		}
-	}
-	@media (min-width: @breakpoint-l) {
-		.visible-@{visLargeName}, .visible-desktop {
-			display: inherit !important;
-		}
-
-		.hidden-@{visLargeName}, .hidden-desktop {
-			display: none !important;
-		}
-
-		.visible-@{visLargeName}-block {
-			display: block !important;
-		}
-
-		.visible-@{visLargeName}-inline {
-			display: inline !important;
-		}
-
-		.visible-@{visLargeName}-inline-block {
-			display: inline-block !important;
-		}
-	}
-	@media (min-width: @breakpoint-x) {
-		.visible-@{visXLargeName}, .visible-desktop {
-			display: inherit !important;
-		}
-
-		.hidden-@{visXLargeName}, .hidden-desktop {
-			display: none !important;
-		}
-
-		.visible-@{visXLargeName}-block {
-			display: block !important;
-		}
-
-		.visible-@{visXLargeName}-inline {
-			display: inline !important;
-		}
-
-		.visible-@{visXLargeName}-inline-block {
-			display: inline-block !important;
-		}
-	}
+	// Build the visibility for Bootstrap 3
+	.makeVisibility(@bootstrap3Style, xs, sm, md, lg, xl);
 }
-
-// Build the visibility for fusionCSS
-.makeVisibility(@fusionCSSStyle, t, s, m, l, x);
-
-// Build the visibility for Bootstrap 3
-.makeVisibility(@bootstrap3Style, xs, sm, md, lg, xl);
+.makeVisibleHidden(@visibleHidden);

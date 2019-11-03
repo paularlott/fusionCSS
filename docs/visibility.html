@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/prism.css" rel="stylesheet" />
-	<link id="pagestyle" href="../css/fusioncss.flex-row.blue.pink.css" rel="stylesheet">
+	<link id="pagestyle" href="../css/fusioncss.blue.pink.css" rel="stylesheet">
 	<link href="css/docs.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/fusionCSS.js"></script>
@@ -41,6 +41,9 @@
 
 
 <h1>Visibility</h1>
+
+<p><strong>Note:</strong> Requires @visibleHidden: true; be set at compile time and only provided for compatibility with older installs. The <a href="display.html">display classes</a> should be used for new builds.</p>
+
 <p>The visibility-* and hidden-* classes allow elements to be hidden and exposed based on the device width.</p>
 
 <h2>Hiding Elements</h2>
@@ -48,27 +51,6 @@
 
 <div class="card">
 	<div class="content">
-		<div class="row example">
-			<div class="span-s6">visible-t / hidden-t</div>
-			<div class="span-s6 result hidden-t">hidden-t</div>
-			<div class="span-s6 result visible-t">visible-t</div>
-		</div>
-		<div class="row example">
-			<div class="span-s6">visible-s / hidden-s</div>
-			<div class="span-s6 result hidden-s">hidden-s</div>
-			<div class="span-s6 result visible-s">visible-s</div>
-		</div>
-		<div class="row example">
-			<div class="span-s6">visible-m / hidden-m</div>
-			<div class="span-s6 result hidden-m">hidden-m</div>
-			<div class="span-s6 result visible-m">visible-m</div>
-		</div>
-		<div class="row example">
-			<div class="span-s6">visible-l / hidden-l</div>
-			<div class="span-s6 result hidden-l">hidden-l</div>
-			<div class="span-s6 result visible-l">visible-l</div>
-		</div>
-
 		<pre><code class="language-markup">&lt;div class="row">
 	&lt;div class="span-s6">visible-t / hidden-t&lt;/div>
 	&lt;div class="span-s6 result hidden-t">hidden-t&lt;/div>
@@ -114,8 +96,9 @@
 		<li ><a href="index.html">Getting Started</a></li>
 		<li ><a href="typography.html">Typography</a></li>
 		<li ><a href="colors.html">Colors</a></li>
-		<li ><a href="grid.html">Grid</a></li>
 		<li ><a href="flex-grid.html">Flex Grid</a></li>
+		<li ><a href="grid.html">Grid</a></li>
+		<li ><a href="display.html">Display</a></li>
 		<li  class="active"><a href="visibility.html">Visibility</a></li>
 		<li ><a href="navigation.html">Navigation</a></li>
 		<li ><a href="tables.html">Tables</a></li>

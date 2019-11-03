@@ -1,0 +1,44 @@
+
+<h1>Display</h1>
+<p>The d-* classes allow elements to be hidden and exposed based on the device width.</p>
+<p>The display classes apply to the device width and larger, <em>class="d-none"</em> will hide the element on all display widths while <em>class="d-s-none d-m-block"</em> will only hide the element on small devices.</p>
+<div class="card">
+	<div class="content">
+		<div class="row example">
+			<div class="span-s6">visible t / hidden t</div>
+			<div class="span-s6 result d-none d-s-block">hidden t</div>
+			<div class="span-s6 result d-block d-s-none">visible t</div>
+		</div>
+		<div class="row example">
+			<div class="span-s6">Hidden s Only</div>
+			<div class="span-s6 result d-s-none d-m-block">Result Not s</div>
+		</div>
+		<div class="row example">
+			<div class="span-s6">Visble s Only</div>
+			<div class="span-s6 result d-none d-s-block d-m-none">Result s Only</div>
+		</div>
+		<div class="row example">
+			<div class="span-s6">Visble m+</div>
+			<div class="span-s6 result d-none d-m-block">Result m+</div>
+		</div>
+
+		<pre><code class="language-markup">&lt;div class="row">
+	&lt;div class="span-s6">visible t / hidden t&lt;/div>
+	&lt;div class="span-s6 result d-none d-s-block">hidden t&lt;/div>
+	&lt;div class="span-s6 result d-block d-s-none">visible t&lt;/div>
+&lt;/div>
+&lt;div class="row">
+	&lt;div class="span-s6">Hidden s Only&lt;/div>
+	&lt;div class="span-s6 result d-s-none d-m-block">Result s Only&lt;/div>
+&lt;/div>
+&lt;div class="row">
+	&lt;div class="span-s6">Visble s Only&lt;/div>
+	&lt;div class="span-s6 result d-none d-s-block d-m-none">Result s Only&lt;/div>
+&lt;/div>
+&lt;div class="row">
+	&lt;div class="span-s6">Visble m+&lt;/div>
+	&lt;div class="span-s6 result d-none d-m-block">Result m+&lt;/div>
+&lt;/div></code></pre>
+
+	</div>
+</div>

@@ -3,11 +3,11 @@ $(document).ready(function() {
 	var css = [
 		[
 			'Blue and Pink',
-			'../css/fusioncss.flex-row.blue.pink.css'
+			'../css/fusioncss.blue.pink.css'
 		],
 		[
 			'Blue Grey and Red',
-			'../css/fusioncss.flex-row.bluegrey.red.css'
+			'../css/fusioncss.bluegrey.red.css'
 		]
 	];
 

@@ -12,9 +12,15 @@
 @fusionCSSStyle: true;
 @bootstrap3Style: false;
 
-@withFloatGrid: true;
-@withFlexGrid: false;
-@flexRowName: flex-row;
+@withFloatGrid: false;
+@withFlexGrid: true;
+@flexRowName: row; // Set to flex-row if building with both float and flex grid
+
+// Support old style visible-* & hidden-*
+@visibleHidden: fasle;
+
+// Support newer reponsive display
+@responsiveDisplay: true;
 
 //////////////////////////////////////////////////////////////////////
 // Define names for columns and sizes

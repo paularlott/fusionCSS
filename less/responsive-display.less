@@ -1,0 +1,49 @@
+
+.makeRD(@isRDEnabled) when (@isRDEnabled = true) {
+	.makeResponsiveDisplay(@isEnabled, @prefix, @visTinyName, @visSmallName, @visMediumName, @visLargeName, @visXLargeName) when (@isEnabled = true) {
+
+		.makeGroup(@prefix) {
+			.@{prefix}none {
+				display: none !important;
+			}
+			.@{prefix}inline {
+				display: inline !important;
+			}
+			.@{prefix}inline-block {
+				display: inline-block !important;
+			}
+			.@{prefix}block {
+				display: block !important;
+			}
+			.@{prefix}flex {
+				display: flex !important;
+			}
+		}
+
+		.makeGroup(@prefix);
+
+		@media (min-width: @breakpoint-s) {
+			.makeGroup(~"@{prefix}@{visSmallName}-");
+		}
+
+		@media (min-width: @breakpoint-m) {
+			.makeGroup(~"@{prefix}@{visMediumName}-");
+		}
+
+		@media (min-width: @breakpoint-l) {
+			.makeGroup(~"@{prefix}@{visLargeName}-");
+		}
+
+		@media (min-width: @breakpoint-x) {
+			.makeGroup(~"@{prefix}@{visXLargeName}-");
+		}
+
+	}
+
+	// Build the visibility for fusionCSS
+	.makeResponsiveDisplay(@fusionCSSStyle, d-, t, s, m, l, x);
+
+	// Build the visibility for Bootstrap 4
+	.makeResponsiveDisplay(@bootstrap3Style, d-, xs, sm, md, lg, xl);
+}
+.makeRD(@responsiveDisplay);

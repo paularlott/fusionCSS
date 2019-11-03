@@ -1,6 +1,8 @@
 
 <h1>Grid</h1>
 
+<p><strong>Note:</strong> Requires @withFloatGrid: true; be set at compile time. <a href="flex-grid.html">Flex Grid</a> is now the default for fusionCSS.</p>
+
 <p>fusionCSS works off a 12 column fluid grid and supports a variable number of columns per row.</p>
 <p>Column spans are available in 4 device widths, tiny, small, medium and large.</p>
 <table class="responsive bordered striped centered">
@@ -37,18 +39,6 @@
 <div class="card">
 	<div class="content">
 
-<div class="row example">
-	<div class="span-s6">span-s6</div>
-	<div class="span-s6">span-s6</div></div>
-<div class="row example">
-	<div class="span-s3">span-s3</div>
-	<div class="span-s3">span-s3</div>
-	<div class="span-s3">span-s3</div>
-	<div class="span-s3">span-s3</div></div>
-<div class="row example">
-	<div class="span-s8">span-s8</div>
-	<div class="span-s4">span-s4</div></div>
-
 <pre><code class="language-markup">&lt;div class="row">
 	&lt;div class="span-s6">span-s6&lt;/div>
 	&lt;div class="span-s6">span-s6&lt;/div>
@@ -72,21 +62,6 @@
 
 <div class="card">
 	<div class="content">
-
-<div class="row example">
-	<div class="span-s6">span-s6</div>
-	<div class="span-s6">span-s6</div>
-</div>
-<div class="row example">
-	<div class="span-s6">span-s6
-		<div class="row">
-			<div class="span-s6">span-s6</div>
-			<div class="span-s6">span-s6</div>
-		</div>
-		<br />
-	</div>
-	<div class="span-s6">span-s6</div>
-</div>
 
 <pre><code class="language-markup">&lt;div class="row">
 	&lt;div class="span-s6">span-s6&lt;/div>
@@ -112,18 +87,6 @@
 <div class="card">
 	<div class="content">
 
-		<div class="row example">
-			<div class="span-s6">span-s6</div>
-			<div class="span-s6">span-s6</div>
-		</div>
-		<div class="row example">
-			<div class="span-t6 span-s3 offset-t3 offset-s6">span-s3 / t6</div>
-			<div class="span-t12 span-s3">span-s3</div>
-		</div>
-		<div class="row example">
-			<div class="span-s4 offset-s8">span-s4</div>
-		</div>
-
 <pre><code class="language-markup">&lt;div class="row">
 	&lt;div class="span-s6">span-s6&lt;/div>
 	&lt;div class="span-s6">span-s6&lt;/div>
@@ -146,21 +109,6 @@
 
 <div class="card">
 	<div class="content">
-
-		<div class="row example">
-			<div class="span-s6 span-s-push6">1st in HTML</div>
-			<div class="span-s6 span-s-pull6">2nd in HTML</div>
-		</div>
-		<div class="row example">
-			<div class="span-s4 span-s-push8">1st</div>
-			<div class="span-s4">2nd</div>
-			<div class="span-s4 span-s-pull8">3rd</div>
-		</div>
-		<div class="row example">
-			<div class="span-s4 span-s-push8 span-m-push4">1st</div>
-			<div class="span-s4 span-m-pull4">2nd</div>
-			<div class="span-s4 span-s-pull8 span-m-pull0">3rd</div>
-		</div>
 
 		<pre><code class="language-markup">&lt;div class="row">
 	&lt;div class="span-s6 span-s-push6">1st in HTML&lt;/div>
@@ -187,16 +135,6 @@
 <div class="card">
 	<div class="content">
 
-		<div class="row example">
-			<div class="span-t12 span-s3 span-m6">t12 / s3 / m6</div>
-			<div class="span-t6 span-s3 span-m6">t6 / s3 / m6</div>
-			<div class="span-t6 span-s3 span-m6">t6 / s3 / m6</div>
-			<div class="span-t12 span-s3 span-m6 no-left-gutter no-right-gutter">
-				t12 / s3 / m6
-				<img src="large.jpg" alt="test" />
-			</div>
-		</div>
-
 		<pre><code class="language-markup">&lt;div class="row">
 	&lt;div class="span-t12 span-s3 span-m6">t12 / s3 / m6&lt;/div>
 	&lt;div class="span-t6 span-s3 span-m6">t6 / s3 / m6&lt;/div>
@@ -215,15 +153,6 @@
 
 <div class="card">
 	<div class="content">
-
-		<div class="row example">
-			<div class="span-s6 no-right-gutter-s gutter-m">
-				<img src="large.jpg" alt="test" />
-			</div>
-			<div class="span-s6 no-left-gutter-s gutter-m">
-				<img src="large.jpg" alt="test" />
-			</div>
-		</div>
 
 		<pre><code class="language-markup">&lt;div class="row">
 	&lt;div class="span-s6 no-right-gutter-s gutter-m">
