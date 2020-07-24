@@ -5,6 +5,11 @@ plugins.fs = require('fs');
 plugins.del = require('del');
 plugins.panini = require('panini');
 
+// Needed to allow termination on Ctl+C when used in docker
+process.on('SIGINT', function() {
+ 	process.exit();
+});
+
 // Load the version information
 var version = plugins.fs.readFileSync('./less/version.less', 'utf8'),
 	themeTaskList = [];
