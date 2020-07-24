@@ -201,6 +201,7 @@
 			opts.releasedBy = opts.releasedBy ? opts.releasedBy : null;
 			opts.releasedByEdge = opts.releasedByEdge ? opts.releasedByEdge : 'bottom';
 			opts.released = false;
+			opts.setTop = typeof opts.setTop !== 'undefined' ? opts.setTop : true;
 
 			return this.each(function() {
 				var el = $(this);
@@ -217,7 +218,9 @@
 							// Stick the element
 							opts.stuck = true;
 							this.parent().height(this.outerHeight(true));
-							this.addClass(opts.stuckClass).css('top', trackData.offsetPixels + 'px');
+							this.addClass(opts.stuckClass);
+							if(opts.setTop)
+								this.css('top', trackData.offsetPixels + 'px');
 							opts.handler.call(this, 'stuck');
 							this.trigger('stuck');
 
