@@ -40,9 +40,7 @@
 		<div class="span-t12">
 
 
-<h1>Grid</h1>
-
-<p><strong>Note:</strong> Requires @withFloatGrid: true; be set at compile time. <a href="flex-grid.html">Flex Grid</a> is now the default for fusionCSS.</p>
+<h1>Flex Grid</h1>
 
 <p>fusionCSS works off a 12 column fluid grid and supports a variable number of columns per row.</p>
 <p>Column spans are available in 4 device widths, tiny, small, medium and large.</p>
@@ -80,6 +78,18 @@
 <div class="card">
 	<div class="content">
 
+<div class="row example">
+	<div class="span-s6">span-s6</div>
+	<div class="span-s6">span-s6</div></div>
+<div class="row example">
+	<div class="span-s3">span-s3</div>
+	<div class="span-s3">span-s3</div>
+	<div class="span-s3">span-s3</div>
+	<div class="span-s3">span-s3</div></div>
+<div class="row example">
+	<div class="span-s8">span-s8</div>
+	<div class="span-s4">span-s4</div></div>
+
 <pre><code class="language-markup">&lt;div class="row">
 	&lt;div class="span-s6">span-s6&lt;/div>
 	&lt;div class="span-s6">span-s6&lt;/div>
@@ -103,6 +113,21 @@
 
 <div class="card">
 	<div class="content">
+
+<div class="row example">
+	<div class="span-s6">span-s6</div>
+	<div class="span-s6">span-s6</div>
+</div>
+<div class="row example">
+	<div class="span-s6">span-s6
+		<div class="row">
+			<div class="span-s6">span-s6</div>
+			<div class="span-s6">span-s6</div>
+		</div>
+		<br />
+	</div>
+	<div class="span-s6">span-s6</div>
+</div>
 
 <pre><code class="language-markup">&lt;div class="row">
 	&lt;div class="span-s6">span-s6&lt;/div>
@@ -128,6 +153,18 @@
 <div class="card">
 	<div class="content">
 
+		<div class="row example">
+			<div class="span-s6">span-s6</div>
+			<div class="span-s6">span-s6</div>
+		</div>
+		<div class="row example">
+			<div class="span-t6 span-s3 offset-t3 offset-s6">span-s3 / t6</div>
+			<div class="span-t12 span-s3">span-s3</div>
+		</div>
+		<div class="row example">
+			<div class="span-s4 offset-s8">span-s4</div>
+		</div>
+
 <pre><code class="language-markup">&lt;div class="row">
 	&lt;div class="span-s6">span-s6&lt;/div>
 	&lt;div class="span-s6">span-s6&lt;/div>
@@ -143,27 +180,144 @@
 	</div>
 </div>
 
+<h2>Justify Content</h2>
+<p>justifty-content-* classes change the alignment of items in a row.</p>
+
+<div class="card">
+	<div class="content">
+
+		<div class="row example justify-content-t-start">
+			<div class="span-s3">span-s3</div>
+			<div class="span-s3">span-s3</div>
+		</div>
+		<div class="row example justify-content-t-center">
+			<div class="span-s3">span-s3</div>
+			<div class="span-s3">span-s3</div>
+		</div>
+		<div class="row example justify-content-t-end">
+			<div class="span-s3">span-s3</div>
+			<div class="span-s3">span-s3</div>
+		</div>
+		<div class="row example justify-content-t-around">
+			<div class="span-s3">span-s3</div>
+			<div class="span-s3">span-s3</div>
+		</div>
+		<div class="row example justify-content-t-between">
+			<div class="span-s3">span-s3</div>
+			<div class="span-s3">span-s3</div>
+		</div>
+
+<pre><code class="language-markup">&lt;div class="row justify-content-t-start">
+	&lt;div class="span-s3">span-s3&lt;/div>
+	&lt;div class="span-s3">span-s3&lt;/div>
+&lt;/div>
+&lt;div class="row justify-content-t-center">
+	&lt;div class="span-s3">span-s3&lt;/div>
+	&lt;div class="span-s3">span-s3&lt;/div>
+&lt;/div>
+&lt;div class="row justify-content-t-end">
+	&lt;div class="span-s3">span-s3&lt;/div>
+	&lt;div class="span-s3">span-s3&lt;/div>
+&lt;/div>
+&lt;div class="row justify-content-t-around">
+	&lt;div class="span-s3">span-s3&lt;/div>
+	&lt;div class="span-s3">span-s3&lt;/div>
+&lt;/div>
+&lt;div class="row justify-content-t-between">
+	&lt;div class="span-s3">span-s3&lt;/div>
+	&lt;div class="span-s3">span-s3&lt;/div>
+&lt;/div></code></pre>
+
+	</div>
+</div>
+
+<h2>Align Items</h2>
+<p>align-items-* classes change the vertical alignment of items in a row.</p>
+
+<div class="card">
+	<div class="content">
+
+		<div class="row example tall align-items-t-start justify-content-t-center">
+			<div class="span-s3">span-s3</div>
+			<div class="span-s3">span-s3</div>
+		</div>
+		<div class="row example tall align-items-t-center justify-content-t-center">
+			<div class="span-s3">span-s3</div>
+			<div class="span-s3">span-s3</div>
+		</div>
+		<div class="row example tall align-items-t-end justify-content-t-center">
+			<div class="span-s3">span-s3</div>
+			<div class="span-s3">span-s3</div>
+		</div>
+		<div class="row example tall align-items-t-stretch justify-content-t-center">
+			<div class="span-s3">span-s3</div>
+			<div class="span-s3">span-s3</div>
+		</div>
+		<div class="row example tall align-items-t-baseline justify-content-t-center">
+			<div class="span-s3" style="line-height: 3rem;">span-s3</div>
+			<div class="span-s3">span-s3</div>
+		</div>
+
+<pre><code class="language-markup">&lt;div class="row align-items-t-start justify-content-t-center">
+	&lt;div class="span-s3">span-s3&lt;/div>
+	&lt;div class="span-s3">span-s3&lt;/div>
+&lt;/div>
+&lt;div class="row align-items-t-center justify-content-t-center">
+	&lt;div class="span-s3">span-s3&lt;/div>
+	&lt;div class="span-s3">span-s3&lt;/div>
+&lt;/div>
+&lt;div class="row align-items-t-end justify-content-t-center">
+	&lt;div class="span-s3">span-s3&lt;/div>
+	&lt;div class="span-s3">span-s3&lt;/div>
+&lt;/div>
+&lt;div class="row align-items-t-stretch justify-content-t-center">
+	&lt;div class="span-s3">span-s3&lt;/div>
+	&lt;div class="span-s3">span-s3&lt;/div>
+&lt;/div>
+&lt;div class="row align-items-t-baseline justify-content-t-center">
+	&lt;div class="span-s3" style="line-height: 3rem;">span-s3&lt;/div>
+	&lt;div class="span-s3">span-s3&lt;/div>
+&lt;/div></code></pre>
+
+	</div>
+</div>
+
 <h2>Out of Order Columns</h2>
-<p>By default columns appear left to right in the order that they are defined within the HTML, however the span-<sub>d</sub>-push<sub>n</sub> and span-<sub>d</sub>-pull<sub>n</sub> classes allow the display order to be adjusted.</p>
+<p>By default columns appear left to right in the order that they are defined within the HTML, however the order-<sub>dn</sub> classes allow the display order to be adjusted.</p>
 <p>Where <sub>d</sub> is the device width and <sub>n</sub> is the number of columns to span.</p>
 <p>The column order can be change based on device width as the 3rd row demonstrates.</p>
 
 <div class="card">
 	<div class="content">
 
+		<div class="row example">
+			<div class="span-s6 order-s2">1st in HTML</div>
+			<div class="span-s6 order-s1">2nd in HTML</div>
+		</div>
+		<div class="row example">
+			<div class="span-s4 order-s3">1st</div>
+			<div class="span-s4 order-s2">2nd</div>
+			<div class="span-s4 order-s1">3rd</div>
+		</div>
+		<div class="row example">
+			<div class="span-s4 order-s2 order-m3">1st</div>
+			<div class="span-s4 order-s1 order-m1">2nd</div>
+			<div class="span-s4 order-s3 order-m2">3rd</div>
+		</div>
+
 		<pre><code class="language-markup">&lt;div class="row">
-	&lt;div class="span-s6 span-s-push6">1st in HTML&lt;/div>
-	&lt;div class="span-s6 span-s-pull6">2nd in HTML&lt;/div>
+	&lt;div class="span-s6 order-s2">1st in HTML&lt;/div>
+	&lt;div class="span-s6 order-s1">2nd in HTML&lt;/div>
 &lt;/div>
 &lt;div class="row">
-	&lt;div class="span-s4 span-s-push8">1st&lt;/div>
-	&lt;div class="span-s4">2nd&lt;/div>
-	&lt;div class="span-s4 span-s-pull8">3rd&lt;/div>
+	&lt;div class="span-s4 order-s3">1st&lt;/div>
+	&lt;div class="span-s4 order-s2">2nd&lt;/div>
+	&lt;div class="span-s4 order-s1">3rd&lt;/div>
 &lt;/div>
 &lt;div class="row">
-	&lt;div class="span-s4 span-s-push8 span-m-push4">1st&lt;/div>
-	&lt;div class="span-s4 span-m-pull4">2nd&lt;/div>
-	&lt;div class="span-s4 span-s-pull8 span-m-pull0">3rd&lt;/div>
+	&lt;div class="span-s4 order-s2 order-m3">1st&lt;/div>
+	&lt;div class="span-s4 order-s1 order-m1">2nd&lt;/div>
+	&lt;div class="span-s4 order-s3 order-m2">3rd&lt;/div>
 &lt;/div></code></pre>
 
 	</div>
@@ -175,6 +329,16 @@
 
 <div class="card">
 	<div class="content">
+
+		<div class="row example">
+			<div class="span-t12 span-s3 span-m6">t12 / s3 / m6</div>
+			<div class="span-t6 span-s3 span-m6">t6 / s3 / m6</div>
+			<div class="span-t6 span-s3 span-m6">t6 / s3 / m6</div>
+			<div class="span-t12 span-s3 span-m6 no-left-gutter no-right-gutter">
+				t12 / s3 / m6
+				<img src="large.jpg" alt="test" />
+			</div>
+		</div>
 
 		<pre><code class="language-markup">&lt;div class="row">
 	&lt;div class="span-t12 span-s3 span-m6">t12 / s3 / m6&lt;/div>
@@ -194,6 +358,15 @@
 
 <div class="card">
 	<div class="content">
+
+		<div class="row example">
+			<div class="span-s6 no-right-gutter-s gutter-m">
+				<img src="large.jpg" alt="test" />
+			</div>
+			<div class="span-s6 no-left-gutter-s gutter-m">
+				<img src="large.jpg" alt="test" />
+			</div>
+		</div>
 
 		<pre><code class="language-markup">&lt;div class="row">
 	&lt;div class="span-s6 no-right-gutter-s gutter-m">
@@ -229,8 +402,8 @@
 		<li ><a href="index.html">Getting Started</a></li>
 		<li ><a href="typography.html">Typography</a></li>
 		<li ><a href="colors.html">Colors</a></li>
-		<li ><a href="flex-grid.html">Flex Grid</a></li>
-		<li  class="active"><a href="grid.html">Grid</a></li>
+		<li  class="active"><a href="flex-grid.html">Flex Grid</a></li>
+		<li ><a href="grid.html">Grid</a></li>
 		<li ><a href="display.html">Display</a></li>
 		<li ><a href="visibility.html">Visibility</a></li>
 		<li ><a href="navigation.html">Navigation</a></li>

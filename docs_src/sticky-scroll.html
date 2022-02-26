@@ -1,0 +1,86 @@
+<h1>Stick On Scroll</h1>
+
+<p>To use the toast popup functionality the fusionCSS.js library needs to be included.</p>
+
+<div class="card stickyBar">
+	<div class="content text-center">
+		This is a sticky bar
+	</div>
+</div>
+
+<section class="card" style="margin-top: 1rem;">
+	<div class="content">
+		<p>This is just filler content to space the two sticky bars.</p>
+	</div>
+</section>
+
+<div class="card stickyBar2">
+	<div class="content text-center">
+		This is a 2nd sticky bar
+	</div>
+</div>
+
+<section class="card" style="margin-top: 1rem;">
+	<div class="content">
+
+		<pre><code class="language-markup">&lt;div class="card stickyBar">
+	&lt;div class="content text-center">
+		This is a sticky bar
+	&lt;/div>
+&lt;/div>
+
+&lt;section class="card" style="margin-top: 1rem;">
+	&lt;div class="content">
+		&lt;p>This is just filler content to space the two sticky bars.&lt;/p>
+	&lt;/div>
+&lt;/section>
+
+&lt;div class="card stickyBar2">
+	&lt;div class="content text-center">
+		This is a 2nd sticky bar
+	&lt;/div>
+&lt;/div>
+&lt;script type="text/javascript" src="../js/fusionCSSTrackElem.js">&lt;/script>
+		</code></pre>
+
+		<pre><code class="language-javascript">	$(document).ready(function() {
+	$('.stickyBar').stickyOnScroll({
+		stoppedBy: $('.appbar')
+	});
+
+	$('.stickyBar2').stickyOnScroll({
+		stoppedBy: $('.stickyBar')
+	});
+});</code></pre>
+
+		<p><strong>Parameters</strong></p>
+		<dl>
+			<dt>stuckClass</dt>
+			<dd>The CSS class to add when an element is in th stuck state, defaults to stuck.</dd>
+			<dt>handler</dt>
+			<dd>The function to call when crossing the boundary, the 1st parameter is the direction of crossing up or down.</dd>
+			<dt>offset</dt>
+			<dd>Offset to apply to the stickiness in pixels.</dd>
+			<dt>stoppedBy</dt>
+			<dd>The element which this element will stop under.</dd>
+		</dl>
+
+	</div>
+</section>
+
+<script type="text/javascript" src="../js/src/track/fusionCSSTrackElem.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function() {
+
+		$('.stickyBar').stickyOnScroll({
+			stoppedBy: $('.appbar')
+		});
+
+		$('.stickyBar2').stickyOnScroll({
+			stoppedBy: $('.stickyBar')
+		});
+
+	});
+
+</script>

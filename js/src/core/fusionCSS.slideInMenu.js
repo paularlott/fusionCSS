@@ -6,7 +6,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  *
  * @package fusionCSS
- * @copyright Copyright (c) 2013 - 2018 fusionCSS. All rights reserved.
+ * @copyright Copyright (c) 2013 - 2019 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
  */
 
@@ -44,18 +44,20 @@ $(document).ready(function () {
 			});
 		}
 
-		$('#slideInMenu').attr('aria-hidden', true);
+		$('#slideInMenu').attr('aria-hidden', true).addClass('slideInMenuLoaded');
 
 		// Capture menu hide, click off menu
-		$('#slideInMenuOverlay')
-			.html('')
-			.on('click', function (e) {
+		$('body').on('click', function(e) {
+			var el = $(e.target);
+
+			if(el.closest('#closeSlideInMenu').length || (!el.closest('#slideInMenu').length && !el.closest('#viewSlideInMenu').length)) {
 				$('#slideInMenu')
 					.removeClass('slideInMenuShow')
 					.attr('aria-hidden', true);
 				$('#slideInMenuOverlay').removeClass('slideInMenuShow');
-				$('body').removeClass('disableScroll');
-			});
+				$('body').removeClass('disableScroll').removeClass('slideInMenuOpen');
+			}
+		});
 
 		// Capture menu expose
 		$('#viewSlideInMenu').on('click', function (e) {
@@ -63,6 +65,7 @@ $(document).ready(function () {
 			$('#slideInMenu')
 				.addClass('slideInMenuShow')
 				.attr('aria-hidden', false);
+			$('body').addClass('disableScroll').addClass('slideInMenuOpen');
 		});
 	}
 });

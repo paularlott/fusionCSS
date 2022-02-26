@@ -29,6 +29,11 @@ body {
 	background-color: #90CAF9;
 }
 .example [class^="span"].result { background-color: #90CAF9; }
+.example.tall {
+	height: 5rem;
+	background-color: #eeeeee;
+	margin-bottom: 1rem;
+}
 
 .card > .content > .example {
 	margin-left: 0;
@@ -181,5 +186,27 @@ pre[class*="language-"] {
 
 	#viewSlideInMenu {
 		display: none;
+	}
+}
+
+.stickyBar, .stickyBar2 {
+	margin-bottom: 0;
+}
+.stickyBar.stuck,
+.stickyBar2.stuck {
+	position: fixed;
+	z-index: 9010;
+	width: 100%;
+	max-width: 956px;
+}
+
+.stickyBar { background-color: #FFCC80; }
+.stickyBar2 { background-color: #A5D6A7; }
+
+@media (max-width: 980px) {
+	.stickyBar.stuck,
+	.stickyBar2.stuck {
+		left: 0;
+		max-width: 100%;
 	}
 }

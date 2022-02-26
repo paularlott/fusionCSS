@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2013 - 2019 fusionCSS. All rights reserved.
  * @link http://fusionCSS.com
- * @version 3.2.0
+ * @version 3.3.0
  */
 .alert {
 	text-align: left;
@@ -999,6 +999,243 @@ button {
 		}
 	}
 }
+.makeFlexGrid(@flexGridEnabled, @rowName) when (@flexGridEnabled = true) {
+	.@{rowName} {
+		clear: both;
+		display: flex;
+		flex-wrap: wrap;
+
+		.@{rowName} {
+			margin-left: -@colGutter / 2;
+			margin-right: -@colGutter / 2;
+		}
+
+		&.flex-wrap-reverse {
+			flex-wrap: wrap-reverse;
+		}
+		&.flex-row-reverse {
+			flex-direction: row-reverse;
+		}
+		&.flex-column {
+			flex-direction: column;
+		}
+		&.flex-column-reverse {
+			flex-direction: column-reverse;
+		}
+
+		&.justify-content-center {
+			justify-content: center;
+		}
+		&.justify-content-start {
+			justify-content: flex-start;
+		}
+		&.justify-content-end {
+			justify-content: flex-end;
+		}
+		&.justify-content-around {
+			justify-content: space-around;
+		}
+		&.justify-content-between {
+			justify-content: space-between;
+		}
+
+		&.align-items-start {
+			align-items: flex-start;
+		}
+		&.align-items-end {
+			align-items: flex-end;
+		}
+		&.align-items-center {
+			align-items: center;
+		}
+		&.align-items-stretch {
+			align-items: stretch;
+		}
+		&.align-items-baseline {
+			align-items: baseline;
+		}
+		&.align-items-stretch {
+			align-items: stretch;
+		}
+
+		.makeGrid(@gridEnabled, @colName, @offsetName, @orderName, @tinyName, @smallName, @mediumName, @largeName, @extraLargeName) when (@gridEnabled = true) {
+
+			[class*="@{colName}"] {
+				display: block;
+				min-height: 1px;
+				padding-left: @colGutter / 2;
+				padding-right: @colGutter / 2;
+				width: 100%;
+				float: none;
+				position: static;
+
+				&.no-left-gutter {
+					padding-left: 0;
+				}
+
+				&.no-right-gutter {
+					padding-right: 0;
+				}
+
+				&.no-gutter {
+					padding-left: 0;
+					padding-right: 0;
+				}
+			}
+
+			// Build a row of columns
+			.makeRow(@spanName) {
+				// Trim trailing - from span names
+				@spanNameClean: replace(@spanName, "-$", "");
+				@colWidth: percentage((100 / @numColumns) / 100);
+
+				&.flex-@{spanNameClean}-row {
+					flex-direction: row;
+				}
+				&.flex-@{spanNameClean}-row-reverse {
+					flex-direction: row-reverse;
+				}
+				&.flex-@{spanNameClean}-column {
+					flex-direction: column;
+				}
+				&.flex-@{spanNameClean}-column-reverse {
+					flex-direction: column-reverse;
+				}
+
+				&.justify-content-@{spanNameClean}-center {
+					justify-content: center;
+				}
+				&.justify-content-@{spanNameClean}-start {
+					justify-content: flex-start;
+				}
+				&.justify-content-@{spanNameClean}-end {
+					justify-content: flex-end;
+				}
+				&.justify-content-@{spanNameClean}-around {
+					justify-content: space-around;
+				}
+				&.justify-content-@{spanNameClean}-between {
+					justify-content: space-between;
+				}
+
+				&.align-items-@{spanNameClean}-start {
+					align-items: flex-start;
+				}
+				&.align-items-@{spanNameClean}-end {
+					align-items: flex-end;
+				}
+				&.align-items-@{spanNameClean}-center {
+					align-items: center;
+				}
+				&.align-items-@{spanNameClean}-stretch {
+					align-items: stretch;
+				}
+				&.align-items-@{spanNameClean}-baseline {
+					align-items: baseline;
+				}
+				&.align-items-@{spanNameClean}-stretch {
+					align-items: stretch;
+				}
+
+				[class*="@{colName}"] {
+					&.left-gutter-@{spanNameClean} {
+						padding-left: @colGutter / 2;
+					}
+
+					&.no-left-gutter-@{spanNameClean} {
+						padding-left: 0;
+					}
+
+					&.right-gutter-@{spanNameClean} {
+						padding-right: @colGutter / 2;
+					}
+
+					&.no-right-gutter-@{spanNameClean} {
+						padding-right: 0;
+					}
+
+					&.gutter-@{spanNameClean} {
+						padding-left: @colGutter / 2;
+						padding-right: @colGutter / 2;
+					}
+
+					&.no-gutter-@{spanNameClean} {
+						padding-left: 0;
+						padding-right: 0;
+					}
+				}
+
+				.makeCols(@name, @span) when (@span > 0) {
+					.@{colName}@{name}@{span} {
+						width: @colWidth + (@colWidth * (@span - 1));
+					}
+
+					// If in bootstrap compatible mode
+					.makeOffset(@colName) when (@colName = col-) {
+						.@{colName}@{name}@{offsetName}@{span} {
+							margin-left: @colWidth * @span;
+						}
+
+						.@{colName}@{name}@{orderName}@{span} {
+							order: @span;
+						}
+					}
+					// Else in fusionCSS
+					.makeOffset(@colName) when not (@colName = col-) {
+						.@{offsetName}@{name}@{span} {
+							margin-left: @colWidth * @span;
+						}
+
+						.@{orderName}@{name}@{span} {
+							order: @span;
+						}
+					}
+					.makeOffset(@colName);
+
+					.makeCols(@name, @span - 1);
+				}
+
+				.makeCols(@spanName, @numColumns);
+			}
+
+			.makeRow(@tinyName);
+
+			@media (min-width: @breakpoint-s) {
+				.makeRow(@smallName);
+			}
+
+			@media (min-width: @breakpoint-m) {
+				.makeRow(@mediumName);
+			}
+
+			@media (min-width: @breakpoint-l) {
+				.makeRow(@largeName);
+			}
+
+			@media (min-width: @breakpoint-x) {
+				.makeRow(@extraLargeName);
+			}
+		}
+
+		// Build the grid for fusionCSS
+		.makeGrid(@fusionCSSStyle, span-, offset-, order-, t, s, m, l, x);
+
+		// Build the grid for Bootstap 3
+		.makeGrid(@bootstrap3Style, col-, offset-, order-, xs-, sm-, md-, lg-, xl-);
+	}
+}
+
+.makeFlexGrid(@withFlexGrid, @flexRowName);
+
+// If using float grid then we need to allow flex rows in rows or rows in flex rows
+.nestFlexInFloat(@flexGridEnabled, @floatGridEnabled, @rowName) when (@flexGridEnabled = true) and (@floatGridEnabled = true) {
+	.row .@{rowName},
+	.@{rowName} .row {
+		&:extend(.row .row);
+	}
+}
+.nestFlexInFloat(@withFlexGrid, @withFloatGrid, @flexRowName);
+
 
 // Limit resize in firefox, options are none, vertical, horizontal or both
 textarea {
@@ -1478,146 +1715,150 @@ form {
 	}
 }
 
-.row {
-	clear: both;
+.makeFloatGrid(@floatGridEnabled, @rowName) when (@floatGridEnabled = true) {
+	.@{rowName} {
+		clear: both;
 
-	&:after {
-		&:extend(.clear);
-	}
-
-	.row {
-		margin-left: -@colGutter / 2;
-		margin-right: -@colGutter / 2;
-	}
-
-	.makeGrid(@gridEnabled, @colName, @offsetName, @pushName, @pullName, @tinyName, @smallName, @mediumName, @largeName, @extraLargeName) when (@gridEnabled = true) {
-
-		[class*="@{colName}"] {
-			display: block;
-			min-height: 1px;
-			padding-left: @colGutter / 2;
-			padding-right: @colGutter / 2;
-
-			&.no-left-gutter {
-				padding-left: 0;
-			}
-
-			&.no-right-gutter {
-				padding-right: 0;
-			}
-
-			&.no-gutter {
-				padding-left: 0;
-				padding-right: 0;
-			}
+		&:after {
+			&:extend(.clear);
 		}
 
-		// Build a row of columns
-		.makeRow(@spanName) {
-			// Trim trailing - from span names
-			@spanNameClean: replace(@spanName, "-$", "");
-			@colWidth: percentage((100 / @numColumns) / 100);
+		.@{rowName} {
+			margin-left: -@colGutter / 2;
+			margin-right: -@colGutter / 2;
+		}
 
-			[class*="@{colName}@{spanName}"] {
-				float: left;
-				position: relative;
-			}
+		.makeGrid(@gridEnabled, @colName, @offsetName, @pushName, @pullName, @tinyName, @smallName, @mediumName, @largeName, @extraLargeName) when (@gridEnabled = true) {
 
 			[class*="@{colName}"] {
-				&.left-gutter-@{spanNameClean} {
-					padding-left: @colGutter / 2;
-				}
+				display: block;
+				min-height: 1px;
+				padding-left: @colGutter / 2;
+				padding-right: @colGutter / 2;
 
-				&.no-left-gutter-@{spanNameClean} {
+				&.no-left-gutter {
 					padding-left: 0;
 				}
 
-				&.right-gutter-@{spanNameClean} {
-					padding-right: @colGutter / 2;
-				}
-
-				&.no-right-gutter-@{spanNameClean} {
+				&.no-right-gutter {
 					padding-right: 0;
 				}
 
-				&.gutter-@{spanNameClean} {
-					padding-left: @colGutter / 2;
-					padding-right: @colGutter / 2;
-				}
-
-				&.no-gutter-@{spanNameClean} {
+				&.no-gutter {
 					padding-left: 0;
 					padding-right: 0;
 				}
 			}
 
-			.makeCols(@name, @span) when (@span > 0) {
-				.@{colName}@{name}@{span} {
-					width: @colWidth + (@colWidth * (@span - 1));
+			// Build a row of columns
+			.makeRow(@spanName) {
+				// Trim trailing - from span names
+				@spanNameClean: replace(@spanName, "-$", "");
+				@colWidth: percentage((100 / @numColumns) / 100);
+
+				[class*="@{colName}@{spanName}"] {
+					float: left;
+					position: relative;
 				}
 
-				// If in bootstrap compatible mode
-				.makeOffset(@colName) when (@colName = col-) {
-					.@{colName}@{name}@{offsetName}@{span} {
-						margin-left: @colWidth * @span;
+				[class*="@{colName}"] {
+					&.left-gutter-@{spanNameClean} {
+						padding-left: @colGutter / 2;
+					}
+
+					&.no-left-gutter-@{spanNameClean} {
+						padding-left: 0;
+					}
+
+					&.right-gutter-@{spanNameClean} {
+						padding-right: @colGutter / 2;
+					}
+
+					&.no-right-gutter-@{spanNameClean} {
+						padding-right: 0;
+					}
+
+					&.gutter-@{spanNameClean} {
+						padding-left: @colGutter / 2;
+						padding-right: @colGutter / 2;
+					}
+
+					&.no-gutter-@{spanNameClean} {
+						padding-left: 0;
+						padding-right: 0;
 					}
 				}
-				// Else in fusionCSS
-				.makeOffset(@colName) when not (@colName = col-) {
-					.@{offsetName}@{name}@{span} {
-						margin-left: @colWidth * @span;
+
+				.makeCols(@name, @span) when (@span > 0) {
+					.@{colName}@{name}@{span} {
+						width: @colWidth + (@colWidth * (@span - 1));
 					}
-				}
-				.makeOffset(@colName);
 
-				.@{colName}@{name}@{pushName}@{span} {
-					left: @colWidth + (@colWidth * (@span - 1));
+					// If in bootstrap compatible mode
+					.makeOffset(@colName) when (@colName = col-) {
+						.@{colName}@{name}@{offsetName}@{span} {
+							margin-left: @colWidth * @span;
+						}
+					}
+					// Else in fusionCSS
+					.makeOffset(@colName) when not (@colName = col-) {
+						.@{offsetName}@{name}@{span} {
+							margin-left: @colWidth * @span;
+						}
+					}
+					.makeOffset(@colName);
+
+					.@{colName}@{name}@{pushName}@{span} {
+						left: @colWidth + (@colWidth * (@span - 1));
+					}
+					.@{colName}@{name}@{pullName}@{span} {
+						right: @colWidth + (@colWidth * (@span - 1));
+					}
+					.makeCols(@name, @span - 1);
 				}
-				.@{colName}@{name}@{pullName}@{span} {
-					right: @colWidth + (@colWidth * (@span - 1));
+
+				.@{colName}@{spanName}@{pushName}0 {
+					left: inherit;
 				}
-				.makeCols(@name, @span - 1);
+				.@{colName}@{spanName}@{pullName}0 {
+					right: inherit;
+				}
+
+				.makeCols(@spanName, @numColumns);
 			}
 
-			.@{colName}@{spanName}@{pushName}0 {
-				left: inherit;
+			.makeRow(@tinyName);
+
+			@media (min-width: @breakpoint-s) {
+				.makeRow(@smallName);
 			}
-			.@{colName}@{spanName}@{pullName}0 {
-				right: inherit;
+
+			@media (min-width: @breakpoint-m) {
+				.makeRow(@mediumName);
 			}
 
-			.makeCols(@spanName, @numColumns);
+			@media (min-width: @breakpoint-l) {
+				.makeRow(@largeName);
+			}
+
+			@media (min-width: @breakpoint-x) {
+				.makeRow(@extraLargeName);
+			}
 		}
 
-		.makeRow(@tinyName);
+		// Build the grid for fusionCSS
+		.makeGrid(@fusionCSSStyle, span-, offset-, -push, -pull, t, s, m, l, x);
 
-		@media (min-width: @breakpoint-s) {
-			.makeRow(@smallName);
-		}
-
-		@media (min-width: @breakpoint-m) {
-			.makeRow(@mediumName);
-		}
-
-		@media (min-width: @breakpoint-l) {
-			.makeRow(@largeName);
-		}
-
-		@media (min-width: @breakpoint-x) {
-			.makeRow(@extraLargeName);
-		}
+		// Build the grid for Bootstap 3
+		.makeGrid(@bootstrap3Style, col-, offset-, push-, pull-, xs-, sm-, md-, lg-, xl-);
 	}
-
-	// Build the grid for fusionCSS
-	.makeGrid(@fusionCSSStyle, span-, offset-, -push, -pull, t, s, m, l, x);
-
-	// Build the grid for Bootstap 3
-	.makeGrid(@bootstrap3Style, col-, offset-, push-, pull-, xs-, sm-, md-, lg-, xl-);
 }
+
+.makeFloatGrid(@withFloatGrid, row);
 
 // fusionCSS Mixins
 
-.transition(@prop: all, @time: 150ms, @ease: linear) {
+.transition(@prop: all, @time: 150ms, @ease: ease) {
 	transition: @prop @time @ease;
 }
 
@@ -1746,6 +1987,56 @@ form {
 		}
 	}
 }
+
+
+.makeRD(@isRDEnabled) when (@isRDEnabled = true) {
+	.makeResponsiveDisplay(@isEnabled, @prefix, @visTinyName, @visSmallName, @visMediumName, @visLargeName, @visXLargeName) when (@isEnabled = true) {
+
+		.makeGroup(@prefix) {
+			.@{prefix}none {
+				display: none !important;
+			}
+			.@{prefix}inline {
+				display: inline !important;
+			}
+			.@{prefix}inline-block {
+				display: inline-block !important;
+			}
+			.@{prefix}block {
+				display: block !important;
+			}
+			.@{prefix}flex {
+				display: flex !important;
+			}
+		}
+
+		.makeGroup(@prefix);
+
+		@media (min-width: @breakpoint-s) {
+			.makeGroup(~"@{prefix}@{visSmallName}-");
+		}
+
+		@media (min-width: @breakpoint-m) {
+			.makeGroup(~"@{prefix}@{visMediumName}-");
+		}
+
+		@media (min-width: @breakpoint-l) {
+			.makeGroup(~"@{prefix}@{visLargeName}-");
+		}
+
+		@media (min-width: @breakpoint-x) {
+			.makeGroup(~"@{prefix}@{visXLargeName}-");
+		}
+
+	}
+
+	// Build the visibility for fusionCSS
+	.makeResponsiveDisplay(@fusionCSSStyle, d-, t, s, m, l, x);
+
+	// Build the visibility for Bootstrap 4
+	.makeResponsiveDisplay(@bootstrap3Style, d-, xs, sm, md, lg, xl);
+}
+.makeRD(@responsiveDisplay);
 
 
 // Define the available shadow levels
@@ -2014,16 +2305,22 @@ div.responsiveTableWrapperInner {
 
 	> li {
 		margin: 0 1rem;
+		visibility: hidden;
+		overflow: hidden;
+		height: 0;
 
 		&:after {
 			&:extend(.clear);
 		}
 	}
 
+	.tabshowpanel {
+		visibility: visible;
+		overflow: initial;
+		height: auto;
+	}
 	.tabhidepanel {
-		visibility: hidden;
-		overflow: hidden;
-		height: 0;
+		display: none;
 	}
 }
 
@@ -2351,6 +2648,7 @@ img {
 		left: 0;
 		width: 100%;
 		height: 100%;
+		z-index: 10;
 	}
 }
 
@@ -2390,134 +2688,137 @@ img {
 	transform: translateX(-50%);
 }
 
-.show { display: inherit !important };
+.show { display: initial !important };
 .hide { display: none !important; };
 
-.makeVisibility(@gridEnabled, @visTinyName, @visSmallName, @visMediumName, @visLargeName, @visXLargeName) when (@gridEnabled = true) {
-	.visible-@{visTinyName}, .visible-phone,
-	.visible-@{visTinyName}-block, .visible-@{visTinyName}-inline, .visible-@{visTinyName}-inline-block,
-	.visible-@{visSmallName}, .visible-tablet,
-	.visible-@{visSmallName}-block, .visible-@{visSmallName}-inline, .visible-@{visSmallName}-inline-block,
-	.visible-@{visMediumName}, .visible-desktop,
-	.visible-@{visMediumName}-block, .visible-@{visMediumName}-inline, .visible-@{visMediumName}-inline-block,
-	.visible-@{visLargeName},
-	.visible-@{visLargeName}-block, .visible-@{visLargeName}-inline, .visible-@{visLargeName}-inline-block,
-	.visible-@{visXLargeName},
-	.visible-@{visXLargeName}-block, .visible-@{visXLargeName}-inline, .visible-@{visXLargeName}-inline-block {
-		display: none !important;
-	}
-
-	@media (max-width: (@breakpoint-s - 1)) {
-		.visible-@{visTinyName}, .visible-phone {
-			display: inherit !important;
-		}
-
-		.hidden-@{visTinyName}, .hidden-phone {
+.makeVisibleHidden(@visibleHiddenEnabled) when (@visibleHiddenEnabled = true) {
+	.makeVisibility(@gridEnabled, @visTinyName, @visSmallName, @visMediumName, @visLargeName, @visXLargeName) when (@gridEnabled = true) {
+		.visible-@{visTinyName}, .visible-phone,
+		.visible-@{visTinyName}-block, .visible-@{visTinyName}-inline, .visible-@{visTinyName}-inline-block,
+		.visible-@{visSmallName}, .visible-tablet,
+		.visible-@{visSmallName}-block, .visible-@{visSmallName}-inline, .visible-@{visSmallName}-inline-block,
+		.visible-@{visMediumName}, .visible-desktop,
+		.visible-@{visMediumName}-block, .visible-@{visMediumName}-inline, .visible-@{visMediumName}-inline-block,
+		.visible-@{visLargeName},
+		.visible-@{visLargeName}-block, .visible-@{visLargeName}-inline, .visible-@{visLargeName}-inline-block,
+		.visible-@{visXLargeName},
+		.visible-@{visXLargeName}-block, .visible-@{visXLargeName}-inline, .visible-@{visXLargeName}-inline-block {
 			display: none !important;
 		}
 
-		.visible-@{visTinyName}-block {
-			display: block !important;
+		@media (max-width: (@breakpoint-s - 1)) {
+			.visible-@{visTinyName}, .visible-phone {
+				display: inherit !important;
+			}
+
+			.hidden-@{visTinyName}, .hidden-phone {
+				display: none !important;
+			}
+
+			.visible-@{visTinyName}-block {
+				display: block !important;
+			}
+
+			.visible-@{visTinyName}-inline {
+				display: inline !important;
+			}
+
+			.visible-@{visTinyName}-inline-block {
+				display: inline-block !important;
+			}
 		}
 
-		.visible-@{visTinyName}-inline {
-			display: inline !important;
+		@media (min-width: @breakpoint-s) and (max-width: (@breakpoint-m - 1)) {
+			.visible-@{visSmallName}, .visible-tablet {
+				display: inherit !important;
+			}
+
+			.hidden-@{visSmallName}, .hidden-tablet {
+				display: none !important;
+			}
+
+			.visible-@{visSmallName}-block {
+				display: block !important;
+			}
+
+			.visible-@{visSmallName}-inline {
+				display: inline !important;
+			}
+
+			.visible-@{visSmallName}-inline-block {
+				display: inline-block !important;
+			}
 		}
 
-		.visible-@{visTinyName}-inline-block {
-			display: inline-block !important;
+		@media (min-width: @breakpoint-m) and (max-width: (@breakpoint-l - 1)) {
+			.visible-@{visMediumName}, .visible-desktop {
+				display: inherit !important;
+			}
+
+			.hidden-@{visMediumName}, .hidden-desktop {
+				display: none !important;
+			}
+
+			.visible-@{visMediumName}-block {
+				display: block !important;
+			}
+
+			.visible-@{visMediumName}-inline {
+				display: inline !important;
+			}
+
+			.visible-@{visMediumName}-inline-block {
+				display: inline-block !important;
+			}
+		}
+		@media (min-width: @breakpoint-l) and (max-width: (@breakpoint-x - 1)) {
+			.visible-@{visLargeName}, .visible-desktop {
+				display: inherit !important;
+			}
+
+			.hidden-@{visLargeName}, .hidden-desktop {
+				display: none !important;
+			}
+
+			.visible-@{visLargeName}-block {
+				display: block !important;
+			}
+
+			.visible-@{visLargeName}-inline {
+				display: inline !important;
+			}
+
+			.visible-@{visLargeName}-inline-block {
+				display: inline-block !important;
+			}
+		}
+		@media (min-width: @breakpoint-x) {
+			.visible-@{visXLargeName}, .visible-desktop {
+				display: inherit !important;
+			}
+
+			.hidden-@{visXLargeName}, .hidden-desktop {
+				display: none !important;
+			}
+
+			.visible-@{visXLargeName}-block {
+				display: block !important;
+			}
+
+			.visible-@{visXLargeName}-inline {
+				display: inline !important;
+			}
+
+			.visible-@{visXLargeName}-inline-block {
+				display: inline-block !important;
+			}
 		}
 	}
 
-	@media (min-width: @breakpoint-s) and (max-width: (@breakpoint-m - 1)) {
-		.visible-@{visSmallName}, .visible-tablet {
-			display: inherit !important;
-		}
+	// Build the visibility for fusionCSS
+	.makeVisibility(@fusionCSSStyle, t, s, m, l, x);
 
-		.hidden-@{visSmallName}, .hidden-tablet {
-			display: none !important;
-		}
-
-		.visible-@{visSmallName}-block {
-			display: block !important;
-		}
-
-		.visible-@{visSmallName}-inline {
-			display: inline !important;
-		}
-
-		.visible-@{visSmallName}-inline-block {
-			display: inline-block !important;
-		}
-	}
-
-	@media (min-width: @breakpoint-m) and (max-width: (@breakpoint-l - 1)) {
-		.visible-@{visMediumName}, .visible-desktop {
-			display: inherit !important;
-		}
-
-		.hidden-@{visMediumName}, .hidden-desktop {
-			display: none !important;
-		}
-
-		.visible-@{visMediumName}-block {
-			display: block !important;
-		}
-
-		.visible-@{visMediumName}-inline {
-			display: inline !important;
-		}
-
-		.visible-@{visMediumName}-inline-block {
-			display: inline-block !important;
-		}
-	}
-	@media (min-width: @breakpoint-l) {
-		.visible-@{visLargeName}, .visible-desktop {
-			display: inherit !important;
-		}
-
-		.hidden-@{visLargeName}, .hidden-desktop {
-			display: none !important;
-		}
-
-		.visible-@{visLargeName}-block {
-			display: block !important;
-		}
-
-		.visible-@{visLargeName}-inline {
-			display: inline !important;
-		}
-
-		.visible-@{visLargeName}-inline-block {
-			display: inline-block !important;
-		}
-	}
-	@media (min-width: @breakpoint-x) {
-		.visible-@{visXLargeName}, .visible-desktop {
-			display: inherit !important;
-		}
-
-		.hidden-@{visXLargeName}, .hidden-desktop {
-			display: none !important;
-		}
-
-		.visible-@{visXLargeName}-block {
-			display: block !important;
-		}
-
-		.visible-@{visXLargeName}-inline {
-			display: inline !important;
-		}
-
-		.visible-@{visXLargeName}-inline-block {
-			display: inline-block !important;
-		}
-	}
+	// Build the visibility for Bootstrap 3
+	.makeVisibility(@bootstrap3Style, xs, sm, md, lg, xl);
 }
-
-// Build the visibility for fusionCSS
-.makeVisibility(@fusionCSSStyle, t, s, m, l, x);
-
-// Build the visibility for Bootstrap 3
-.makeVisibility(@bootstrap3Style, xs, sm, md, lg, xl);
+.makeVisibleHidden(@visibleHidden);

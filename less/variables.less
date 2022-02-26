@@ -6,11 +6,21 @@
 @colGutter:		        1.5rem;
 
 //////////////////////////////////////////////////////////////////////
-// Define which framework styles to support
+// Define which framework styles to support & grid type
 //////////////////////////////////////////////////////////////////////
 
 @fusionCSSStyle: true;
 @bootstrap3Style: false;
+
+@withFloatGrid: false;
+@withFlexGrid: true;
+@flexRowName: row; // Set to flex-row if building with both float and flex grid
+
+// Support old style visible-* & hidden-*
+@visibleHidden: false;
+
+// Support newer responsive display
+@responsiveDisplay: true;
 
 //////////////////////////////////////////////////////////////////////
 // Define names for columns and sizes
@@ -34,6 +44,18 @@
 // Radius when rounding corners
 //////////////////////////////////////////////////////////////////////
 @radius:                3px;
+
+//////////////////////////////////////////////////////////////////////
+// Define the default color palette
+//////////////////////////////////////////////////////////////////////
+
+@colorPrimaryText:  @white;
+@colorPrimary:      @blue-500;
+@colorPrimaryLight: @blue-100;
+@colorPrimaryDark:  @blue-700;
+
+@colorAccentText:   @white;
+@colorAccent:       @pink-A200;
 
 //////////////////////////////////////////////////////////////////////
 // Text and dividers

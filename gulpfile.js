@@ -5,6 +5,11 @@ plugins.fs = require('fs');
 plugins.del = require('del');
 plugins.panini = require('panini');
 
+// Needed to allow termination on Ctl+C when used in docker
+process.on('SIGINT', function() {
+ 	process.exit();
+});
+
 // Load the version information
 var version = plugins.fs.readFileSync('./less/version.less', 'utf8'),
 	themeTaskList = [];
@@ -134,15 +139,39 @@ gulp.task('docs', function() {
 /**
  * Watch files for changes
  */
+var watchOptions = {};
+
+function inDocker() {
+	var inDocker = false;
+	try {
+		plugins.fs.statSync('/.dockerenv');
+		inDocker = true;
+	} catch(_) {
+		try {
+			inDocker = plugins.fs.readFileSync('/proc/self/cgroup', 'utf8').includes('docker');
+		} catch(_) {
+			inDocker = true;
+		}
+	}
+	return inDocker;
+}
+
+if(inDocker) {
+	watchOptions = {
+		usePolling: true,
+		interval: 2000
+	};
+}
+
 gulp.task('fusionCSSWatch', function() {
 	gulp.watch([
 		'./less/*.less',
 		'./less/themes/*.less'
-	], gulp.parallel(themeTaskList.concat(['single_less'])));
-	gulp.watch('./js/src/core/*.js', gulp.parallel(['js']));
-	gulp.watch('./js/src/track/*.js', gulp.parallel(['jstrackelem']));
-	gulp.watch('./js/src/dragorder/*.js', gulp.parallel(['jsdragorder']));
-	gulp.watch('./js/src/taginput/*.js', gulp.parallel(['jstaginputwidget']));
+	], watchOptions, gulp.parallel(themeTaskList.concat(['single_less'])));
+	gulp.watch('./js/src/core/*.js', watchOptions, gulp.parallel(['js']));
+	gulp.watch('./js/src/track/*.js', watchOptions, gulp.parallel(['jstrackelem']));
+	gulp.watch('./js/src/dragorder/*.js', watchOptions, gulp.parallel(['jsdragorder']));
+	gulp.watch('./js/src/taginput/*.js', watchOptions, gulp.parallel(['jstaginputwidget']));
 });
 gulp.task(
 	'watch',
