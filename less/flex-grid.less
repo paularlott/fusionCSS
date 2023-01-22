@@ -86,7 +86,7 @@
 			.makeRow(@spanName) {
 				// Trim trailing - from span names
 				@spanNameClean: replace(@spanName, "-$", "");
-				@colWidth: percentage((100 / @numColumns) / 100);
+				@colWidth: percentage(((100 / @numColumns) / 100));
 
 				&.flex-@{spanNameClean}-row {
 					flex-direction: row;

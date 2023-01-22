@@ -145,8 +145,8 @@ blockquote cite {
   flex-wrap: wrap;
 }
 .row .row {
-  margin-left: -0.75rem;
-  margin-right: -0.75rem;
+  margin-left: -1.5rem / 2;
+  margin-right: -1.5rem / 2;
 }
 .row.flex-wrap-reverse {
   flex-wrap: wrap-reverse;
@@ -196,8 +196,8 @@ blockquote cite {
 .row [class*="span-"] {
   display: block;
   min-height: 1px;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding-left: 1.5rem / 2;
+  padding-right: 1.5rem / 2;
   width: 100%;
   float: none;
   position: static;
@@ -258,20 +258,20 @@ blockquote cite {
   align-items: stretch;
 }
 .row [class*="span-"].left-gutter-t {
-  padding-left: 0.75rem;
+  padding-left: 1.5rem / 2;
 }
 .row [class*="span-"].no-left-gutter-t {
   padding-left: 0;
 }
 .row [class*="span-"].right-gutter-t {
-  padding-right: 0.75rem;
+  padding-right: 1.5rem / 2;
 }
 .row [class*="span-"].no-right-gutter-t {
   padding-right: 0;
 }
 .row [class*="span-"].gutter-t {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding-left: 1.5rem / 2;
+  padding-right: 1.5rem / 2;
 }
 .row [class*="span-"].no-gutter-t {
   padding-left: 0;
@@ -432,20 +432,20 @@ blockquote cite {
     align-items: stretch;
   }
   .row [class*="span-"].left-gutter-s {
-    padding-left: 0.75rem;
+    padding-left: 1.5rem / 2;
   }
   .row [class*="span-"].no-left-gutter-s {
     padding-left: 0;
   }
   .row [class*="span-"].right-gutter-s {
-    padding-right: 0.75rem;
+    padding-right: 1.5rem / 2;
   }
   .row [class*="span-"].no-right-gutter-s {
     padding-right: 0;
   }
   .row [class*="span-"].gutter-s {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: 1.5rem / 2;
+    padding-right: 1.5rem / 2;
   }
   .row [class*="span-"].no-gutter-s {
     padding-left: 0;
@@ -607,20 +607,20 @@ blockquote cite {
     align-items: stretch;
   }
   .row [class*="span-"].left-gutter-m {
-    padding-left: 0.75rem;
+    padding-left: 1.5rem / 2;
   }
   .row [class*="span-"].no-left-gutter-m {
     padding-left: 0;
   }
   .row [class*="span-"].right-gutter-m {
-    padding-right: 0.75rem;
+    padding-right: 1.5rem / 2;
   }
   .row [class*="span-"].no-right-gutter-m {
     padding-right: 0;
   }
   .row [class*="span-"].gutter-m {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: 1.5rem / 2;
+    padding-right: 1.5rem / 2;
   }
   .row [class*="span-"].no-gutter-m {
     padding-left: 0;
@@ -782,20 +782,20 @@ blockquote cite {
     align-items: stretch;
   }
   .row [class*="span-"].left-gutter-l {
-    padding-left: 0.75rem;
+    padding-left: 1.5rem / 2;
   }
   .row [class*="span-"].no-left-gutter-l {
     padding-left: 0;
   }
   .row [class*="span-"].right-gutter-l {
-    padding-right: 0.75rem;
+    padding-right: 1.5rem / 2;
   }
   .row [class*="span-"].no-right-gutter-l {
     padding-right: 0;
   }
   .row [class*="span-"].gutter-l {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: 1.5rem / 2;
+    padding-right: 1.5rem / 2;
   }
   .row [class*="span-"].no-gutter-l {
     padding-left: 0;
@@ -957,20 +957,20 @@ blockquote cite {
     align-items: stretch;
   }
   .row [class*="span-"].left-gutter-x {
-    padding-left: 0.75rem;
+    padding-left: 1.5rem / 2;
   }
   .row [class*="span-"].no-left-gutter-x {
     padding-left: 0;
   }
   .row [class*="span-"].right-gutter-x {
-    padding-right: 0.75rem;
+    padding-right: 1.5rem / 2;
   }
   .row [class*="span-"].no-right-gutter-x {
     padding-right: 0;
   }
   .row [class*="span-"].gutter-x {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: 1.5rem / 2;
+    padding-right: 1.5rem / 2;
   }
   .row [class*="span-"].no-gutter-x {
     padding-left: 0;

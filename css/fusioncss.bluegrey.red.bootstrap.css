@@ -145,8 +145,8 @@ blockquote cite {
   flex-wrap: wrap;
 }
 .row .row {
-  margin-left: -0.75rem;
-  margin-right: -0.75rem;
+  margin-left: -1.5rem / 2;
+  margin-right: -1.5rem / 2;
 }
 .row.flex-wrap-reverse {
   flex-wrap: wrap-reverse;
@@ -196,8 +196,8 @@ blockquote cite {
 .row [class*="col-"] {
   display: block;
   min-height: 1px;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding-left: 1.5rem / 2;
+  padding-right: 1.5rem / 2;
   width: 100%;
   float: none;
   position: static;
@@ -258,20 +258,20 @@ blockquote cite {
   align-items: stretch;
 }
 .row [class*="col-"].left-gutter-xs {
-  padding-left: 0.75rem;
+  padding-left: 1.5rem / 2;
 }
 .row [class*="col-"].no-left-gutter-xs {
   padding-left: 0;
 }
 .row [class*="col-"].right-gutter-xs {
-  padding-right: 0.75rem;
+  padding-right: 1.5rem / 2;
 }
 .row [class*="col-"].no-right-gutter-xs {
   padding-right: 0;
 }
 .row [class*="col-"].gutter-xs {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding-left: 1.5rem / 2;
+  padding-right: 1.5rem / 2;
 }
 .row [class*="col-"].no-gutter-xs {
   padding-left: 0;
@@ -432,20 +432,20 @@ blockquote cite {
     align-items: stretch;
   }
   .row [class*="col-"].left-gutter-sm {
-    padding-left: 0.75rem;
+    padding-left: 1.5rem / 2;
   }
   .row [class*="col-"].no-left-gutter-sm {
     padding-left: 0;
   }
   .row [class*="col-"].right-gutter-sm {
-    padding-right: 0.75rem;
+    padding-right: 1.5rem / 2;
   }
   .row [class*="col-"].no-right-gutter-sm {
     padding-right: 0;
   }
   .row [class*="col-"].gutter-sm {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: 1.5rem / 2;
+    padding-right: 1.5rem / 2;
   }
   .row [class*="col-"].no-gutter-sm {
     padding-left: 0;
@@ -607,20 +607,20 @@ blockquote cite {
     align-items: stretch;
   }
   .row [class*="col-"].left-gutter-md {
-    padding-left: 0.75rem;
+    padding-left: 1.5rem / 2;
   }
   .row [class*="col-"].no-left-gutter-md {
     padding-left: 0;
   }
   .row [class*="col-"].right-gutter-md {
-    padding-right: 0.75rem;
+    padding-right: 1.5rem / 2;
   }
   .row [class*="col-"].no-right-gutter-md {
     padding-right: 0;
   }
   .row [class*="col-"].gutter-md {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: 1.5rem / 2;
+    padding-right: 1.5rem / 2;
   }
   .row [class*="col-"].no-gutter-md {
     padding-left: 0;
@@ -782,20 +782,20 @@ blockquote cite {
     align-items: stretch;
   }
   .row [class*="col-"].left-gutter-lg {
-    padding-left: 0.75rem;
+    padding-left: 1.5rem / 2;
   }
   .row [class*="col-"].no-left-gutter-lg {
     padding-left: 0;
   }
   .row [class*="col-"].right-gutter-lg {
-    padding-right: 0.75rem;
+    padding-right: 1.5rem / 2;
   }
   .row [class*="col-"].no-right-gutter-lg {
     padding-right: 0;
   }
   .row [class*="col-"].gutter-lg {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: 1.5rem / 2;
+    padding-right: 1.5rem / 2;
   }
   .row [class*="col-"].no-gutter-lg {
     padding-left: 0;
@@ -957,20 +957,20 @@ blockquote cite {
     align-items: stretch;
   }
   .row [class*="col-"].left-gutter-xl {
-    padding-left: 0.75rem;
+    padding-left: 1.5rem / 2;
   }
   .row [class*="col-"].no-left-gutter-xl {
     padding-left: 0;
   }
   .row [class*="col-"].right-gutter-xl {
-    padding-right: 0.75rem;
+    padding-right: 1.5rem / 2;
   }
   .row [class*="col-"].no-right-gutter-xl {
     padding-right: 0;
   }
   .row [class*="col-"].gutter-xl {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: 1.5rem / 2;
+    padding-right: 1.5rem / 2;
   }
   .row [class*="col-"].no-gutter-xl {
     padding-left: 0;
