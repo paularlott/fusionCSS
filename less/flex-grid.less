@@ -5,8 +5,8 @@
 		flex-wrap: wrap;
 
 		.@{rowName} {
-			margin-left: -@colGutter / 2;
-			margin-right: -@colGutter / 2;
+			margin-left: -(@colGutter / 2);
+			margin-right: -(@colGutter / 2);
 		}
 
 		&.flex-wrap-reverse {
@@ -62,8 +62,8 @@
 			[class*="@{colName}"] {
 				display: block;
 				min-height: 1px;
-				padding-left: @colGutter / 2;
-				padding-right: @colGutter / 2;
+				padding-left: (@colGutter / 2);
+				padding-right: (@colGutter / 2);
 				width: 100%;
 				float: none;
 				position: static;
