@@ -2,7 +2,7 @@ var gulp = require('gulp'),
 	plugins = require('gulp-load-plugins')();
 
 plugins.fs = require('fs');
-plugins.del = require('del');
+plugins.clean = require('gulp-clean');
 plugins.panini = require('panini');
 
 // Needed to allow termination on Ctl+C when used in docker
@@ -113,12 +113,13 @@ gulp.task('single_less', function() {
  * Remove built files
  */
 gulp.task('clean', function() {
-	return plugins.del([
-		'./css/*.css',
-		'./css/*.less',
-		'./js/*.js',
-		'./docs/*.html'
-	]);
+	return gulp.src([
+			'./css/*.css',
+			'./css/*.less',
+			'./js/*.js',
+			'./docs/*.html'
+			], { read: false }
+		).pipe(plugins.clean());
 });
 
 /**
