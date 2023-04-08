@@ -37,7 +37,7 @@
 			.makeRow(@spanName) {
 				// Trim trailing - from span names
 				@spanNameClean: replace(@spanName, "-$", "");
-				@colWidth: percentage((100 / @numColumns) / 100);
+				@colWidth: percentage(((100 / @numColumns) / 100));
 
 				[class*="@{colName}@{spanName}"] {
 					float: left;
@@ -100,10 +100,13 @@
 					.makeCols(@name, @span - 1);
 				}
 
-				.@{colName}@{spanName}@{pushName}0 {
+				@_pushName: ~"@{colName}@{spanName}@{pushName}0";
+				@_pullName: ~"@{colName}@{spanName}@{pullName}0";
+
+				.@{_pushName} {
 					left: inherit;
 				}
-				.@{colName}@{spanName}@{pullName}0 {
+				.@{_pullName} {
 					right: inherit;
 				}
 
