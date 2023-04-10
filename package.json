@@ -28,7 +28,9 @@
     "build-js": "parcel build --dist-dir ./js/ ./js/src/*.js",
     "build-single": "concat-cli -f ./less/elements/*.less -o ./css/fusionCSS.less",
     "build-docs": "panini --root=./docs_src/ --layouts=./docs_src/layouts/ --partials=./docs_src/partials/ --helpers=./docs_src/helpers/ --data=./docs_src/data/ --output=./docs/ ./docs_src/*.html",
-    "watch": "onchange \"./less/**/*.less\" \"./js/src/**/*.js\" -- npm run build",
+    "watch-less": "onchange \"./less/**/*.less\" -- npm-run-all -l -p build-themes build-single",
+    "watch-js": "onchange \"./js/src/**/*.js\" -- npm run build-js",
+		"watch": "npm-run-all -l -p watch-less watch-js",
     "clean": "rimraf ./css/* ./js/*.js ./docs/*.html"
   }
 }
