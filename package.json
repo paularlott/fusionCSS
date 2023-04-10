@@ -3,14 +3,14 @@
   "version": "3.3.0",
   "description": "Responsive CSS framework",
   "devDependencies": {
-    "clean-css-cli": "^5.6.2",
+    "@parcel/transformer-less": "^2.8.3",
     "concat-cli": "^4.0.0",
     "less": "^4.1.3",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
     "panini": "^1.7.2",
-    "rimraf": "^4.4.1",
-    "uglify-js": "^3.17.4"
+    "parcel": "^2.8.3",
+    "rimraf": "^4.4.1"
   },
   "repository": {
     "type": "git",
@@ -22,28 +22,13 @@
     "url": "https://github.com/paularlott/fusionCSS/issues"
   },
   "scripts": {
-    "build": "npm run build-themes && npm run minify-themes && npm run build-single && npm run build-js",
+    "build": "npm-run-all -l -p build-themes build-single build-js",
     "build-all": "npm run build && npm run build-docs",
-    "build-themes": "npm-run-all --aggregate-output --parallel build-theme:*",
-    "minify-themes": "npm-run-all --aggregate-output --parallel minify-theme:*",
-    "build-js": "npm-run-all --aggregate-output --parallel build-js:*",
-    "build-theme:blue-pink": "lessc --source-map ./less/themes/fusionCSS.blue.pink.less ./css/fusioncss.blue.pink.css",
-    "minify-theme:blue-pink": "cd ./css/ ; cleancss --source-map -O2 -o ./fusioncss.blue.pink.min.css ./fusioncss.blue.pink.css",
-    "build-theme:blue-pink-bootstrap": "lessc --source-map ./less/themes/fusionCSS.blue.pink.bootstrap.less ./css/fusioncss.blue.pink.bootstrap.css",
-    "minify-theme:blue-pink-bootstrap": "cd ./css/ ; cleancss --source-map -O2 -o ./fusioncss.blue.pink.bootstrap.min.css ./fusioncss.blue.pink.bootstrap.css",
-    "build-theme:bluegrey-red": "lessc --source-map ./less/themes/fusionCSS.bluegrey.red.less ./css/fusioncss.bluegrey.red.css",
-    "minify-theme:bluegrey-red": "cd ./css/ ; cleancss --source-map -O2 -o ./fusioncss.bluegrey.red.min.css ./fusioncss.bluegrey.red.css",
-    "build-theme:bluegrey-red-bootstrap": "lessc --source-map ./less/themes/fusionCSS.bluegrey.red.bootstrap.less ./css/fusioncss.bluegrey.red.bootstrap.css",
-    "minify-theme:bluegrey-red-bootstrap": "cd ./css/ ; cleancss --source-map -O2 -o ./fusioncss.bluegrey.red.bootstrap.min.css ./fusioncss.bluegrey.red.bootstrap.css",
-    "build-theme:visibility": "lessc --source-map ./less/themes/fusionCSS.visibility.less ./css/fusioncss.visibility.css",
-    "minify-theme:visibility": "cd ./css/ ; cleancss --source-map -O2 -o ./fusioncss.visibility.min.css ./fusioncss.visibility.css",
+    "build-themes": "parcel build --dist-dir ./css/ ./less/themes/*.less",
+    "build-js": "parcel build --dist-dir ./js/ ./js/src/*.js",
     "build-single": "concat-cli -f ./less/elements/*.less -o ./css/fusionCSS.less",
-    "build-js:fusionCSS": "concat-cli -f ./js/src/core/*.js -o ./js/fusionCSS.js && uglifyjs ./js/fusionCSS.js -o ./js/fusionCSS.js",
-    "build-js:fusionCSSDragOrder": "concat-cli -f ./js/src/dragorder/*.js -o ./js/fusionCSSDragOrder.js && uglifyjs ./js/fusionCSSDragOrder.js -o ./js/fusionCSSDragOrder.js",
-    "build-js:fusionCSSTagInput": "concat-cli -f ./js/src/taginput/*.js -o ./js/fusionCSSTagInput.js && uglifyjs ./js/fusionCSSTagInput.js -o ./js/fusionCSSTagInput.js",
-    "build-js:fusionCSSTrackElem": "concat-cli -f ./js/src/track/*.js -o ./js/fusionCSSTrackElem.js && uglifyjs ./js/fusionCSSTrackElem.js -o ./js/fusionCSSTrackElem.js",
     "build-docs": "panini --root=./docs_src/ --layouts=./docs_src/layouts/ --partials=./docs_src/partials/ --helpers=./docs_src/helpers/ --data=./docs_src/data/ --output=./docs/ ./docs_src/*.html",
-    "build-watch": "onchange \"./less/**/*.less\" \"./js/src/**/*.js\" -- npm run build",
-		"clean": "rimraf ./css/* ./js/*.js ./docs/*.html"
+    "watch": "onchange \"./less/**/*.less\" \"./js/src/**/*.js\" -- npm run build",
+    "clean": "rimraf ./css/* ./js/*.js ./docs/*.html"
   }
 }

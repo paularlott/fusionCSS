@@ -1,6 +1,6 @@
-<a href="http://fusioncss.com/"><img src="http://fusioncss.com/assets/public_files/images/logo.png" alt="fusionCSS" /></a>
+<a href="http://fusioncss.com/"><img src="artwork/logo.png" alt="fusionCSS" /></a>
 
-fusionCSS V3.3.0
+fusionCSS V3.3.1
 ====
 
 [http://fusioncss.com](http://fusioncss.com)
@@ -23,13 +23,13 @@ Default Build
 
 The easiest way to start using fusionCSS within your projects is to copy the pre-compiled CSS and JavaScript files into your project and reference them:
 
-* css/fusion.min.css
+* css/fusion.blue.pink.css
 * js/fusionCSS.js
 
 Within the head section of your HTML document you should have:
 
-<link href="css/fusion.min.css" rel="stylesheet" type="text/css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<link href="css/fusion.blue.pink.css" rel="stylesheet" type="text/css" />
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript" src="js/fusionCSS.js"></script>
 
 Custom Build
@@ -37,4 +37,7 @@ Custom Build
 
 To build a fusionCSS, edit the .less files within the less folder and then:
 
-* Invoke gulp, the default operation will compile the less files and minimise the JavaScript, the output will be placed into the css and js folders.
+```shell
+npm install
+npm run build
+```
